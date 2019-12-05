@@ -223,3 +223,4 @@ module.exports = {
     return queryInterface.dropTable('Missions');
   }
 };
+

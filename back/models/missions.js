@@ -69,7 +69,12 @@ module.exports = (sequelize, DataTypes) => {
     autres_langue: DataTypes.STRING
   }, {});
   Missions.associate = function(models) {
-    // associations can be defined here
+    Missions.belongsToMany(models.users, {
+      through: 'tj_users_missions'
+    })
+    Missions.belongsToMany(models.freelancer,{
+      through: 'tj_missions_f'
+    })
   };
   return Missions;
 };

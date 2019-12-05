@@ -6,7 +6,12 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING
   }, {});
   users.associate = function(models) {
-    // associations can be defined here
+    users.belongsToMany(models.freelancer,{
+        through: 'tj_users_f'
+    })
+    users.belongsToMany(models.Missions,{
+        through: 'tj_users_missions'
+    })
   };
   return users;
 };
