@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "password",
-    "database": "neoworker",
+    "password": "subwoofer",
+    "database": "work",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
