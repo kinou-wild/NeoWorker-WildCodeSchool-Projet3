@@ -68,6 +68,8 @@ module.exports = (sequelize, DataTypes) => {
     allemand: DataTypes.STRING,
     autres_langue: DataTypes.STRING
   }, {});
+
+  //table de jointures
   Missions.associate = function(models) {
     Missions.belongsToMany(models.users, {
       through: 'tj_users_missions'
