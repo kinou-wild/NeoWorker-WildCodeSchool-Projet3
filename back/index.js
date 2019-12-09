@@ -6,7 +6,7 @@ const app = express()
 //les root sont dans le dossier back/root/admin ou user
 
 
-require('./routes/user.js')(app)
+require('./routes/freelancer.js')(app)
 //require('./routes/admin.js')(app)
 
 
