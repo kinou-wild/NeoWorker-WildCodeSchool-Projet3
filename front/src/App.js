@@ -29,7 +29,12 @@ function App() {
 
   return (
     <div>
-     {dataa.title}
+      <ul>
+ <li> </li>
+
+      </ul>
+     
+     {dataa.title}, {data.name}, 
       
     </div>
   );
