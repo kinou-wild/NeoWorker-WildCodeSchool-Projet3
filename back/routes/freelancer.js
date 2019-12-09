@@ -16,7 +16,6 @@ module.exports = function(app) {
         models
         .freelancer
         .update({
-            id:"",
             img: "",
             title: "",
             firstname: "",
