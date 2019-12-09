@@ -3,6 +3,7 @@ import axios from 'axios';
 
 function App() {
   const[dataa,setData] = useState([])
+
   const[freelancer,setFreelancer] = useState({
       img: "",
       title: "",
@@ -22,7 +23,7 @@ function App() {
   }, [])
 
   const fetchData=()=>{
-    axios.get('http://localhost:5000/freelancer/profil/1')
+    axios.get('http://localhost:5000/freelancer/profil/4')
     .then(res => setData(res.data))
     .catch((err)=>console.log(err))
   }
@@ -30,11 +31,10 @@ function App() {
   return (
     <div>
       <ul>
-        <li>{dataa.img}</li>
         <li>{dataa.title}</li> 
         <li>{dataa.firstname}</li> 
         <li>{dataa.lastname}</li>
-        <li>{dataa.adress}</li> 
+        <li>{dataa.address}</li> 
         <li>{dataa.mobilite}</li> 
         <li>{dataa.pref_lieu_de_travail}</li>
         <li>{dataa.disponibilite}</li> 

@@ -3,7 +3,7 @@ const models = require('../models')
 module.exports = function(app) {
 
     //recherche freelancer par id
-    app.get('/freelancer/profil/show/:id', (req, res) =>
+    app.get('/freelancer/profil/:id', (req, res) =>
         models
         .freelancer
         .findByPk(req.params.id)
@@ -12,7 +12,7 @@ module.exports = function(app) {
     );
 
     //modif freelancer
-    app.put('/freelancer/profil/update/:id', (req, res) =>
+    app.put('/freelancer/profil/:id', (req, res) =>
         models
         .freelancer
         .update({
@@ -37,7 +37,7 @@ module.exports = function(app) {
     );
 
     //création freelancer
-    app.post('/freelancer/profil/post', (req, res) =>
+    app.post('/freelancer/profil', (req, res) =>
         models
         .freelancer
         .create({ 
