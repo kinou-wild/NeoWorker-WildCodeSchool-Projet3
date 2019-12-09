@@ -8,6 +8,25 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      img:{
+        type:Sequelize.BOOLEAN
+      },
+      title:{
+        allowNull: false,
+        type:Sequelize.STRING
+      },
+      firstname:{
+        allowNull: false,
+        type:Sequelize.STRING
+      },
+      lastname:{
+        allowNull: false,
+        type:Sequelize.STRING
+      },
+      address:{
+        allowNull: false,
+        type:Sequelize.STRING
+      },
       mobilite: {
         allowNull: false,
         type: Sequelize.STRING
