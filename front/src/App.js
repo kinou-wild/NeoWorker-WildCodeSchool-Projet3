@@ -29,8 +29,19 @@ function App() {
 
   return (
     <div>
-     {dataa.title}
-      
+      <ul>
+        <li>{dataa.img}</li>
+        <li>{dataa.title}</li> 
+        <li>{dataa.firstname}</li> 
+        <li>{dataa.lastname}</li>
+        <li>{dataa.adress}</li> 
+        <li>{dataa.mobilite}</li> 
+        <li>{dataa.pref_lieu_de_travail}</li>
+        <li>{dataa.disponibilite}</li> 
+        <li>{dataa.fourchette_tarifaire}</li> 
+        <li>{dataa.password}</li>
+        <li>{dataa.email}</li> 
+      </ul>
     </div>
   );
 }
