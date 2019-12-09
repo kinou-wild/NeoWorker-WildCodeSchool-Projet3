@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import logo from '../img/LOGO_CLASSIQUE_FOND TRANSPARENT_400X400.png';
 import { Link } from 'react-router-dom';
 
     const AdminUserChoose = (props) => {
-        const [collapsed, setCollapsed] = useState(true);
-        const toggleNavbar = () => setCollapsed(!collapsed);
         return (
         <div style={{textAlign:"center"}}>
         <Nav>   
@@ -18,7 +16,6 @@ import { Link } from 'react-router-dom';
         </Nav>
             <img src = {logo} alt='logo'/>
         </div>
-
   );
 }
 export default AdminUserChoose;
