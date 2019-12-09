@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "Ines@260610",
-    "database": "test",
+    "password": "password",
+    "database": "neoworker",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false

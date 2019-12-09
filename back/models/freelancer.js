@@ -68,6 +68,8 @@ module.exports = (sequelize, DataTypes) => {
     allemand: DataTypes.STRING,
     autres_langue: DataTypes.STRING
   }, {});
+
+  //table de jointure
   freelancer.associate = function(models) {
     freelancer.belongsToMany(models.users, {
       through: 'tj_users_f'

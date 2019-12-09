@@ -2,16 +2,10 @@ const models = require('../models')
 
 module.exports = function(app) {
 
-    //consulter la table de tous les users
-    app.get('/', (req, res) =>
-        models
-        .users //mettre la table au choix
-        .findAll()
-        .then(x => res.json(x))
-    );
+   
 
     //recherche utilisateur par id
-    app.get('/', (req, res) =>
+    app.get('/user/profil/show/:id', (req, res) =>
         models
         .users
         .findByPk(req.params.id)
