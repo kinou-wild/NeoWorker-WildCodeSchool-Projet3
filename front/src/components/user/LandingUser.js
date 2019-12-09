@@ -19,8 +19,8 @@ export default function LandingUser(props) {
       <div className='landing'>
         <img className='logoLanding' src = {logo} alt='logo' />
         <div className='landingText'>
-        <h1 className='landingH1'>Bienvenue dans l’espace <span className='textModif'>freelances</span> NeoWorker<span className='textModif'>.</span></h1>
-        <h2 className='landingH2'>Connectez-vous pour gérer les freelances et leurs activité.</h2>
+        <h1 className='landingH1'>Bienvenue dans l’espace <span className='textModif'>Freelance</span> NeoWorker<span className='textModif'>.</span></h1>
+        <h2 className='landingH2'>Connectez-vous pour gérer votre profil et vos disponibilitées.</h2>
         </div>
         <div className='connectingForm'>
         <Form onSubmit={handleSubmit}>
@@ -37,6 +37,7 @@ export default function LandingUser(props) {
         </Col>
       </FormGroup>
       </Form>
+      <a href='/'>Mot de passe oublié ?</a>
       </div>
       <div className="text-center">
         <button className='btnConnection' disabled={!validateForm()} type="submit">

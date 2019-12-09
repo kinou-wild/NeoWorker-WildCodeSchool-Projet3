@@ -27,16 +27,17 @@ export default function LandingAdmin(props) {
         <FormGroup row>
         <Label for="exampleEmail" sm={2}>Email</Label>
         <Col sm={10}>
-          <Input className='inputEmail' type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+          <Input className='inputEmail' type="email" name="email" id="exampleEmail" placeholder="Email" />
         </Col>
       </FormGroup>
       <FormGroup row>
         <Label for="examplePassword" sm={2}>Password</Label>
         <Col sm={10}>
-          <Input className='inputPassword' type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+          <Input className='inputPassword' type="password" name="password" id="examplePassword" placeholder="Mot de passe" />
         </Col>
       </FormGroup>
       </Form>
+        <a href='/'>Mot de passe oublié</a>
       </div>
       <div className="text-center">
         <button className='btnConnection' disabled={!validateForm()} type="submit">
