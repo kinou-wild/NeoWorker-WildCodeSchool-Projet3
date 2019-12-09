@@ -14,7 +14,7 @@ function App() {
       pref_lieu_de_travail: 2,
       disponibilite: 1,
       fourchette_tarifaire: 1,
-      password: "dfgsfd",
+      password: "",
       email: ""
   })
   
@@ -23,9 +23,16 @@ function App() {
   }, [])
 
   const fetchData=()=>{
-    axios.get('http://localhost:5000/freelancer/profil/4')
+    axios.get('http://localhost:5000/freelancer/profil/8')
     .then(res => setData(res.data))
     .catch((err)=>console.log(err))
+  }
+
+  const queryData = (e) => {
+    e.preventDefault()
+    axios.post('http://localhost:5000/freelancer/profil/',freelancer)
+    .then(fetchData)
+    .catch(err=>console.log(err))
   }
 
   return (
@@ -42,9 +49,12 @@ function App() {
         <li>{dataa.password}</li>
         <li>{dataa.email}</li> 
       </ul>
+    <form onSubmit={queryData}>
+      <input type ="text" id="title" name="title" value={freelancer.title} required onChange={(e) => setFreelancer({...freelancer, title:e.target.value})} />
+      <button type="submit">Add</button>
 
-    
-      
+    </form>
+
     </div>
   );
 }

@@ -1,5 +1,6 @@
 const models = require('../models')
 
+
 module.exports = function(app) {
 
     //recherche freelancer par id
@@ -16,7 +17,6 @@ module.exports = function(app) {
         models
         .freelancer
         .update({
-            id:"",
             img: "",
             title: "",
             firstname: "",
@@ -37,26 +37,12 @@ module.exports = function(app) {
     );
 
     //création freelancer
-    app.post('/freelancer/profil', (req, res) =>
+    app.post('/freelancer/profil', (req, res) => {
         models
         .freelancer
-        .create({ 
-            img:"",
-            title:"gdrgr",
-            firstname:"grgerg",
-            lastname:"gdgsd",
-            address:"sdrgd",
-            mobilite:4,
-            pref_lieu_de_travail:2,
-            disponibilite:1,
-            fourchette_tarifaire:1,
-            password: "dfgsfd",
-            email: ""
+        .create(req.body)
+        .then(x=> res.json(x))
 
-        })
-            .then(x=> res.json(x))
-
-
-    );
+    });
 
 }
