@@ -42,6 +42,9 @@ function App() {
         <li>{dataa.password}</li>
         <li>{dataa.email}</li> 
       </ul>
+
+    
+      
     </div>
   );
 }
