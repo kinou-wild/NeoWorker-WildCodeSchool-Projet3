@@ -10,6 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     pref_lieu_de_travail: DataTypes.INTEGER,
     disponibilite: DataTypes.INTEGER,
     fourchette_tarifaire: DataTypes.INTEGER,
+    password: DataTypes.STRING,
+    email: DataTypes.STRING,
     excel: DataTypes.STRING,
     powerpoint: DataTypes.STRING,
     word: DataTypes.STRING,

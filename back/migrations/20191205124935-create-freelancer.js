@@ -8,24 +8,24 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      img: {
-        type: Sequelize.BOOLEAN
+      img:{
+        type:Sequelize.BOOLEAN
       },
-      title: {
+      title:{
         allowNull: false,
-        type: Sequelize.STRING
+        type:Sequelize.STRING
       },
-      firstname: {
+      firstname:{
         allowNull: false,
-        type: Sequelize.STRING
+        type:Sequelize.STRING
       },
-      lastname: {
+      lastname:{
         allowNull: false,
-        type: Sequelize.STRING
+        type:Sequelize.STRING
       },
-      address: {
+      address:{
         allowNull: false,
-        type: Sequelize.STRING
+        type:Sequelize.STRING
       },
       mobilite: {
         allowNull: false,
@@ -43,13 +43,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      password: {
-        allowNull: false,
-        type: Sequelize.STRING
+      password:{
+          allowNull: false,
+          type: Sequelize.STRING
       },
-      email: {
+      email:{
         allowNull: false,
-        type: Sequelize.STRING
+        type:Sequelize.STRING
       },
       excel: {
         type: Sequelize.STRING

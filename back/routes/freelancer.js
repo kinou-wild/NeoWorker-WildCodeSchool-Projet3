@@ -1,13 +1,14 @@
 const models = require('../models')
 
-module.exports = function (app) {
+module.exports = function(app) {
 
     //recherche freelancer par id
     app.get('/freelancer/profil/show/:id', (req, res) =>
         models
         .freelancer
         .findByPk(req.params.id)
-        .then(e => res.json(freelancer))
+        .then(x => res.json(x))
+
     );
 
     //modif freelancer
@@ -36,30 +37,26 @@ module.exports = function (app) {
     );
 
     //création freelancer
-    app.post('/freelancer/profil/post/:id', (req, res) =>
+    app.post('/freelancer/profil/post', (req, res) =>
         models
         .freelancer
         .create({ 
-            id:"",
             img:"",
-            title:"",
-            firstname:"",
-            lastname:"",
-            address:"",
-            mobilite:0,
-            pref_lieu_de_travail:"",
-            disponibilite:"",
-            fourchette_tarifaire:"",
-            password: "",
+            title:"gdrgr",
+            firstname:"grgerg",
+            lastname:"gdgsd",
+            address:"sdrgd",
+            mobilite:4,
+            pref_lieu_de_travail:2,
+            disponibilite:1,
+            fourchette_tarifaire:1,
+            password: "dfgsfd",
             email: ""
 
-        }, {
-            where : {
-                id: req.params.id
-            }
-            
         })
-        .then(()=> console.log ("Profil créer"))
+            .then(x=> res.json(x))
+
+
     );
 
 }
