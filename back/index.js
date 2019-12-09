@@ -7,7 +7,9 @@ const app = express()
 
 
 require('./routes/user.js')(app)
-// const routeAdmin = require ('./routes/admin.js')(app)
+//require('./routes/admin.js')(app)
+
+
 
 
 

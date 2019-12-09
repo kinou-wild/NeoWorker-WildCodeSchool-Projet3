@@ -1,4 +1,6 @@
-const user = (user) => {
+const models = require('../models')
+
+module.exports = function(app) {
 
     //consulter la table de tous les users
     app.get('/', (req, res) =>
