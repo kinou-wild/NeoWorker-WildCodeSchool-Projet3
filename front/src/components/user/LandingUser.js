@@ -27,13 +27,13 @@ export default function LandingUser(props) {
         <FormGroup row>
         <Label for="exampleEmail" sm={2}>Email</Label>
         <Col sm={10}>
-          <Input className='inputEmail' type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+          <Input className='inputEmail' type="email" name="email" id="exampleEmail" placeholder="Email" />
         </Col>
       </FormGroup>
       <FormGroup row>
         <Label for="examplePassword" sm={2}>Password</Label>
         <Col sm={10}>
-          <Input className='inputPassword' type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+          <Input className='inputPassword' type="password" name="password" id="examplePassword" placeholder="Mot de passe" />
         </Col>
       </FormGroup>
       </Form>

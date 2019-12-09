@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Col, Form, FormGroup, Label, Input } from 'reactstrap'
 import logo from '../../img/LOGO_CLASSIQUE_FOND TRANSPARENT_520X272.png'
 import './LandingAdmin.css'
-import LandingUser from "../user/LandingUser";
 
 export default function LandingAdmin(props) {
     const [email, setEmail] = useState("");
