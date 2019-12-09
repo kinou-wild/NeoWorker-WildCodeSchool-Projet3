@@ -1,9 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import SideBar from './sideBar/SideBar'
-
-
-
+import SideBar from './sidebar/Sidebar'
 
 class Router extends React.Component {
 
@@ -12,7 +9,7 @@ class Router extends React.Component {
             <>
             <SideBar />
             <Switch>
-                <Route exact path="/" component={} />
+                <Route exact path="/"/>
             </Switch>
             </>
         )
