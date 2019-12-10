@@ -5,9 +5,8 @@ function Freelancer() {
 
   //hooks de la data freelancer pour get
   const[dataa,setData] = useState([])
-  const[allFree,setAllFree]=useState([])
 
-console.log(allFree)
+console.log(dataa)
 //hooks du post de la data freelancer
   const[freelancer,setFreelancer] = useState({
       img: "",
@@ -38,29 +37,16 @@ console.log(allFree)
       email: ""
   })
 
-   // cycle de vie du fetchData pour getter tous les profils
-
-  useEffect(() => {
-      fetchDataAll()
-  }, [])
-
-  const fetchDataAll=()=>{
-    axios.get(`http://localhost:5000/allFreelancer`)
-    .then(res => setAllFree(res.data))
-    .catch((err)=>console.log(err))
-  }
-
   // cycle de vie du fetchData pour getter le profil du freelancer
   useEffect(() => {
       fetchData()
   }, [])
 
   const fetchData=()=>{
-    axios.get(`http://localhost:5000/freelancer/profil/${allFree.length+1}`)
+    axios.get(`http://localhost:5000/freelancer/profil/1`)
     .then(res => setData(res.data))
     .catch((err)=>console.log(err))
   }
-   
 
   //le post sur la data 
   const queryData = (e) => {
@@ -73,7 +59,7 @@ console.log(allFree)
   //update sur la data
   const updateQueryData = (e) => {
     e.preventDefault()
-      axios.put(`http://localhost:5000/freelancer/profil/${allFree.length+1}`, updateFreelancer)
+      axios.put('http://localhost:5000/freelancer/profil/1', updateFreelancer)
       .then(fetchData)
       .catch(err=>console.log(err))
   }
