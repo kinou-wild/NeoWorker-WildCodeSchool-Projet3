@@ -21,13 +21,29 @@ function Freelancer() {
       password: "",
       email: ""
   })
+
+  //hooks pour modif le freelancer
+  const[updateFreelancer, setUpdateFreelancer]= useState({
+      img: "",
+      title: "",
+      firstname: "",
+      lastname: "",
+      address: "",
+      mobilite: 0,
+      pref_lieu_de_travail: 0,
+      disponibilite: 0,
+      fourchette_tarifaire: 0,
+      password: "",
+      email: ""
+  })
+
   // cycle de vie du fetchData pour getter le profil du freelancer
   useEffect(() => {
       fetchData()
   }, [])
 
   const fetchData=()=>{
-    axios.get('http://localhost:5000/freelancer/profil/21')
+    axios.get('http://localhost:5000/freelancer/profil/2')
     .then(res => setData(res.data))
     .catch((err)=>console.log(err))
   }
@@ -40,6 +56,13 @@ function Freelancer() {
     .catch(err=>console.log(err))
   }
 
+  //update sur la data
+  const updateQueryData = (e) => {
+    e.preventDefault()
+      axios.put('http://localhost:5000/freelancer/profil/2', updateFreelancer)
+      .then(fetchData)
+      .catch(err=>console.log(err))
+  }
 
   return (
     <div style={{textAlign:'center'}}>
@@ -69,7 +92,7 @@ function Freelancer() {
 
 
 
-    <form onSubmit={queryData}>
+    <form onSubmit={queryData} >
 
       {/* les input pour poster sur la bdd */}
       <p>title</p>
@@ -93,13 +116,39 @@ function Freelancer() {
       <p>email</p>
       <input type ="text" id="email" name="email" value={freelancer.email} required onChange={(e) => {setFreelancer({...freelancer, email:e.target.value})}} />
       
-      
       <button type="submit">Add</button>
+      </form>
+
+      {/* les input pour update sur la bdd */}
+      <form onSubmit={updateQueryData} >
+
+      <p>title</p>
+      <input type ="text" id="title" name="title" value={updateFreelancer.title} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, title:e.target.value})}} />
+      <p>firstname</p>
+      <input type ="text" id="firstname" name="firstname" value={updateFreelancer.firstname} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, firstname:e.target.value})}} />
+      <p>lastname</p>
+      <input type ="text" id="lastname" name="lastname" value={updateFreelancer.lastname} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, lastname:e.target.value})}} />
+      <p>adress</p>
+      <input type ="text" id="address" name="address" value={updateFreelancer.address} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, address:e.target.value})}} />
+      <p>mobilite</p>
+      <input type ="text" id="mobilite" name="mobilite" value={updateFreelancer.mobilite} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, mobilite:e.target.value})}} />
+      <p>pref_lieu_de_travail</p>
+      <input type ="text" id="pref_lieu_de_travail" name="pref_lieu_de_travail" value={updateFreelancer.pref_lieu_de_travail} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, pref_lieu_de_travail:e.target.value})}} />
+      <p>disponibilite</p>
+      <input type ="text" id="disponibilite" name="disponibilite" value={updateFreelancer.disponibilite} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, disponibilite:e.target.value})}} />
+      <p>fourchette_tarifaire</p>
+      <input type ="text" id="fourchette_tarifaire" name="fourchette_tarifaire" value={updateFreelancer.fourchette_tarifaire} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, fourchette_tarifaire:e.target.value})}} />
+      <p>password</p>
+      <input type ="text" id="password" name="password" value={updateFreelancer.password} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, password:e.target.value})}} />
+      <p>email</p>
+      <input type ="text" id="email" name="email" value={updateFreelancer.email} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, email:e.target.value})}} />
+
+      <button type="submit">Update</button>
 
     </form>
 
     </div>
-  );
-}
+  
+  )}
 
 export default Freelancer;

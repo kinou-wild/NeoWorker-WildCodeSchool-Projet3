@@ -25,7 +25,7 @@ module.exports = function(app) {
             mobilite: 0,
             pref_lieu_de_travail: 0,
             disponibilite: 0,
-            fourchette_tarifaire: "",
+            fourchette_tarifaire: 0,
             password: "",
             email: ""
         }, {
