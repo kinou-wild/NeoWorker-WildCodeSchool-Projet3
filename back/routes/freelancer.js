@@ -3,6 +3,16 @@ const models = require('../models')
 
 module.exports = function(app) {
 
+     //création freelancer
+    app.post('/freelancer/profil', (req, res) => {
+        models
+        .freelancer
+        .create(req.body)
+        .then(x=> res.json(x))
+
+    });
+
+
     //recherche freelancer par id
     app.get('/freelancer/profil/:id', (req, res) =>
         models
@@ -36,13 +46,5 @@ module.exports = function(app) {
         .then(() => console.log("Mise à jour faite"))
     );
 
-    //création freelancer
-    app.post('/freelancer/profil', (req, res) => {
-        models
-        .freelancer
-        .create(req.body)
-        .then(x=> res.json(x))
-
-    });
-
+   
 }
