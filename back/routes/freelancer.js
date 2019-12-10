@@ -21,24 +21,18 @@ module.exports = function(app) {
         .then(x => res.json(x))
 
     );
+    app.get('/allFreelancer', (req,res)=>{
+        models
+        .freelancer
+        .findAll()
+        .then(x=>res.json(x))
+    })
 
     //modif freelancer
     app.put('/freelancer/profil/:id', (req, res) =>
         models
         .freelancer
-        .update({
-            img: "",
-            title: "",
-            firstname: "",
-            lastname: "",
-            address: "",
-            mobilite: 0,
-            pref_lieu_de_travail: 0,
-            disponibilite: 0,
-            fourchette_tarifaire: 0,
-            password: "",
-            email: ""
-        }, {
+        .update(req.body, {
             where: {
                 id: req.params.id
             }
