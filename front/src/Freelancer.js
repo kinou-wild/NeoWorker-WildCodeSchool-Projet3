@@ -3,8 +3,8 @@ import axios from 'axios';
 
 function Freelancer() {
 
-  //hooks de la data freelancer pour get
-  const[dataa,setData] = useState([])
+//hooks de la data freelancer pour get
+const[dataa,setData] = useState([])
 
 console.log(dataa)
 //hooks du post de la data freelancer
@@ -47,6 +47,19 @@ console.log(dataa)
     .then(res => setData(res.data))
     .catch((err)=>console.log(err))
   }
+
+  // recup all freelancer 
+  useEffect(() => {
+    allFreelancer()
+  }, [])
+  
+  const allFreelancer = (e) => {
+    e.preventDefault()
+    axios.get('http://localhost:5000/freelancer/profil', freelancer)
+    .then(res => setData(res.data))
+    .catch((err) => console.log(err))
+  }
+
 
   //le post sur la data 
   const queryData = (e) => {
@@ -212,8 +225,6 @@ console.log(dataa)
         <li>{String(dataa.allemand)}</li>
         <p>autres_langue</p>
         <li>{String(dataa.autres_langue)}</li>
-        
-
       
       </ul>
 
