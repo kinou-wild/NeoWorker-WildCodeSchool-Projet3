@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
         <NavLink tag={Link} to="/User">Utilisateur Freelance</NavLink>
         </NavItem>
         <NavItem className="burgerNav">
-        <NavLink tag={Link} to="/Admin">Utilisateur Administraeur</NavLink>
+        <NavLink tag={Link} to="/Admin">Utilisateur Administrateur</NavLink>
         </NavItem>
         </Nav>
             <img src = {logo} alt='logo'/>
