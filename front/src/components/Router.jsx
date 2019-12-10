@@ -1,18 +1,26 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import SideBar from './sidebar/Sidebar'
+import Sidebar from './sidebar/Sidebar'
+import LandingUser from './user/LandingUser'
+import LandingAdmin from './admin/LandingAdmin'
+import AdminUserChoose from './AdminUserChoose'
+
+
 
 class Router extends React.Component {
 
     render(){
         return(
             <>
-            <SideBar />
+            <Sidebar />
             <Switch>
-                <Route exact path="/"/>
+                <Route exact path="/" component={AdminUserChoose} />
+                <Route exact path="/user" component={LandingUser} />
+                <Route exact path="/admin" component={LandingAdmin} />
             </Switch>
             </>
         )
     }
 }
+
 export default Router;
