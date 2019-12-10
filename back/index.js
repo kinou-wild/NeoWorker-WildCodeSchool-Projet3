@@ -15,5 +15,5 @@ require('./routes/freelancer.js')(app)
 
 models
     .sequelize
-    .sync({force : true})
+    .sync({force : false})
     .then(() => app.listen(5000, () => console.log('server is listenning')))
