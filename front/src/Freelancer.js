@@ -68,7 +68,7 @@ function Freelancer() {
     <div style={{textAlign:'center'}}>
       {/* Les champs de la bdd  */}
       <ul>
-              <p>title</p>
+        <p>title</p>
         <li>{dataa.title}</li> 
         <p>firstname</p>
         <li>{dataa.firstname}</li> 
@@ -77,7 +77,7 @@ function Freelancer() {
         <p>address</p>
         <li>{dataa.address}</li> 
         <p>mobilite</p>
-        <li>{dataa.mobilite}</li>
+        <li>{String(dataa.mobilite)}</li>
         <p>pref_lieu_de_travail</p> 
         <li>{dataa.pref_lieu_de_travail}</li>
         <p>disponibilite</p>
@@ -88,9 +88,134 @@ function Freelancer() {
         <li>{dataa.password}</li>
         <p>email</p>
         <li>{dataa.email}</li> 
+        <p>excel</p>
+        <li>{String(dataa.excel)}</li>
+        <p>powerpoint</p>
+        <li>{String(dataa.powerpoint)}</li>
+        <p>word</p>
+        <li>{String(dataa.word)}</li>
+        <p>microsoft_365</p>
+        <li>{String(dataa.microsoft_365)}</li>
+        <p>crm_hubspot</p>
+        <li>{String(dataa.crm_hubspot)}</li>
+        <p>crm_salesforce</p>
+        <li>{String(dataa.salesforce)}</li>
+        <p>crm_pipedrive</p>
+        <li>{String(dataa.crm_pipedrive)}</li>
+        <p>crm</p>
+        <li>{String(dataa.crm)}</li>
+        <p>suite_adobe</p>
+        <li>{String(dataa.suite_adobe)}</li>
+        <p>illustrator</p>
+        <li>{String(dataa.illustrator)}</li>
+        <p>in_design</p>
+        <li>{String(dataa.in_design)}</li>
+        <p>photoshop</p>
+        <li>{String(dataa.photoshop)}</li>
+        <p>marketing_fb</p>
+        <li>{String(dataa.marketing_fb)}</li>
+        <p>google_adwards</p>
+        <li>{String(dataa.google_adwards)}</li>
+        <p>insta</p>
+        <li>{String(dataa.insta)}</li>
+        <p>reseaux_sociaux</p>
+        <li>{String(dataa.reseaux_sociaux)}</li>
+        <p>keynote</p>
+        <li>{String(dataa.keynote)}</li>
+        <p>pages</p>
+        <li>{String(dataa.pages)}</li>
+        <p>gsuite_google</p>
+        <li>{String(dataa.gsuite_google)}</li>
+        <p>numbers</p>
+        <li>{String(dataa.numbers)}</li>
+        <p>erp_sap</p>
+        <li>{String(dataa.erp_sap)}</li>
+        <p>ciel_gestion</p>
+        <li>{String(dataa.ciel_gestion)}</li>
+        <p>cegid</p>
+        <li>{String(dataa.cegid)}</li>
+        <p>sage_gestion_commercial</p>
+        <li>{String(dataa.sage_gestion_commercial)}</li>
+        <p>sage_comptabilite</p>
+        <li>{String(dataa.sage_comptabilite)}</li>
+        <p>quadra</p>
+        <li>{String(dataa.quadra)}</li>
+        <p>reso_pb</p>
+        <li>{String(dataa.reso_pb)}</li>
+        <p>confiance</p>
+        <li>{String(dataa.confiance)}</li>
+        <p>empathie</p>
+        <li>{String(dataa.empathie)}</li>
+        <p>intelligence_emo</p>
+        <li>{String(dataa.intelligence_emo)}</li>
+        <p>communication</p>
+        <li>{String(dataa.communication)}</li>
+        <p>gestion_temps</p>
+        <li>{String(dataa.gestion_temps)}</li>
+        <p>gestion_stress</p>
+        <li>{String(dataa.gestion_stress)}</li>
+        <p>creativite</p>
+        <li>{String(dataa.creativite)}</li>
+        <p>esprit_entre</p>
+        <li>{String(dataa.esprit_entre)}</li>
+        <p>audace</p>
+        <li>{String(dataa.audace)}</li>
+        <p>vision_visu</p>
+        <li>{String(dataa.vision_visu)}</li>
+        <p>motivation</p>
+        <li>{String(dataa.motivation)}</li>
+        <p>presence</p>
+        <li>{String(dataa.presence)}</li>
+        <p>sens_collectif</p>
+        <li>{String(dataa.sens_collectif)}</li>
+        <p>curiosite</p>
+        <li>{String(dataa.curiosite)}</li>
+        <p>sens_effort</p>
+        <li>{String(dataa.sens_effort)}</li>
+        <p>sport</p>
+        <li>{String(dataa.sport)}</li>
+        <p>passion</p>
+        <li>{String(dataa.passion)}</li>
+        <p>engagement_asso</p>
+        <li>{String(dataa.engagement_asso)}</li>
+        <p>autres_softskill</p>
+        <li>{String(dataa.autres_softskill)}</li>
+        <p>gestion_admin_compta</p>
+        <li>{String(dataa.gestion_admin_compta)}</li>
+        <p>gestion_op</p>
+        <li>{String(dataa.gestion_op)}</li>
+        <p>gestion_commerciale</p>
+        <li>{String(dataa.gestion_commerciale)}</li>
+        <p>marketing_com_digit</p>
+        <li>{String(dataa.marketing_com_digit)}</li>
+        <p>gestion_fi_controle_gestion</p>
+        <li>{String(dataa.gestion_fi_controle_gestion)}</li>
+        <p>dsi</p>
+        <li>{String(dataa.dsi)}</li>
+        <p>gestion_rh_juridique</p>
+        <li>{String(dataa.gestion_rh_juridique)}</li>
+        <p>gestion_rel_client</p>
+        <li>{String(dataa.gestion_rel_client)}</li>
+        <p>francais</p>
+        <li>{String(dataa.francais)}</li>
+        <p>anglais</p>
+        <li>{String(dataa.anglais)}</li>
+        <p>italien</p>
+        <li>{String(dataa.italien)}</li>
+        <p>chinois</p>
+        <li>{String(dataa.chinois)}</li>
+        <p>russe</p>
+        <li>{String(dataa.russe)}</li>
+        <p>arabe</p>
+        <li>{String(dataa.arabe)}</li>
+        <p>allemand</p>
+        <li>{String(dataa.allemand)}</li>
+        <p>autres_langue</p>
+        <li>{String(dataa.autres_langue)}</li>
+        
+
+      
       </ul>
-
-
 
     <form onSubmit={queryData} >
 

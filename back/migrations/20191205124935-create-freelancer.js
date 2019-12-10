@@ -29,7 +29,7 @@ module.exports = {
       },
       mobilite: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.BOOLEAN
       },
       pref_lieu_de_travail: {
         allowNull: false,
