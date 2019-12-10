@@ -23,8 +23,8 @@ module.exports = function(app) {
             lastname: "",
             address: "",
             mobilite: 0,
-            pref_lieu_de_travail: "",
-            disponibilite: "",
+            pref_lieu_de_travail: 0,
+            disponibilite: 0,
             fourchette_tarifaire: "",
             password: "",
             email: ""
