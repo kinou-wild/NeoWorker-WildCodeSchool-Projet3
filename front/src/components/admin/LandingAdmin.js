@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Col, Form, FormGroup, Label, Input } from 'reactstrap'
 import logo from '../../img/LOGO_CLASSIQUE_FOND TRANSPARENT_520X272.png'
 import './LandingAdmin.css'
+import {SidebarContext} from '../sidebar/SidebarContext'
 
 const LandingAdmin = (props) => {
   
+    const [showSidebar, setShowSidebar] = useContext(SidebarContext)
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
   
     function validateForm() {
-      return email.length > 0 && password.length > 0;
+      return email.length >= 0 && password.length >= 0;
     }
   
     function handleSubmit(event) {
@@ -41,7 +43,7 @@ const LandingAdmin = (props) => {
         <a href='/'>Mot de passe oublié</a>
       </div>
       <div className="text-center">
-        <button className='btnConnection' disabled={!validateForm()} type="submit">
+        <button onClick={() => setShowSidebar(true)} className='btnConnection' disabled={!validateForm()} type="submit">
           Se connecter
         </button>
         </div>

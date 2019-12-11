@@ -1,26 +1,29 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Sidebar from './sidebar/Sidebar'
-import LandingUser from './user/LandingUser'
+import LandingFreelancer from './freelancer/LandingFreelancer'
 import LandingAdmin from './admin/LandingAdmin'
-import AdminUserChoose from './AdminUserChoose'
+import AdminFreelancerChoose from './AdminFreelancerChoose'
+import SidebarController from './sidebar/SidebarContext'
 
 
 
-class Router extends React.Component {
+const Router = () => {
 
-    render(){
-        return(
+        return (
             <>
-            <Sidebar />
-            <Switch>
-                <Route exact path="/" component={AdminUserChoose} />
-                <Route exact path="/user" component={LandingUser} />
-                <Route exact path="/admin" component={LandingAdmin} />
-            </Switch>
+            <SidebarController> 
+                <Sidebar />
+                    <Switch>
+                        <Route exact path="/" component={AdminFreelancerChoose} />
+                        <Route exact path="/freelancer" component={LandingFreelancer} />
+                        <Route exact path="/admin" component={LandingAdmin} />
+                    </Switch>
+            </SidebarController>
+                   
+
             </>
         )
     }
-}
 
 export default Router;

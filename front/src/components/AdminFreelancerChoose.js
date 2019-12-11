@@ -8,10 +8,10 @@ import { Link } from 'react-router-dom';
         <div style={{textAlign:"center"}}>
         <Nav>   
         <NavItem>
-        <NavLink tag={Link} to="/User">Utilisateur Freelance</NavLink>
+        <NavLink tag={Link} to="/user">Utilisateur Freelance</NavLink>
         </NavItem>
         <NavItem className="burgerNav">
-        <NavLink tag={Link} to="/Admin">Utilisateur Administrateur</NavLink>
+        <NavLink tag={Link} to="/admin">Utilisateur Administrateur</NavLink>
         </NavItem>
         </Nav>
             <img src = {logo} alt='logo'/>

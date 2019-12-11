@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Col, Form, FormGroup, Label, Input } from 'reactstrap'
 import logo from '../../img/LOGO_CLASSIQUE_FOND TRANSPARENT_520X272.png'
-import './LandingUser.css'
+import './LandingFreelancer.css'
+import {SidebarContext} from '../sidebar/SidebarContext'
 
-export default function LandingUser(props) {
+const LandingUser = (props) => {
+
+    const [showSidebar, setShowSidebar] = useContext(SidebarContext)
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
   
@@ -40,10 +43,12 @@ export default function LandingUser(props) {
       <a href='/'>Mot de passe oublié ?</a>
       </div>
       <div className="text-center">
-        <button className='btnConnection' disabled={!validateForm()} type="submit">
+        <button onClick={() => setShowSidebar(true)} className='btnConnection' disabled={!validateForm()} type="submit">
           Se connecter
         </button>
         </div>
       </div>
   );
 }
+
+export default LandingUser
