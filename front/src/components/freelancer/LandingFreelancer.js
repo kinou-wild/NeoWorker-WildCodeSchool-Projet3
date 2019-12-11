@@ -1,18 +1,30 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Col, Form, FormGroup, Label, Input } from 'reactstrap'
 import logo from '../../img/LOGO_CLASSIQUE_FOND TRANSPARENT_520X272.png'
 import './LandingFreelancer.css'
-import {SidebarContext} from '../sidebar/SidebarContext'
+import {SidebarContext} from '../SidebarContext'
 
 const LandingUser = (props) => {
 
+    /* Le boolean initialisé dans le Sidebar context passe à False à chaque refresh de page, pour que la Sidebar ne s'affiche pas*/
+
     const [showSidebar, setShowSidebar] = useContext(SidebarContext)
+
+    useEffect(() => {
+      setShowSidebar(false)
+    })
+
+     
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
   
+    /* fonction à compléter
+    
     function validateForm() {
-      return email.length > 0 && password.length > 0;
+      return email.length >= 0 && password.length >= 0;
     }
+
+    */
   
     function handleSubmit(event) {
       event.preventDefault();
@@ -43,7 +55,7 @@ const LandingUser = (props) => {
       <a href='/'>Mot de passe oublié ?</a>
       </div>
       <div className="text-center">
-        <button onClick={() => setShowSidebar(true)} className='btnConnection' disabled={!validateForm()} type="submit">
+        <button className='btnConnection' type="submit">
           Se connecter
         </button>
         </div>
