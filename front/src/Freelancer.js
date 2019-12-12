@@ -4,9 +4,10 @@ import axios from 'axios';
 function Freelancer() {
 
 //hooks de la data freelancer pour get
-const[dataa,setData] = useState([])
+const[idFree,setIdFree] = useState([])
+const[allFree,setAllFree]= useState([])
 
-console.log(dataa)
+console.log(allFree)
 //hooks du post de la data freelancer
   const[freelancer,setFreelancer] = useState({
       img: "",
@@ -44,7 +45,7 @@ console.log(dataa)
 
   const fetchData=()=>{
     axios.get(`http://localhost:5000/freelancer/profil/1`)
-    .then(res => setData(res.data))
+    .then(res => setIdFree(res.data))
     .catch((err)=>console.log(err))
   }
 
@@ -53,10 +54,9 @@ console.log(dataa)
     allFreelancer()
   }, [])
   
-  const allFreelancer = (e) => {
-    e.preventDefault()
-    axios.get('http://localhost:5000/freelancer/profil', freelancer)
-    .then(res => setData(res.data))
+  const allFreelancer = () => {
+    axios.get('http://localhost:5000/allFreelancers')
+    .then(res => setAllFree(res.data))
     .catch((err) => console.log(err))
   }
 
@@ -76,155 +76,154 @@ console.log(dataa)
       .then(fetchData)
       .catch(err=>console.log(err))
   }
-
   return (
     <div style={{textAlign:'center'}}>
       {/* Les champs de la bdd  */}
       <ul>
         <p>title</p>
-        <li>{dataa.title}</li> 
+        <li>{idFree.title}</li> 
         <p>firstname</p>
-        <li>{dataa.firstname}</li> 
+        <li>{idFree.firstname}</li> 
         <p>lastname</p>
-        <li>{dataa.lastname}</li>
+        <li>{idFree.lastname}</li>
         <p>address</p>
-        <li>{dataa.address}</li> 
+        <li>{idFree.address}</li> 
         <p>mobilite</p>
-        <li>{String(dataa.mobilite)}</li>
+        <li>{String(idFree.mobilite)}</li>
         <p>pref_lieu_de_travail</p> 
-        <li>{dataa.pref_lieu_de_travail}</li>
+        <li>{idFree.pref_lieu_de_travail}</li>
         <p>disponibilite</p>
-        <li>{dataa.disponibilite}</li> 
+        <li>{idFree.disponibilite}</li> 
         <p>fourchette_tarifaire</p>
-        <li>{dataa.fourchette_tarifaire}</li> 
+        <li>{idFree.fourchette_tarifaire}</li> 
         <p>password</p>
-        <li>{dataa.password}</li>
+        <li>{idFree.password}</li>
         <p>email</p>
-        <li>{dataa.email}</li> 
+        <li>{idFree.email}</li> 
         <p>excel</p>
-        <li>{String(dataa.excel)}</li>
+        <li>{String(idFree.excel)}</li>
         <p>powerpoint</p>
-        <li>{String(dataa.powerpoint)}</li>
+        <li>{String(idFree.powerpoint)}</li>
         <p>word</p>
-        <li>{String(dataa.word)}</li>
+        <li>{String(idFree.word)}</li>
         <p>microsoft_365</p>
-        <li>{String(dataa.microsoft_365)}</li>
+        <li>{String(idFree.microsoft_365)}</li>
         <p>crm_hubspot</p>
-        <li>{String(dataa.crm_hubspot)}</li>
+        <li>{String(idFree.crm_hubspot)}</li>
         <p>crm_salesforce</p>
-        <li>{String(dataa.salesforce)}</li>
+        <li>{String(idFree.salesforce)}</li>
         <p>crm_pipedrive</p>
-        <li>{String(dataa.crm_pipedrive)}</li>
+        <li>{String(idFree.crm_pipedrive)}</li>
         <p>crm</p>
-        <li>{String(dataa.crm)}</li>
+        <li>{String(idFree.crm)}</li>
         <p>suite_adobe</p>
-        <li>{String(dataa.suite_adobe)}</li>
+        <li>{String(idFree.suite_adobe)}</li>
         <p>illustrator</p>
-        <li>{String(dataa.illustrator)}</li>
+        <li>{String(idFree.illustrator)}</li>
         <p>in_design</p>
-        <li>{String(dataa.in_design)}</li>
+        <li>{String(idFree.in_design)}</li>
         <p>photoshop</p>
-        <li>{String(dataa.photoshop)}</li>
+        <li>{String(idFree.photoshop)}</li>
         <p>marketing_fb</p>
-        <li>{String(dataa.marketing_fb)}</li>
+        <li>{String(idFree.marketing_fb)}</li>
         <p>google_adwards</p>
-        <li>{String(dataa.google_adwards)}</li>
+        <li>{String(idFree.google_adwards)}</li>
         <p>insta</p>
-        <li>{String(dataa.insta)}</li>
+        <li>{String(idFree.insta)}</li>
         <p>reseaux_sociaux</p>
-        <li>{String(dataa.reseaux_sociaux)}</li>
+        <li>{String(idFree.reseaux_sociaux)}</li>
         <p>keynote</p>
-        <li>{String(dataa.keynote)}</li>
+        <li>{String(idFree.keynote)}</li>
         <p>pages</p>
-        <li>{String(dataa.pages)}</li>
+        <li>{String(idFree.pages)}</li>
         <p>gsuite_google</p>
-        <li>{String(dataa.gsuite_google)}</li>
+        <li>{String(idFree.gsuite_google)}</li>
         <p>numbers</p>
-        <li>{String(dataa.numbers)}</li>
+        <li>{String(idFree.numbers)}</li>
         <p>erp_sap</p>
-        <li>{String(dataa.erp_sap)}</li>
+        <li>{String(idFree.erp_sap)}</li>
         <p>ciel_gestion</p>
-        <li>{String(dataa.ciel_gestion)}</li>
+        <li>{String(idFree.ciel_gestion)}</li>
         <p>cegid</p>
-        <li>{String(dataa.cegid)}</li>
+        <li>{String(idFree.cegid)}</li>
         <p>sage_gestion_commercial</p>
-        <li>{String(dataa.sage_gestion_commercial)}</li>
+        <li>{String(idFree.sage_gestion_commercial)}</li>
         <p>sage_comptabilite</p>
-        <li>{String(dataa.sage_comptabilite)}</li>
+        <li>{String(idFree.sage_comptabilite)}</li>
         <p>quadra</p>
-        <li>{String(dataa.quadra)}</li>
+        <li>{String(idFree.quadra)}</li>
         <p>reso_pb</p>
-        <li>{String(dataa.reso_pb)}</li>
+        <li>{String(idFree.reso_pb)}</li>
         <p>confiance</p>
-        <li>{String(dataa.confiance)}</li>
+        <li>{String(idFree.confiance)}</li>
         <p>empathie</p>
-        <li>{String(dataa.empathie)}</li>
+        <li>{String(idFree.empathie)}</li>
         <p>intelligence_emo</p>
-        <li>{String(dataa.intelligence_emo)}</li>
+        <li>{String(idFree.intelligence_emo)}</li>
         <p>communication</p>
-        <li>{String(dataa.communication)}</li>
+        <li>{String(idFree.communication)}</li>
         <p>gestion_temps</p>
-        <li>{String(dataa.gestion_temps)}</li>
+        <li>{String(idFree.gestion_temps)}</li>
         <p>gestion_stress</p>
-        <li>{String(dataa.gestion_stress)}</li>
+        <li>{String(idFree.gestion_stress)}</li>
         <p>creativite</p>
-        <li>{String(dataa.creativite)}</li>
+        <li>{String(idFree.creativite)}</li>
         <p>esprit_entre</p>
-        <li>{String(dataa.esprit_entre)}</li>
+        <li>{String(idFree.esprit_entre)}</li>
         <p>audace</p>
-        <li>{String(dataa.audace)}</li>
+        <li>{String(idFree.audace)}</li>
         <p>vision_visu</p>
-        <li>{String(dataa.vision_visu)}</li>
+        <li>{String(idFree.vision_visu)}</li>
         <p>motivation</p>
-        <li>{String(dataa.motivation)}</li>
+        <li>{String(idFree.motivation)}</li>
         <p>presence</p>
-        <li>{String(dataa.presence)}</li>
+        <li>{String(idFree.presence)}</li>
         <p>sens_collectif</p>
-        <li>{String(dataa.sens_collectif)}</li>
+        <li>{String(idFree.sens_collectif)}</li>
         <p>curiosite</p>
-        <li>{String(dataa.curiosite)}</li>
+        <li>{String(idFree.curiosite)}</li>
         <p>sens_effort</p>
-        <li>{String(dataa.sens_effort)}</li>
+        <li>{String(idFree.sens_effort)}</li>
         <p>sport</p>
-        <li>{String(dataa.sport)}</li>
+        <li>{String(idFree.sport)}</li>
         <p>passion</p>
-        <li>{String(dataa.passion)}</li>
+        <li>{String(idFree.passion)}</li>
         <p>engagement_asso</p>
-        <li>{String(dataa.engagement_asso)}</li>
+        <li>{String(idFree.engagement_asso)}</li>
         <p>autres_softskill</p>
-        <li>{String(dataa.autres_softskill)}</li>
+        <li>{String(idFree.autres_softskill)}</li>
         <p>gestion_admin_compta</p>
-        <li>{String(dataa.gestion_admin_compta)}</li>
+        <li>{String(idFree.gestion_admin_compta)}</li>
         <p>gestion_op</p>
-        <li>{String(dataa.gestion_op)}</li>
+        <li>{String(idFree.gestion_op)}</li>
         <p>gestion_commerciale</p>
-        <li>{String(dataa.gestion_commerciale)}</li>
+        <li>{String(idFree.gestion_commerciale)}</li>
         <p>marketing_com_digit</p>
-        <li>{String(dataa.marketing_com_digit)}</li>
+        <li>{String(idFree.marketing_com_digit)}</li>
         <p>gestion_fi_controle_gestion</p>
-        <li>{String(dataa.gestion_fi_controle_gestion)}</li>
+        <li>{String(idFree.gestion_fi_controle_gestion)}</li>
         <p>dsi</p>
-        <li>{String(dataa.dsi)}</li>
+        <li>{String(idFree.dsi)}</li>
         <p>gestion_rh_juridique</p>
-        <li>{String(dataa.gestion_rh_juridique)}</li>
+        <li>{String(idFree.gestion_rh_juridique)}</li>
         <p>gestion_rel_client</p>
-        <li>{String(dataa.gestion_rel_client)}</li>
+        <li>{String(idFree.gestion_rel_client)}</li>
         <p>francais</p>
-        <li>{String(dataa.francais)}</li>
+        <li>{String(idFree.francais)}</li>
         <p>anglais</p>
-        <li>{String(dataa.anglais)}</li>
+        <li>{String(idFree.anglais)}</li>
         <p>italien</p>
-        <li>{String(dataa.italien)}</li>
+        <li>{String(idFree.italien)}</li>
         <p>chinois</p>
-        <li>{String(dataa.chinois)}</li>
+        <li>{String(idFree.chinois)}</li>
         <p>russe</p>
-        <li>{String(dataa.russe)}</li>
+        <li>{String(idFree.russe)}</li>
         <p>arabe</p>
-        <li>{String(dataa.arabe)}</li>
+        <li>{String(idFree.arabe)}</li>
         <p>allemand</p>
-        <li>{String(dataa.allemand)}</li>
+        <li>{String(idFree.allemand)}</li>
         <p>autres_langue</p>
-        <li>{String(dataa.autres_langue)}</li>
+        <li>{String(idFree.autres_langue)}</li>
       
       </ul>
 

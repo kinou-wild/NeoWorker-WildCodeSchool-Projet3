@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended:true}))// pour les params
 
 
 require('./routes/freelancer.js')(app)
-//require('./routes/admin.js')(app)
+require('./routes/user.js')(app)
 
 models
     .sequelize

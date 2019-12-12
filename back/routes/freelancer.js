@@ -21,7 +21,7 @@ module.exports = function(app) {
         .then(x => res.json(x))
 
     );
-    app.get('/allFreelancer', (req,res)=>{
+    app.get('/allFreelancers', (req,res)=>{
         models
         .freelancer
         .findAll()
