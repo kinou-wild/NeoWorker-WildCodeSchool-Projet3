@@ -1,20 +1,11 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-const App = () => {
+
+function App() {
   //all data
-  const[dataUsers,setdataUsers] = useState([
-    { role :'',
-    email : '',
-    password:'',
-      freelancers: [{
-        title:'',
-        firstname:'',
-      }]
-    },
-  ])
-
-dataUsers[0]
+  const[dataUsers,setdataUsers] = useState([])
 
   //post d'un user
   const[user,setUser] = useState({
@@ -33,12 +24,12 @@ dataUsers[0]
   //hooks permettant de stocker l'id dans l'objet pour la tj
 
 
-    useEffect(() => {
-       fetchData()
+     useEffect(() => {
+       fetchData() 
      },[]);
   
-  const fetchData=async ()=>{
-   await axios.get('http://localhost:5000/users')
+  const fetchData=()=>{
+    axios.get('http://localhost:5000/users')
     .then(res=>setdataUsers(res.data))
   }
 
@@ -65,12 +56,12 @@ dataUsers[0]
       .then(fetchData)
       .catch(err=>console.log(err))
   }
+  console.log(dataUsers[2]? dataUsers[2].freelancers[0].firstname:"")
 
-  console.log(dataUsers[2].email)
   return (
     
     <div>
-       {dataUsers.map(x=>
+      {dataUsers.map(x=>
         <div>
           <p>{x.role}</p>
           <p>{x.email}</p>
@@ -101,11 +92,9 @@ dataUsers[0]
       <button type="submit">update</button>
     </form>
 
-        <button onClick={deleteData}>supprimer</button>
+        <Link to={`/freelancer/`}><button onClick={deleteData}>supprimer</button></Link>
     </div>
-     
   );
-
 }
 
 

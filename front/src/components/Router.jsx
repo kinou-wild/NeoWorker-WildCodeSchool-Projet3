@@ -6,6 +6,7 @@ import LandingAdmin from './admin/LandingAdmin'
 import AdminFreelancerChoose from './AdminFreelancerChoose'
 import SidebarController from './SidebarContext'
 import HomePageAdmin from './admin/HomePageAdmin'
+import FicheFree from '../FicheFree'
 
 /* ------------------------ Router ---------------------------------- */
 
@@ -18,8 +19,10 @@ const Router = () => {
                     <Switch>
                         <Route exact path="/" component={AdminFreelancerChoose} />
                         <Route exact path="/freelancer" component={LandingFreelancer} />
+                        <Route exact path="/freelancer/:id" component={FicheFree}/>
                         <Route exact path="/admin" component={LandingAdmin} />
                         <Route exact path="/admin/homepage" component={HomePageAdmin} />
+                        
                     </Switch>
             </SidebarController>
                    
