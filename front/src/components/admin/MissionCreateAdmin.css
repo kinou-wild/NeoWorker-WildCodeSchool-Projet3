@@ -1,0 +1,78 @@
+div.admin-mission {
+    color: #000099;
+    width: 80%;
+    height: 100%;
+    float: right;
+}
+
+h1.admin-h1{
+    text-align: center;
+    font-size: 56px;
+    font-weight: bold;
+}
+
+div.notes {
+    width: 60%;
+    margin: auto;
+}
+
+div.champs-mission {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+Label.label {
+    color: #ED6A09;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;;
+}
+
+Button.btn, Button.btn:hover {
+    background: #ED6A09;
+    width: 20%;
+    font-size: larger;
+    margin:0px 40%;
+}
+
+::placeholder {
+    color: #ED6A09!important;
+  }
+
+h2.mission-title {
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    border: 2px solid #c4c4c4;
+    border-radius: .25rem;
+}
+
+div.profil-card {
+    display: flex;
+    flex-direction: row;
+}
+
+div.mission-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 30%;
+    min-width: 30%;
+}
+
+div.select-mission {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+div.cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
