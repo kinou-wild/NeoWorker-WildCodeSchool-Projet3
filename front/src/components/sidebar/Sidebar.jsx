@@ -27,9 +27,7 @@ const Sidebar = (props) => {
         setHiddenfield(false)
     }
 
-
     return (
-
         <div className={showSidebar === true ? "sidebar" : "sidebar-hidden"}>
             <img className="sidebar-logo" src={NeoWorkerLogo} alt="neo worker logo"></img>
             <div className="sidebar-field-group">
@@ -52,10 +50,7 @@ const Sidebar = (props) => {
                 </div>
             </Link>
         </div>
-
     )
 }
-
-
 
 export default Sidebar

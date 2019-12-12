@@ -1,5 +1,12 @@
-.admin-homepage {
-    width:80%;
+div.admin-homepage {
+    color: #000099;
+    width: 80%;
     height: 100%;
     float: right;
+}
+
+h1.admin-h1{
+    text-align: center;
+    font-size: 56px;
+    font-weight: bold;
 }

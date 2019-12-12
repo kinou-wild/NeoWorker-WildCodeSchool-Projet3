@@ -6,9 +6,9 @@ import LandingAdmin from './admin/LandingAdmin'
 import AdminFreelancerChoose from './AdminFreelancerChoose'
 import SidebarController from './SidebarContext'
 import HomePageAdmin from './admin/HomePageAdmin'
+import HomePageFreelancer from './freelancer/HomePageFreelancer';
 
 /* ------------------------ Router ---------------------------------- */
-
 const Router = () => {
 
         return (
@@ -20,10 +20,9 @@ const Router = () => {
                         <Route exact path="/freelancer" component={LandingFreelancer} />
                         <Route exact path="/admin" component={LandingAdmin} />
                         <Route exact path="/admin/homepage" component={HomePageAdmin} />
+                        <Route exact path="/freelancer/homepage" component={HomePageFreelancer} />
                     </Switch>
             </SidebarController>
-                   
-
             </>
         )
     }
