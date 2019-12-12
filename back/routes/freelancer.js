@@ -3,33 +3,42 @@ const models = require('../models')
 
 module.exports = function(app) {
 
-     //création freelancer
-    app.post('/freelancer/profil', (req, res) => {
-        models
-        .freelancer
-        .create(req.body)
-        .then(x=> res.json(x))
-
-    });
-
-
-    //recherche freelancer par id
-    app.get('/freelancer/profil/:id', (req, res) =>
+    app.get('/freelancer/:id', (req, res) => {
         models
         .freelancer
         .findByPk(req.params.id)
         .then(x => res.json(x))
+    })
 
-    );
-    app.get('/allFreelancers', (req,res)=>{
+
+
+    app.get('/freelancers', (req,res)=>{
         models
         .freelancer
-        .findAll()
+        .findAll({include : [models.users]})
         .then(x=>res.json(x))
     })
 
+    
+
+     //création freelancer
+    app.post('/freelancers', (req, res) => {
+        models
+        .freelancer
+        .create(req.body)
+        .then(newFree =>{
+            newFree.addUsers(req.body.userId)
+            res.json(newFree)
+        })
+
+    });
+
+
+    
+    
+
     //modif freelancer
-    app.put('/freelancer/profil/:id', (req, res) =>
+    app.put('/freelancer/:id', (req, res) =>
         models
         .freelancer
         .update(req.body, {

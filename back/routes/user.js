@@ -5,7 +5,7 @@ module.exports = app => {
     app.get('/users',(req,res)=>{
         models
         .users
-        .findAll()
+        .findAll({include : [models.freelancer]})
         .then(x=>{res.json(x)})
     })
 
@@ -13,13 +13,16 @@ module.exports = app => {
         models
         .users
         .create(req.body)
-        .then(x=>{res.json(x)})
+        .then(newUser =>{
+            newUser.addFreelancer(req.body.freelancerId)
+            res.json(newUser)
+        })
     })
 
     app.get('/user/:id', (req, res) => {
         models
         .users
-        .findByPK(req.params.id)
+        .findByPk(req.params.id)
         .then(x=>{res.json(x)})
     })
 
