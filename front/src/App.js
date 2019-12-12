@@ -1,11 +1,20 @@
 import React from 'react';
-import './App.css';
+import Freelancer from './Freelancer'
+import Users from './Users'
 
 function App() {
+  
+
   return (
-    <div className="App">
+    <div>
+     <p>je suis le app</p>
+     <Freelancer/>
+      <Users/> 
+
     </div>
   );
 }
+
+
 
 export default App;
