@@ -53,7 +53,7 @@ div.reste-profil {
     justify-content: space-around;
 }
 
-p.champs-profil {
+.champs-profil {
  min-width: 40%;
  border: 2px solid;
  text-align: center;
