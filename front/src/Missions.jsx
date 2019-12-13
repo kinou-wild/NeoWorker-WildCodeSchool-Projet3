@@ -78,7 +78,6 @@ const Mission = () => {
         allemand: 3,
         autres_langue: ""
     })
-    console.log(missions)
 
     // hooks to update a mission
     const [updateMissions, setUpdateMissions] = useState({
