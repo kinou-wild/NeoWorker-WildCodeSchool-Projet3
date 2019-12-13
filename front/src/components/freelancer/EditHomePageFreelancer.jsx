@@ -54,7 +54,6 @@ const EditHomePageFreelancer = (props) => {
               axios.put(`http://localhost:5000/freelancer/${params.id}`, updateFreelancer)
               .catch(err=>console.log(err))
               console.log(updateFreelancer)
-              
           }
         
           //fonction qui regroupe l'axios put du dataUserFree et l'axios du dataFree
@@ -64,7 +63,7 @@ const EditHomePageFreelancer = (props) => {
           }
         
           //fonction qui modif l'email user et l'email free en même temps
-        const emailUpdate = (e) => {
+        const emailUpdater = (e) => {
           setUpdateUser({...updateUser, email: e.target.value})
           setUpdateFreelancer({...updateFreelancer, email: e.target.value})
             }
@@ -76,68 +75,44 @@ const EditHomePageFreelancer = (props) => {
           setUpdateFreelancer({...updateFreelancer,password: e.target.value})}
 
     return(
-        <div className="freelancer-homepage">
-          <div className='profil-card'>
-            <p className='name-card'>Profil NeoWorker</p>
-            <img className='pic-card' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='profil picture'/>
-          </div>
-            <h1 className='freelancer-h1'>Bienvenue sur ton espace personnel</h1>
-            <div className='homepage-content'>
-              <img className='pic-profil' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='photo de profil' />
-              <div className='infos-profil'>
-                <div className='champs-profil'>
-                <Label>Métier</Label>
-                <Input type ="text" id="metier" name="metier" value={updateFreelancer.metier} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, metier:e.target.value})}} />
-                </div>
-                <div className='champs-profil'>
-                <Label>Prenom</Label>
-                <Input  type ="text" id="firstname" name="firstname" value={updateFreelancer.firstname} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, firstname:e.target.value})}} />
-                </div>
-                <div className='champs-profil'>
-                <Label>Nom</Label>
-                <Input type ="text" id="lastname" name="lastname" value={updateFreelancer.lastname} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, lastname:e.target.value})}} />
-                </div>
-                <div className='champs-profil'>
-              <div className='champs-profil'>
-                <Label>Téléphone</Label>
-                <Input type="text" id="telephone" name="telephone" value={updateUser.telephone} value={updateFreelancer.telephone} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, lastname: e.target.value }) }} /> 
-              </div>
-              </div>
+    //     
+      <div style={{ textAlign: 'center' }}>
 
+        <form onSubmit={updateQueryDataFree} >
 
-              </div>
-                <div className='reste-profil'>
-                  <Label className='champs-profil'>Taux journalier moyen</Label>
-                  <Input className='champs-profil' placeholder='MIN en €' type ="text" id="tjm_min" name="tjm_min" value={updateFreelancer.tjm_min} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, tjm_min:e.target.value})}} />
-                  <Input className='champs-profil' placeholder='MAX en €' type ="text" id="tjm_max" name="tjm_max" value={updateFreelancer.tjm_max} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, tjm_max:e.target.value})}} />
-                    <Label className='champs-profil'>Disponibilité</Label>
-                    <Input className='champs-profil' placeholder='Nb jours dispo / mois' type ="text" id="disponibilite" name="disponibilite" value={updateFreelancer.disponibilite} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, disponibilite:e.target.value})}} />
-                      <Label className='champs-profil'>Mobilité</Label>
-                      <Input className='champs-profil' placeholder='OUI/NON' type ="text" id="mobilite" name="mobilite" value={updateFreelancer.mobilite} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, mobilite:e.target.value})}} />
-                      <Input className='champs-profil' placeholder='KM MAX' type ="text" id="km_max" name="km_max" value={updateFreelancer.km_max} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, km_max:e.target.value})}} />
+          <p>title</p>
+          <input type="text" id="title" name="title" value={updateFreelancer.title} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, title: e.target.value }) }} />
+          <p>firstname</p>
+          <input type="text" id="firstname" name="firstname" value={updateFreelancer.firstname} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, firstname: e.target.value }) }} />
+          <p>lastname</p>
+          <input type="text" id="lastname" name="lastname" value={updateFreelancer.lastname} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, lastname: e.target.value }) }} />
+          <p>adress</p>
+          <input type="text" id="address" name="address" value={updateFreelancer.address} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, address: e.target.value }) }} />
+          <p>mobilite</p>
+          <input type="text" id="mobilite" name="mobilite" value={updateFreelancer.mobilite} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, mobilite: e.target.value }) }} />
+          <p>pref_lieu_de_travail</p>
+          <input type="text" id="pref_lieu_de_travail" name="pref_lieu_de_travail" value={updateFreelancer.pref_lieu_de_travail} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, pref_lieu_de_travail: e.target.value }) }} />
+          <p>disponibilite</p>
+          <input type="text" id="disponibilite" name="disponibilite" value={updateFreelancer.disponibilite} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, disponibilite: e.target.value }) }} />
+          <p>fourchette_tarifaire</p>
+          <input type="text" id="fourchette_tarifaire" name="fourchette_tarifaire" value={updateFreelancer.fourchette_tarifaire} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, fourchette_tarifaire: e.target.value }) }} />
 
-                    <Label className='champs-profil'>Adresse Postale</Label>
-                    <Input className='champs-profil' type ="text" id="address" name="address" value={updateFreelancer.address} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, address:e.target.value})}} />
-                    <Label className='champs-profil'>Code Postale</Label>
-                    <Label className='champs-profil'>Préférence du lieu de travail</Label>
-                    <Input className='champs-profil' type ="text" id="pref_lieu_de_travail" name="pref_lieu_de_travail" value={updateFreelancer.pref_lieu_de_travail} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, pref_lieu_de_travail:e.target.value})}} />
-                    
-                </div>
+          <button type="submit">Update</button>
 
-          
-          <form onSubmit={updaterEmailPassword} >
-            <p>email</p>
-              <input type="text" id="email" name="email" value={updateUser.email} value={updateFreelancer.email} required onChange={(e) => { emailUpdate(e) }} />
-            <p>password</p>
-              <input type="text" id="password" name="password" value={updateUser.password} value={updateFreelancer.password} required onChange={(e) => { passwordUpdater(e) }} />
+        </form>
 
-            <button type="submit">update</button>
-          </form>
-            <Link to = "/freelancer/homepage">
-            <Button className='btn'>Valider</Button>
-            </Link>
-    </div>
-    </div>
+        <h1>Update user</h1>
+        <form onSubmit={updaterEmailPassword} >
+          <p>email</p>
+          <input type="text" id="email" name="email" value={updateUser.email} value={updateFreelancer.email} required onChange={(e) => { emailUpdater(e) }} />
+          <p>password</p>
+          <input type="text" id="password" name="password" value={updateUser.password} value={updateFreelancer.password} required onChange={(e) => { passwordUpdater(e) }} />
+
+          <button type="submit">update</button>
+        </form>
+
+      </div>
+
     )
 }
 
