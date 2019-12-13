@@ -1,0 +1,28 @@
+div.freelancer-homepage {
+    color: #000099;
+    width: 80%;
+    height: 100vh;
+    float: right;
+}
+
+h1.freelancer-h1 {
+    text-align: center;
+    font-size: 56px;
+    font-weight: bold;
+}
+
+div.profil-card {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+    align-items: flex-end;
+}
+
+p.name-card {
+    margin: 0px;
+}
+
+img.pic-card {
+    height: 50px;
+    border-radius: 50%;
+}

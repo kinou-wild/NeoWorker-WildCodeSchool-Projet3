@@ -53,7 +53,7 @@ function ModifFree(props) {
 
   //fonction qui modif l'email user et l'email free en même temps
 const emailUpdate = (e) => {
-  setUpdateUser({...updateUser, email: e.target.value,})
+  setUpdateUser({...updateUser, email: e.target.value})
   setUpdateFreelancer({...updateFreelancer, email: e.target.value})
     }
 
@@ -121,7 +121,7 @@ const passwordUpdater = (e) => {
     <h1>Update user</h1>
     <form onSubmit={updaterEmailPassword} >
       <p>email</p>
-      <input type ="text" id="email" name="email" value={updateUser.email} value={updateFreelancer.email} required onChange={(e) => emailUpdate(e)} /> 
+      <input type ="text" id="email" name="email" value={updateUser.email} value={updateFreelancer.email} required onChange={(e) => {emailUpdate(e)}} /> 
       <p>password</p>
       <input type ="text" id="password" name="password" value={updateUser.password} value={updateFreelancer.password} required onChange={ (e) => {passwordUpdater(e)}}/>
 

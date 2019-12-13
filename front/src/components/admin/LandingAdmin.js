@@ -7,7 +7,7 @@ import {SidebarContext} from '../SidebarContext'
 
 const LandingAdmin = (props) => {
   
-    
+    // créé et modifié le champ Email et Password
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -17,15 +17,6 @@ const LandingAdmin = (props) => {
     useEffect(() => {
       setShowSidebar(false)
     })
-    
-
-    /* fonction à compléter
-    
-    function validateForm() {
-      return email.length >= 0 && password.length >= 0;
-    }
-
-    */ 
   
     function handleSubmit(event) {
       event.preventDefault();
@@ -34,34 +25,32 @@ const LandingAdmin = (props) => {
   return (
       <div className='landing'>
         <img className='logoLanding' src = {logo} alt='logo' />
-        <div className='landingText'>
-        <h1 className='landingH1'>Bienvenue dans l’espace <span className='textModif'>Admin</span> NeoWorker<span className='textModif'>.</span></h1>
-        <h2 className='landingH2'>Connectez-vous pour gérer les freelances et leurs activité.</h2>
-        </div>
-        <div className='connectingForm'>
-        <Form onSubmit={handleSubmit}>
-        <FormGroup row>
-        <Label for="exampleEmail" sm={2}>Email</Label>
-        <Col sm={10}>
-          <Input className='inputEmail' type="email" name="email" id="exampleEmail" placeholder="Email" />
-        </Col>
-      </FormGroup>
-      <FormGroup row>
-        <Label for="examplePassword" sm={2}>Password</Label>
-        <Col sm={10}>
-          <Input className='inputPassword' type="password" name="password" id="examplePassword" placeholder="Mot de passe" />
-        </Col>
-      </FormGroup>
-      </Form>
-        <a href='/'>Mot de passe oublié</a>
-      </div>
-      <div className="text-center">
-        <Link to='/admin/homepage'>
-          <button className='btnConnection' type="submit">
-          Se connecter
-        </button>
-          </Link>
-        </div>
+          <div className='landingText'>
+            <h1 className='landingH1'>Bienvenue dans l’espace <span className='textModif'>Admin</span> NeoWorker<span className='textModif'>.</span></h1>
+              <h2 className='landingH2'>Connectez-vous pour gérer les NeoWorkers et leurs activité.</h2>
+          </div>
+          <div className='connectingForm'>
+            <Form onSubmit={handleSubmit}>
+              <FormGroup row>
+                <Label for="exampleEmail" sm={2}>Email</Label>
+                  <Col sm={10}>
+                    <Input className='inputEmail' type="email" name="email" id="exampleEmail" placeholder="Email" />
+                  </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Label for="examplePassword" sm={2}>Password</Label>
+                  <Col sm={10}>
+                    <Input className='inputPassword' type="password" name="password" id="examplePassword" placeholder="Mot de passe" />
+                  </Col>
+              </FormGroup>
+            </Form>
+            <a href='/'>Mot de passe oublié</a>
+          </div>
+          <div className="text-center">
+            <Link to='/admin/homepage'>
+              <button className='btnConnection' type="submit">Se connecter</button>
+            </Link>
+          </div>
       </div>
   );
 }

@@ -6,16 +6,13 @@ import './App.css'
 
 function App() {
   
-
   return (
     <div>
      <p>je suis le app</p>
             <Router />
 
-
     </div>
   );
 }
-
 
 export default App;
