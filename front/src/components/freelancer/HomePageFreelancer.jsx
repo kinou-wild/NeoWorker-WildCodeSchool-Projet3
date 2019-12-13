@@ -25,7 +25,7 @@ const HomePageFreelancer = () => {
     }, [])
 
     const fetchDataFree = () => {
-        axios.get(`http://localhost:5000/freelancer/10`)
+        axios.get(`http://localhost:5000/freelancer/1`)
             .then(res => setIdFree(res.data))
             .catch((err) => console.log(err))
     }
@@ -37,7 +37,7 @@ const HomePageFreelancer = () => {
     }, []);
 
     const fetchDataUserFree = () => {
-        axios.get('http://localhost:5000/user/10')
+        axios.get('http://localhost:5000/user/1')
             .then(res => setIdUser(res.data))
     }
 

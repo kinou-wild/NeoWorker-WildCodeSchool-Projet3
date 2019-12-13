@@ -98,9 +98,6 @@ const EditHomePageFreelancer = (props) => {
                 <Input type ="text" id="lastname" name="lastname" value={updateFreelancer.lastname} required onChange={(e) => {setUpdateFreelancer({...updateFreelancer, lastname:e.target.value})}} />
                 </div>
                 <div className='champs-profil'>
-                <Label>email</Label>
-                <Input type ="text" id="email" name="email" value={updateUser.email} value={updateFreelancer.email} required onChange={(e) => {emailUpdate(e)}} /> 
-              </div>
               <div className='champs-profil'>
                 <Label>Téléphone</Label>
                 <Input type ="text" id="telephone" name="telephone" value={updateUser.telephone} value={updateFreelancer.telephone} required onChange={(e) => {emailUpdate(e)}} /> 
@@ -127,49 +124,23 @@ const EditHomePageFreelancer = (props) => {
                     
                 </div>
 
-              <form onSubmit={updateQueryDataFree} >
-            </form>
-            <h1>Update user</h1>
-            <form onSubmit={updaterEmailPassword} >
-              <p>password</p>
-              <input type ="text" id="password" name="password" value={updateUser.password} value={updateFreelancer.password} required onChange={ (e) => {passwordUpdater(e)}}/>
-              <button type="submit">update</button>
-            </form>
+          
+          <form onSubmit={updaterEmailPassword} >
+            <p>email</p>
+            <input type="text" id="email" name="email" value={updateUser.email} value={updateFreelancer.email} required onChange={(e) => { emailUpdate(e) }} />
+            <p>password</p>
+            <input type="text" id="password" name="password" value={updateUser.password} value={updateFreelancer.password} required onChange={(e) => { passwordUpdater(e) }} />
+
+            <button type="submit">update</button>
+          </form>
             <Link to = "/freelancer/homepage">
             <Button className='btn'>Valider</Button>
             </Link>
     </div>
+    </div>
     )
 }
 
-export default EditHomePageFreelancer
+export default EditHomePageFreelancer;
 
-        {/* 
-            <form onSubmit={queryData}>
-           <p> les input pour poster sur la bdd</p>
-              <p>title</p>
-              <input type ="text" id="title" name="title" value={freelancer.title} required onChange={(e) => {setFreelancer({...freelancer, title:e.target.value})}} />
-              <p>firstname</p>
-              <input type ="text" id="firstname" name="firstname" value={freelancer.firstname} required onChange={(e) => {setFreelancer({...freelancer, firstname:e.target.value})}} />
-              <p>lastname</p>
-              <input type ="text" id="lastname" name="lastname" value={freelancer.lastname} required onChange={(e) => {setFreelancer({...freelancer, lastname:e.target.value})}} />
-              <p>adress</p>
-              <input type ="text" id="address" name="address" value={freelancer.address} required onChange={(e) => {setFreelancer({...freelancer, address:e.target.value})}} />
-              <p>mobilite</p>
-              <input type ="text" id="mobilite" name="mobilite" value={freelancer.mobilite} required onChange={(e) => {setFreelancer({...freelancer, mobilite:e.target.value})}} />
-              <p>pref_lieu_de_travail</p>
-              <input type ="text" id="pref_lieu_de_travail" name="pref_lieu_de_travail" value={freelancer.pref_lieu_de_travail} required onChange={(e) => {setFreelancer({...freelancer, pref_lieu_de_travail:e.target.value})}} />
-              <p>disponibilite</p>
-              <input type ="text" id="disponibilite" name="disponibilite" value={freelancer.disponibilite} required onChange={(e) => {setFreelancer({...freelancer, disponibilite:e.target.value})}} />
-              <p>fourchette_tarifaire</p>
-              <input type ="text" id="fourchette_tarifaire" name="fourchette_tarifaire" value={freelancer.fourchette_tarifaire} required onChange={(e) => {setFreelancer({...freelancer, fourchette_tarifaire:e.target.value})}} />
-              <p>password</p>
-              <input type ="text" id="password" name="password" value={freelancer.password} required onChange={(e) => {setFreelancer({...freelancer, password:e.target.value})}} />
-              <p>email</p>
-              <input type ="text" id="email" name="email" value={freelancer.email} required onChange={(e) => {setFreelancer({...freelancer, email:e.target.value})}} />
-              
-              <button type="submit">Add</button>
-              </form> */}
         
-              {/* les input pour update sur la bdd */}
-
