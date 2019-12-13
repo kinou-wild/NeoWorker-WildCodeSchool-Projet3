@@ -100,7 +100,7 @@ const EditHomePageFreelancer = (props) => {
                 <div className='champs-profil'>
               <div className='champs-profil'>
                 <Label>Téléphone</Label>
-                <Input type ="text" id="telephone" name="telephone" value={updateUser.telephone} value={updateFreelancer.telephone} required onChange={(e) => {emailUpdate(e)}} /> 
+                <Input type="text" id="telephone" name="telephone" value={updateUser.telephone} value={updateFreelancer.telephone} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, lastname: e.target.value }) }} /> 
               </div>
               </div>
 
@@ -127,9 +127,9 @@ const EditHomePageFreelancer = (props) => {
           
           <form onSubmit={updaterEmailPassword} >
             <p>email</p>
-            <input type="text" id="email" name="email" value={updateUser.email} value={updateFreelancer.email} required onChange={(e) => { emailUpdate(e) }} />
+              <input type="text" id="email" name="email" value={updateUser.email} value={updateFreelancer.email} required onChange={(e) => { emailUpdate(e) }} />
             <p>password</p>
-            <input type="text" id="password" name="password" value={updateUser.password} value={updateFreelancer.password} required onChange={(e) => { passwordUpdater(e) }} />
+              <input type="text" id="password" name="password" value={updateUser.password} value={updateFreelancer.password} required onChange={(e) => { passwordUpdater(e) }} />
 
             <button type="submit">update</button>
           </form>
