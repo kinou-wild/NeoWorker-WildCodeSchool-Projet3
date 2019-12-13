@@ -9,6 +9,7 @@ import HomePageAdmin from './admin/HomePageAdmin'
 import FicheFree from '../FicheFree'
 import ModifFree from '../ModifFree';
 import HomePageFreelancer from './freelancer/HomePageFreelancer';
+import MissionCreateAdmin from './admin/MissionCreateAdmin';
 
 /* ------------------------ Router ---------------------------------- */
 const Router = () => {
@@ -25,6 +26,7 @@ const Router = () => {
                         <Route exact path="/admin" component={LandingAdmin} />
                         <Route exact path="/admin/homepage" component={HomePageAdmin} />
                         <Route exact path="/freelancer/homepage" component={HomePageFreelancer} />
+                        <Route exact path="/admin/mission/créer" component={MissionCreateAdmin} />
                     </Switch>
             </SidebarController>
             </>
