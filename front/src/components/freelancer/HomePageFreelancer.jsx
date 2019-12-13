@@ -70,7 +70,7 @@ const HomePageFreelancer = () => {
                 <p className='champs-profil'>Code Postale</p>
                 <p className='champs-profil'>Préférence du lieu de travail</p>                    
             </div>
-                <Link to = {`/freelancer/editer/${idFree.id}`}>
+                <Link to={`/freelancer/editer/${idFree.id}`}>
                     <Button className='btn'>Editer</Button>
                 </Link>
         </div>
