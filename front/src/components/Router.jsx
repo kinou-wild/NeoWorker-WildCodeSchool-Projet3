@@ -17,10 +17,10 @@ const Router = () => {
                 <Sidebar />
                     <Switch>
                         <Route exact path="/" component={AdminFreelancerChoose} />
-                        <Route exact path="/freelancer" component={LandingFreelancer} />
+                        <Route exact path="/neoworker" component={LandingFreelancer} />
                         <Route exact path="/admin" component={LandingAdmin} />
                         <Route exact path="/admin/homepage" component={HomePageAdmin} />
-                        <Route exact path="/freelancer/homepage" component={HomePageFreelancer} />
+                        <Route exact path="/neoworker/homepage" component={HomePageFreelancer} />
                     </Switch>
             </SidebarController>
             </>

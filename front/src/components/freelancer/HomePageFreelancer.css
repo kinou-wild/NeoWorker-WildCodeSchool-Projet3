@@ -15,7 +15,7 @@ div.profil-card {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
 }
 
 p.name-card {
