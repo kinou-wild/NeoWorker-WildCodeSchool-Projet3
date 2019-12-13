@@ -12,55 +12,45 @@ module.exports = {
         type:Sequelize.BOOLEAN
       },
       title:{
-        allowNull: false,
         type:Sequelize.STRING
       },
       firstname:{
-        allowNull: false,
         type:Sequelize.STRING
       },
       lastname:{
-        allowNull: false,
         type:Sequelize.STRING
       },
       address:{
-        allowNull: false,
         type:Sequelize.STRING
       },
       mobilite: {
-        allowNull: false,
         type: Sequelize.BOOLEAN
       },
       km_max:{
-        allowNull:false,
         type:Sequelize.INTEGER
       },
       tel:{
-        allowNull:false,
+        type:Sequelize.INTEGER
+      },
+      cp:{
         type:Sequelize.INTEGER
       },
       pref_lieu_de_travail: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       disponibilite: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       tjm_min:{
-        allowNull: false,
         type: Sequelize.INTEGER
       },
       tjm_max:{
-        allowNull: false,
         type: Sequelize.INTEGER
       },
       password:{
-          allowNull: false,
           type: Sequelize.STRING
       },
       email:{
-        allowNull: false,
         type:Sequelize.STRING
       },
       excel: {

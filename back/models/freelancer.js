@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     mobilite: DataTypes.BOOLEAN,
     km_max:DataTypes.INTEGER,
     tel:DataTypes.INTEGER,
+    cp:DataTypes.INTEGER,
     pref_lieu_de_travail: DataTypes.INTEGER,
     disponibilite: DataTypes.INTEGER,
     tjm_min:DataTypes.INTEGER,
