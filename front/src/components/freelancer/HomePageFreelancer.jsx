@@ -58,6 +58,16 @@ const HomePageFreelancer = () => {
             {/* Les champs de la bdd  */}
             <h1>freelancer SIDE</h1>
             <ul>
+                <p>Code Postal</p>
+                <li>{idFree.cp}</li>
+                <p>tel</p>
+                <li>{idFree.tel}</li>
+                <p>km_max</p>
+                <li>{idFree.km_max}</li>
+                <p>tjm_max</p>
+                <li>{idFree.tjm_max}</li>
+                <p>tjm_min</p>
+                <li>{idFree.tjm_min}</li>
                 <p>title</p>
                 <li>{idFree.title}</li>
                 <p>firstname</p>
