@@ -31,6 +31,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.BOOLEAN
       },
+      km_max:{
+        allowNull:false,
+        type:Sequelize.INTEGER
+      },
+      tel:{
+        allowNull:false,
+        type:Sequelize.INTEGER
+      },
       pref_lieu_de_travail: {
         allowNull: false,
         type: Sequelize.STRING
@@ -39,9 +47,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      fourchette_tarifaire: {
+      tjm_min:{
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
+      },
+      tjm_max:{
+        allowNull: false,
+        type: Sequelize.INTEGER
       },
       password:{
           allowNull: false,

@@ -52,35 +52,35 @@ module.exports = function(app) {
         .then(() => console.log("Mise à jour faite"))
     );
 
-        //ajout photo
-    //public folder
-    app.use(express.static('./public'))
-    const storage = multer.diskStorage({
-        destination: '/public/uploads',
-        filename: function (req, file, cb){
-            cb(null,file.fieldname + '-' + Date.now()+path.extname(file.originalname));
-        }
-    })
+    //     //ajout photo
+    // //public folder
+    // app.use(express.static('./public'))
+    // const storage = multer.diskStorage({
+    //     // destination: '/public/uploads',
+    //     filename: function (req, file, cb){
+    //         cb(null,file.fieldname + '-' + Date.now()+path.extname(file.originalname));
+    //     }
+    // })
 
-    //init upload
-    const upload = multer ({
-        storage: storage
-    }).single('file')
-    app.post('/upload',(req, res) =>{
-        upload(req,res,(err) => {
-            console.log('upload image')
-            if(err){
-                res.send('Index', {msg:err})
-            }else {
-                models
-                .freelancer
-                .create({img:req.file.originalname, path:req.file.path})
-                console.log(req.file)
-                res.send(req.file);
-            }
+    // //init upload
+    // const upload = multer ({
+    //     storage: storage
+    // }).single('file')
+    // app.post('/upload',(req, res) =>{
+    //     upload(req,res,(err) => {
+    //         console.log('upload image')
+    //         if(err){
+    //             res.send('Index', {msg:err})
+    //         }else {
+    //             models
+    //             .freelancer
+    //             .create({img:req.file.originalname, path:req.file.path})
+    //             console.log(req.file)
+    //             res.send(req.file);
+    //         }
             
-        })
-    }) 
+    //     })
+    // }) 
 
 
    
