@@ -665,7 +665,7 @@ const Mission = () => {
             </form>
 
 //update a mission
-            <form onSubmit={updateMissions}>
+            <form onSubmit={createMissions}>
                 <input
                     id="title"
                     name="title"
