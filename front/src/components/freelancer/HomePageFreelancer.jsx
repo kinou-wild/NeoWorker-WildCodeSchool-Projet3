@@ -2,6 +2,8 @@ import React, {useContext, useEffect} from 'react'
 import {SidebarContext} from '../SidebarContext'
 import './HomePageFreelancer.css'
 import { Button } from 'reactstrap'
+import {Link} from 'react-router-dom'
+
 
 /* -------- Page d'accueil de la page Freelancer, après connexion ------------------ */
 const HomePageFreelancer = () => {
@@ -35,12 +37,12 @@ const HomePageFreelancer = () => {
                     <p className='champs-profil'>Remote : Oui / Non</p>
                     <p className='champs-profil'>Adresse Postale</p>
                     <p className='champs-profil'>Code Postale</p>
-                    <p className='champs-profil'>Préférence du lieu de travail</p>
-
-                    
+                    <p className='champs-profil'>Préférence du lieu de travail</p>                    
                 </div>
+                <Link to = '/freelancer/editer'>
             <Button className='btn'>Editer</Button>
-    </div>
+            </Link>
+                </div>
     )
 }
 
