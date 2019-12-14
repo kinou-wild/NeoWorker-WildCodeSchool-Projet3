@@ -2,7 +2,7 @@ const models = require ('../models')
 
 module.exports = app => {
 
-    app.get('/users',(req,res)=>{
+    app.get('/admin',(req,res)=>{
         models
         .users
         .findAll({include : [models.freelancer,models.missions]})
@@ -10,7 +10,7 @@ module.exports = app => {
     })
 
     //post a user freelancer with tj
-     app.post('/users/freelancers',(req,res)=>{
+     app.post('/admin/freelancers',(req,res)=>{
         models
         .users
         .create(req.body)
@@ -21,7 +21,7 @@ module.exports = app => {
     })
 
     //post a user mission with tj
-    app.post('/users/missions',(req,res)=>{
+    app.post('/admin/missions',(req,res)=>{
         models
         .users
         .create(req.body)

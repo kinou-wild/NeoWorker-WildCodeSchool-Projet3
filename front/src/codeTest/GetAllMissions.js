@@ -10,7 +10,6 @@ const GetAllMissions = () => {
 
     // hooks to get all missions
     const [missions, setMissions] = useState([])
-    const [catchId,setCatchId] = useState(1)
 
 
     useEffect(() => {
@@ -23,9 +22,14 @@ const GetAllMissions = () => {
             .then(response => setMissions(response.data))
             .catch((err) => console.log(err))
     }
+    const fetchDeleteDataMission = (id) => {
+        axios.delete(`http://localhost:5000/mission/${id}`)
+            .catch((err) => console.log(err))
+            window.location.reload(false);
 
+    }
 
-    console.log(catchId)
+    
    
     return(
         <div>
@@ -36,6 +40,8 @@ const GetAllMissions = () => {
                     <p>status</p>
                     <p>{x.status}</p>
                     <p>{x.id}</p>                    
+                    <button onClick={()=>fetchDeleteDataMission(x.id)} >delete</button>
+                    
                     <Link to={`/mission/see/${x.id}`}><button>see</button></Link>
                     <Link to={`/updateMission/${x.id}`}><button>update</button></Link>   
             </div>)}
