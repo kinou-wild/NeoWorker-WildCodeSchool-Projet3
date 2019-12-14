@@ -5,17 +5,29 @@ module.exports = app => {
     app.get('/users',(req,res)=>{
         models
         .users
-        .findAll({include : [models.freelancer]})
+        .findAll({include : [models.freelancer,models.missions]})
         .then(x=>{res.json(x)})
     })
 
-     app.post('/users',(req,res)=>{
+    //post a user freelancer with tj
+     app.post('/users/freelancers',(req,res)=>{
         models
         .users
         .create(req.body)
-        .then(newUser =>{
-            newUser.addFreelancer(req.body.freelancerId)
-            res.json(newUser)
+        .then(newFree =>{
+            newFree.addFreelancer(req.body.freelancerId)
+            res.json(newFree)
+        })
+    })
+
+    //post a user mission with tj
+    app.post('/users/missions',(req,res)=>{
+        models
+        .users
+        .create(req.body)
+        .then(newMission =>{
+            newMission.addMission(req.body.missionId)
+            res.json(newMission)
         })
     })
 

@@ -49,7 +49,6 @@ const EditHomePageFreelancer = (props) => {
              e.preventDefault()
              axios.put(`http://localhost:5000/user/${params.id}`, updateUser)
              .catch(err => console.log(err))
-            console.log(updateUser)
             }
         
         
@@ -58,7 +57,6 @@ const EditHomePageFreelancer = (props) => {
             e.preventDefault()
               axios.put(`http://localhost:5000/freelancer/${params.id}`, updateFreelancer)
               .catch(err=>console.log(err))
-              console.log(updateFreelancer)
           }
         
           //fonction qui regroupe l'axios put du dataUserFree et l'axios du dataFree

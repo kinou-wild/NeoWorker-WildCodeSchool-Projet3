@@ -3,28 +3,33 @@ const models = require('../models')
 module.exports = function(app){
 
 //Get all mission
-app.get('/missions', (req, res) => 
+app.get('/missions', (req, res) =>{
 models
 .missions
-.findAll()
+.findAll({include : [models.users]})
 .then(x => res.json(x))
-);
+});
+
 
 //Get missions by id
-app.get('/mission/:id', (req, res) =>
+app.get('/mission/:id', (req, res) =>{
 models
 .missions
 .findByPk(req.params.id)
 .then(mission => res.json(mission))
-);
+});
 
 // Create mission 
-app.post('/missions', (req, res) =>
+app.post('/missions', (req, res) =>{
 models
 .missions
-.create(req.body)  
-.then(x => res.json(x))
-);
+.create(req.body)
+    .then(newMission => {
+        newMission.addUser(req.body.userId)
+        res.json(newMission)
+    })
+
+});
 
 //UPDATE missions
 app.put('/mission/:id', (req, res) => {
@@ -38,18 +43,15 @@ app.put('/mission/:id', (req, res) => {
 });
 
 //Delete missions
-app.delete('/mission/:id', (req, res) =>
+app.delete('/mission/:id', (req, res) =>{
 models
 .missions
-.destroy(req.body, {
+.destroy({
     where: {
         id: req.params.id
     }
 }) .then(() => console.log("Deleted"))
-);
+});
 
-models
-.sequelize
-.sync()
-.then(() => app.listen(5000, () => console.log('App listening on port 5000 !')));
+
 };

@@ -1,153 +1,172 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Missions', {
+    return queryInterface.createTable('missions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
+      }, 
+      title:{
+        type:Sequelize.STRING
+      },
+      status: {
+        type: Sequelize.INTEGER
+      },
+      address: {
+        type: Sequelize.STRING
       },
       mobilite: {
-        allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.BOOLEAN
+      },
+      km_max:{
+        type:Sequelize.INTEGER
+      },
+      tel:{
+        type:Sequelize.INTEGER
+      },
+      cp:{
+        type:Sequelize.INTEGER
       },
       pref_lieu_de_travail: {
-        allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       disponibilite: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
-      fourchette_tarifaire: {
-        allowNull: false,
-        type: Sequelize.STRING
+      tjm_min:{
+        type:Sequelize.INTEGER
+      },
+      tjm_max:{
+        type: Sequelize.INTEGER
+
       },
       excel: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       powerpoint: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       word: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       microsoft_365: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       crm_hubspot: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       crm_salesforce: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       crm_pipedrive: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       crm: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       suite_adobe: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       illustrator: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       in_design: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       photoshop: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       marketing_fb: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       google_adwards: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       insta: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       reseaux_sociaux: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       keynote: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       pages: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       gsuite_google: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       numbers: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       erp_sap: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       ciel_gestion: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       cegid: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       sage_gestion_commercial: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       sage_comptabilite: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       quadra: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       reso_pb: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       confiance: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       empathie: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       intelligence_emo: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       communication: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       gestion_temps: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       gestion_stress: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       creativite: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       esprit_entre: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       audace: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       vision_visu: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       motivation: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       presence: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       sens_collectif: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       curiosite: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       sens_effort: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       sport: {
         type: Sequelize.STRING
@@ -162,49 +181,49 @@ module.exports = {
         type: Sequelize.STRING
       },
       gestion_admin_compta: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       gestion_op: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       gestion_commerciale: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       marketing_com_digit: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       gestion_fi_controle_gestion: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       dsi: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       gestion_rh_juridique: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       gestion_rel_client: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       francais: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       anglais: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       italien: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       chinois: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       russe: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       arabe: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       allemand: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       autres_langue: {
         type: Sequelize.STRING
@@ -220,7 +239,7 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Missions');
+    return queryInterface.dropTable('missions');
   }
 };
 
