@@ -4,7 +4,7 @@ import StarRatingComponent from 'react-star-rating-component';
 import {SidebarContext} from '../SidebarContext'
 import './MissionCreateAdmin.css'
 
-/* -------- Page d'accueil de la page Freelancer, après connexion ------------------ */
+/* -------- Page creation mission ------------------ */
 const MissionCreateAdmin = () => {
     /* hooks pour le rating par étoiles */
     const [rating, setRating] = useState([{Excel:0}, {Powerpoint:0}, {MicrosoftOffice:0}, {observation:0}, {temps:0}, {}, {}, {},{}])
@@ -34,84 +34,83 @@ console.log()
             <div className='notes'>
                 <Form>
                     <FormGroup>
-                            <Input style={{height:'150px'}} placeholder='Notes :'type="textarea" name="text" id="notes" />
+                        <Input style={{height:'150px'}} placeholder='Notes :'type="textarea" name="text" id="notes" />
                     </FormGroup>
-                    <div className='select-mission'>
-                    <FormGroup>
-                    <Input type="select" name="select" id="exampleSelect">
-                      <option>Préférence lieu de travail</option>
-                      <option>Présence en entreprise</option>
-                      <option>Travail à distance</option>
-                    </Input>
-                    </FormGroup>
-                    <FormGroup>
-                    <Input type="select" name="select" id="exampleSelect">
-                      <option>Profil</option>
-                      <option>Regular</option>
-                      <option>Expert</option>
-                    </Input>
-                    </FormGroup>
-                    <FormGroup>
-                    <Input type="select" name="select" id="exampleSelect">
-                      <option>Fréquence</option>
-                      <option>Ponctuelle</option>
-                      <option>Récurrente</option>
-                    </Input>
-                    </FormGroup>
-                    </div>
-                    <FormGroup>
-                            <Input style={{textAlign:'center'}} placeholder="Nom de la mission" />
-                    </FormGroup>
-                    <div className='champs-mission'>
-                    <FormGroup>
-                            <Input placeholder="Nom de l'entreprise" />
-                    </FormGroup>
-                    <FormGroup>
-                            <Input placeholder="Nom du responsable" />
-                    </FormGroup>
-                    <FormGroup>
-                            <Input placeholder="Email" />
-                    </FormGroup>
-                    <FormGroup>
-                            <Input placeholder="Téléphone" />
-                    </FormGroup>
-                    <FormGroup>
-                            <Input placeholder="Adresse" />
-                    </FormGroup>
-                    <FormGroup>
-                            <Input placeholder="Code Postale" />
-                    </FormGroup>
-                    <FormGroup>
-                            <Input placeholder="Dénomination Sociale" />
-                    </FormGroup>
-                    <FormGroup>
-                            <Input placeholder="Numero de Siret" />
-                    </FormGroup>
-                    <FormGroup>
-                            <Input placeholder="Budget" />
-                    </FormGroup>
-
-                    <FormGroup>
-                            <Input placeholder="Récurrence" />
-                    </FormGroup>
-                    <FormGroup>
-                            <Input placeholder="Date de début / fin" />
-                    </FormGroup>
-                    <FormGroup>
-                            <Input placeholder="Nb jours / mois travaillés" />
-                    </FormGroup>
-                    </div>
-                    <h2 className='mission-title'>Outils</h2>
-                    <div className='cards'>
-                        <div className='mission-card'>
-                            <p>Excel</p>
-                            <StarRatingComponent 
-                                name="rate1" 
-                                starCount={3}
-                                value={rating[0].Excel}
-                                emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 0, 'Excel')}/>
+                        <div className='select-mission'>
+                            <FormGroup>
+                                <Input type="select" name="select" id="exampleSelect">
+                                    <option>Préférence lieu de travail</option>
+                                    <option>Présence en entreprise</option>
+                                    <option>Travail à distance</option>
+                                </Input>
+                            </FormGroup>
+                            <FormGroup>
+                                <Input type="select" name="select" id="exampleSelect">
+                                    <option>Profil</option>
+                                    <option>Regular</option>
+                                    <option>Expert</option>
+                                </Input>
+                            </FormGroup>
+                            <FormGroup>
+                                <Input type="select" name="select" id="exampleSelect">
+                                    <option>Fréquence</option>
+                                    <option>Ponctuelle</option>
+                                    <option>Récurrente</option>
+                                </Input>
+                            </FormGroup>
                         </div>
+                        <FormGroup>
+                            <Input style={{textAlign:'center'}} placeholder="Nom de la mission" />
+                        </FormGroup>
+                        <div className='champs-mission'>
+                            <FormGroup>
+                                <Input placeholder="Nom de l'entreprise" />
+                            </FormGroup>
+                            <FormGroup>
+                                <Input placeholder="Nom du responsable" />
+                            </FormGroup>
+                            <FormGroup>
+                                <Input placeholder="Email" />
+                            </FormGroup>
+                            <FormGroup>
+                                <Input placeholder="Téléphone" />
+                            </FormGroup>
+                            <FormGroup>
+                                <Input placeholder="Adresse" />
+                            </FormGroup>
+                            <FormGroup>
+                                <Input placeholder="Code Postale" />
+                            </FormGroup>
+                            <FormGroup>
+                                <Input placeholder="Dénomination Sociale" />
+                            </FormGroup>
+                            <FormGroup>
+                                <Input placeholder="Numero de Siret" />
+                            </FormGroup>
+                            <FormGroup>
+                                <Input placeholder="Budget" />
+                            </FormGroup>
+                            <FormGroup>
+                                <Input placeholder="Récurrence" />
+                            </FormGroup>
+                            <FormGroup>
+                                <Input placeholder="Date de début / fin" />
+                            </FormGroup>
+                            <FormGroup>
+                                <Input placeholder="Nb jours / mois travaillés" />
+                            </FormGroup>
+                        </div>      
+                        <h2 className='mission-title'>Outils</h2>
+                        <div className='cards'>
+                            <div className='mission-card'>
+                                <p>Excel</p>
+                                <StarRatingComponent 
+                                    name="rate1" 
+                                    starCount={3}
+                                    value={rating[0].Excel}
+                                    emptyStarColor={`#C4C4C4`}
+                                    onStarClick={(e) => onStarClick(e, 0, 'Excel')}/>
+                            </div>
                         <div className='mission-card'>
                             <p>Powerpoint</p>
                             <StarRatingComponent 

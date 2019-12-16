@@ -3,6 +3,7 @@ div.admin-mission {
     width: 80%;
     height: 100%;
     float: right;
+    margin-top: 80px;
 }
 
 h1.admin-h1{
@@ -12,7 +13,7 @@ h1.admin-h1{
 }
 
 div.notes {
-    width: 60%;
+    width: 80%;
     margin: auto;
 }
 
@@ -34,9 +35,7 @@ Label.label {
 
 Button.btn, Button.btn:hover {
     background: #ED6A09;
-    width: 20%;
-    font-size: larger;
-    margin:0px 40%;
+    margin-bottom: 40px;
 }
 
 ::placeholder {
@@ -44,6 +43,7 @@ Button.btn, Button.btn:hover {
   }
 
 h2.mission-title {
+    color: #ED6A09;
     font-size: 40px;
     display: flex;
     justify-content: center;
@@ -60,8 +60,9 @@ div.mission-card {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 30%;
-    min-width: 30%;
+    margin: 10px;
+    width: 25%;
+    min-width: 25%;
 }
 
 div.select-mission {

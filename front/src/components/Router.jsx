@@ -9,6 +9,7 @@ import HomePageAdmin from './admin/HomePageAdmin'
 import HomePageFreelancer from './freelancer/HomePageFreelancer';
 import MissionCreateAdmin from './admin/MissionCreateAdmin';
 import EditHomePageFreelancer from './freelancer/EditHomePageFreelancer';
+import CompetencesFreelancer from './freelancer/CompetencesFreelancer';
 
 /* ------------------------ Router ---------------------------------- */
 const Router = () => {
@@ -26,6 +27,8 @@ const Router = () => {
                         <Route exact path="/freelancer" component={LandingFreelancer} />
                         <Route exact path="/freelancer/homepage" component={HomePageFreelancer} />
                         <Route exact path="/freelancer/editer/:id" component={EditHomePageFreelancer} />
+                        <Route exact path="/freelancer/competences/" component={CompetencesFreelancer} />
+
                     </Switch>
             </SidebarController>
             </>
