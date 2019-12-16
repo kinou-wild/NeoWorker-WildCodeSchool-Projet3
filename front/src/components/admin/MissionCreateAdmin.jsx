@@ -5,7 +5,7 @@ import {SidebarContext} from '../SidebarContext'
 import './MissionCreateAdmin.css'
 import axios from 'axios'
 
-/* -------- Page d'accueil de la page Freelancer, après connexion ------------------ */
+/* -------- Page creation mission ------------------ */
 const MissionCreateAdmin = () => {
 
      // hooks to create a mission
@@ -218,16 +218,14 @@ const MissionCreateAdmin = () => {
                     <h2 className='mission-title'>Outils</h2>
                     <div className='cards'>
                         <div className='mission-card'>
-                            <p>Excel</p>
-                            <StarRatingComponent 
-                                name="rate1" 
-                                starCount={3}
-                                value={rating[0].Excel}
-                                emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 0, 'Excel')}
-                                />
-                            
-                        </div>
+                                <p>Excel</p>
+                                <StarRatingComponent 
+                                    name="rate1" 
+                                    starCount={3}
+                                    value={rating[0].Excel}
+                                    emptyStarColor={`#C4C4C4`}
+                                    onStarClick={(e) => onStarClick(e, 0, 'Excel')}/>
+                            </div>
                         <div className='mission-card'>
                             <p>Powerpoint</p>
                             <StarRatingComponent 
@@ -333,18 +331,14 @@ const MissionCreateAdmin = () => {
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={onStarClick}/>
                         </div>
-                        
+
                     </div>
                     <Button className='btn' type='submit' 
                     onClick={() => setCreatem({ ...createm, 
                         excel: rating[0].Excel,
                         powerpoint: rating[1].Powerpoint,
                         microsoft_365: rating[1].Powerpoint
-                     })}
-
-
-                    >Valider</Button>
-
+                    })}>Valider</Button>
                     </Form>
             </div>
         </div>

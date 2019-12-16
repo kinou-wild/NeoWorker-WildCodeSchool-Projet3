@@ -8,6 +8,7 @@ import SidebarController from './SidebarContext'
 import HomePageAdmin from './admin/HomePageAdmin'
 import HomePageFreelancer from './freelancer/HomePageFreelancer';
 import EditHomePageFreelancer from './freelancer/EditHomePageFreelancer';
+import CompetencesFreelancer from './freelancer/CompetencesFreelancer';
 
 
 import MissionCreateAdmin from './admin/MissionCreateAdmin';
@@ -40,6 +41,7 @@ const Router = () => {
 
                         <Route exact path="/freelancer/homepage" component={HomePageFreelancer} />
                         <Route exact path="/freelancer/editer/:id" component={EditHomePageFreelancer} />
+                        <Route exact path="/freelancer/competences/" component={CompetencesFreelancer} />
 
 
                         
