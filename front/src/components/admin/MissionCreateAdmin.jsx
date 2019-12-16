@@ -11,8 +11,9 @@ const MissionCreateAdmin = () => {
      // hooks to create a mission
     const [createm, setCreatem] = useState({
         userId: 1,
-        title: "",
-        note:'',
+        nom_mission: "",
+        nom_entreprise:"",
+        note:"",
         numero_siret:0,
         budget:0,
         date_debut:'2019-01-01',
@@ -26,8 +27,6 @@ const MissionCreateAdmin = () => {
         cp:'',
         pref_lieu_de_travail: 0,
         disponibilite: 0,
-        tjm_min: 0,
-        tjm_max: 0,
         excel: 0,
         powerpoint: 0,
         word: 0,
@@ -106,16 +105,7 @@ const MissionCreateAdmin = () => {
         }
 
     }
-
-
-
-    
-
-
-    
-
-
-    /* Le boolean initialisé dans le Sidebar context passe à True à chaque refresh de page, pour que la Sidebar s'affiche */
+   /* Le boolean initialisé dans le Sidebar context passe à True à chaque refresh de page, pour que la Sidebar s'affiche */
     const [showSidebar, setShowSidebar] = useContext(SidebarContext)
 
     useEffect(() => {

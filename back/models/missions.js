@@ -1,25 +1,23 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const missions = sequelize.define('missions', {
-    title:DataTypes.STRING,
-
+    nom_mission:DataTypes.STRING,
+    nom_entreprise:DataTypes, STRING,
     note: DataTypes.STRING,
     numero_siret: DataTypes.INTEGER,
     budget: DataTypes.INTEGER,
-    date_debut:DataTypes.INTEGER,
+    date_debut:DataTypes.DATE,
     date_fin:DataTypes.DATE,
     frequence:DataTypes.STRING,
-
     status:DataTypes.INTEGER,
     address:DataTypes.STRING,
     mobilite: DataTypes.BOOLEAN,
     km_max: DataTypes.INTEGER,
+    siret: DataTypes.INTEGER,
     tel: DataTypes.INTEGER,
     cp:DataTypes.INTEGER,
     pref_lieu_de_travail: DataTypes.INTEGER,
     disponibilite: DataTypes.INTEGER,
-    tjm_min:DataTypes.INTEGER,
-    tjm_max: DataTypes.INTEGER,
     excel: DataTypes.INTEGER,
     powerpoint: DataTypes.INTEGER,
     word: DataTypes.INTEGER,
