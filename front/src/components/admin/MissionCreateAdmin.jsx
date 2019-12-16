@@ -136,7 +136,9 @@ const MissionCreateAdmin = (props) => {
         {gestion_stress:0},
         {creativite:0},
         {esprit_entre:0},
+        {audace:0},
         {vision_visu:0},
+        {motivation:0},
         {presence:0},
         {sens_collectif:0},
         {curiosite:0},
@@ -589,7 +591,7 @@ const MissionCreateAdmin = (props) => {
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[32].creative}
+                                value={rating[32].creativite}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 32, 'creativite')}/>
                         </div>
@@ -667,12 +669,8 @@ const MissionCreateAdmin = (props) => {
                         </div>
                         <div className='mission-card'>
                             <p>Sport</p>
-                            <StarRatingComponent 
-                                name="rate1" 
-                                starCount={3}
-                                value={rating[41].sport}
-                                emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 41, 'sport')}/>
+                            <Input style={{height:'150px'}} type="textaera" name="text" id="notes" />
+                        
                         </div>
                         <div className='mission-card'>
                             <p>Passion </p>
@@ -693,13 +691,8 @@ const MissionCreateAdmin = (props) => {
                                 onStarClick={(e) => onStarClick(e, 43, 'engagement_asso')}/>
                         </div>
                         <div className='mission-card'>
-                            <p>Autres softskills </p>
-                            <StarRatingComponent 
-                                name="rate1" 
-                                starCount={3}
-                                value={rating[44].autres_softskill}
-                                emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 44, 'autres_softskills')}/>
+                            <p>Autres soft skills </p>
+                            <Input style={{height:'150px'}} type="textaera" name="text" id="notes" />
                         </div>
                         <div className='mission-card'>
                             <p>Gestion admin compta </p>
@@ -771,7 +764,7 @@ const MissionCreateAdmin = (props) => {
                                 starCount={3}
                                 value={rating[52].gestion_rel_client}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 52, 'gestion_relation_client')}/>
+                                onStarClick={(e) => onStarClick(e, 52, 'gestion_rel_client')}/>
                         </div>
                         
 
@@ -871,33 +864,25 @@ const MissionCreateAdmin = (props) => {
                         gestion_stress:rating[32].gestion_stress,
                         creativite:rating[33].creativite,
                         esprit_entre:rating[34].esprit_entre,
-                        vision_visu:rating[35].vision_visu,
-                        presence:rating[36].presence,
-                        sens_collectif:rating[37].sens_collectif,
-                        curiosite:rating[38].curiosite,
-                        sens_effort:rating[39].sens_effort,
-                        sport:rating[40].sport,
-                        passion:rating[41].passion,
-                        engagement_asso:rating[42].engagement_asso,
-                        autres_softskill:rating[43].autres_softskill,
-                        gestion_admin_compta:rating[44].gestion_admin_compta,
-                        gestion_ope:rating[45].gestion_ope,
-                        gestion_commerciale:rating[46].gestion_commerciale,
-                        marketing_com_digit:rating[47].marketing_com_digit,
-                        gestion_fi_controle_gestion:rating[48].gestion_fi_controle_gestion,
-                        dsi:rating[49].dsi,
-                        gestion_rh_juridique:rating[50].gestion_rh_juridique,
-                        gestion_rel_client:rating[52].gestion_rel_client,
-
-
-
-
-
-
-
-
-                        
-
+                        audace:rating[35].audace,
+                        vision_visu:rating[36].vision_visu,
+                        motivation:rating[37].motivation,
+                        presence:rating[38].presence,
+                        sens_collectif:rating[39].sens_collectif,
+                        curiosite:rating[40].curiosite,
+                        sens_effort:rating[41].sens_effort,
+                        sport:rating[42].sport,
+                        passion:rating[43].passion,
+                        engagement_asso:rating[44].engagement_asso,
+                        autres_softskill:rating[45].autres_softskill,
+                        gestion_admin_compta:rating[46].gestion_admin_compta,
+                        gestion_ope:rating[47].gestion_ope,
+                        gestion_commerciale:rating[48].gestion_commerciale,
+                        marketing_com_digit:rating[49].marketing_com_digit,
+                        gestion_fi_controle_gestion:rating[50].gestion_fi_controle_gestion,
+                        dsi:rating[51].dsi,
+                        gestion_rh_juridique:rating[52].gestion_rh_juridique,
+                        gestion_rel_client:rating[53].gestion_rel_client,
 
 
                     })}>Valider</Button>                    
