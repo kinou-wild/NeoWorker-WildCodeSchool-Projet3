@@ -28,9 +28,7 @@ const Router = () => {
                         <Route exact path="/neoworker" component={LandingFreelancer} />
                         <Route exact path="/admin" component={LandingAdmin} />
                         <Route exact path="/admin/homepage" component={HomePageAdmin} />
-<<<<<<< HEAD
                         <Route exact path="/neoworker/homepage" component={HomePageFreelancer} />
-=======
 
                         {/* route pour see all missions, create, delete, update */}
                         <Route exact path="/missions" component={GetAllMissions} />
@@ -51,7 +49,6 @@ const Router = () => {
 
 
 
->>>>>>> antho_tj
                     </Switch>
             </SidebarController>
             </>
