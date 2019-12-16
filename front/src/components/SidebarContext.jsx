@@ -8,10 +8,13 @@ const SidebarController = (props) => {
 
     /* Nos hooks, nos méthodes, nos states */
     const [showSidebar, setShowSidebar] = useState(false)
-    
+    const [roleSidebar, setRoleSidebar] = useState("")
+
+
+
     return(
         /* Création du provider  qui fais le lien avec le controller, et c'est l'intérieur qu'on injecte tout ce qu'on veut faire passer */
-        <SidebarContext.Provider value={[showSidebar, setShowSidebar]}>
+        <SidebarContext.Provider value={{ hook: [showSidebar, setShowSidebar], hook2: [roleSidebar, setRoleSidebar]}}>
             {props.children}
         </SidebarContext.Provider>
     )

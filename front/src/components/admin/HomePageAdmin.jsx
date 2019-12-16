@@ -6,10 +6,13 @@ import './HomePageAdmin.css'
 const HomePageAdmin = () => {
 
     /* Le boolean initialisé dans le Sidebar context passe à True à chaque refresh de page, pour que la Sidebar s'affiche */
-    const [showSidebar, setShowSidebar] = useContext(SidebarContext)
+    const { hook, hook2 } = useContext(SidebarContext)
+    const [showSidebar, setShowSidebar] = hook
+    const [roleSidebar, setRoleSidebar] = hook2
 
     useEffect(() => {
         setShowSidebar(true)
+        setRoleSidebar("admin")
     })
 
     return(
