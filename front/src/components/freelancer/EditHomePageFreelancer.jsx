@@ -21,13 +21,18 @@ const EditHomePageFreelancer = (props) => {
           //hooks pour modif le freelancer
           const[updateFreelancer, setUpdateFreelancer]= useState({
               img: "",
-              metier: "",
+              title: "",
               firstname: "",
               lastname: "",
               address: "",
               mobilite: 0,
+              km_max:0,
+              tel:0,
+              cp:0,
               pref_lieu_de_travail: 0,
               disponibilite: 0,
+              tjm_min:0,
+              tjm_max:0,
               fourchette_tarifaire: 0,
               password: "",
               email: ""
@@ -44,7 +49,6 @@ const EditHomePageFreelancer = (props) => {
              e.preventDefault()
              axios.put(`http://localhost:5000/user/${params.id}`, updateUser)
              .catch(err => console.log(err))
-            console.log(updateUser)
             }
         
         
@@ -53,7 +57,6 @@ const EditHomePageFreelancer = (props) => {
             e.preventDefault()
               axios.put(`http://localhost:5000/freelancer/${params.id}`, updateFreelancer)
               .catch(err=>console.log(err))
-              console.log(updateFreelancer)
           }
         
           //fonction qui regroupe l'axios put du dataUserFree et l'axios du dataFree
@@ -92,12 +95,23 @@ const EditHomePageFreelancer = (props) => {
           <input type="text" id="mobilite" name="mobilite" value={updateFreelancer.mobilite} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, mobilite: e.target.value }) }} />
           <p>pref_lieu_de_travail</p>
           <input type="text" id="pref_lieu_de_travail" name="pref_lieu_de_travail" value={updateFreelancer.pref_lieu_de_travail} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, pref_lieu_de_travail: e.target.value }) }} />
-          <p>disponibilite</p>
+          <p>Tél</p>
+          <input type="text" id="tel" name="tel" value={updateFreelancer.tel} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, tel: e.target.value }) }} />
+          <p>km Max</p>
+          <input type="text" id="km_max" name="km_max" value={updateFreelancer.km_max} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, km_max: e.target.value }) }} />
+          <p>disponibilite</p>  
           <input type="text" id="disponibilite" name="disponibilite" value={updateFreelancer.disponibilite} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, disponibilite: e.target.value }) }} />
-          <p>fourchette_tarifaire</p>
-          <input type="text" id="fourchette_tarifaire" name="fourchette_tarifaire" value={updateFreelancer.fourchette_tarifaire} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, fourchette_tarifaire: e.target.value }) }} />
-
+          <p>tjm_min</p>
+          <input type="text" id="tjm_min" name="tjm_min" value={updateFreelancer.tjm_min} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, tjm_min: e.target.value }) }} />
+          <p>tjm_max</p>
+          <input type="text" id="tjm_max" name="tjm_max" value={updateFreelancer.tjm_max} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, tjm_max: e.target.value }) }} />
+          <p>cp</p>
+          <input type="text" id="cp" name="cp" value={updateFreelancer.cp} required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, cp: e.target.value }) }} />
+          
           <button type="submit">Update</button>
+
+
+        
 
         </form>
 

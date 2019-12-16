@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     users.belongsToMany(models.freelancer,{
         through: 'tj_users_f'
     })
-    users.belongsToMany(models.Missions,{
+    users.belongsToMany(models.missions,{
         through: 'tj_users_missions'
     })
   };

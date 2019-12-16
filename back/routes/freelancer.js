@@ -4,9 +4,6 @@ const express = require('express')
 const path = require('path')
 
 
-
-
-
 module.exports = function(app) {
 
     app.get('/freelancer/:id', (req, res) => {
@@ -17,7 +14,6 @@ module.exports = function(app) {
     })
 
 
-
     app.get('/freelancers', (req,res)=>{
         models
         .freelancer
@@ -25,7 +21,7 @@ module.exports = function(app) {
         .then(x=>res.json(x))
     })
 
-    
+
 
      //création freelancer
     app.post('/freelancers', (req, res) => {
