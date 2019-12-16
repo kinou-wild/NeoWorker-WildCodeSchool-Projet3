@@ -29,8 +29,8 @@ const UpdateDeleteMission =(props)=>{
     return(
     <div>
          <form onSubmit={fetchDataMission}>
-         <input id="title" name="title" value={updateIdMission.title} required type="text"
-        onChange={(e) => { setUpdateIdMission({ ...updateIdMission, title: e.target.value }) }} />
+         <input id="nom_mission" name="nom_mission" value={updateIdMission.nom_mission} required type="text"
+        onChange={(e) => { setUpdateIdMission({ ...updateIdMission, nom_mission: e.target.value }) }} />
         <button type="submit">submit</button>
 
         </form>

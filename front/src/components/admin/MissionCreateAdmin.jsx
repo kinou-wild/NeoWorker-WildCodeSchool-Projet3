@@ -4,9 +4,11 @@ import StarRatingComponent from 'react-star-rating-component';
 import {SidebarContext} from '../SidebarContext'
 import './MissionCreateAdmin.css'
 import axios from 'axios'
+import { Link, withRouter } from 'react-router-dom';
+
 
 /* -------- Page creation mission ------------------ */
-const MissionCreateAdmin = () => {
+const MissionCreateAdmin = (props) => {
 
      // hooks to create a mission
     const [createm, setCreatem] = useState({
@@ -118,6 +120,7 @@ const MissionCreateAdmin = () => {
         e.preventDefault()
         axios.post('http://localhost:5000/missions', createm)
             .catch((err) => console.log(err))
+        props.history.push('/missions')
     }
 
     return(
@@ -157,11 +160,11 @@ const MissionCreateAdmin = () => {
                     </div>
                     <FormGroup>
                             <Input style={{textAlign:'center'}} placeholder="Nom de la mission"
-                            id="title"
-                            name="title"
-                            value={createm.title}
+                            id="nom_mission"
+                            name="nom_mission"
+                            value={createm.nom_mission}
                             required type="text"
-                            onChange={(e) => { setCreatem({ ...createm, title: e.target.value }) }} />
+                            onChange={(e) => { setCreatem({ ...createm, nom_mission: e.target.value }) }} />
                     </FormGroup>
                     <div className='champs-mission'>
                     <FormGroup>
@@ -333,16 +336,16 @@ const MissionCreateAdmin = () => {
                         </div>
 
                     </div>
-                    <Button className='btn' type='submit' 
-                    onClick={() => setCreatem({ ...createm, 
-                        excel: rating[0].Excel,
-                        powerpoint: rating[1].Powerpoint,
-                        microsoft_365: rating[1].Powerpoint
-                    })}>Valider</Button>
+                     <Button className='btn' type='submit'
+                        onClick={() => setCreatem({
+                            ...createm,
+                            excel: rating[0].Excel
+                        })}>Valider</Button>
                     </Form>
+                  
             </div>
         </div>
     )
 }
 
-export default MissionCreateAdmin
+export default withRouter(MissionCreateAdmin)
