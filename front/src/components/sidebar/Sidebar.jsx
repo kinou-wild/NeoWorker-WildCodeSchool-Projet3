@@ -38,8 +38,8 @@ const Sidebar = (props) => {
                 </Link>
                 <p className="sidebar-field" onClick={changeFieldBoolean2}>Missions</p>
                 <Link to='/'>
-                    <Link to='/admin/mission/créer'><p className={hiddenfield2 === true ? "sidebar-little-field" : "sidebar-hidden-little-field"}>Créer</p></Link>
-                    <p className={hiddenfield2 === true ? "sidebar-little-field" : "sidebar-hidden-little-field"}>Liste</p>
+                    <Link to='/admin/mission/creer'><p className={hiddenfield2 === true ? "sidebar-little-field" : "sidebar-hidden-little-field"}>Créer</p></Link>
+                    <Link to='/missions'><p className={hiddenfield2 === true ? "sidebar-little-field" : "sidebar-hidden-little-field"}>Liste</p></Link>
                 </Link>
                 <Link to='/'><p className="sidebar-field">Historique matching</p></Link>
             </div>
