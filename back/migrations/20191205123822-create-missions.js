@@ -8,8 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       }, 
-      title:{
+      nom_mission:{
         type:Sequelize.STRING
+      },
+      nom_entreprise :{
+        type:Sequelize.INTEGER
       },
       status: {
         type: Sequelize.INTEGER
@@ -34,13 +37,6 @@ module.exports = {
       },
       disponibilite: {
         type: Sequelize.INTEGER
-      },
-      tjm_min:{
-        type:Sequelize.INTEGER
-      },
-      tjm_max:{
-        type: Sequelize.INTEGER
-
       },
       excel: {
         type: Sequelize.INTEGER
