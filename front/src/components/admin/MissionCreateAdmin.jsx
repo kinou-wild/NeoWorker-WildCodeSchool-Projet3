@@ -130,30 +130,6 @@ const MissionCreateAdmin = () => {
             <div className='notes'>
                 <Form onSubmit={createMissions}>
                     <FormGroup>
-{/*                         <Input style={{height:'150px'}} placeholder='Notes :'type="textarea" name="text" id="notes" />
-                    </FormGroup>
-                        <div className='select-mission'>
-                            <FormGroup>
-                                <Input type="select" name="select" id="exampleSelect">
-                                    <option>Préférence lieu de travail</option>
-                                    <option>Présence en entreprise</option>
-                                    <option>Travail à distance</option>
-                                </Input>
-                            </FormGroup>
-                            <FormGroup>
-                                <Input type="select" name="select" id="exampleSelect">
-                                    <option>Profil</option>
-                                    <option>Regular</option>
-                                    <option>Expert</option>
-                                </Input>
-                            </FormGroup>
-                            <FormGroup>
-                                <Input type="select" name="select" id="exampleSelect">
-                                    <option>Fréquence</option>
-                                    <option>Ponctuelle</option>
-                                    <option>Récurrente</option>
-                                </Input>
-                            </FormGroup> */}
                             <Input style={{height:'150px'}} placeholder='Notes :'type="textarea" name="text" id="notes" />
                     </FormGroup>
                     <div className='select-mission'>
@@ -242,60 +218,6 @@ const MissionCreateAdmin = () => {
                     <h2 className='mission-title'>Outils</h2>
                     <div className='cards'>
                         <div className='mission-card'>
-                            <p>Excel</p>
-                            <StarRatingComponent 
-                                name="rate1" 
-                                starCount={3}
-                                value={rating[0].Excel}
-                                emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 0, 'Excel')}
-                                />
-                            
-                        </div>
-                        <FormGroup>
-                            <Input style={{textAlign:'center'}} placeholder="Nom de la mission" />
-                        </FormGroup>
-                        <div className='champs-mission'>
-                            <FormGroup>
-                                <Input placeholder="Nom de l'entreprise" />
-                            </FormGroup>
-                            <FormGroup>
-                                <Input placeholder="Nom du responsable" />
-                            </FormGroup>
-                            <FormGroup>
-                                <Input placeholder="Email" />
-                            </FormGroup>
-                            <FormGroup>
-                                <Input placeholder="Téléphone" />
-                            </FormGroup>
-                            <FormGroup>
-                                <Input placeholder="Adresse" />
-                            </FormGroup>
-                            <FormGroup>
-                                <Input placeholder="Code Postale" />
-                            </FormGroup>
-                            <FormGroup>
-                                <Input placeholder="Dénomination Sociale" />
-                            </FormGroup>
-                            <FormGroup>
-                                <Input placeholder="Numero de Siret" />
-                            </FormGroup>
-                            <FormGroup>
-                                <Input placeholder="Budget" />
-                            </FormGroup>
-                            <FormGroup>
-                                <Input placeholder="Récurrence" />
-                            </FormGroup>
-                            <FormGroup>
-                                <Input placeholder="Date de début / fin" />
-                            </FormGroup>
-                            <FormGroup>
-                                <Input placeholder="Nb jours / mois travaillés" />
-                            </FormGroup>
-                        </div>      
-                        <h2 className='mission-title'>Outils</h2>
-                        <div className='cards'>
-                            <div className='mission-card'>
                                 <p>Excel</p>
                                 <StarRatingComponent 
                                     name="rate1" 
@@ -409,7 +331,7 @@ const MissionCreateAdmin = () => {
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={onStarClick}/>
                         </div>
-                        
+
                     </div>
                     <Button className='btn' type='submit' 
                     onClick={() => setCreatem({ ...createm, 
@@ -417,7 +339,6 @@ const MissionCreateAdmin = () => {
                         powerpoint: rating[1].Powerpoint,
                         microsoft_365: rating[1].Powerpoint
                     })}>Valider</Button>
-</div>
                     </Form>
             </div>
         </div>
