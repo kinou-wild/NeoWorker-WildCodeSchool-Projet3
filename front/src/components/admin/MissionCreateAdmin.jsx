@@ -15,7 +15,10 @@ const MissionCreateAdmin = (props) => {
         userId: 1,
         nom_mission: "",
         nom_entreprise:"",
+        email:'',
         note:"",
+        nb_j_par_mois:0,
+        type_profil:"",
         numero_siret:0,
         budget:0,
         date_debut:'2019-01-01',
@@ -90,6 +93,7 @@ const MissionCreateAdmin = (props) => {
         russe: 0,
         arabe: 0,
         allemand: 0,
+        espagnol:0,
         autres_langue: ""
     })
 
@@ -842,12 +846,7 @@ const MissionCreateAdmin = (props) => {
 
 
 
-                    })}>Valider</Button>
-                     <Button className='btn' type='submit'
-                        onClick={() => setCreatem({
-                            ...createm,
-                            excel: rating[0].Excel
-                        })}>Valider</Button>
+                    })}>Valider</Button>                    
                     </Form>
                   
             </div>
