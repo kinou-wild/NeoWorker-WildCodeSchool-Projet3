@@ -32,11 +32,13 @@ const GetAllMissions = () => {
     
    
     return(
-        <div>
+        <div style={{marginLeft:'300px'}}>
             {missions.map(x =>
                 <div>   
                     <p>titre</p>
-                    <p>{x.title}</p>
+                    <p>{x.nom_mission}</p>
+                    <p>{x.address}</p>
+
                     <p>status</p>
                     <p>{x.status}</p>
                     <p>{x.id}</p>                    
