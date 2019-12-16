@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     budget: DataTypes.INTEGER,
     date_debut:DataTypes.INTEGER,
     date_fin:DataTypes.DATE,
-    frequence:DataTypes.DATE,
+    frequence:DataTypes.STRING,
 
     status:DataTypes.INTEGER,
     address:DataTypes.STRING,
