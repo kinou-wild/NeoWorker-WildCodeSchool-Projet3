@@ -863,6 +863,60 @@ const MissionCreateAdmin = (props) => {
                         word: rating[3].Word,
                         crm_hubspot: rating[4].crm_hubspot,
                         crm_salesforce: rating[5].crm_salesforce,
+                        crm_pipedrive: rating[6].crm_pipedrive,
+                        crm:rating[7].crm,
+                        suite_adobe:rating[8].suite_adobe,
+                        illustrator:rating[9].illustrator,
+                        in_design:rating[10].in_design,
+                        photoshop:rating[11].photoshop,
+                        marketing_fb:rating[12].marketing_fb,
+                        google_adwards:rating[13].google_adwards,
+                        insta:rating[14].insta,
+                        reseaux_sociaux:rating[15].reseaux_sociaux,
+                        keynote:rating[16].keynote,
+                        pages:rating[17].pages,
+                        gsuite_google:rating[18].gsuite_google,
+                        numbers:rating[19].numbers,
+                        erp_sap:rating[20].erp_sap,
+                        ciel_gestion:rating[21].ciel_gestion,
+                        cegid:rating[22].cegid,
+                        sage_gestion_commercial:rating[23].sage_gestion_commercial,
+                        sage_comptabilite:rating[24].sage_comptabilite,
+                        quadra:rating[25].quadra,
+                        reso_pb:rating[26].reso_pb,
+                        confiance:rating[27].confiance,
+                        empathie:rating[28].empathie,
+                        intelligence_emo:rating[29].intelligence_emo,
+                        communication:rating[30].communication,
+                        gestion_temps:rating[31].gestion_temps,
+                        gestion_stress:rating[32].gestion_stress,
+                        creativite:rating[33].creativite,
+                        esprit_entre:rating[34].esprit_entre,
+                        vision_visu:rating[35].vision_visu,
+                        presence:rating[36].presence,
+                        sens_collectif:rating[37].sens_collectif,
+                        curiosite:rating[38].curiosite,
+                        sens_effort:rating[39].sens_effort,
+                        sport:rating[40].sport,
+                        passion:rating[41].passion,
+                        engagement_asso:rating[42].engagement_asso,
+                        autres_softskill:rating[43].autres_softskill,
+                        gestion_admin_compta:rating[44].gestion_admin_compta,
+                        gestion_ope:rating[45].gestion_ope,
+                        gestion_commerciale:rating[46].gestion_commerciale,
+                        marketing_com_digit:rating[47].marketing_com_digit,
+                        gestion_fi_controle_gestion:rating[48].gestion_fi_controle_gestion,
+                        dsi:rating[49].dsi,
+                        gestion_rh_juridique:rating[50].gestion_rh_juridique,
+                        gestion_rel_client:rating[52].gestion_rel_client,
+
+
+
+
+
+
+
+
                         
 
 
