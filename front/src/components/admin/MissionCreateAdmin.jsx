@@ -17,10 +17,10 @@ const MissionCreateAdmin = (props) => {
         nom_entreprise:"",
         email:'',
         note:"",
-        nb_j_par_mois:0,
+        nb_j_par_mois:'',
         type_profil:"",
-        numero_siret:0,
-        budget:0,
+        siret:'',
+        budget:'',
         date_debut:'2019-01-01',
         date_fin:'2019-01-01',
         frequence:'',
@@ -154,11 +154,10 @@ const MissionCreateAdmin = (props) => {
         {gestion_fi_controle_gestion:0},
         {dsi:0},
         {gestion_rh_juridique:0},
-        {gestion_rel_client:0}
+        {gestion_rel_client:0},
+        //ajout dans la bdd
+        {espagnol:0}//56
 
-
-
-        
         ])
     
          /* quand on clic sur une étoile, elle prend la valeur du clic, si on reclic, elle revient à 0 */
@@ -197,28 +196,45 @@ const MissionCreateAdmin = (props) => {
             <div className='notes'>
                 <Form onSubmit={createMissions}>
                     <FormGroup>
-                            <Input style={{height:'150px'}} placeholder='Notes :'type="textarea" name="text" id="notes" />
+                            <Input style={{height:'150px'}} placeholder='Notes :'type="textarea" name="notes" id="notes" 
+                            value={createm.note}
+                                                        onChange={(e) => { setCreatem({ ...createm, note: e.target.value }) }}/>
                     </FormGroup>
                     <div className='select-mission'>
                     <FormGroup>
-                    <Input type="select" name="select" id="exampleSelect">
+                    <Input type="select" name="pref_lieu_de_travail" id='pref_lieu_de_travail'
+                                value={createm.pref_lieu_de_travail}
+                                                                onChange={(e) => { setCreatem({ ...createm, pref_lieu_de_travail: e.target.value }) }}>
                         <option>Préférence lieu de travail</option>
                         <option>Présence en entreprise</option>
                         <option>Travail à distance</option>
                     </Input>
                     </FormGroup>
                     <FormGroup>
-                    <Input type="select" name="select" id="exampleSelect">
+                    <Input type="select" name="type_profil" id='type_profil'
+                                value={createm.type_profil}
+                                                                onChange={(e) => { setCreatem({ ...createm, type_profil: e.target.value }) }}>
                         <option>Profil</option>
                         <option>Regular</option>
                         <option>Expert</option>
                     </Input>
                     </FormGroup>
                     <FormGroup>
-                    <Input type="select" name="select" id="exampleSelect">
+                            <Input type="select" name="frequence" id='frequence'
+                                value={createm.frequence}
+                                                                onChange={(e) => { setCreatem({ ...createm, frequence: e.target.value }) }}>
                         <option>Fréquence</option>
-                        <option>Ponctuelle</option>
+                        <option>Ponctuelle</option> 
                         <option>Récurrente</option>
+                    </Input>
+                    </FormGroup>
+                     <FormGroup>
+                            <Input type="select" name="mobilite" id='mobilite'
+                            value={createm.mobilite}
+                            onChange={(e) => { setCreatem({ ...createm, mobilite: e.target.value }) }}>
+                        <option>Mobilite</option>
+                        <option>Oui</option> 
+                        <option>Non</option> 
                     </Input>
                     </FormGroup>
                     </div>
@@ -227,23 +243,31 @@ const MissionCreateAdmin = (props) => {
                             id="nom_mission"
                             name="nom_mission"
                             value={createm.nom_mission}
-                            required type="text"
+                            type="text"
                             onChange={(e) => { setCreatem({ ...createm, nom_mission: e.target.value }) }} />
                     </FormGroup>
                     <div className='champs-mission'>
                     <FormGroup>
-                            <Input placeholder="Nom de l'entreprise manque dans la bdd" />
-{/* manque dans la bdd */}
+                            <Input placeholder="Nom de l'entreprise manque dans la bdd"
+                            id="nom_entreprise"
+                            name="nom_entreprise"
+                            value={createm.nom_entreprise}
+                            type="text"
+                            onChange={(e) => { setCreatem({ ...createm, nom_entreprise: e.target.value }) }} />
                     </FormGroup>
                     <FormGroup>
-                            <Input placeholder="Email" />
+                            <Input placeholder="Email" id="email"
+                            name="email"
+                            value={createm.email}
+                            type="email"
+                            onChange={(e) => { setCreatem({ ...createm, email: e.target.value }) }}/>
                     </FormGroup>
                     <FormGroup>
                             <Input placeholder="Téléphone" 
                             id="tel"
                             name="tel"
                             value={createm.tel}
-                            required type="tel"
+                            type="tel"
                             onChange={(e) => { setCreatem({ ...createm, tel: e.target.value }) }}/>
                     </FormGroup>
                     <FormGroup>
@@ -251,7 +275,7 @@ const MissionCreateAdmin = (props) => {
                             id="address"
                             name="address"
                             value={createm.address}
-                            required type="text"
+                            type="text"
                             onChange={(e) => { setCreatem({ ...createm, address: e.target.value }) }}/>
                     </FormGroup>
                     <FormGroup>
@@ -259,27 +283,48 @@ const MissionCreateAdmin = (props) => {
                             id="cp"
                             name="cp"
                             value={createm.cp}
-                            required type="number"
+                            type="number"
                             onChange={(e) => { setCreatem({ ...createm, cp: e.target.value }) }} />
                     </FormGroup>
                     <FormGroup>
-                            <Input placeholder="Dénomination Sociale" />
+                            <Input placeholder="Numero de Siret"
+                            id="siret"
+                            name="siret"
+                            value={createm.siret}
+                            type="number"
+                            onChange={(e) => { setCreatem({ ...createm, siret: e.target.value }) }} />
                     </FormGroup>
                     <FormGroup>
-                            <Input placeholder="Numero de Siret" />
+                            <Input placeholder="Budget"
+                            id="budget"
+                            name="budget"
+                            value={createm.budget}
+                            type="number"
+                            onChange={(e) => { setCreatem({ ...createm, budget: e.target.value }) }} />
+                    </FormGroup>    
+                    <FormGroup>
+                            <Input placeholder="Date de début" 
+                            id="date_debut"
+                            name="date_debut"
+                            value={createm.date_debut}
+                            type="number"
+                            onChange={(e) => { setCreatem({ ...createm, date_debut: e.target.value }) }}/>
+                    </FormGroup>
+                     <FormGroup>
+                            <Input placeholder="Date de fin" 
+                            id="date_fin"
+                            name="date_fin"
+                            value={createm.date_fin}
+                            type="number"
+                            onChange={(e) => { setCreatem({ ...createm, date_fin: e.target.value }) }}/>
                     </FormGroup>
                     <FormGroup>
-                            <Input placeholder="Budget" />
-                    </FormGroup>
-
-                    <FormGroup>
-                            <Input placeholder="Récurrence" />
-                    </FormGroup>
-                    <FormGroup>
-                            <Input placeholder="Date de début / fin" />
-                    </FormGroup>
-                    <FormGroup>
-                            <Input placeholder="Nb jours / mois travaillés" />
+                            <Input placeholder="Nb jours / mois travaillés"
+                            id="nb_j_par_mois"
+                            name="nb_j_par_mois"
+                            value={createm.nb_j_par_mois}
+                            type="number"
+                            onChange={(e) => { setCreatem({ ...createm, nb_j_par_mois: e.target.value }) }}/>
                     </FormGroup>
                     </div>
                     <h2 className='mission-title'>Outils</h2>
