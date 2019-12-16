@@ -7,6 +7,7 @@ import AdminFreelancerChoose from './AdminFreelancerChoose'
 import SidebarController from './SidebarContext'
 import HomePageAdmin from './admin/HomePageAdmin'
 import HomePageFreelancer from './freelancer/HomePageFreelancer';
+import Creation_NeoWorker_Page from './admin/Creation_NeoWorker_Page'
 
 /* ------------------------ Router ---------------------------------- */
 const Router = () => {
@@ -19,8 +20,10 @@ const Router = () => {
                         <Route exact path="/" component={AdminFreelancerChoose} />
                         <Route exact path="/neoworker" component={LandingFreelancer} />
                         <Route exact path="/admin" component={LandingAdmin} />
-                        <Route exact path="/admin/homepage" component={HomePageAdmin} />
+                        <Route exact path="/admin/homepage" component={HomePageAdmin} /> 
+                        <Route exact path="/admin/createNewNeoworker" component={Creation_NeoWorker_Page} />
                         <Route exact path="/neoworker/homepage" component={HomePageFreelancer} />
+                       
                     </Switch>
             </SidebarController>
             </>
