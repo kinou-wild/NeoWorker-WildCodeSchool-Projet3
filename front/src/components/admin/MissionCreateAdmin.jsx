@@ -91,15 +91,12 @@ const MissionCreateAdmin = () => {
         autres_langue: ""
     })
 
-
-
     /* hooks pour le rating par étoiles */
     const [rating, setRating] = useState([{Excel:0}, {Powerpoint:0}, {MicrosoftOffice:0}, {observation:0}, {temps:0}, {}, {}, {},{}])
     /* quand on clic sur une étoile, elle prend la valeur du clic, si on reclic, elle revient à 0 */
     const onStarClick = (nextValue, index, name) => {
         if (rating[index][name] === nextValue) {
             setRating([...rating, rating[index][name] = 0])
-
         } else {
             setRating([...rating, rating[index][name] = nextValue]);
         }
@@ -130,25 +127,43 @@ const MissionCreateAdmin = () => {
             <div className='notes'>
                 <Form onSubmit={createMissions}>
                     <FormGroup>
-                            <Input style={{height:'150px'}} placeholder='Notes :'type="textarea" name="text" id="notes" />
+                            <Input style={{height:'150px'}} placeholder='Notes :'type="textarea" name="text" id="notes" 
+                            id="nom_mission"
+                            name="nom_mission"
+                            value={createm.nom_mission}
+                            required type="text"
+                            onChange={(e) => { setCreatem({ ...createm, nom_mission: e.target.value }) }}
+                            />
                     </FormGroup>
                     <div className='select-mission'>
                     <FormGroup>
-                    <Input type="select" name="select" id="exampleSelect">
+                    <Input type="select" 
+                        id="pref_lieu_de_travail"
+                        name="pref_lieu_de_travail"
+                        value={createm.pref_lieu_de_travail}
+                        onChange={(e) => { setCreatem({ ...createm, pref_lieu_de_travail: e.target.value }) }}>
                         <option>Préférence lieu de travail</option>
                         <option>Présence en entreprise</option>
                         <option>Travail à distance</option>
+                        <option>Peu import</option>
                     </Input>
                     </FormGroup>
                     <FormGroup>
-                    <Input type="select" name="select" id="exampleSelect">
+                    <Input type="select" name="select" id="exampleSelect"
+                            id="profil"
+                            name="profil"
+                            value={createm.profil}
+                            onChange={(e) => { setCreatem({ ...createm, profil: e.target.value }) }}>
                         <option>Profil</option>
                         <option>Regular</option>
                         <option>Expert</option>
                     </Input>
                     </FormGroup>
                     <FormGroup>
-                    <Input type="select" name="select" id="exampleSelect">
+                    <Input type="select" id="frequence"
+                    name="frequence"
+                    value={createm.frequence}
+                    onChange={(e) => { setCreatem({ ...createm, frequence: e.target.value }) }}>
                         <option>Fréquence</option>
                         <option>Ponctuelle</option>
                         <option>Récurrente</option>
@@ -157,26 +172,30 @@ const MissionCreateAdmin = () => {
                     </div>
                     <FormGroup>
                             <Input style={{textAlign:'center'}} placeholder="Nom de la mission"
-                            id="title"
-                            name="title"
-                            value={createm.title}
+                            id="nom_mission"
+                            name="nom_mission"
+                            value={createm.nom_mission}
                             required type="text"
-                            onChange={(e) => { setCreatem({ ...createm, title: e.target.value }) }} />
+                            onChange={(e) => { setCreatem({ ...createm, nom_mission: e.target.value }) }} />
                     </FormGroup>
                     <div className='champs-mission'>
                     <FormGroup>
-                            <Input placeholder="Nom de l'entreprise manque dans la bdd" />
-{/* manque dans la bdd */}
+                            <Input placeholder="Nom de l'entreprise" 
+                            id="nom_entreprise"
+                            name="nom_entreprise"
+                            value={createm.nom_entreprise}
+                            required type="text"
+                            onChange={(e) => { setCreatem({ ...createm, nom_entreprise: e.target.value }) }} />
                     </FormGroup>
                     <FormGroup>
-                            <Input placeholder="Email" />
+                            <Input placeholder="Email"/>
                     </FormGroup>
                     <FormGroup>
                             <Input placeholder="Téléphone" 
                             id="tel"
                             name="tel"
                             value={createm.tel}
-                            required type="tel"
+                            required type="number"
                             onChange={(e) => { setCreatem({ ...createm, tel: e.target.value }) }}/>
                     </FormGroup>
                     <FormGroup>
@@ -196,23 +215,44 @@ const MissionCreateAdmin = () => {
                             onChange={(e) => { setCreatem({ ...createm, cp: e.target.value }) }} />
                     </FormGroup>
                     <FormGroup>
-                            <Input placeholder="Dénomination Sociale" />
+                            <Input placeholder="Numéro de Siret"
+                            id="numero_siret"
+                            name="numero_siret"
+                            value={createm.numero_siret}
+                            required type="number"
+                            onChange={(e) => { setCreatem({ ...createm, numero_siret: e.target.value }) }} />
                     </FormGroup>
                     <FormGroup>
-                            <Input placeholder="Numero de Siret" />
+                            <Input placeholder="Budget"
+                            id="budget"
+                            name="budget"
+                            value={createm.budget}
+                            required type="number"
+                            onChange={(e) => { setCreatem({ ...createm, budget: e.target.value }) }} />
                     </FormGroup>
                     <FormGroup>
-                            <Input placeholder="Budget" />
-                    </FormGroup>
-
-                    <FormGroup>
-                            <Input placeholder="Récurrence" />
-                    </FormGroup>
-                    <FormGroup>
-                            <Input placeholder="Date de début / fin" />
+                            <Input placeholder="Date de début"
+                            id="date_debut"
+                            name="date_debut"
+                            value={createm.date_debut}
+                            required type="date"
+                            onChange={(e) => { setCreatem({ ...createm, date_debut: e.target.value }) }} />
                     </FormGroup>
                     <FormGroup>
-                            <Input placeholder="Nb jours / mois travaillés" />
+                            <Input placeholder="Date de fin"
+                            id="date_fin"
+                            name="date_fin"
+                            value={createm.date_fin}
+                            required type="date"
+                            onChange={(e) => { setCreatem({ ...createm, date_fin: e.target.value }) }} />
+                    </FormGroup>
+                    <FormGroup>
+                            <Input placeholder="Nb jours / mois travaillés"
+                            id="nb_jour_par_mois"
+                            name="nb_jour_par_mois"
+                            value={createm.nb_jour_par_mois}
+                            required type="number"
+                            onChange={(e) => { setCreatem({ ...createm, nb_jour_par_mois: e.target.value }) }} />
                     </FormGroup>
                     </div>
                     <h2 className='mission-title'>Outils</h2>
@@ -278,58 +318,76 @@ const MissionCreateAdmin = () => {
                     <h2 className='mission-title'>Langues</h2>
                     <div className='cards'>
                         <div className='mission-card'>
+                            <p>Français</p>
+                            <StarRatingComponent 
+                                name="rate1" 
+                                starCount={3}
+                                value={rating[53].francais}
+                                emptyStarColor={`#C4C4C4`}
+                                onStarClick={(e) => onStarClick(e, 53, 'francais')}/>
+                        </div>
+                        <div className='mission-card'>
                             <p>Anglais</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating}
+                                value={rating[54].anglais}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={onStarClick}/>
+                                onStarClick={(e) => onStarClick(e, 54, 'anglais')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Espagnol</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating}
+                                value={rating[55].espagnol}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={onStarClick}/>
+                                onStarClick={(e) => onStarClick(e, 55, 'espagnol')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Allemand</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating}
+                                value={rating[56].allemand}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={onStarClick}/>
+                                onStarClick={(e) => onStarClick(e, 56, 'allemand')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Russe</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating}
+                                value={rating[57].russe}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={onStarClick}/>
+                                onStarClick={(e) => onStarClick(e, 57, 'russe')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Italien</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating}
+                                value={rating[58].italien}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={onStarClick}/>
+                                onStarClick={(e) => onStarClick(e, 58, 'italien')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Chinois</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating}
+                                value={rating[59].chinois}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={onStarClick}/>
+                                onStarClick={(e) => onStarClick(e, 59, 'chinois')}/>
+                        </div>
+                        <div className='mission-card'>
+                            <p>Arabe</p>
+                            <StarRatingComponent 
+                                name="rate1" 
+                                starCount={3}
+                                value={rating[60].italien}
+                                emptyStarColor={`#C4C4C4`}
+                                onStarClick={(e) => onStarClick(e, 59, 'arabe')}/>
                         </div>
 
                     </div>
