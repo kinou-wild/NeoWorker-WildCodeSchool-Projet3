@@ -11,6 +11,25 @@ module.exports = {
       title:{
         type:Sequelize.STRING
       },
+      note:{
+        type:Sequelize.STRING
+      },
+      numero_siret:{
+        type: Sequelize.INTEGER
+      },
+      budget:{
+        type: Sequelize.INTEGER
+      },
+      date_debut:{
+        type: Sequelize.DATE
+      },
+      date_fin:{
+        type: Sequelize.DATE
+      },
+      frequence:{
+        type:Sequelize.STRING
+
+      },
       status: {
         type: Sequelize.INTEGER
       },

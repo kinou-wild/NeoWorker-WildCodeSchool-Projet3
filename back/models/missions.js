@@ -2,6 +2,14 @@
 module.exports = (sequelize, DataTypes) => {
   const missions = sequelize.define('missions', {
     title:DataTypes.STRING,
+
+    note: DataTypes.STRING,
+    numero_siret: DataTypes.INTEGER,
+    budget: DataTypes.INTEGER,
+    date_debut:DataTypes.INTEGER,
+    date_fin:DataTypes.DATE,
+    frequence:DataTypes.DATE,
+
     status:DataTypes.INTEGER,
     address:DataTypes.STRING,
     mobilite: DataTypes.BOOLEAN,

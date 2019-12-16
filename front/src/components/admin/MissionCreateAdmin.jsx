@@ -12,6 +12,12 @@ const MissionCreateAdmin = () => {
     const [createm, setCreatem] = useState({
         userId: 1,
         title: "",
+        note:'',
+        numero_siret:0,
+        budget:0,
+        date_debut:01-02,
+        date_fin:0,
+        frequence:'',
         status: 0,
         address: "",
         mobilite: 0,
