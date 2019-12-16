@@ -3,6 +3,12 @@ module.exports = (sequelize, DataTypes) => {
   const missions = sequelize.define('missions', {
     nom_mission:DataTypes.STRING,
     nom_entreprise:DataTypes, STRING,
+    note: DataTypes.STRING,
+    numero_siret: DataTypes.INTEGER,
+    budget: DataTypes.INTEGER,
+    date_debut:DataTypes.DATE,
+    date_fin:DataTypes.DATE,
+    frequence:DataTypes.STRING,
     status:DataTypes.INTEGER,
     address:DataTypes.STRING,
     mobilite: DataTypes.BOOLEAN,
