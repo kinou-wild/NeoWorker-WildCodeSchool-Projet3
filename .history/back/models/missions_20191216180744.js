@@ -82,9 +82,11 @@ module.exports = (sequelize, DataTypes) => {
     russe: DataTypes.INTEGER,
     arabe: DataTypes.INTEGER,
     allemand: DataTypes.INTEGER,
-    espagnol: DataTypes.INTEGER,autres_langue,
+    espagnol: DataTypes.INTEGER,autres_langue
     autres_langue: DataTypes.STRING,
-    }, {});
+    
+
+  }, {});
 
   //table de jointures
   missions.associate = function(models) {

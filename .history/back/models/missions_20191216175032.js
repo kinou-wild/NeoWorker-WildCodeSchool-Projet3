@@ -3,10 +3,17 @@ module.exports = (sequelize, DataTypes) => {
   const missions = sequelize.define('missions', {
     nom_mission:DataTypes.STRING,
     nom_entreprise:DataTypes.STRING,
+<<<<<<< Updated upstream
+
     email: DataTypes.STRING,
+
+=======
+>>>>>>> Stashed changes
     note: DataTypes.STRING,
+
     nb_j_par_mois: DataTypes.INTEGER,
     type_profil:DataTypes.STRING, //expert moyen..
+
     numero_siret: DataTypes.INTEGER,
     budget: DataTypes.INTEGER,
     date_debut:DataTypes.DATE,
@@ -82,9 +89,13 @@ module.exports = (sequelize, DataTypes) => {
     russe: DataTypes.INTEGER,
     arabe: DataTypes.INTEGER,
     allemand: DataTypes.INTEGER,
-    espagnol: DataTypes.INTEGER,autres_langue,
+        
+    espagnol: DataTypes.INTEGER,
+
     autres_langue: DataTypes.STRING,
-    }, {});
+    
+
+  }, {});
 
   //table de jointures
   missions.associate = function(models) {

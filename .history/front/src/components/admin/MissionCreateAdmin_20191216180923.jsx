@@ -158,7 +158,8 @@ const MissionCreateAdmin = (props) => {
         {russe:0},
         {italien:0},
         {chinois:0},
-        {arabe:0}
+        {arabe:0},
+        {autre_langue:0}      
         ])
     
          /* quand on clic sur une étoile, elle prend la valeur du clic, si on reclic, elle revient à 0 */
@@ -830,7 +831,7 @@ const MissionCreateAdmin = (props) => {
                                 value={rating[53].francais}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 53, 'francais')}/>
-                        </div>
+                        </div>git 
                         <div className='mission-card'>
                             <p>Anglais</p>
                             <StarRatingComponent 
@@ -890,25 +891,14 @@ const MissionCreateAdmin = (props) => {
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[60].arabe}
+                                value={rating[60].italien}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 60, 'arabe')}/>
+                                onStarClick={(e) => onStarClick(e, 59, 'arabe')}/>
                         </div>
-                        
-                        <div className='mission-card'>
-                            <p>Autre Langue</p>
-                            <FormGroup>
-                                <Input placeholder="Autre_langue" 
-                                    id="autre_langue"
-                                    name="autre_langue"
-                                    value={createm.autre_langue}
-                                    required type="text"
-                                    onChange={(e) => { setCreatem({ ...createm, autre_langue: e.target.value }) }} />
-                            </FormGroup>
-                        </div>
-                        </div>
-                        <Button className='btn' type='submit' 
-                        onClick={() => setCreatem({ ...createm, 
+
+                    </div>
+                    <Button className='btn' type='submit' 
+                    onClick={() => setCreatem({ ...createm, 
                         excel: rating[0].Excel,
                         powerpoint: rating[1].Powerpoint,
                         microsoft_365: rating[2].microsoft_365,
@@ -968,7 +958,20 @@ const MissionCreateAdmin = (props) => {
                         russe: rating[57].russe,
                         italien: rating[58].italien,
                         chinois: rating[59].chinois,
-                        arabe: rating[60].arabe
+                        arabe: ratinf[60].arabe
+
+
+
+
+
+
+
+
+
+                        
+
+
+
                     })}>Valider</Button>                    
                     </Form>
                   

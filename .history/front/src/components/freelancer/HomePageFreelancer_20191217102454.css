@@ -14,7 +14,8 @@ h1.freelancer-h1 {
 
 div.profil-card {
 	display: flex;
-	flex-direction: row;
+    flex-direction: row;
+    flex-wrap: wrap;
 	justify-content: flex-end;
     align-items: flex-end;
 }

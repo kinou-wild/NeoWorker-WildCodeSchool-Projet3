@@ -46,58 +46,57 @@ const HomePageFreelancer = () => {
         setShowSidebar(true)
     })
     return(
-        <div>
-            <div style={{textAlign:'center'}}>
-                <div>
-                    <h1>Bienvenue sur ton espace personnel</h1>
-                    <p>{idUser.role}</p>
-                    <p>{idUser.password}</p>
-                </div>
-                {/* Les champs de la bdd  */}
-                <h1>{idFree.title}</h1>
-                <div>
-                    <div className='pic-card'>
-                        <img className='pic-profil' src={idFree.img}></img>
-                    </div>
-                </div>
-                <div>
-                    <ul>
-                        < p>Code Postal</p>
-                        <li>{idFree.cp}</li>
-                        <p>tel</p>
-                        <li>{idFree.tel}</li>
-                        <p>km_max</p>
-                        <li>{idFree.km_max}</li>
-                        <p>tjm_max</p>
-                        <li>{idFree.tjm_max}</li>
-                        <p>tjm_min</p>
-                        <li>{idFree.tjm_min}</li>
-                        <p>title</p>
-                        <li>{idFree.title}</li>
-                        <p>firstname</p>
-                        <li>{idFree.firstname}</li>
-                        <p>lastname</p>
-                        <li>{idFree.lastname}</li>
-                        <p>address</p>
-                        <li>{idFree.address}</li>
-                        <p>mobilite</p>
-                        <li>{String(idFree.mobilite)}</li>
-                        <p>pref_lieu_de_travail</p>
-                        <li>{idFree.pref_lieu_de_travail}</li>
-                        <p>disponibilite</p>
-                        <li>{idFree.disponibilite}</li>
-                        <p>fourchette_tarifaire</p>
-                        <li>{idFree.fourchette_tarifaire}</li>
-                        <p>password</p>
-                        <li>{idFree.password}</li>
-                        <p>email</p>
-                        <li>{idFree.email}</li>
-                    </ul>
-                </div>
-                <Link to={`/freelancer/editer/${idFree.id}`}>
-                <button className='btn'>Modifier</button>
-                </Link>
+        <div style={{textAlign:'center'}}>
+            <div>
+                <h1>Bienvenue sur ton espace personnel</h1>
+                <p>{idUser.role}</p>
+                <p>{idUser.password}</p>
             </div>
+            {/* Les champs de la bdd  */}
+                <h1>{idFree.title}</h1>
+            <div>
+                <div className='pic-card'>
+                    <img className='pic-profil' src={idFree.img}></img>
+                </div>
+            </div>
+            <div>
+                <ul>
+                <p>Code Postal</p>
+                <li>{idFree.cp}</li>
+                <p>tel</p>
+                <li>{idFree.tel}</li>
+                <p>km_max</p>
+                <li>{idFree.km_max}</li>
+                <p>tjm_max</p>
+                <li>{idFree.tjm_max}</li>
+                <p>tjm_min</p>
+                <li>{idFree.tjm_min}</li>
+                <p>title</p>
+                <li>{idFree.title}</li>
+                <p>firstname</p>
+                <li>{idFree.firstname}</li>
+                <p>lastname</p>
+                <li>{idFree.lastname}</li>
+                <p>address</p>
+                <li>{idFree.address}</li>
+                <p>mobilite</p>
+                <li>{String(idFree.mobilite)}</li>
+                <p>pref_lieu_de_travail</p>
+                <li>{idFree.pref_lieu_de_travail}</li>
+                <p>disponibilite</p>
+                <li>{idFree.disponibilite}</li>
+                <p>fourchette_tarifaire</p>
+                <li>{idFree.fourchette_tarifaire}</li>
+                <p>password</p>
+                <li>{idFree.password}</li>
+                <p>email</p>
+                <li>{idFree.email}</li>
+            </ul>
+            </div>
+            <Link to={`/freelancer/editer/${idFree.id}`}>
+                <button className='btn'>Modifier</button>
+            </Link>
+        </div>
         <div className="freelancer-homepage">
             <div className='profil-card'>
                 <p className='name-card'>Profil NeoWorker</p>
@@ -124,7 +123,6 @@ const HomePageFreelancer = () => {
                 <Link to={`/freelancer/editer/${idFree.id}`}>
                     <Button className='btn'>Editer</Button>
                 </Link>
-        </div>
         </div>
     )
 }

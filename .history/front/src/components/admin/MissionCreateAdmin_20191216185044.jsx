@@ -885,15 +885,6 @@ const MissionCreateAdmin = (props) => {
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 59, 'chinois')}/>
                         </div>
-                        <div className='mission-card'>
-                            <p>Arabe</p>
-                            <StarRatingComponent 
-                                name="rate1" 
-                                starCount={3}
-                                value={rating[60].arabe}
-                                emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 60, 'arabe')}/>
-                        </div>
                         
                         <div className='mission-card'>
                             <p>Autre Langue</p>

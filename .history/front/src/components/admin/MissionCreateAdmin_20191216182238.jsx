@@ -158,7 +158,7 @@ const MissionCreateAdmin = (props) => {
         {russe:0},
         {italien:0},
         {chinois:0},
-        {arabe:0}
+        {arabe:0},
         ])
     
          /* quand on clic sur une étoile, elle prend la valeur du clic, si on reclic, elle revient à 0 */
@@ -830,7 +830,7 @@ const MissionCreateAdmin = (props) => {
                                 value={rating[53].francais}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 53, 'francais')}/>
-                        </div>
+                        </div>git 
                         <div className='mission-card'>
                             <p>Anglais</p>
                             <StarRatingComponent 
@@ -890,12 +890,10 @@ const MissionCreateAdmin = (props) => {
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[60].arabe}
+                                value={rating[60].italien}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 60, 'arabe')}/>
-                        </div>
-                        
-                        <div className='mission-card'>
+                                onStarClick={(e) => onStarClick(e, 59, 'arabe')}/>
+                        </div> <div className='mission-card'>
                             <p>Autre Langue</p>
                             <FormGroup>
                                 <Input placeholder="Autre_langue" 

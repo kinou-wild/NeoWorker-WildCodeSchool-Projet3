@@ -84,7 +84,9 @@ module.exports = (sequelize, DataTypes) => {
     allemand: DataTypes.INTEGER,
     espagnol: DataTypes.INTEGER,autres_langue,
     autres_langue: DataTypes.STRING,
-    }, {});
+    
+
+  }, {});
 
   //table de jointures
   missions.associate = function(models) {
