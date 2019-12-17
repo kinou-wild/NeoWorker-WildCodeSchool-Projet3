@@ -44,20 +44,20 @@ const Sidebar = (props) => {
 
                     <p className="sidebar-field" onClick={changeFieldBoolean}>NeoWorker</p>
 
-                    <Link to='/admin/createNewNeoworker'>
+                    <Link to='/admin/neoworker/creer'>
                         <p className={hiddenfield === true ? "sidebar-little-field" : "sidebar-hidden-little-field"}>Créer</p>
                     </Link>
-                    <Link to='/admin/neoworkerList'>
+                    <Link to='/admin/neoworker/liste'>
                         <p className={hiddenfield === true ? "sidebar-little-field" : "sidebar-hidden-little-field"}>Liste</p>
                     </Link>
 
 
                     <p className="sidebar-field" onClick={changeFieldBoolean2}>Missions</p>
 
-                    <Link to='/admin/createNewMission'>
+                    <Link to='/admin/mission/creer'>
                         <p className={hiddenfield2 === true ? "sidebar-little-field" : "sidebar-hidden-little-field"}>Créer</p>
                     </Link>
-                    <Link to='/admin/missionsList'>
+                    <Link to='/admin/missionListe'>
                         <p className={hiddenfield2 === true ? "sidebar-little-field" : "sidebar-hidden-little-field"}>Liste</p>
                     </Link>
 
@@ -80,8 +80,8 @@ const Sidebar = (props) => {
             <img className="sidebar-logo" src={NeoWorkerLogo} alt="neo worker logo"></img>
             <div className="sidebar-field-group">
 
-                <Link to='/'><p className="sidebar-field">Mon Espace Perso</p></Link>
-                <Link to='/'><p className="sidebar-field">Mes Compétences</p></Link>
+                <Link to='/neoworker/homepage'><p className="sidebar-field">Mon Espace Perso</p></Link>
+                <Link to='/neoworker/competences'><p className="sidebar-field">Mes Compétences</p></Link>
                 <Link to='/'><p className="sidebar-field">Mes Missions</p></Link>
                 <Link to='/'><p className="sidebar-field">Mes Documents</p></Link>
 

@@ -2,24 +2,39 @@ const models = require ('../models')
 
 module.exports = app => {
 
-    app.get('/users',(req,res)=>{
+    app.get('/admin',(req,res)=>{
         models
         .users
-        .findAll()
+        .findAll({include : [models.freelancer,models.missions]})
         .then(x=>{res.json(x)})
     })
 
-     app.post('/users',(req,res)=>{
+    //post a user freelancer with tj
+     app.post('/admin/freelancers',(req,res)=>{
         models
         .users
         .create(req.body)
-        .then(x=>{res.json(x)})
+        .then(newFree =>{
+            newFree.addFreelancer(req.body.freelancerId)
+            res.json(newFree)
+        })
+    })
+
+    //post a user mission with tj
+    app.post('/admin/missions',(req,res)=>{
+        models
+        .users
+        .create(req.body)
+        .then(newMission =>{
+            newMission.addMission(req.body.missionId)
+            res.json(newMission)
+        })
     })
 
     app.get('/user/:id', (req, res) => {
         models
         .users
-        .findByPK(req.params.id)
+        .findByPk(req.params.id)
         .then(x=>{res.json(x)})
     })
 
