@@ -976,12 +976,11 @@ const MissionCreateAdmin = (props) => {
                         chinois:rating[60].chinois,
                         arabe:rating[61].arabe
 
-                    })}>Valider</Button>                    
+                    })}>Valider</Button></div></Form>
+                 
             </div>
-                </Form>
-                  </div>
+                </div>
 
-        </div>
     )
 }
 
