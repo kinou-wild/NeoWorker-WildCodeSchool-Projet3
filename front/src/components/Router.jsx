@@ -9,12 +9,11 @@ import HomePageAdmin from './admin/HomePageAdmin'
 import HomePageFreelancer from './freelancer/HomePageFreelancer';
 import EditHomePageFreelancer from './freelancer/EditHomePageFreelancer';
 import CompetencesFreelancer from './freelancer/CompetencesFreelancer';
-
-
 import MissionCreateAdmin from './admin/MissionCreateAdmin';
 import GetAllMissions from './admin/GetAllMissions';
 import OneMission from './admin/OneMission'
 import UpdateDeleteMission from './admin/UpdateDeleteMission'
+import Creation_NeoWorker_Page from './admin/Creation_NeoWorker_Page'
 
 /* ------------------------ Router ---------------------------------- */
 const Router = () => {
@@ -25,9 +24,11 @@ const Router = () => {
                 <Sidebar />
                     <Switch>
                         <Route exact path="/" component={AdminFreelancerChoose} />
-                        <Route exact path="/freelancer" component={LandingFreelancer} />
+                        <Route exact path="/neoworker" component={LandingFreelancer} />
                         <Route exact path="/admin" component={LandingAdmin} />
-                        <Route exact path="/admin/homepage" component={HomePageAdmin} />
+                        <Route exact path="/admin/homepage" component={HomePageAdmin} /> 
+                        <Route exact path="/admin/neoworker/creer" component={Creation_NeoWorker_Page} />
+                        <Route exact path="/neoworker/homepage" component={HomePageFreelancer} />
 
                         {/* route pour see all missions, create, delete, update */}
                         <Route exact path="/missions" component={GetAllMissions} />
@@ -35,18 +36,8 @@ const Router = () => {
                         <Route exact path="/mission/see/:id" component={OneMission} />
                         <Route exact path="/updateMission/:id" component={UpdateDeleteMission} />
 
-
-                        
-                        <Route exact path="/freelancer" component={LandingFreelancer} />
-
-                        <Route exact path="/freelancer/homepage" component={HomePageFreelancer} />
-                        <Route exact path="/freelancer/editer/:id" component={EditHomePageFreelancer} />
-                        <Route exact path="/freelancer/competences/" component={CompetencesFreelancer} />
-
-
-                        
-
-
+                        <Route exact path="/neoworker/editer/:id" component={EditHomePageFreelancer} />
+                        <Route exact path="/neoworker/competences/" component={CompetencesFreelancer} />
 
                     </Switch>
             </SidebarController>

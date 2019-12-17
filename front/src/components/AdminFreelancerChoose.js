@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
         <div style={{textAlign:"center"}}>
         <Nav>   
         <NavItem>
-        <NavLink tag={Link} to="/freelancer">Utilisateur Freelance</NavLink>
+        <NavLink tag={Link} to="/neoworker">Utilisateur Freelance</NavLink>
         </NavItem>
         <NavItem className="burgerNav">
         <NavLink tag={Link} to="/admin">Utilisateur Administrateur</NavLink>

@@ -1,7 +1,7 @@
 div.freelancer-competences {
     color: #000099;
     width: 80%;
-    height: 100vh;
+    height: 100%;
     float: right;
 }
 
@@ -40,7 +40,7 @@ img.pic-profil{
     justify-content: space-between;
 }
 
-.competences-title {
+.competences-title { 
     color: #ED6A09;
     font-size: 40px;
     width: 80%;
@@ -49,6 +49,7 @@ img.pic-profil{
     justify-content: center;
     border: 2px solid #c4c4c4;
     border-radius: .25rem;
+    margin-top: 100px;
 }
 
 .champs-profil {
@@ -68,5 +69,19 @@ img.pic-profil{
 
 Button.btn, Button.btn:hover {
     background: #ED6A09;
-    margin-bottom: 40px;
+}
+
+.slick-next:before, .slick-prev:before{
+    color:#ED6A09;
+    font-size: 50px;
+
+}
+
+.slick-next, .slick-prev {
+    width: 120px;
+
+}
+
+.slick-prev, .slick-prev:before {
+z-index: 5;
 }

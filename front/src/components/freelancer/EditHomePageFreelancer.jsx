@@ -10,11 +10,14 @@ const EditHomePageFreelancer = (props) => {
 
 
     /* Le boolean initialisé dans le Sidebar context passe à True à chaque refresh de page, pour que la Sidebar s'affiche */
-    const [showSidebar, setShowSidebar] = useContext(SidebarContext)
+  const { hook, hook2 } = useContext(SidebarContext)
+  const [showSidebar, setShowSidebar] = hook
+  const [roleSidebar, setRoleSidebar] = hook2
 
-    useEffect(() => {
-        setShowSidebar(true)
-    })
+  useEffect(() => {
+    setShowSidebar(true)
+    setRoleSidebar("neoworker")
+  })
           //recup des query de l'id
           const params = props.match.params;
 

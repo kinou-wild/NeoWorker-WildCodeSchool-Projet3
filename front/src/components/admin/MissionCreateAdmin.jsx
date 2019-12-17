@@ -17,7 +17,7 @@ const MissionCreateAdmin = (props) => {
         nom_entreprise: "",
         email: '',
         note: "",
-        nb_j_par_mois: 0,
+        nb_j_par_mois: 'Nombre de jour par mois',
         type_profil: "",
         siret: 'Siret',
         budget: 'Budget',
@@ -174,11 +174,15 @@ const MissionCreateAdmin = (props) => {
         }
 
     }
-    /* Le boolean initialisé dans le Sidebar context passe à True à chaque refresh de page, pour que la Sidebar s'affiche */
-    const [showSidebar, setShowSidebar] = useContext(SidebarContext)
+  
+   /* Le boolean initialisé dans le Sidebar context passe à True à chaque refresh de page, pour que la Sidebar s'affiche */
+    const { hook, hook2 } = useContext(SidebarContext)
+    const [showSidebar, setShowSidebar] = hook
+    const [roleSidebar, setRoleSidebar] = hook2
 
     useEffect(() => {
         setShowSidebar(true)
+        setRoleSidebar("admin")
     })
 
 
@@ -328,7 +332,7 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => { setCreatem({ ...createm, date_fin: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input placeholder="Nb jours / mois travaillés"
+                                <Input placeholder={createm.nb_j_par_mois}
                                     id="nb_j_par_mois"
                                     name="nb_j_par_mois"
                                     value={createm.nb_j_par_mois}
@@ -815,159 +819,160 @@ const MissionCreateAdmin = (props) => {
                                 <Input style={{ height: '150px' }} type="textaera" name="text" />
                             </div>
                         </div>
-
-                        <h2 className='mission-title'>Langues</h2>
-                        <div className='cards'>
-                            <div className='mission-card'>
-                                <p>Français</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[53].francais}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 53, 'francais')} />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Anglais</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[54].anglais}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 54, 'anglais')} />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Espagnol</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[55].espagnol}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 55, 'espagnol')} />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Allemand</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[56].allemand}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 56, 'allemand')} />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Russe</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[57].russe}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 57, 'russe')} />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Italien</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[58].italien}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 58, 'italien')} />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Chinois</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[59].chinois}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 59, 'chinois')} />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Arabe</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[60].italien}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 60, 'arabe')} />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Autres langues</p>
-                                <Input style={{ height: '150px' }} type="textaera" name="text" />
-                            </div>
+                         <div className='champ-libre'>
+                            <p>Autres skills </p>
+                            <Input type="textaera" name="text" id="notes" />
                         </div>
-                        
-                                    
-                        <Button className='btn' type='submit'
-                            onClick={() => setCreatem({
-                                ...createm,
-                                excel: rating[0].Excel,
-                                powerpoint: rating[1].Powerpoint,
-                                microsoft_365: rating[2].microsoft_365,
-                                word: rating[3].Word,
-                                crm_hubspot: rating[4].crm_hubspot,
-                                crm_salesforce: rating[5].crm_salesforce,
-                                crm_pipedrive: rating[6].crm_pipedrive,
-                                crm: rating[7].crm,
-                                suite_adobe: rating[8].suite_adobe,
-                                illustrator: rating[9].illustrator,
-                                in_design: rating[10].in_design,
-                                photoshop: rating[11].photoshop,
-                                marketing_fb: rating[12].marketing_fb,
-                                google_adwards: rating[13].google_adwards,
-                                insta: rating[14].insta,
-                                reseaux_sociaux: rating[15].reseaux_sociaux,
-                                keynote: rating[16].keynote,
-                                pages: rating[17].pages,
-                                gsuite_google: rating[18].gsuite_google,
-                                numbers: rating[19].numbers,
-                                erp_sap: rating[20].erp_sap,
-                                ciel_gestion: rating[21].ciel_gestion,
-                                cegid: rating[22].cegid,
-                                sage_gestion_commercial: rating[23].sage_gestion_commercial,
-                                sage_comptabilite: rating[24].sage_comptabilite,
-                                quadra: rating[25].quadra,
-                                reso_pb: rating[26].reso_pb,
-                                confiance: rating[27].confiance,
-                                empathie: rating[28].empathie,
-                                intelligence_emo: rating[29].intelligence_emo,
-                                communication: rating[30].communication,
-                                gestion_temps: rating[31].gestion_temps,
-                                gestion_stress: rating[32].gestion_stress,
-                                creativite: rating[33].creativite,
-                                esprit_entre: rating[34].esprit_entre,
-                                audace: rating[35].audace,
-                                vision_visu: rating[36].vision_visu,
-                                motivation: rating[37].motivation,
-                                presence: rating[38].presence,
-                                sens_collectif: rating[39].sens_collectif,
-                                curiosite: rating[40].curiosite,
-                                sens_effort: rating[41].sens_effort,
-                                sport: rating[42].sport,
-                                passion: rating[43].passion,
-                                engagement_asso: rating[44].engagement_asso,
-                                autres_softskill: rating[45].autres_softskill,
-                                gestion_admin_compta: rating[46].gestion_admin_compta,
-                                gestion_ope: rating[47].gestion_ope,
-                                gestion_commerciale: rating[48].gestion_commerciale,
-                                marketing_com_digit: rating[49].marketing_com_digit,
-                                gestion_fi_controle_gestion: rating[50].gestion_fi_controle_gestion,
-                                dsi: rating[51].dsi,
-                                gestion_rh_juridique: rating[52].gestion_rh_juridique,
-                                gestion_rel_client: rating[53].gestion_rel_client,
-                                francais: rating[54].francais,
-                                anglais: rating[55].anglais,
-                                espagnol: rating[56].espagnol,
-                                allemand: rating[57].allemand,
-                                russe: rating[58].russe,
-                                italien: rating[59].tialien,
-                                chinois: rating[60].chinois,
-                                arabe: rating[61].arabe
+
+                    </div>
+                    <h2 className='mission-title'>Langues</h2>
+                    <div className='cards'>
+                        <div className='mission-card'>
+                            <p>Français</p>
+                            <StarRatingComponent 
+                                name="rate1" 
+                                starCount={3}
+                                value={rating[53].francais}
+                                emptyStarColor={`#C4C4C4`}
+                                onStarClick={(e) => onStarClick(e, 53, 'francais')}/>
+                        </div>
+                        <div className='mission-card'>
+                            <p>Anglais</p>
+                            <StarRatingComponent 
+                                name="rate1" 
+                                starCount={3}
+                                value={rating[54].anglais}
+                                emptyStarColor={`#C4C4C4`}
+                                onStarClick={(e) => onStarClick(e, 54, 'anglais')}/>
+                        </div>
+                        <div className='mission-card'>
+                            <p>Espagnol</p>
+                            <StarRatingComponent 
+                                name="rate1" 
+                                starCount={3}
+                                value={rating[55].espagnol}
+                                emptyStarColor={`#C4C4C4`}
+                                onStarClick={(e) => onStarClick(e, 55, 'espagnol')}/>
+                        </div>
+                        <div className='mission-card'>
+                            <p>Allemand</p>
+                            <StarRatingComponent 
+                                name="rate1" 
+                                starCount={3}
+                                value={rating[56].allemand}
+                                emptyStarColor={`#C4C4C4`}
+                                onStarClick={(e) => onStarClick(e, 56, 'allemand')}/>
+                        </div>
+                        <div className='mission-card'>
+                            <p>Russe</p>
+                            <StarRatingComponent 
+                                name="rate1" 
+                                starCount={3}
+                                value={rating[57].russe}
+                                emptyStarColor={`#C4C4C4`}
+                                onStarClick={(e) => onStarClick(e, 57, 'russe')}/>
+                        </div>
+                        <div className='mission-card'>
+                            <p>Italien</p>
+                            <StarRatingComponent 
+                                name="rate1" 
+                                starCount={3}
+                                value={rating[58].italien}
+                                emptyStarColor={`#C4C4C4`}
+                                onStarClick={(e) => onStarClick(e, 58, 'italien')}/>
+                        </div>
+                        <div className='mission-card'>
+                            <p>Chinois</p>
+                            <StarRatingComponent 
+                                name="rate1" 
+                                starCount={3}
+                                value={rating[59].chinois}
+                                emptyStarColor={`#C4C4C4`}
+                                onStarClick={(e) => onStarClick(e, 59, 'chinois')}/>
+                        </div>
+                        <div className='mission-card'>
+                            <p>Arabe</p>
+                            <StarRatingComponent 
+                                name="rate1" 
+                                starCount={3}
+                                value={rating[60].italien}
+                                emptyStarColor={`#C4C4C4`}
+                                onStarClick={(e) => onStarClick(e, 60, 'arabe')}/>
+                        </div>
+                       <div className='mission-card'>
+                            <p>Autres langues</p>
+                            <Input type="textaera" name="text" id="notes" />
+                        </div> 
+                    </div>
+                    <Button className='btn' type='submit' 
+                    onClick={() => setCreatem({ ...createm, 
+                        excel: rating[0].Excel,
+                        powerpoint: rating[1].Powerpoint,
+                        microsoft_365: rating[2].microsoft_365,
+                        word: rating[3].Word,
+                        crm_hubspot: rating[4].crm_hubspot,
+                        crm_salesforce: rating[5].crm_salesforce,
+                        crm_pipedrive: rating[6].crm_pipedrive,
+                        crm:rating[7].crm,
+                        suite_adobe:rating[8].suite_adobe,
+                        illustrator:rating[9].illustrator,
+                        in_design:rating[10].in_design,
+                        photoshop:rating[11].photoshop,
+                        marketing_fb:rating[12].marketing_fb,
+                        google_adwards:rating[13].google_adwards,
+                        insta:rating[14].insta,
+                        reseaux_sociaux:rating[15].reseaux_sociaux,
+                        keynote:rating[16].keynote,
+                        pages:rating[17].pages,
+                        gsuite_google:rating[18].gsuite_google,
+                        numbers:rating[19].numbers,
+                        erp_sap:rating[20].erp_sap,
+                        ciel_gestion:rating[21].ciel_gestion,
+                        cegid:rating[22].cegid,
+                        sage_gestion_commercial:rating[23].sage_gestion_commercial,
+                        sage_comptabilite:rating[24].sage_comptabilite,
+                        quadra:rating[25].quadra,
+                        reso_pb:rating[26].reso_pb,
+                        confiance:rating[27].confiance,
+                        empathie:rating[28].empathie,
+                        intelligence_emo:rating[29].intelligence_emo,
+                        communication:rating[30].communication,
+                        gestion_temps:rating[31].gestion_temps,
+                        gestion_stress:rating[32].gestion_stress,
+                        creativite:rating[33].creativite,
+                        esprit_entre:rating[34].esprit_entre,
+                        audace:rating[35].audace,
+                        vision_visu:rating[36].vision_visu,
+                        motivation:rating[37].motivation,
+                        presence:rating[38].presence,
+                        sens_collectif:rating[39].sens_collectif,
+                        curiosite:rating[40].curiosite,
+                        sens_effort:rating[41].sens_effort,
+                        sport:rating[42].sport,
+                        passion:rating[43].passion,
+                        engagement_asso:rating[44].engagement_asso,
+                        autres_softskill:rating[45].autres_softskill,
+                        gestion_admin_compta:rating[46].gestion_admin_compta,
+                        gestion_ope:rating[47].gestion_ope,
+                        gestion_commerciale:rating[48].gestion_commerciale,
+                        marketing_com_digit:rating[49].marketing_com_digit,
+                        gestion_fi_controle_gestion:rating[50].gestion_fi_controle_gestion,
+                        dsi:rating[51].dsi,
+                        gestion_rh_juridique:rating[52].gestion_rh_juridique,
+                        gestion_rel_client:rating[53].gestion_rel_client,
+                        francais:rating[54].francais,
+                        anglais:rating[55].anglais,
+                        espagnol:rating[56].espagnol,
+                        allemand:rating[57].allemand,
+                        russe:rating[58].russe,
+                        italien:rating[59].tialien,
+                        chinois:rating[60].chinois,
+                        arabe:rating[61].arabe
 
                             })}>Valider</Button>     
-            </div>
-         </Form>  
-         </div>
-        </div>
+            </Form> </div>
+               
+           </div>
         
             )
         }
