@@ -322,7 +322,7 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => { setCreatem({ ...createm, budget: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input placeholder='Date de début'
+                                <Input className='date-mission' placeholder='Date de début'
                                     id="date_debut"
                                     name="date_debut"
                                     value={createm.date_debut}
@@ -330,7 +330,7 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => { setCreatem({ ...createm, date_debut: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input placeholder="Date de fin"
+                                <Input className='date-mission' placeholder="Date de fin"
                                     id="date_fin"
                                     name="date_fin"
                                     value={createm.date_fin}
@@ -582,8 +582,12 @@ const MissionCreateAdmin = (props) => {
                                     emptyStarColor={`#C4C4C4`}
                                     onStarClick={(e) => onStarClick(e, 24, 'quadra')} />
                             </div>
-                            <div className='mission-card'>
-                                <p>Reso PB </p>
+                        </div>
+
+                        <h2 className='mission-title'>Soft Skills</h2>
+                        <div className='cards'>
+                        <div className='mission-card'>
+                                <p>Résolution de problèmes</p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
@@ -591,10 +595,6 @@ const MissionCreateAdmin = (props) => {
                                     emptyStarColor={`#C4C4C4`}
                                     onStarClick={(e) => onStarClick(e, 25, 'reso_pb')} />
                             </div>
-                        </div>
-
-                        <h2 className='mission-title'>Soft Skills</h2>
-                        <div className='cards'>
                             <div className='mission-card'>
                                 <p>Confiance</p>
                                 <StarRatingComponent
@@ -785,7 +785,7 @@ const MissionCreateAdmin = (props) => {
                                     onStarClick={(e) => onStarClick(e, 48, 'marketing_com_digit')} />
                             </div>
                             <div className='mission-card'>
-                                <p>Gestion Financière - Contrôle de gestion</p>
+                                <p>Gestion Financière</p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}

@@ -73,8 +73,8 @@ div.mission-card {
 .champ-libre {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 62%;
+    justify-content: center;
+    width: 100%;
 }
 
 div.selector-mission {
@@ -91,4 +91,7 @@ div.cards{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+.date-mission{
+    color: #ED6A09!important;
 }
