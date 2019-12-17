@@ -96,16 +96,12 @@ const CreationNeoWorkerPage = () => {
 
     return (
         <div className="main-div">
-
             <div className='profil-card'>
                 <p className='name-card'>Profil Admin</p>
                 <img className='pic-card' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='profil picture' />
             </div>
-
             <form className="formulaire-creation-neoworker" onSubmit={queryData} >
-
                 <input className="input-metier" type="text" id="title" name="Métier" placeholder="Métier" value={freelancer.title} required onChange={(e) => { setFreelancer({ ...freelancer, title: e.target.value }) }} />
-
                 <div className="first-div-creation-neoworker">
                     <div className="align-photoprofilwithinput-div">
                         <img className="profil-img-creation" src="https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=" />
@@ -118,35 +114,27 @@ const CreationNeoWorkerPage = () => {
                         </div>
                     </div>
                 </div>
-
                 <div className="second-div-creation-neoworker">
                     <div className="div-tj_min" >
                         <InputGroupText className="input-group-text">Taux journalier minimum</InputGroupText>
                         <input className="input-tj_min" type="number" id="tj_min" name="tj_min" value={freelancer.tj_min} required onChange={(e) => { setFreelancer({ ...freelancer, tj_min: e.target.value }) }} />
                     </div>
-
                     <div className="div-tj_max">
                         <InputGroupText>Taux journalier maximum</InputGroupText>
                         <input className="input-tj_max" type="number" id="tj_max" name="tj_max" value={freelancer.tj_max} required onChange={(e) => { setFreelancer({ ...freelancer, tj_max: e.target.value }) }} />
                     </div>
-
                 </div>
                 <div className="third-div-creation-neoworker">
-
                     <div className="div-dispo">
                         <InputGroupText>Disponibilité (nombres jours/mois)</InputGroupText>
                         <input className="input-dispo" type="number" id="disponibilite" name="disponibilite" value={freelancer.disponibilite} required onChange={(e) => { setFreelancer({ ...freelancer, disponibilite: e.target.value }) }} />
                     </div>
-
                     <div className="div-pref_lieu_travail">
                         <InputGroupText>Préférence lieu de travail</InputGroupText>
                         <input className="input-pref_lieu_travail" type="number" id="pref_lieu_de_travail" name="pref_lieu_de_travail" value={freelancer.pref_lieu_de_travail} required onChange={(e) => { setFreelancer({ ...freelancer, pref_lieu_de_travail: e.target.value }) }} />
                     </div>
                 </div>
-
-
             </form>
-
         </div>
     )
 }

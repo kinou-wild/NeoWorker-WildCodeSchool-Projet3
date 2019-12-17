@@ -99,6 +99,7 @@ const MissionCreateAdmin = (props) => {
 
     /* hooks pour le rating par étoiles */
     const [rating, setRating] = useState([
+<<<<<<< HEAD
         { Excel: 0 },
         { Powerpoint: 0 },
         { microsoft_365: 0 },
@@ -166,6 +167,73 @@ const MissionCreateAdmin = (props) => {
     ])
 
     /* quand on clic sur une étoile, elle prend la valeur du clic, si on reclic, elle revient à 0 */
+=======
+        {Excel:0},
+        {Powerpoint:0},
+        {microsoft_365:0},
+        {Word:0},
+        {crm_hubspot:0},
+        {crm_salesforce:0},
+        {crm_pipedrive:0},
+        {crm:0},
+        {suite_adobe:0},
+        {illustrator:0},
+        {in_design: 0},
+        {photoshop:0},
+        {marketing_fb:0},
+        {google_adwards:0},
+        {insta:0},
+        {reseaux_sociaux:0},
+        {keynote:0},
+        {pages:0},
+        {gsuite_google:0},
+        {numbers:0},
+        {erp_sap:0},
+        {ciel_gestion:0},
+        {cegid:0},
+        {sage_gestion_commercial:0},
+        {sage_comptabilite:0},
+        {quadra:0},
+        {reso_pb:0},
+        {confiance:0},
+        {empathie:0},
+        {intelligence_emo:0},
+        {communication:0},
+        {gestion_temps:0},
+        {gestion_stress:0},
+        {creativite:0},
+        {esprit_entre:0},
+        {audace:0},
+        {vision_visu:0},
+        {motivation:0},
+        {presence:0},
+        {sens_collectif:0},
+        {curiosite:0},
+        {sens_effort:0},
+        {sport:0},
+        {passion:0},
+        {engagement_asso:0},
+        {autres_softskill:0},
+        {gestion_admin_compta:0},
+        {gestion_ope:0},
+        {gestion_commerciale:0},
+        {marketing_com_digit:0},
+        {gestion_fi_controle_gestion:0},
+        {dsi:0},
+        {gestion_rh_juridique:0},
+        {gestion_rel_client:0},
+        {francais:0},
+        {anglais:0},
+        {espagnol:0},
+        {allemand:0},
+        {russe:0},
+        {italien:0},
+        {chinois:0},
+        {arabe:0}
+        ])
+    
+         /* quand on clic sur une étoile, elle prend la valeur du clic, si on reclic, elle revient à 0 */
+>>>>>>> homepage_freelancer_stevie
     const onStarClick = (nextValue, index, name) => {
         if (rating[index][name] === nextValue) {
             setRating([...rating, rating[index][name] = 0])

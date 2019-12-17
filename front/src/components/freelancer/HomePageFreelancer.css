@@ -1,9 +1,14 @@
+
 div.freelancer-homepage {
     color: #000099;
     width: 80%;
     height: 100vh;
     float: right;
-}
+    margin-top: 80px;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    }
 
 h1.freelancer-h1 {
     text-align: center;
@@ -32,16 +37,18 @@ img.pic-profil{
     border-radius: 50%;
 }
 
-.homepage-content {
+.homepage-profil {
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 div.infos-profil {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 50%;
 }
 
 div.reste-profil {
@@ -52,13 +59,29 @@ div.reste-profil {
     margin: auto;
     text-align: center;
     justify-content: space-around;
+    list-style-type: none;
+}
+
+div.container-reste-profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .champs-profil {
- min-width: 40%;
+ width: 100%;
+ height: 40px;
  border: 2px solid;
  text-align: center;
 }
+
+.champs-reste-profil {
+    width: 50%;
+    height: 40px;
+    border: 2px solid;
+    text-align: center;
+    justify-content: space-around;
+   }
 
 Button.btn, Button.btn:hover {
     background: #ED6A09;
