@@ -1,19 +1,25 @@
 import React, {
     useState,
-    useEffect
+    useEffect,
+    useContext
 } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
-
+import { SidebarContext } from '../SidebarContext'
 
 const GetAllMissions = () => {
 
     // hooks to get all missions
     const [missions, setMissions] = useState([])
 
+    const { hook, hook2 } = useContext(SidebarContext)
+    const [showSidebar, setShowSidebar] = hook
+    const [roleSidebar, setRoleSidebar] = hook2
 
     useEffect(() => {
-        getMissions()
+        getMissions() 
+        setShowSidebar(true)
+        setRoleSidebar("admin")
     }, [])
 
     // get all misions

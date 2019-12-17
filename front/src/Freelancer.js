@@ -20,7 +20,8 @@ console.log(allFree)
       disponibilite: 0,
       fourchette_tarifaire: 0,
       password: "",
-      email: ""
+      email: "",
+      tel: 0
   })
 
   //hooks pour modif le freelancer
@@ -35,7 +36,9 @@ console.log(allFree)
       disponibilite: 0,
       fourchette_tarifaire: 0,
       password: "",
-      email: ""
+      email: "",
+      tel: 0
+    
   })
 
   // cycle de vie du fetchData pour getter le profil du freelancer
@@ -250,7 +253,9 @@ console.log(allFree)
       <input type ="text" id="password" name="password" value={freelancer.password} required onChange={(e) => {setFreelancer({...freelancer, password:e.target.value})}} />
       <p>email</p>
       <input type ="text" id="email" name="email" value={freelancer.email} required onChange={(e) => {setFreelancer({...freelancer, email:e.target.value})}} />
-      
+      <p>telephone</p>
+      <input type = "text" id = "tel" name = "tel" value = {freelancer.tel} required onChange = {(e) => {setFreelancer({...freelancer, tel: e.target.value})}}/>
+
       <button type="submit">Add</button>
       </form>
 
