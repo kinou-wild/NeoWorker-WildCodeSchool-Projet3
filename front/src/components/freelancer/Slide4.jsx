@@ -50,7 +50,7 @@ return(
         <p>{String(idFree.gestion_rh_juridique)}</p>
     </div>
     <div className='competences-card'>
-        <p>gestion_rel_cpent</p>
+        <p>gestion_rel_client</p>
         <p>{String(idFree.gestion_rel_cpent)}</p>
     </div>
 </div>

@@ -1,9 +1,14 @@
+.form-control{
+    color:#000099!important;
+}
+.selector{
+    color: #000099;
+}
 div.admin-mission {
     color: #000099;
     width: 80%;
     height: 100%;
     float: right;
-    margin-top: 80px;
 }
 
 h1.admin-h1{
@@ -65,10 +70,20 @@ div.mission-card {
     min-width: 25%;
 }
 
-div.select-mission {
+.champ-libre {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 62%;
+}
+
+div.selector-mission {
     display: flex;
     justify-content: space-between;
+}
 
+.formi{
+    color: #000099;
 }
 
 div.cards{
