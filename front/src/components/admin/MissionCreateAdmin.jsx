@@ -263,7 +263,7 @@ const MissionCreateAdmin = (props) => {
                     </div>
                     <div className='champs-mission'>
                     <FormGroup>
-                            <Input placeholder="Nom de l'entreprise manque dans la bdd"
+                            <Input placeholder="Nom de l'entreprise"
                             id="nom_entreprise"
                             name="nom_entreprise"
                             value={createm.nom_entreprise}

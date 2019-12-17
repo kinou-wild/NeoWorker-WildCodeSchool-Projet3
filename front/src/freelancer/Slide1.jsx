@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { SidebarContext } from '../SidebarContext'
+import { SidebarContext } from '../components/SidebarContext'
 
 const Slide1 = () => {
     //hooks de la data freelancer pour get un id
