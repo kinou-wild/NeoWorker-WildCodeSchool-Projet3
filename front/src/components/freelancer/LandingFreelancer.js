@@ -13,10 +13,13 @@ const LandingUser = (props) => {
     const [password, setPassword] = useState("");
 
     /* Le boolean initialisé dans le Sidebar context passe à False à chaque refresh de page, pour que la Sidebar ne s'affiche pas*/
-    const [showSidebar, setShowSidebar] = useContext(SidebarContext)
+    const { hook, hook2 } = useContext(SidebarContext)
+    const [showSidebar, setShowSidebar] = hook
+    const [roleSidebar, setRoleSidebar] = hook2
 
     useEffect(() => {
       setShowSidebar(false)
+      setRoleSidebar("neoworker")
     })
   
     function handleSubmit(event) {
@@ -48,7 +51,7 @@ const LandingUser = (props) => {
             <a href='/'>Mot de passe oublié ?</a>
           </div>
           <div className="text-center">
-            <Link to='/freelancer/homepage'>
+            <Link to='/neoworker/homepage'>
               <button className='btnConnection' type="submit">Se connecter</button>
             </Link>
           </div>

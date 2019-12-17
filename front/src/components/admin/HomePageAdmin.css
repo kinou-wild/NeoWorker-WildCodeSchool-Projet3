@@ -1,12 +1,40 @@
-div.admin-homepage {
-    color: #000099;
+.main-div {
     width: 80%;
-    height: 100%;
+    height: 100vh;
     float: right;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
 }
 
-h1.admin-h1{
-    text-align: center;
-    font-size: 56px;
-    font-weight: bold;
+.profil-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 20px;
 }
+
+.name-card {
+    margin: 0px;
+    padding-right: 15px;
+}
+
+.pic-card {
+    height: 50px;
+    border-radius: 50%;
+}
+
+.admin-homepage-title {
+    font-weight: bold;
+    font-size: 56px;
+    color: #000099;
+    text-align: center;
+}
+
+.admin-homepage-orange {
+    color: #ED6A09;
+}
+
+

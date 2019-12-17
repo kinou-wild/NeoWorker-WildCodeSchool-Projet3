@@ -17,10 +17,10 @@ const MissionCreateAdmin = (props) => {
         nom_entreprise:"",
         email:'',
         note:"",
-        nb_j_par_mois:0,
+        nb_j_par_mois:'',
         type_profil:"",
-        numero_siret:0,
-        budget:0,
+        siret:'',
+        budget:'',
         date_debut:'2019-01-01',
         date_fin:'2019-01-01',
         frequence:'',
@@ -134,7 +134,9 @@ const MissionCreateAdmin = (props) => {
         {gestion_stress:0},
         {creativite:0},
         {esprit_entre:0},
+        {audace:0},
         {vision_visu:0},
+        {motivation:0},
         {presence:0},
         {sens_collectif:0},
         {curiosite:0},
@@ -171,10 +173,13 @@ const MissionCreateAdmin = (props) => {
 
     }
    /* Le boolean initialisé dans le Sidebar context passe à True à chaque refresh de page, pour que la Sidebar s'affiche */
-    const [showSidebar, setShowSidebar] = useContext(SidebarContext)
+    const { hook, hook2 } = useContext(SidebarContext)
+    const [showSidebar, setShowSidebar] = hook
+    const [roleSidebar, setRoleSidebar] = hook2
 
     useEffect(() => {
         setShowSidebar(true)
+        setRoleSidebar("admin")
     })
 
 
@@ -196,15 +201,24 @@ const MissionCreateAdmin = (props) => {
             <div className='notes'>
                 <Form onSubmit={createMissions}>
                     <FormGroup>
-                            <Input style={{height:'150px'}} placeholder='Notes :'type="textarea" name="text" id="notes" 
-                            id="nom_mission"
+                    <Input style={{height:'150px'}} placeholder='Notes :'type="textarea" name="notes" id="notes" 
+                            value={createm.note}
+                            onChange={(e) => { setCreatem({ ...createm, note: e.target.value }) }}/>
+                    </FormGroup>
+
+                    <div className='select-mission'>
+                    <FormGroup>
+                    <Input style={{textAlign:'center'}} placeholder='Nom de la mission'type="textarea" name="text" id="nom_mission" 
                             name="nom_mission"
                             value={createm.nom_mission}
                             required type="text"
                             onChange={(e) => { setCreatem({ ...createm, nom_mission: e.target.value }) }}
                             />
                     </FormGroup>
-                    <div className='select-mission'>
+
+
+                    
+                    <div className='selector-mission'>
                     <FormGroup>
                     <Input type="select" 
                         id="pref_lieu_de_travail"
@@ -218,53 +232,55 @@ const MissionCreateAdmin = (props) => {
                     </Input>
                     </FormGroup>
                     <FormGroup>
-                    <Input type="select" name="select" id="exampleSelect"
-                            id="profil"
-                            name="profil"
-                            value={createm.profil}
-                            onChange={(e) => { setCreatem({ ...createm, profil: e.target.value }) }}>
+                    <Input type="select" name="type_profil" id='type_profil'
+                        value={createm.type_profil}
+                        onChange={(e) => { setCreatem({ ...createm, type_profil: e.target.value }) }}>
                         <option>Profil</option>
                         <option>Regular</option>
                         <option>Expert</option>
                     </Input>
                     </FormGroup>
                     <FormGroup>
-                    <Input type="select" id="frequence"
-                    name="frequence"
-                    value={createm.frequence}
-                    onChange={(e) => { setCreatem({ ...createm, frequence: e.target.value }) }}>
+                            <Input type="select" name="frequence" id='frequence'
+                            value={createm.frequence}
+                            onChange={(e) => { setCreatem({ ...createm, frequence: e.target.value }) }}>
                         <option>Fréquence</option>
-                        <option>Ponctuelle</option>
+                        <option>Ponctuelle</option> 
                         <option>Récurrente</option>
                     </Input>
                     </FormGroup>
-                    </div>
-                    <FormGroup>
-                            <Input style={{textAlign:'center'}} placeholder="Nom de la mission"
-                            id="nom_mission"
-                            name="nom_mission"
-                            value={createm.nom_mission}
-                            required type="text"
-                            onChange={(e) => { setCreatem({ ...createm, nom_mission: e.target.value }) }} />
+                     <FormGroup>
+                            <Input type="select" name="mobilite" id='mobilite'
+                            value={createm.mobilite}
+                            onChange={(e) => { setCreatem({ ...createm, mobilite: e.target.value }) }}>
+                        <option>Mobilite</option>
+                        <option>Oui</option> 
+                        <option>Non</option> 
+                    </Input>
                     </FormGroup>
+                    </div>
                     <div className='champs-mission'>
                     <FormGroup>
-                            <Input placeholder="Nom de l'entreprise" 
+                            <Input placeholder="Nom de l'entreprise manque dans la bdd"
                             id="nom_entreprise"
                             name="nom_entreprise"
                             value={createm.nom_entreprise}
-                            required type="text"
+                            type="text"
                             onChange={(e) => { setCreatem({ ...createm, nom_entreprise: e.target.value }) }} />
                     </FormGroup>
                     <FormGroup>
-                            <Input placeholder="Email"/>
+                            <Input placeholder="Email" id="email"
+                            name="email"
+                            value={createm.email}
+                            type="email"
+                            onChange={(e) => { setCreatem({ ...createm, email: e.target.value }) }}/>
                     </FormGroup>
                     <FormGroup>
                             <Input placeholder="Téléphone" 
                             id="tel"
                             name="tel"
                             value={createm.tel}
-                            required type="number"
+                            type="tel"
                             onChange={(e) => { setCreatem({ ...createm, tel: e.target.value }) }}/>
                     </FormGroup>
                     <FormGroup>
@@ -272,7 +288,7 @@ const MissionCreateAdmin = (props) => {
                             id="address"
                             name="address"
                             value={createm.address}
-                            required type="text"
+                            type="text"
                             onChange={(e) => { setCreatem({ ...createm, address: e.target.value }) }}/>
                     </FormGroup>
                     <FormGroup>
@@ -280,48 +296,48 @@ const MissionCreateAdmin = (props) => {
                             id="cp"
                             name="cp"
                             value={createm.cp}
-                            required type="number"
+                            type="number"
                             onChange={(e) => { setCreatem({ ...createm, cp: e.target.value }) }} />
                     </FormGroup>
                     <FormGroup>
-                            <Input placeholder="Numéro de Siret"
-                            id="numero_siret"
-                            name="numero_siret"
-                            value={createm.numero_siret}
-                            required type="number"
-                            onChange={(e) => { setCreatem({ ...createm, numero_siret: e.target.value }) }} />
+                            <Input placeholder="Numero de Siret"
+                            id="siret"
+                            name="siret"
+                            value={createm.siret}
+                            type="number"
+                            onChange={(e) => { setCreatem({ ...createm, siret: e.target.value }) }} />
                     </FormGroup>
                     <FormGroup>
                             <Input placeholder="Budget"
                             id="budget"
                             name="budget"
                             value={createm.budget}
-                            required type="number"
+                            type="number"
                             onChange={(e) => { setCreatem({ ...createm, budget: e.target.value }) }} />
-                    </FormGroup>
+                    </FormGroup>    
                     <FormGroup>
-                            <Input placeholder="Date de début"
+                            <Input placeholder="Date de début" 
                             id="date_debut"
                             name="date_debut"
                             value={createm.date_debut}
-                            required type="date"
-                            onChange={(e) => { setCreatem({ ...createm, date_debut: e.target.value }) }} />
+                            type="number"
+                            onChange={(e) => { setCreatem({ ...createm, date_debut: e.target.value }) }}/>
                     </FormGroup>
                     <FormGroup>
-                            <Input placeholder="Date de fin"
+                            <Input placeholder="Date de fin" 
                             id="date_fin"
                             name="date_fin"
                             value={createm.date_fin}
-                            required type="date"
-                            onChange={(e) => { setCreatem({ ...createm, date_fin: e.target.value }) }} />
+                            type="number"
+                            onChange={(e) => { setCreatem({ ...createm, date_fin: e.target.value }) }}/>
                     </FormGroup>
                     <FormGroup>
                             <Input placeholder="Nb jours / mois travaillés"
-                            id="nb_jour_par_mois"
-                            name="nb_jour_par_mois"
-                            value={createm.nb_jour_par_mois}
-                            required type="number"
-                            onChange={(e) => { setCreatem({ ...createm, nb_jour_par_mois: e.target.value }) }} />
+                            id="nb_j_par_mois"
+                            name="nb_j_par_mois"
+                            value={createm.nb_j_par_mois}
+                            type="number"
+                            onChange={(e) => { setCreatem({ ...createm, nb_j_par_mois: e.target.value }) }}/>
                     </FormGroup>
                     </div>
                     <h2 className='mission-title'>Outils</h2>
@@ -633,7 +649,7 @@ const MissionCreateAdmin = (props) => {
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[32].creative}
+                                value={rating[32].creativite}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 32, 'creativite')}/>
                         </div>
@@ -710,15 +726,6 @@ const MissionCreateAdmin = (props) => {
                                 onStarClick={(e) => onStarClick(e, 40, 'sens_effort')}/>
                         </div>
                         <div className='mission-card'>
-                            <p>Sport</p>
-                            <StarRatingComponent 
-                                name="rate1" 
-                                starCount={3}
-                                value={rating[41].sport}
-                                emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 41, 'sport')}/>
-                        </div>
-                        <div className='mission-card'>
                             <p>Passion </p>
                             <StarRatingComponent 
                                 name="rate1" 
@@ -735,15 +742,6 @@ const MissionCreateAdmin = (props) => {
                                 value={rating[43].engagement_asso}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 43, 'engagement_asso')}/>
-                        </div>
-                        <div className='mission-card'>
-                            <p>Autres softskills </p>
-                            <StarRatingComponent 
-                                name="rate1" 
-                                starCount={3}
-                                value={rating[44].autres_softskill}
-                                emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 44, 'autres_softskills')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Gestion admin compta </p>
@@ -815,9 +813,12 @@ const MissionCreateAdmin = (props) => {
                                 starCount={3}
                                 value={rating[52].gestion_rel_client}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 52, 'gestion_relation_client')}/>
+                                onStarClick={(e) => onStarClick(e, 52, 'gestion_rel_client')}/>
                         </div>
-                        
+                         <div className='champ-libre'>
+                            <p>Autres skills </p>
+                            <Input type="textaera" name="text" id="notes" />
+                        </div>
 
                     </div>
                     <h2 className='mission-title'>Langues</h2>
@@ -944,35 +945,39 @@ const MissionCreateAdmin = (props) => {
                         gestion_stress:rating[32].gestion_stress,
                         creativite:rating[33].creativite,
                         esprit_entre:rating[34].esprit_entre,
-                        vision_visu:rating[35].vision_visu,
-                        presence:rating[36].presence,
-                        sens_collectif:rating[37].sens_collectif,
-                        curiosite:rating[38].curiosite,
-                        sens_effort:rating[39].sens_effort,
-                        sport:rating[40].sport,
-                        passion:rating[41].passion,
-                        engagement_asso:rating[42].engagement_asso,
-                        autres_softskill:rating[43].autres_softskill,
-                        gestion_admin_compta:rating[44].gestion_admin_compta,
-                        gestion_ope:rating[45].gestion_ope,
-                        gestion_commerciale:rating[46].gestion_commerciale,
-                        marketing_com_digit:rating[47].marketing_com_digit,
-                        gestion_fi_controle_gestion:rating[48].gestion_fi_controle_gestion,
-                        dsi:rating[49].dsi,
-                        gestion_rh_juridique:rating[50].gestion_rh_juridique,
-                        gestion_rel_client:rating[52].gestion_rel_client,
-                        francais: rating[53].francais,
-                        anglais: rating[54].anglais,
-                        espagnol: rating[55].espagnol,
-                        allemand: rating[56].allemand,
-                        russe: rating[57].russe,
-                        italien: rating[58].italien,
-                        chinois: rating[59].chinois,
-                        arabe: rating[60].arabe
+                        audace:rating[35].audace,
+                        vision_visu:rating[36].vision_visu,
+                        motivation:rating[37].motivation,
+                        presence:rating[38].presence,
+                        sens_collectif:rating[39].sens_collectif,
+                        curiosite:rating[40].curiosite,
+                        sens_effort:rating[41].sens_effort,
+                        sport:rating[42].sport,
+                        passion:rating[43].passion,
+                        engagement_asso:rating[44].engagement_asso,
+                        autres_softskill:rating[45].autres_softskill,
+                        gestion_admin_compta:rating[46].gestion_admin_compta,
+                        gestion_ope:rating[47].gestion_ope,
+                        gestion_commerciale:rating[48].gestion_commerciale,
+                        marketing_com_digit:rating[49].marketing_com_digit,
+                        gestion_fi_controle_gestion:rating[50].gestion_fi_controle_gestion,
+                        dsi:rating[51].dsi,
+                        gestion_rh_juridique:rating[52].gestion_rh_juridique,
+                        gestion_rel_client:rating[53].gestion_rel_client,
+                        francais:rating[54].francais,
+                        anglais:rating[55].anglais,
+                        espagnol:rating[56].espagnol,
+                        allemand:rating[57].allemand,
+                        russe:rating[58].russe,
+                        italien:rating[59].tialien,
+                        chinois:rating[60].chinois,
+                        arabe:rating[61].arabe
+
                     })}>Valider</Button>                    
-                    </Form>
-                  
             </div>
+                </Form>
+                  </div>
+
         </div>
     )
 }

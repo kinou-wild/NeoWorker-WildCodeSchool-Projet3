@@ -16,7 +16,6 @@ module.exports = {
       },
       email:{
         type:Sequelize.STRING
-
       },
       note:{
         type:Sequelize.STRING
@@ -27,7 +26,7 @@ module.exports = {
       type_profil:{
         type: Sequelize.STRING
       },
-      numero_siret:{
+      siret:{
         type: Sequelize.INTEGER
       },
       budget:{
