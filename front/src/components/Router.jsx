@@ -41,10 +41,7 @@ const Router = () => {
                         <Route exact path="/neoworker/editer/:id" component={EditHomePageFreelancer} />
                         <Route exact path="/neoworker/competences/" component={CompetencesFreelancer} />
 
-                        
-
-
-
+                    
                     </Switch>
             </SidebarController>
             </>

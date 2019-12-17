@@ -68,19 +68,24 @@
 
 .profil-img-creation {
     border-radius: 50%;
-    width: 40%;
+    width: 30%;
 }
 
 .align-field-text-div {
     display:flex;
     flex-direction: column;
+    justify-content: space-around;
     width: 50%;
 }
 
 .input-firstname, 
 .input-lastname, 
 .input-email, 
-.input-tel 
+.input-tel,
+.input-tj_min,
+.input-tj_max,
+.input-dispo,
+.input-pref_lieu_travail
 {
     margin-top:10px;
     margin-bottom:10px;
@@ -94,7 +99,23 @@
 
 }
 
-.second-div-creation-neoworker {
-    
+.second-div-creation-neoworker, 
+.third-div-creation-neoworker {
+
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align:center;
+    align-self:center;
+    width: 80%
 }
+
+.input-tj_min,
+.input-tj_max,
+.input-dispo,
+.input-pref_lieu_travail
+{
+    width: 47%;
+}
+
 
