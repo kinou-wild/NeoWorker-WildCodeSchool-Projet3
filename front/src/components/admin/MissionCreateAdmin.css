@@ -70,10 +70,13 @@ div.mission-card {
     min-width: 25%;
 }
 
-div.select-mission {
+.champ-libre {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    width: 62%;
 }
+
 
 .formi{
     color: #000099;
