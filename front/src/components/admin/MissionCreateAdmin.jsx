@@ -209,8 +209,21 @@ const MissionCreateAdmin = (props) => {
                             onChange={(e) => { setCreatem({ ...createm, note: e.target.value }) }} />
                     </FormGroup>
 
+
+
                     <div className='select-mission'>
-                        <div className='select-mission'>
+                    <FormGroup>
+                        <Input style={{ textAlign: 'center' }} placeholder="Nom de la mission"
+                            id="nom_mission"
+                            name="nom_mission"
+                            value={createm.nom_mission}
+                            type="text"
+                            onChange={(e) => { setCreatem({ ...createm, nom_mission: e.target.value }) }} />
+                    </FormGroup>
+
+
+
+                        <div className='selector-mission'>
                             <FormGroup>
                                 <Input type="select"
                                     id="pref_lieu_de_travail"
@@ -251,15 +264,8 @@ const MissionCreateAdmin = (props) => {
                                 </Input>
                             </FormGroup>
                         </div>
-                        <FormGroup>
-                            <Input style={{ textAlign: 'center' }} placeholder="Nom de la mission"
-                                id="nom_mission"
-                                name="nom_mission"
-                                value={createm.nom_mission}
-                                type="text"
-                                onChange={(e) => { setCreatem({ ...createm, nom_mission: e.target.value }) }} />
-                        </FormGroup>
                         <div className='champs-mission'>
+                        
                             <FormGroup>
                                 <Input placeholder="Nom de l'entreprise manque dans la bdd"
                                     id="nom_entreprise"
@@ -814,17 +820,13 @@ const MissionCreateAdmin = (props) => {
                                     emptyStarColor={`#C4C4C4`}
                                     onStarClick={(e) => onStarClick(e, 52, 'gestion_rel_client')} />
                             </div>
-                            <div className='mission-card'>
-                                <p>Autres soft skills </p>
-                                <Input style={{ height: '150px' }} type="textaera" name="text" />
-                            </div>
-                        </div>
                          <div className='champ-libre'>
                             <p>Autres skills </p>
                             <Input type="textaera" name="text" id="notes" />
                         </div>
+                        </div>
 
-                    </div>
+                    
                     <h2 className='mission-title'>Langues</h2>
                     <div className='cards'>
                         <div className='mission-card'>
@@ -970,8 +972,8 @@ const MissionCreateAdmin = (props) => {
                         arabe:rating[61].arabe
 
                             })}>Valider</Button>     
+               </div>
             </Form> </div>
-               
            </div>
         
             )
