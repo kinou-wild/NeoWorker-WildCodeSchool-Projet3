@@ -17,7 +17,7 @@ const MissionCreateAdmin = (props) => {
         nom_entreprise: "",
         email: '',
         note: "",
-        nb_j_par_mois: 0,
+        nb_j_par_mois: 'Nombre de jour par mois',
         type_profil: "",
         siret: 'Siret',
         budget: 'Budget',
@@ -328,7 +328,7 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => { setCreatem({ ...createm, date_fin: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input placeholder="Nb jours / mois travaillés"
+                                <Input placeholder={createm.nb_j_par_mois}
                                     id="nb_j_par_mois"
                                     name="nb_j_par_mois"
                                     value={createm.nb_j_par_mois}
