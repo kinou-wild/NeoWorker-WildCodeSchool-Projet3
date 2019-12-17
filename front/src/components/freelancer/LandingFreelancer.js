@@ -48,7 +48,7 @@ const LandingUser = (props) => {
             <a href='/'>Mot de passe oublié ?</a>
           </div>
           <div className="text-center">
-            <Link to='/freelancer/homepage'>
+            <Link to='/neoworker/homepage'>
               <button className='btnConnection' type="submit">Se connecter</button>
             </Link>
           </div>
