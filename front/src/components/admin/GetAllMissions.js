@@ -37,6 +37,8 @@ const GetAllMissions = () => {
                 <div>   
                     <p>titre</p>
                     <p>{x.nom_mission}</p>
+                    <p>{x.address}</p>
+
                     <p>status</p>
                     <p>{x.status}</p>
                     <p>{x.id}</p>                    
