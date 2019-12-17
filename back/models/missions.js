@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
     nb_j_par_mois: DataTypes.INTEGER,
     type_profil:DataTypes.STRING, //expert moyen..
 
-    numero_siret: DataTypes.INTEGER,
     budget: DataTypes.INTEGER,
     date_debut:DataTypes.DATE,
     date_fin:DataTypes.DATE,
@@ -20,9 +19,9 @@ module.exports = (sequelize, DataTypes) => {
     address:DataTypes.STRING,
     mobilite: DataTypes.BOOLEAN,
     km_max: DataTypes.INTEGER,
-    siret: DataTypes.INTEGER,
-    tel: DataTypes.INTEGER,
-    cp:DataTypes.INTEGER,
+    siret: DataTypes.STRING,
+    tel: DataTypes.STRING,
+    cp:DataTypes.STRING,
     pref_lieu_de_travail: DataTypes.INTEGER,
     disponibilite: DataTypes.INTEGER,
     excel: DataTypes.INTEGER,

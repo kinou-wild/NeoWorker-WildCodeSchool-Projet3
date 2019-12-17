@@ -30,10 +30,10 @@ module.exports = {
         type:Sequelize.INTEGER
       },
       tel:{
-        type:Sequelize.INTEGER
+        type:Sequelize.STRING
       },
       cp:{
-        type:Sequelize.INTEGER
+        type:Sequelize.STRING
       },
       pref_lieu_de_travail: {
         type: Sequelize.INTEGER
