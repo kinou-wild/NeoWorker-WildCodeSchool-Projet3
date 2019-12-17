@@ -154,7 +154,14 @@ const MissionCreateAdmin = (props) => {
         {gestion_rh_juridique:0},
         {gestion_rel_client:0},
         //ajout dans la bdd
-        {espagnol:0}//56
+        {francais:0},
+        {anglais:0},
+        {espagnol:0},
+        {allemand:0},
+        {russe:0},
+        {italien:0},
+        {chinois:0},
+        {arabe:0}
 
         ])
     
@@ -726,11 +733,6 @@ const MissionCreateAdmin = (props) => {
                                 onStarClick={(e) => onStarClick(e, 40, 'sens_effort')}/>
                         </div>
                         <div className='mission-card'>
-                            <p>Sport</p>
-                            <Input style={{height:'150px'}} type="textaera" name="text" id="notes" />
-                        
-                        </div>
-                        <div className='mission-card'>
                             <p>Passion </p>
                             <StarRatingComponent 
                                 name="rate1" 
@@ -747,10 +749,6 @@ const MissionCreateAdmin = (props) => {
                                 value={rating[43].engagement_asso}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 43, 'engagement_asso')}/>
-                        </div>
-                        <div className='mission-card'>
-                            <p>Autres soft skills </p>
-                            <Input style={{height:'150px'}} type="textaera" name="text" id="notes" />
                         </div>
                         <div className='mission-card'>
                             <p>Gestion admin compta </p>
@@ -825,7 +823,6 @@ const MissionCreateAdmin = (props) => {
                                 onStarClick={(e) => onStarClick(e, 52, 'gestion_rel_client')}/>
                         </div>
                         
-
                     </div>
                     <h2 className='mission-title'>Langues</h2>
                     <div className='cards'>
@@ -899,9 +896,9 @@ const MissionCreateAdmin = (props) => {
                                 starCount={3}
                                 value={rating[60].italien}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 59, 'arabe')}/>
+                                onStarClick={(e) => onStarClick(e, 60, 'arabe')}/>
                         </div>
-
+                       
                     </div>
                     <Button className='btn' type='submit' 
                     onClick={() => setCreatem({ ...createm, 
@@ -959,7 +956,14 @@ const MissionCreateAdmin = (props) => {
                         dsi:rating[51].dsi,
                         gestion_rh_juridique:rating[52].gestion_rh_juridique,
                         gestion_rel_client:rating[53].gestion_rel_client,
-
+                        francais:rating[54].francais,
+                        anglais:rating[55].anglais,
+                        espagnol:rating[56].espagnol,
+                        allemand:rating[57].allemand,
+                        russe:rating[58].russe,
+                        italien:rating[59].tialien,
+                        chinois:rating[60].chinois,
+                        arabe:rating[61].arabe
 
                     })}>Valider</Button>                    
             </div>
