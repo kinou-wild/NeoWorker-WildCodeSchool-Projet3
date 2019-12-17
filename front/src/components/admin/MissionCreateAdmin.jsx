@@ -822,7 +822,15 @@ const MissionCreateAdmin = (props) => {
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 52, 'gestion_rel_client')}/>
                         </div>
+                         <div className='mission-card'>
+                            <p>Autres soft skills </p>
+                            <Input style={{height:'150px'}} type="textaera" name="text" id="notes" />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Sport</p>
+                            <Input style={{height:'150px'}} type="textaera" name="text" id="notes" />
                         
+                        </div>
                     </div>
                     <h2 className='mission-title'>Langues</h2>
                     <div className='cards'>
@@ -898,7 +906,10 @@ const MissionCreateAdmin = (props) => {
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 60, 'arabe')}/>
                         </div>
-                       
+                       <div className='mission-card'>
+                            <p>Autres langues</p>
+                            <Input style={{height:'150px'}} type="textaera" name="text" id="notes" />
+                        </div> 
                     </div>
                     <Button className='btn' type='submit' 
                     onClick={() => setCreatem({ ...createm, 
