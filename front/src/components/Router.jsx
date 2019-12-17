@@ -9,8 +9,6 @@ import HomePageAdmin from './admin/HomePageAdmin'
 import HomePageFreelancer from './freelancer/HomePageFreelancer';
 import EditHomePageFreelancer from './freelancer/EditHomePageFreelancer';
 import CompetencesFreelancer from './freelancer/CompetencesFreelancer';
-
-
 import MissionCreateAdmin from './admin/MissionCreateAdmin';
 import GetAllMissions from './admin/GetAllMissions';
 import OneMission from './admin/OneMission'
@@ -40,10 +38,6 @@ const Router = () => {
 
                         <Route exact path="/neoworker/editer/:id" component={EditHomePageFreelancer} />
                         <Route exact path="/neoworker/competences/" component={CompetencesFreelancer} />
-
-                        
-
-
 
                     </Switch>
             </SidebarController>
