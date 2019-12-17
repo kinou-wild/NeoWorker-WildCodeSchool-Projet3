@@ -41,7 +41,7 @@ const Sidebar = (props) => {
                     <Link to='/admin/mission/creer'><p className={hiddenfield2 === true ? "sidebar-little-field" : "sidebar-hidden-little-field"}>Créer</p></Link>
                     <Link to='/missions'><p className={hiddenfield2 === true ? "sidebar-little-field" : "sidebar-hidden-little-field"}>Liste</p></Link>
                 </Link>
-                <Link to='/'><p className="sidebar-field">Historique matching</p></Link>
+                <Link to='/freelancer/competences'><p className="sidebar-field">Historique matching</p></Link>
             </div>
             <Link to='/admin'>
                 <div className="sidebar-div-deconnection">
