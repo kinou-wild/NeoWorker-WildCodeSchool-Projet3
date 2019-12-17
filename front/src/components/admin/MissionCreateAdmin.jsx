@@ -207,7 +207,7 @@ const MissionCreateAdmin = (props) => {
 
                     <div className='select-mission'>
                     <FormGroup>
-                    <Input style={{height:'150px'}} placeholder='Nom de la mission :'type="textarea" name="text" id="nom_mission" 
+                    <Input style={{textAlign:'center'}} placeholder='Nom de la mission'type="textarea" name="text" id="nom_mission" 
                             name="nom_mission"
                             value={createm.nom_mission}
                             required type="text"
@@ -217,7 +217,7 @@ const MissionCreateAdmin = (props) => {
 
 
                     
-                    <div className='select-mission'>
+                    <div className='selector-mission'>
                     <FormGroup>
                     <Input type="select" 
                         id="pref_lieu_de_travail"
@@ -258,14 +258,6 @@ const MissionCreateAdmin = (props) => {
                     </Input>
                     </FormGroup>
                     </div>
-                    <FormGroup>
-                            <Input style={{textAlign:'center'}} placeholder="Nom de la mission"
-                            id="nom_mission"
-                            name="nom_mission"
-                            value={createm.nom_mission}
-                            type="text"
-                            onChange={(e) => { setCreatem({ ...createm, nom_mission: e.target.value }) }} />
-                    </FormGroup>
                     <div className='champs-mission'>
                     <FormGroup>
                             <Input placeholder="Nom de l'entreprise manque dans la bdd"

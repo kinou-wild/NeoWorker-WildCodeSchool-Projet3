@@ -77,6 +77,10 @@ div.mission-card {
     width: 62%;
 }
 
+div.selector-mission {
+    display: flex;
+    justify-content: space-between;
+}
 
 .formi{
     color: #000099;
