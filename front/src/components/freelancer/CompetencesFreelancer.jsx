@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import { Link } from 'react-router-dom'
 import Slide1 from './Slide1'
 import Slide2 from './Slide2'
-import Slide3 from './Slide3.js'
+import Slide3 from './Slide3.js.js'
 import Slide4 from './Slide4'
 import './CompetencesFreelancer.css'
 
