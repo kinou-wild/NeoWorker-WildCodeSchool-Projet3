@@ -12,16 +12,19 @@ const LandingAdmin = (props) => {
     const [password, setPassword] = useState("");
 
     /* Le boolean initialisé dans le Sidebar context passe à False à chaque refresh de page, pour que la Sidebar ne s'affiche pas*/
-    const [showSidebar, setShowSidebar] = useContext(SidebarContext)
+    const { hook, hook2 } = useContext(SidebarContext)
+    const [showSidebar, setShowSidebar] = hook
+    const [roleSidebar, setRoleSidebar] = hook2
 
     useEffect(() => {
       setShowSidebar(false)
+      setRoleSidebar("admin")
     })
   
     function handleSubmit(event) {
       event.preventDefault();
     }
-
+    
   return (
       <div className='landing'>
         <img className='logoLanding' src = {logo} alt='logo' />

@@ -10,8 +10,11 @@ import { Link } from 'react-router-dom';
 const HomePageFreelancer = () => {
 
     /* Le boolean initialisé dans le Sidebar context passe à True à chaque refresh de page, pour que la Sidebar s'affiche */
-    const [showSidebar, setShowSidebar] = useContext(SidebarContext)
-
+    
+    const { hook, hook2 } = useContext(SidebarContext)
+    const [showSidebar, setShowSidebar] = hook
+    const [roleSidebar, setRoleSidebar] = hook2
+    
     //hooks de la data freelancer pour get un id
     const [idFree, setIdFree] = useState([])
 
@@ -41,8 +44,11 @@ const HomePageFreelancer = () => {
             .then(res => setIdUser(res.data))
     }
 
+   
+    
     useEffect(() => {
         setShowSidebar(true)
+        setRoleSidebar("neoworker")
     })
     return(
 
@@ -214,7 +220,7 @@ const HomePageFreelancer = () => {
                 <li>{String(idFree.autres_langue)}</li>
 
             </ul>
-            <Link to={`/freelancer/editer/${idFree.id}`}><button>Modifier</button></Link>
+            <Link to={`/neoworker/editer/${idFree.id}`}><button>Modifier</button></Link>
         </div>
         // <div className="freelancer-homepage">
         //     <div className='profil-card'>

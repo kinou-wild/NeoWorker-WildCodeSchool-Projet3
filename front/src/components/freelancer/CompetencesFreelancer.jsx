@@ -16,7 +16,14 @@ import './CompetencesFreelancer.css'
 const CompetencesFreelancer = () => {
 
     /* Le boolean initiapsé dans le Sidebar context passe à True à chaque refresh de page, pour que la Sidebar s'affiche */
-    const [showSidebar, setShowSidebar] = useContext(SidebarContext)
+    const { hook, hook2 } = useContext(SidebarContext)
+    const [showSidebar, setShowSidebar] = hook
+    const [roleSidebar, setRoleSidebar] = hook2
+
+    useEffect(() => {
+        setShowSidebar(true)
+        setRoleSidebar("neoworker")
+    })
 
     //hooks de la data freelancer pour get un id
     const [idFree, setIdFree] = useState([])
@@ -70,7 +77,7 @@ const CompetencesFreelancer = () => {
                     <Slide4/>
                 </Slider>
            
-                <Link to={`/freelancer/competences/`}>
+                <Link to={`/neoworker/editer/:id`}>
                     <Button className='btn'>Editer</Button>
                 </Link>
 
