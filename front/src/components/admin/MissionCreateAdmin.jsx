@@ -17,7 +17,7 @@ const MissionCreateAdmin = (props) => {
         nom_entreprise: "",
         email: '',
         note: "",
-        nb_j_par_mois: 'Nombre de jour par mois',
+        nb_j_par_mois: 'nombre de jour par mois',
         type_profil: "",
         siret: 'Siret',
         budget: 'Budget',
@@ -26,11 +26,11 @@ const MissionCreateAdmin = (props) => {
         frequence: '',
         status: 0,
         address: "",
-        mobilite: 0,
+        mobilite: '',
         km_max: 0,
         tel: '',
         cp: 'code postal',
-        pref_lieu_de_travail: 0,
+        pref_lieu_de_travail: '',
         disponibilite: 0,
         excel: 0,
         powerpoint: 0,
@@ -195,7 +195,7 @@ const MissionCreateAdmin = (props) => {
     }
 
     return (
-        <div className="admin-mission">
+        <div className="admin-mission" style={{marginLeft:"1000px"}}>
             <div className='profil-card'>
                 <p className='name-card'>Profil Admin</p>
                 <img className='pic-card' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='profil picture' />
@@ -229,7 +229,8 @@ const MissionCreateAdmin = (props) => {
                                     id="pref_lieu_de_travail"
                                     name="pref_lieu_de_travail"
                                     value={createm.pref_lieu_de_travail}
-                                    onChange={(e) => { setCreatem({ ...createm, pref_lieu_de_travail: e.target.value }) }}>
+                                    onChange={(e) => { setCreatem({ ...createm, 
+                                        pref_lieu_de_travail: e.target.value == 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value == 'Travail à distance' ? 'Travail à distance' :'Peu importe'}) }}>
                                     <option>Préférence lieu de travail</option>
                                     <option>Présence en entreprise</option>
                                     <option>Travail à distance</option>
@@ -239,7 +240,7 @@ const MissionCreateAdmin = (props) => {
                             <FormGroup>
                                 <Input type="select" name="type_profil" id='type_profil'
                                     value={createm.type_profil}
-                                    onChange={(e) => { setCreatem({ ...createm, type_profil: e.target.value }) }}>
+                                    onChange={(e) => { setCreatem({ ...createm, type_profil: e.target.value=='Regular'?'Regular':'Expert' }) }}>
                                     <option>Profil</option>
                                     <option>Regular</option>
                                     <option>Expert</option>
@@ -248,7 +249,7 @@ const MissionCreateAdmin = (props) => {
                             <FormGroup>
                                 <Input type="select" name="frequence" id='frequence'
                                     value={createm.frequence}
-                                    onChange={(e) => { setCreatem({ ...createm, frequence: e.target.value }) }}>
+                                    onChange={(e) => { setCreatem({ ...createm, frequence: e.target.value=='Ponctuelle'?'Ponctuelle':'Récurrente' }) }}>
                                     <option>Fréquence</option>
                                     <option>Ponctuelle</option>
                                     <option>Récurrente</option>
@@ -257,7 +258,7 @@ const MissionCreateAdmin = (props) => {
                             <FormGroup>
                                 <Input type="select" name="mobilite" id='mobilite'
                                     value={createm.mobilite}
-                                    onChange={(e) => { setCreatem({ ...createm, mobilite: e.target.value }) }}>
+                                    onChange={(e) => { setCreatem({ ...createm, mobilite: e.target.value==='Non'?'Non':'Oui' }) }}>
                                     <option>Mobilite</option>
                                     <option>Oui</option>
                                     <option>Non</option>
@@ -897,7 +898,7 @@ const MissionCreateAdmin = (props) => {
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[60].italien}
+                                value={rating[60].arabe}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 60, 'arabe')}/>
                         </div>
