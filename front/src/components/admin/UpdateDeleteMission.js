@@ -11,7 +11,84 @@ const UpdateDeleteMission =(props)=>{
     const params = props.match.params
 
     const [updateIdMission,setUpdateIdMission]=useState({
-        title:''
+        nom_mission: "",
+        nom_entreprise:"",
+        note:"",
+        numero_siret:0,
+        budget:0,
+        date_debut:'2019-01-01',
+        date_fin:'2019-01-01',
+        frequence:'',
+        status: 0,
+        address: "",
+        mobilite: 0,
+        km_max: 0,
+        tel:'',
+        cp:'',
+        pref_lieu_de_travail: 0,
+        disponibilite: 0,
+        excel: 0,
+        powerpoint: 0,
+        word: 0,
+        microsoft_365: 0,
+        crm_hubspot: 0,
+        crm_salesforce: 0,
+        crm_pipedrive: 0,
+        crm: 0,
+        suite_adobe: 0,
+        illustrator: 0,
+        in_design: 0,
+        photoshop: 0,
+        marketing_fb: 0,
+        google_adwards: 0,
+        insta: 0,
+        reseaux_sociaux: 0,
+        keynote: 0,
+        pages: 0,
+        gsuite_google: 0,
+        numbers: 0,
+        erp_sap: 0,
+        ciel_gestion: 0,
+        cegid: 0,
+        sage_gestion_commercial: 0,
+        sage_comptabilite: 0,
+        quadra: 0,
+        reso_pb: 0,
+        confiance: 0,
+        empathie: 0,
+        intelligence_emo: 0,
+        communication: 0,
+        gestion_temps: 0,
+        gestion_stress: 0,
+        creativite: 0,
+        esprit_entre: 0,
+        audace: 0,
+        vision_visu: 0,
+        motivation: 0,
+        presence: 0,
+        sens_collectif: 0,
+        curiosite: 0,
+        sens_effort:0,
+        sport: "",
+        passion: "",
+        engagement_asso: "",
+        autres_softskill: "",
+        gestion_admin_compta:0,
+        gestion_op: 0,
+        gestion_commerciale: 0,
+        marketing_com_digit: 0,
+        gestion_fi_controle_gestion: 0,
+        dsi: 0,
+        gestion_rh_juridique: 0,
+        gestion_rel_client: 0,
+        francais: 0,
+        anglais: 0,
+        italien: 0,
+        chinois: 0,
+        russe: 0,
+        arabe: 0,
+        allemand: 0,
+        autres_langue: ""
     })
   
 
@@ -38,10 +115,10 @@ const UpdateDeleteMission =(props)=>{
 
 
     return(
-    <div>
+    <div style={{marginLeft:'400px'}}>
          <form onSubmit={fetchDataMission}>
-         <input id="title" name="title" value={updateIdMission.title} required type="text"
-        onChange={(e) => { setUpdateIdMission({ ...updateIdMission, title: e.target.value }) }} />
+         <input id="nom_mission" name="nom_mission" value={updateIdMission.nom_mission} required type="text"
+        onChange={(e) => { setUpdateIdMission({ ...updateIdMission, nom_mission: e.target.value }) }} />
         <button type="submit">submit</button>
 
         </form>

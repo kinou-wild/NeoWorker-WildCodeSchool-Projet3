@@ -14,10 +14,19 @@ module.exports = {
       nom_entreprise :{
         type:Sequelize.INTEGER
       },
+      email:{
+        type:Sequelize.STRING
+      },
       note:{
         type:Sequelize.STRING
       },
-      numero_siret:{
+      nb_j_par_mois:{
+        type: Sequelize.INTEGER
+      },
+      type_profil:{
+        type: Sequelize.STRING
+      },
+      siret:{
         type: Sequelize.INTEGER
       },
       budget:{
@@ -237,6 +246,9 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       allemand: {
+        type: Sequelize.INTEGER
+      },
+      espagnol:{
         type: Sequelize.INTEGER
       },
       autres_langue: {
