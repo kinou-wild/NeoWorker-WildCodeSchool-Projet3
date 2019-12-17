@@ -5,6 +5,7 @@
     "database": "neoworker",
     "host": "127.0.0.1",
     "dialect": "mysql",
+    "timezone": "Europe/Warsaw",
     "operatorsAliases": false
   },
   "test": {
