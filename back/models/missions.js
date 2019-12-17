@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
     nb_j_par_mois: DataTypes.INTEGER,
     type_profil:DataTypes.STRING, //expert moyen..
 
-    numero_siret: DataTypes.INTEGER,
     budget: DataTypes.INTEGER,
     date_debut:DataTypes.DATE,
     date_fin:DataTypes.DATE,

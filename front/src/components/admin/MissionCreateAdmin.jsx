@@ -19,17 +19,17 @@ const MissionCreateAdmin = (props) => {
         note: "",
         nb_j_par_mois: 0,
         type_profil: "",
-        siret: 'siret',
-        budget: 0,
-        date_debut: '2019-01-01',
-        date_fin: '2019-01-01',
+        siret: 'Siret',
+        budget: 'Budget',
+        date_debut: '',
+        date_fin:'',
         frequence: '',
         status: 0,
         address: "",
         mobilite: 0,
         km_max: 0,
-        tel: 0,
-        cp: 0,
+        tel: '',
+        cp: 'code postal',
         pref_lieu_de_travail: 0,
         disponibilite: 0,
         excel: 0,
@@ -288,7 +288,7 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => { setCreatem({ ...createm, address: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input placeholder="Code Postale"
+                                <Input placeholder={createm.cp}
                                     id="cp"
                                     name="cp"
                                     value={createm.cp}
@@ -304,7 +304,7 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => { setCreatem({ ...createm, siret: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input placeholder="Budget"
+                                <Input placeholder={createm.budget}
                                     id="budget"
                                     name="budget"
                                     value={createm.budget}
@@ -312,11 +312,11 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => { setCreatem({ ...createm, budget: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input placeholder="Date de début"
+                                <Input placeholder='Date de début'
                                     id="date_debut"
                                     name="date_debut"
                                     value={createm.date_debut}
-                                    type="number"
+                                    type="date"
                                     onChange={(e) => { setCreatem({ ...createm, date_debut: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
@@ -324,7 +324,7 @@ const MissionCreateAdmin = (props) => {
                                     id="date_fin"
                                     name="date_fin"
                                     value={createm.date_fin}
-                                    type="number"
+                                    type="date"
                                     onChange={(e) => { setCreatem({ ...createm, date_fin: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
