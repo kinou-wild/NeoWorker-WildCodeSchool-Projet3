@@ -119,7 +119,7 @@ const CreationNeoWorkerPage = () => {
                 </div>
 
                 <div className="second-div-creation-neoworker">
-                    <InputGroupText>@</InputGroupText>
+                    <InputGroupText>Taux journalier minimum</InputGroupText>
                     <input className="input-tj_min"  type="number" id="tj_min" name="tj_min" value={freelancer.tj_min} required onChange={(e) => { setFreelancer({ ...freelancer, tj_min: e.target.value }) }} />
                     <InputGroupText>Taux journalier maximum</InputGroupText>
                     <input className="input-tj_max" type="number" id="tj_max" name="tj_max" value={freelancer.tj_max} required onChange={(e) => { setFreelancer({ ...freelancer, tj_max: e.target.value }) }} />
