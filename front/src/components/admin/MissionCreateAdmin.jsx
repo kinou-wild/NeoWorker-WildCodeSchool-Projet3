@@ -216,7 +216,7 @@ const MissionCreateAdmin = (props) => {
                                     <option>Préférence lieu de travail</option>
                                     <option>Présence en entreprise</option>
                                     <option>Travail à distance</option>
-                                    <option>Peu import</option>
+                                    <option>Peu importe</option>
                                 </Input>
                             </FormGroup>
                             <FormGroup>
@@ -813,11 +813,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Autres soft skills </p>
                                 <Input style={{ height: '150px' }} type="textaera" name="text" />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Sport</p>
-                                <Input style={{ height: '150px' }} type="textaera" name="text" />
-
                             </div>
                         </div>
 
