@@ -110,7 +110,7 @@ const CreationNeoWorkerPage = () => {
                     <div className="align-photoprofilwithinput-div">
                         <img className="profil-img-creation" src="https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=" />
                         <div className="align-field-text-div">
-                            <input className="input-firstname"  placeholder="Prénom" type="text" id="firstname" name="firstname" value={freelancer.firstname} required onChange={(e) => { setFreelancer({ ...freelancer, firstname: e.target.value }) }} />
+                            <input className="input-firstname" placeholder="Prénom" type="text" id="firstname" name="firstname" value={freelancer.firstname} required onChange={(e) => { setFreelancer({ ...freelancer, firstname: e.target.value }) }} />
                             <input className="input-lastname" placeholder="Nom" type="text" id="lastname" name="lastname" value={freelancer.lastname} required onChange={(e) => { setFreelancer({ ...freelancer, lastname: e.target.value }) }} />
                             <input className="input-email" placeholder="Email" type="text" id="email" name="email" value={freelancer.email} required onChange={(e) => { setFreelancer({ ...freelancer, email: e.target.value }) }} />
                             <input className="input-tel" placeholder="Telephone" type="text" id="tel" name="tel" value={freelancer.tel} required onChange={(e) => { setFreelancer({ ...freelancer, tel: e.target.value }) }} />
@@ -140,12 +140,30 @@ const CreationNeoWorkerPage = () => {
 
                     <div className="div-pref_lieu_travail">
                         <InputGroupText>Préférence lieu de travail</InputGroupText>
-                        <input className="input-pref_lieu_travail" type="number" id="pref_lieu_de_travail" name="pref_lieu_de_travail" value={freelancer.pref_lieu_de_travail} required onChange={(e) => { setFreelancer({ ...freelancer, pref_lieu_de_travail: e.target.value }) }} />
+                        <select className="input-pref_lieu_travail" type="number" id="pref_lieu_de_travail" name="pref_lieu_de_travail" value={freelancer.pref_lieu_de_travail} required onChange={(e) => { setFreelancer({ ...freelancer, pref_lieu_de_travail: e.target.value }) }}>
+                            <option value="">--Choisir une option--</option>
+                            <option value="">Sur place</option>
+                            <option value="">En remote</option>
+                            <option value="">Peu importe</option>
+                        </select>
                     </div>
                 </div>
 
+                <div className="fourth-div-creation-neoworker">
+                    <div className="div-mobilite">
+                        <InputGroupText>Mobilité</InputGroupText>
+                        <select className="input-mobilite" type="number" id="mobilite" name="disponibilite" value={freelancer.mobilite} required onChange={(e) => { setFreelancer({ ...freelancer, mobilite: e.target.value }) }}>
+                            <option value="">--Choisir une option--</option>
+                            <option value="">Véhiculé</option>
+                            <option value="">Non véhiculé</option>
+                        </select>
+                    </div>
+                </div>
 
             </form>
+
+            <hr className="separator-line"></hr>
+
 
         </div>
     )

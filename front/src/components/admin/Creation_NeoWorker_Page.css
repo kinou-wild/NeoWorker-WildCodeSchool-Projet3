@@ -56,6 +56,7 @@
     display:flex;
     flex-direction: column;
     width: 80%;
+    justify-content: space-around;
     align-self: center;
 
 }
@@ -74,7 +75,7 @@
 .align-field-text-div {
     display:flex;
     flex-direction: column;
-    justify-content: space-around;
+    
     width: 50%;
 }
 
@@ -97,7 +98,9 @@
 }
 
 .second-div-creation-neoworker, 
-.third-div-creation-neoworker {
+.third-div-creation-neoworker,
+.fourth-div-creation-neoworker 
+{
 
     display:flex;
     flex-direction: row;
@@ -110,7 +113,8 @@
 .div-tj_min,
 .div-tj_max,
 .div-dispo,
-.div-pref_lieu_travail
+.div-pref_lieu_travail,
+.div-mobilite
 {
     width: 47%;
     display:flex;
@@ -129,7 +133,8 @@
 .input-tj_min,
 .input-tj_max,
 .input-dispo,
-.input-pref_lieu_travail 
+.input-pref_lieu_travail,
+.input-mobilite
 {
     text-align: center;
     border-radius: 10px;
@@ -147,4 +152,12 @@
     opacity: 0.5 !important;
     align-self: center !important;
     width: 100% !important;
+}
+
+.separator-line {
+    color: black !important;
+    border: 5px;
+    width: 90%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
