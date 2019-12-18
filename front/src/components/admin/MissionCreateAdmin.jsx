@@ -224,7 +224,7 @@ const MissionCreateAdmin = (props) => {
 
 
                         <div className='selector-mission'>
-                            <FormGroup>
+                            {/* <FormGroup>
                                 <Input type="select"
                                     id="pref_lieu_de_travail"
                                     name="pref_lieu_de_travail"
@@ -254,7 +254,7 @@ const MissionCreateAdmin = (props) => {
                                     <option>Récurrente</option>
                                 </Input>
                             </FormGroup>
-                            <FormGroup>
+                            <FormGroup> 
                                 <Input type="select" name="mobilite" id='mobilite'
                                     value={createm.mobilite}
                                     onChange={(e) => { setCreatem({ ...createm, mobilite: e.target.value }) }}>
@@ -262,7 +262,7 @@ const MissionCreateAdmin = (props) => {
                                     <option>Oui</option>
                                     <option>Non</option>
                                 </Input>
-                            </FormGroup>
+                            </FormGroup> */}
                         </div>
                         <div className='champs-mission'>
                         
@@ -578,18 +578,18 @@ const MissionCreateAdmin = (props) => {
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[24].quadra}
+                                    value={rating[25].quadra}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 24, 'quadra')} />
+                                    onStarClick={(e) => onStarClick(e, 25, 'quadra')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Reso PB </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[25].reso_pb}
+                                    value={rating[26].reso_pb}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 25, 'reso_pb')} />
+                                    onStarClick={(e) => onStarClick(e, 26, 'reso_pb')} />
                             </div>
                         </div>
 
@@ -600,135 +600,135 @@ const MissionCreateAdmin = (props) => {
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[26].confiance}
+                                    value={rating[27].confiance}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 26, 'confiance')} />
+                                    onStarClick={(e) => onStarClick(e, 27, 'confiance')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Empathie</p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[27].empathie}
+                                    value={rating[28].empathie}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 27, 'empathie')} />
+                                    onStarClick={(e) => onStarClick(e, 28, 'empathie')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Intelligence émotionnelle</p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[28].intelligence_emo}
+                                    value={rating[29].intelligence_emo}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 28, 'intelligence_emo')} />
+                                    onStarClick={(e) => onStarClick(e, 29, 'intelligence_emo')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Communication </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[29].communication}
+                                    value={rating[30].communication}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 29, 'communication')} />
+                                    onStarClick={(e) => onStarClick(e, 30, 'communication')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Gestion du temps </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[30].gestion_temps}
+                                    value={rating[31].gestion_temps}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 30, 'gestion_temps')} />
+                                    onStarClick={(e) => onStarClick(e, 31, 'gestion_temps')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Gestion du stress </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[31].gestion_stress}
+                                    value={rating[32].gestion_stress}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 31, 'gestion_stress')} />
+                                    onStarClick={(e) => onStarClick(e, 32, 'gestion_stress')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Créativité</p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[32].creativite}
+                                    value={rating[33].creativite}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 32, 'creativite')} />
+                                    onStarClick={(e) => onStarClick(e, 33, 'creativite')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Esprit d'entreprise</p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[33].esprit_entre}
+                                    value={rating[34].esprit_entre}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 33, 'esprit_entre')} />
+                                    onStarClick={(e) => onStarClick(e, 34, 'esprit_entre')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Audace</p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[34].audace}
+                                    value={rating[35].audace}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 34, 'audace')} />
+                                    onStarClick={(e) => onStarClick(e, 35, 'audace')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Vision, visualisation </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[35].vision_visu}
+                                    value={rating[36].vision_visu}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 35, 'vision_visu')} />
+                                    onStarClick={(e) => onStarClick(e, 36, 'vision_visu')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Motivation</p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[36].motivation}
+                                    value={rating[37].motivation}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 36, 'motivation')} />
+                                    onStarClick={(e) => onStarClick(e, 37, 'motivation')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Présence</p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[37].presence}
+                                    value={rating[38].presence}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 37, 'presence')} />
+                                    onStarClick={(e) => onStarClick(e, 38, 'presence')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Sens collectif</p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[38].sens_collectif}
+                                    value={rating[39].sens_collectif}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 38, 'sens_collectif')} />
+                                    onStarClick={(e) => onStarClick(e, 39, 'sens_collectif')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Curiosité</p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[39].curiosite}
+                                    value={rating[40].curiosite}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 39, 'curiosite')} />
+                                    onStarClick={(e) => onStarClick(e, 40, 'curiosite')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Sens de l'effort </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[40].sens_effort}
+                                    value={rating[41].sens_effort}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 40, 'sens_effort')} />
+                                    onStarClick={(e) => onStarClick(e, 41, 'sens_effort')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Passion </p>
@@ -753,76 +753,76 @@ const MissionCreateAdmin = (props) => {
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[45].gestion_admin_compta}
+                                    value={rating[44].gestion_admin_compta}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 45, 'gestion_admin_compta')} />
+                                    onStarClick={(e) => onStarClick(e, 44, 'gestion_admin_compta')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Gestion opérationnelle </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[46].gestion_ope}
+                                    value={rating[45].gestion_ope}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 46, 'gestion_ope')} />
+                                    onStarClick={(e) => onStarClick(e, 45, 'gestion_ope')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Gestion commerciale </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[47].gestion_commerciale}
+                                    value={rating[46].gestion_commerciale}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 47, 'gestion_commerciale')} />
+                                    onStarClick={(e) => onStarClick(e, 46, 'gestion_commerciale')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Marketing commercial digital </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[48].marketing_com_digit}
+                                    value={rating[47].marketing_com_digit}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 48, 'marketing_com_digit')} />
+                                    onStarClick={(e) => onStarClick(e, 47, 'marketing_com_digit')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Gestion Financière - Contrôle de gestion</p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[49].gestion_fi_controle_gestion}
+                                    value={rating[48].gestion_fi_controle_gestion}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 49, 'gestion_fi_controle_gestion')} />
+                                    onStarClick={(e) => onStarClick(e, 48, 'gestion_fi_controle_gestion')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Dsi</p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[50].dsi}
+                                    value={rating[49].dsi}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 50, 'dsi')} />
+                                    onStarClick={(e) => onStarClick(e, 49, 'dsi')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Gestion RH - Juridique </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[51].gestion_rh_juridique}
+                                    value={rating[50].gestion_rh_juridique}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 51, 'gestion_rh_juridique')} />
+                                    onStarClick={(e) => onStarClick(e, 50, 'gestion_rh_juridique')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Gestion relation client </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[52].gestion_rel_client}
+                                    value={rating[51].gestion_rel_client}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 52, 'gestion_rel_client')} />
+                                    onStarClick={(e) => onStarClick(e, 51, 'gestion_rel_client')} />
                             </div>
                          <div className='champ-libre'>
                             <p>Autres skills </p>
-                            <Input type="textaera" name="text" id="notes" />
+                            <Input type="textaera" name="text" id="autres_skills" value={createm.autres_softskill} onChange={(e)=>setCreatem({...createm, autres_softskill: e.target.value})} />
                         </div>
                         </div>
 
@@ -834,76 +834,76 @@ const MissionCreateAdmin = (props) => {
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[53].francais}
+                                value={rating[52].francais}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 53, 'francais')}/>
+                                onStarClick={(e) => onStarClick(e, 52, 'francais')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Anglais</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[54].anglais}
+                                value={rating[53].anglais}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 54, 'anglais')}/>
+                                onStarClick={(e) => onStarClick(e, 53, 'anglais')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Espagnol</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[55].espagnol}
+                                value={rating[54].espagnol}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 55, 'espagnol')}/>
+                                onStarClick={(e) => onStarClick(e, 54, 'espagnol')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Allemand</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[56].allemand}
+                                value={rating[55].allemand}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 56, 'allemand')}/>
+                                onStarClick={(e) => onStarClick(e, 55, 'allemand')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Russe</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[57].russe}
+                                value={rating[56].russe}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 57, 'russe')}/>
+                                onStarClick={(e) => onStarClick(e, 56, 'russe')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Italien</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[58].italien}
+                                value={rating[57].italien}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 58, 'italien')}/>
+                                onStarClick={(e) => onStarClick(e, 57, 'italien')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Chinois</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[59].chinois}
+                                value={rating[58].chinois}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 59, 'chinois')}/>
+                                onStarClick={(e) => onStarClick(e, 58, 'chinois')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Arabe</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[60].italien}
+                                value={rating[59].arabe}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 60, 'arabe')}/>
+                                onStarClick={(e) => onStarClick(e, 59, 'arabe')}/>
                         </div>
                        <div className='mission-card'>
                             <p>Autres langues</p>
-                            <Input type="textaera" name="text" id="notes" />
+                            <Input type="textaera" name="text" id="langues" value={createm.autres_langue} onChange={(e)=>setCreatem({...createm, autres_langue: e.target.value})} />
                         </div> 
                     </div>
                     <Button className='btn' type='submit' 
@@ -950,26 +950,24 @@ const MissionCreateAdmin = (props) => {
                         sens_collectif:rating[39].sens_collectif,
                         curiosite:rating[40].curiosite,
                         sens_effort:rating[41].sens_effort,
-                        sport:rating[42].sport,
-                        passion:rating[43].passion,
-                        engagement_asso:rating[44].engagement_asso,
-                        autres_softskill:rating[45].autres_softskill,
-                        gestion_admin_compta:rating[46].gestion_admin_compta,
-                        gestion_ope:rating[47].gestion_ope,
-                        gestion_commerciale:rating[48].gestion_commerciale,
-                        marketing_com_digit:rating[49].marketing_com_digit,
-                        gestion_fi_controle_gestion:rating[50].gestion_fi_controle_gestion,
-                        dsi:rating[51].dsi,
-                        gestion_rh_juridique:rating[52].gestion_rh_juridique,
-                        gestion_rel_client:rating[53].gestion_rel_client,
-                        francais:rating[54].francais,
-                        anglais:rating[55].anglais,
-                        espagnol:rating[56].espagnol,
-                        allemand:rating[57].allemand,
-                        russe:rating[58].russe,
-                        italien:rating[59].tialien,
-                        chinois:rating[60].chinois,
-                        arabe:rating[61].arabe
+                        passion:rating[42].passion,
+                        engagement_asso:rating[43].engagement_asso,
+                        gestion_admin_compta:rating[44].gestion_admin_compta,
+                        gestion_ope:rating[45].gestion_ope,
+                        gestion_commerciale:rating[46].gestion_commerciale,
+                        marketing_com_digit:rating[47].marketing_com_digit,
+                        gestion_fi_controle_gestion:rating[48].gestion_fi_controle_gestion,
+                        dsi:rating[49].dsi,
+                        gestion_rh_juridique:rating[50].gestion_rh_juridique,
+                        gestion_rel_client:rating[51].gestion_rel_client,
+                        francais:rating[52].francais,
+                        anglais:rating[53].anglais,
+                        espagnol:rating[54].espagnol,
+                        allemand:rating[55].allemand,
+                        russe:rating[56].russe,
+                        italien:rating[57].italien,
+                        chinois:rating[58].chinois,
+                        arabe:rating[59].arabe,
 
                             })}>Valider</Button>     
                </div>
