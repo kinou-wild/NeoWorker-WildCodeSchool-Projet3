@@ -301,7 +301,7 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => { setCreatem({ ...createm, address: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input placeholder={createm.cp}
+                                <Input placeholder='Code postal'
                                     id="cp"
                                     name="cp"
                                     value={createm.cp}
@@ -309,7 +309,7 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => { setCreatem({ ...createm, cp: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input placeholder={createm.siret}
+                                <Input placeholder='Siret'
                                     id="siret"
                                     name="siret"
                                     value={createm.siret}
@@ -317,7 +317,7 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => { setCreatem({ ...createm, siret: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input placeholder={createm.budget}
+                                <Input placeholder='Budget'
                                     id="budget"
                                     name="budget"
                                     value={createm.budget}
@@ -341,7 +341,7 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => { setCreatem({ ...createm, date_fin: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input placeholder={createm.nb_j_par_mois}
+                                <Input placeholder='Nombre de jours par mois'
                                     id="nb_j_par_mois"
                                     name="nb_j_par_mois"
                                     value={createm.nb_j_par_mois}
