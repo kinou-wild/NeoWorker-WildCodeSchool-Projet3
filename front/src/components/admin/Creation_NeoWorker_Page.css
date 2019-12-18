@@ -1,6 +1,6 @@
 .main-div {
     width: 80%;
-    height: 100vh;
+    height: auto;
     float: right;
     background-color: white;
     display: flex;
@@ -28,7 +28,7 @@
 .formulaire-creation-neoworker {
     display:flex;
     flex-direction: column;
-    height: 100%;
+    height: auto;
 
 }
 
@@ -75,7 +75,6 @@
 .align-field-text-div {
     display:flex;
     flex-direction: column;
-    
     width: 50%;
 }
 
@@ -107,7 +106,9 @@
     justify-content: space-between;
     text-align:center;
     align-self:center;
-    width: 80%
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .div-tj_min,
@@ -155,9 +156,70 @@
 }
 
 .separator-line {
-    color: black !important;
-    border: 5px;
-    width: 90%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    height: 30px;
+    border-style: solid;
+    border-color:  rgba(5, 57, 152, 0.5);
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+    width: 80%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.separator-line:before { /* Not really supposed to work, but does */
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: rgba(5, 57, 152, 0.5);
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
+.title-softskills {
+
+    color: #ED6A09 !important;
+    align-self: center !important;
+    width: 100% !important;
+    font-size: 40px;
+    justify-content: center;
+    display:flex;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.div-rating {
+    align-self: center;
+    width: 80%;
+}
+
+.mission-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+    width: 25%;
+    min-width: 25%;
+    color: rgba(5, 57, 152, 0.5);
+
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.mission-title {
+    color: #ED6A09;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    border: 2px solid #c4c4c4;
+    border-radius: .25rem;
+}
+.champ-libre {
+    color: rgba(5, 57, 152, 0.5);
 }
