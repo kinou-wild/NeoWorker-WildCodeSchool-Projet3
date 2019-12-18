@@ -26,7 +26,7 @@ const MissionCreateAdmin = (props) => {
         frequence: '',
         status: 0,
         address: "",
-        mobilite: 0,
+        mobilite: "",
         km_max: 0,
         tel: '',
         cp: 'code postal',
@@ -232,8 +232,7 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => {
                                         setCreatem({
                                             ...createm,
-                                            pref_lieu_de_travail: e.target.value == 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value == 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
-                                        })}}>
+                                            pref_lieu_de_travail: e.target.value == 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value == 'Travail à distance' ? 'Travail à distance' : 'Peu importe'})}}>
                                     <option>Préférence lieu de travail</option>
                                     <option>Présence en entreprise</option>
                                     <option>Travail à distance</option>
@@ -258,7 +257,7 @@ const MissionCreateAdmin = (props) => {
                                     <option>Récurrente</option>
                                 </Input>
                             </FormGroup>
-                            <option> 
+                            <FormGroup>
                                 <Input type="select" name="mobilite" id='mobilite'
                                     value={createm.mobilite}
                                     onChange={(e) => { setCreatem({ ...createm, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
@@ -266,7 +265,7 @@ const MissionCreateAdmin = (props) => {
                                     <option>Oui</option>
                                     <option>Non</option>
                                 </Input>
-                            </option>
+                            </FormGroup>
                         </div>
                         <div className='champs-mission'>
                         
