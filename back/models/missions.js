@@ -63,7 +63,6 @@ module.exports = (sequelize, DataTypes) => {
     curiosite: DataTypes.INTEGER,
     sens_effort: DataTypes.INTEGER,
     sport: DataTypes.STRING,
-    passion: DataTypes.STRING,
     engagement_asso: DataTypes.STRING,
     autres_softskill: DataTypes.STRING,
     gestion_admin_compta: DataTypes.INTEGER,
@@ -81,7 +80,7 @@ module.exports = (sequelize, DataTypes) => {
     russe: DataTypes.INTEGER,
     arabe: DataTypes.INTEGER,
     allemand: DataTypes.INTEGER,
-    espagnol: DataTypes.INTEGER,autres_langue,
+    espagnol: DataTypes.INTEGER,
     autres_langue: DataTypes.STRING,
     }, {});
 
