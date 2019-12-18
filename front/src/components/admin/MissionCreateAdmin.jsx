@@ -258,7 +258,7 @@ const MissionCreateAdmin = (props) => {
                                     <option>Récurrente</option>
                                 </Input>
                             </FormGroup>
-                            <option> 
+                            <FormGroup>
                                 <Input type="select" name="mobilite" id='mobilite'
                                     value={createm.mobilite}
                                     onChange={(e) => { setCreatem({ ...createm, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
@@ -266,7 +266,7 @@ const MissionCreateAdmin = (props) => {
                                     <option>Oui</option>
                                     <option>Non</option>
                                 </Input>
-                            </option>
+                                </FormGroup>
                         </div>
                         <div className='champs-mission'>
                         
