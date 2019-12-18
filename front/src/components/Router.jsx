@@ -9,8 +9,6 @@ import HomePageAdmin from './admin/HomePageAdmin'
 import HomePageFreelancer from './freelancer/HomePageFreelancer';
 import EditHomePageFreelancer from './freelancer/EditHomePageFreelancer';
 import CompetencesFreelancer from './freelancer/CompetencesFreelancer';
-
-
 import MissionCreateAdmin from './admin/MissionCreateAdmin';
 import GetAllMissions from './admin/GetAllMissions';
 import OneMission from './admin/OneMission'
@@ -33,7 +31,7 @@ const Router = () => {
                         <Route exact path="/neoworker/homepage" component={HomePageFreelancer} />
 
                         {/* route pour see all missions, create, delete, update */}
-                        <Route exact path="/missions" component={GetAllMissions} />
+                        <Route exact path="/admin/missions" component={GetAllMissions} />
                         <Route exact path="/admin/mission/creer" component={MissionCreateAdmin} />
                         <Route exact path="/mission/see/:id" component={OneMission} />
                         <Route exact path="/updateMission/:id" component={UpdateDeleteMission} />
@@ -41,7 +39,10 @@ const Router = () => {
                         <Route exact path="/neoworker/editer/:id" component={EditHomePageFreelancer} />
                         <Route exact path="/neoworker/competences/" component={CompetencesFreelancer} />
 
+<<<<<<< HEAD
                     
+=======
+>>>>>>> antho_tj
                     </Switch>
             </SidebarController>
             </>
