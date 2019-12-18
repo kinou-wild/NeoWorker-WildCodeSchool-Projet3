@@ -224,12 +224,16 @@ const MissionCreateAdmin = (props) => {
 
 
                         <div className='selector-mission'>
-                            {/* <FormGroup>
+                            <FormGroup>
                                 <Input type="select"
                                     id="pref_lieu_de_travail"
                                     name="pref_lieu_de_travail"
                                     value={createm.pref_lieu_de_travail}
-                                    onChange={(e) => { setCreatem({ ...createm, pref_lieu_de_travail: e.target.value }) }}>
+                                    onChange={(e) => {
+                                        setCreatem({
+                                            ...createm,
+                                            pref_lieu_de_travail: e.target.value == 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value == 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
+                                        })}}>
                                     <option>Préférence lieu de travail</option>
                                     <option>Présence en entreprise</option>
                                     <option>Travail à distance</option>
@@ -239,7 +243,7 @@ const MissionCreateAdmin = (props) => {
                             <FormGroup>
                                 <Input type="select" name="type_profil" id='type_profil'
                                     value={createm.type_profil}
-                                    onChange={(e) => { setCreatem({ ...createm, type_profil: e.target.value }) }}>
+                                    onChange={(e) => { setCreatem({ ...createm, type_profil: e.target.value == 'Regular' ? 'Regular' : 'Expert' }) }}>
                                     <option>Profil</option>
                                     <option>Regular</option>
                                     <option>Expert</option>
@@ -248,21 +252,21 @@ const MissionCreateAdmin = (props) => {
                             <FormGroup>
                                 <Input type="select" name="frequence" id='frequence'
                                     value={createm.frequence}
-                                    onChange={(e) => { setCreatem({ ...createm, frequence: e.target.value }) }}>
+                                    onChange={(e) => { setCreatem({ ...createm, frequence: e.target.value == 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
                                     <option>Fréquence</option>
                                     <option>Ponctuelle</option>
                                     <option>Récurrente</option>
                                 </Input>
                             </FormGroup>
-                            <FormGroup> 
+                            <option> 
                                 <Input type="select" name="mobilite" id='mobilite'
                                     value={createm.mobilite}
-                                    onChange={(e) => { setCreatem({ ...createm, mobilite: e.target.value }) }}>
+                                    onChange={(e) => { setCreatem({ ...createm, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
                                     <option>Mobilite</option>
                                     <option>Oui</option>
                                     <option>Non</option>
                                 </Input>
-                            </FormGroup> */}
+                            </option>
                         </div>
                         <div className='champs-mission'>
                         
