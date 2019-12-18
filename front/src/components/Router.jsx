@@ -31,7 +31,7 @@ const Router = () => {
                         <Route exact path="/neoworker/homepage" component={HomePageFreelancer} />
 
                         {/* route pour see all missions, create, delete, update */}
-                        <Route exact path="/missions" component={GetAllMissions} />
+                        <Route exact path="/admin/missions" component={GetAllMissions} />
                         <Route exact path="/admin/mission/creer" component={MissionCreateAdmin} />
                         <Route exact path="/mission/see/:id" component={OneMission} />
                         <Route exact path="/updateMission/:id" component={UpdateDeleteMission} />

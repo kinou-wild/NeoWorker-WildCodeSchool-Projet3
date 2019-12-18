@@ -57,7 +57,7 @@ const Sidebar = (props) => {
                     <Link to='/admin/mission/creer'>
                         <p className={hiddenfield2 === true ? "sidebar-little-field" : "sidebar-hidden-little-field"}>Créer</p>
                     </Link>
-                    <Link to='/admin/missionListe'>
+                    <Link to='/admin/missions'>
                         <p className={hiddenfield2 === true ? "sidebar-little-field" : "sidebar-hidden-little-field"}>Liste</p>
                     </Link>
 
