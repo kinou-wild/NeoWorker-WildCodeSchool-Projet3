@@ -26,7 +26,7 @@ const MissionCreateAdmin = (props) => {
         frequence: '',
         status: 0,
         address: "",
-        mobilite: 0,
+        mobilite: "",
         km_max: 0,
         tel: '',
         cp: 'code postal',
@@ -231,8 +231,7 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => {
                                         setCreatem({
                                             ...createm,
-                                            pref_lieu_de_travail: e.target.value == 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value == 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
-                                        })}}>
+                                            pref_lieu_de_travail: e.target.value == 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value == 'Travail à distance' ? 'Travail à distance' : 'Peu importe'})}}>
                                     <option>Préférence lieu de travail</option>
                                     <option>Présence en entreprise</option>
                                     <option>Travail à distance</option>
@@ -265,7 +264,7 @@ const MissionCreateAdmin = (props) => {
                                     <option>Oui</option>
                                     <option>Non</option>
                                 </Input>
-                            </ FormGroup>
+                            </FormGroup>
                         </div>
                         <div className='champs-mission'>
                         
@@ -341,7 +340,7 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => { setCreatem({ ...createm, date_fin: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input placeholder='Nombre de jour(s)'
+                                <Input placeholder='Nombre de jour(s) par mois'
                                     id="nb_j_par_mois"
                                     name="nb_j_par_mois"
                                     value={createm.nb_j_par_mois}
