@@ -97,10 +97,7 @@
 }
 
 .second-div-creation-neoworker, 
-.third-div-creation-neoworker,
-.fourth-div-creation-neoworker 
-{
-
+.third-div-creation-neoworker {
     display:flex;
     flex-direction: row;
     justify-content: space-between;

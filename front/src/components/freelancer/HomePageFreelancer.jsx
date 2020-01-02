@@ -53,16 +53,17 @@ const HomePageFreelancer = () => {
     })
     return(
         <div className="freelancer-homepage">
-            <div>
                 <div className='profil-card'>
-                    <p className='name-card'>Profil NeoWorker</p>
+                    <p className='name-card'>{idFree.firstname}</p>
                     <img className='pic-card' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='profil picture'/>
                 </div> 
-                <h1 className='freelancer-h1'>Bienvenue sur ton espace personnel</h1>
-                <div className="champs-profil"><p>{idFree.title}</p></div>
+                <div>
+                    <h1 className='freelancer-h1'>Bienvenue sur ton espace personnel</h1>
+                </div>
+                <div className="champs-profil-title"><p id='freelancer-title' placeholder='métier'>{idFree.title}</p></div>
                 <div className='homepage-profil'>
-                    <div>
-                    <img className='pic-profil' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='photo de profil' />
+                    <div className="profil-img-creation-freelancer">
+                        <img className='picture-profil'src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='photo de profil' />
                     </div>
                     <div className='infos-profil'>
                         <div className="champs-profil"><p>{idFree.firstname}</p></div>                        
@@ -71,18 +72,24 @@ const HomePageFreelancer = () => {
                         <div className="champs-profil"><p>{idFree.tel}</p></div>
                     </div>
                 </div>
-            </div>
-            <div className='reste-profil'>
-                <div className="container-reste-profile">
-                <div><p>{idFree.tjm_min}</p></div>
-                <div><p>{idFree.tjm_max}</p></div>
+                <div className='reste-profil'>
+                    <div className="container-champs-reste-profil">
+                        <div className="champs-reste-profil"><p>{idFree.tjm_min}</p></div>
+                        <div className="champs-reste-profil"><p>{idFree.tjm_max}</p></div>
+                    </div>
+                    <div className="container-champs-reste-profil">
+                        <div className="champs-reste-profil"><p>{idFree.disponibilite}</p></div>
+                        <div className="champs-reste-profil"><p>{String(idFree.mobilite)}</p></div>
+                    </div>
+                    <div className="container-champs-reste-profil">
+                        <div className="champs-reste-profil"><p>{idFree.address}</p></div>
+                        <div className="champs-reste-profil"><p>{idFree.cp}</p></div>
+                    </div>
+                    <div className="container-champs-reste-profil">
+                        <div className="champs-reste-profil"><p>{idFree.pref_lieu_de_travail}</p></div>
+                        <div className="champs-reste-profil"><p>{idFree.km_max}</p></div>
+                    </div>
                 </div>
-                <div className="champs-reste-profil"><p>{idFree.disponibilite}</p></div>
-                <div className="champs-reste-profil"><p>{String(idFree.mobilite)}</p></div>
-                <div className="champs-reste-profil"><p>{idFree.pref_lieu_de_travail}</p></div>
-                <div className="champs-reste-profil"><p>{idFree.cp}</p></div>
-                <div className="champs-reste-profil"><p>{idFree.km_max}</p></div>
-            </div>
                 <Link to={`/neoworker/editer/${idFree.id}`}>
                     <Button className='btn'>Editer</Button>
                 </Link>
