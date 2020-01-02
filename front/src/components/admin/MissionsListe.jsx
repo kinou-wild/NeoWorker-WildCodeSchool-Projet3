@@ -33,6 +33,9 @@ const MissionsListe = () => {
 
     }
 
+    var tempDate = new Date();
+    var date = tempDate.getFullYear() + '-' + (tempDate.getMonth()+1) + '-' + tempDate.getDate() +' '+ tempDate.getHours()+':'+ tempDate.getMinutes()+':'+ tempDate.getSeconds();
+
     return(
         
         <div className="admin-mission">
@@ -85,14 +88,14 @@ const MissionsListe = () => {
                     <Button className='button-card' onClick={()=>fetchDeleteDataMission(mission.id)} >Supprimer</Button>
                 </div>
                 <div className='fourthrow-card'>
-                    <p>Neoworker : {mission.email}</p>
+                    <p>Neoworker : {/* Appel du nom du neoworker selectionné */}</p>
                     <Button className='button-card' onClick={()=>fetchDeleteDataMission(mission.id)} >Supprimer</Button>
                 </div>
                 </div>)}
         </div>
         <h2 className='missions-h2'>Missions terminées <span className='textModif'>:</span></h2>
         <div className='missions'>
-            {missions.map(mission => mission.status === 2 &&
+            {missions.map(mission => mission.date_fin < date &&
             <div className='missions-cards'>
                 <div className='firstrow-card'>
                     <p className='titleofmission'>{mission.nom_mission}</p>
@@ -111,10 +114,12 @@ const MissionsListe = () => {
                     <p>Email : {mission.email}</p>
                     <Button className='button-card' onClick={()=>fetchDeleteDataMission(mission.id)} >Supprimer</Button>
                 </div>
+                <div className='fourthrow-card'>
+                    <p>Neoworker : {/* Appel du nom du neoworker selectionné */}</p>
+                    <Button className='button-card' onClick={()=>fetchDeleteDataMission(mission.id)} >Supprimer</Button>
+                </div>
                 </div>)}
         </div>
-
-
         </div>
         )
 }
