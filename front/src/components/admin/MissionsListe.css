@@ -1,0 +1,62 @@
+h2.missions-h2{
+    text-align: left;
+    font-size: 56px;
+    font-weight: bold;
+}
+
+div.missions {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: space-around;
+}
+
+div.missions-cards {
+    padding: 10px;
+    color: black;
+    text-align: center;
+    font-size: 24px;
+    margin:20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 45%;
+    border: #c4c4c4 2px solid;
+    border-radius: .25rem;
+}
+
+Button.button-card, Button.button-car:hover {
+    color: white;
+    font-size: 15px!important;
+    background: #ED6A09;
+    border-radius: .25rem;
+    width: auto!important;
+    margin: 0px!important;
+}
+
+div.firstrow-card {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.secondrow-card, div.thirdrow-card, div.fourthrow-card {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+div.thirdrow-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+p.dateofmission {
+    color: #000099;
+    font-size: small;
+}
+
+p.titleofmission {
+    font-weight: bold;
+}

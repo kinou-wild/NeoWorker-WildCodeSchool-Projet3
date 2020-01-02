@@ -264,7 +264,7 @@ const MissionCreateAdmin = (props) => {
                                     <option>Oui</option>
                                     <option>Non</option>
                                 </Input>
-                            </FormGroup>
+                                </FormGroup>
                         </div>
                         <div className='champs-mission'>
                         
