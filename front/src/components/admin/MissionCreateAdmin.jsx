@@ -75,7 +75,6 @@ const MissionCreateAdmin = (props) => {
         curiosite: 0,
         sens_effort: 0,
         sport: "",
-        passion: "",
         engagement_asso: "",
         autres_softskill: "",
         gestion_admin_compta: 0,
@@ -146,7 +145,7 @@ const MissionCreateAdmin = (props) => {
         { engagement_asso: 0 },
         { autres_softskill: 0 },
         { gestion_admin_compta: 0 },
-        { gestion_ope: 0 },
+        { gestion_op: 0 },
         { gestion_commerciale: 0 },
         { marketing_com_digit: 0 },
         { gestion_fi_controle_gestion: 0 },
@@ -301,7 +300,7 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => { setCreatem({ ...createm, address: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input placeholder='Code postal'
+                                <Input placeholder='Code Postal'
                                     id="cp"
                                     name="cp"
                                     value={createm.cp}
@@ -341,7 +340,7 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => { setCreatem({ ...createm, date_fin: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input placeholder='Nombre de jours par mois'
+                                <Input placeholder='Nombre de jour(s) par mois'
                                     id="nb_j_par_mois"
                                     name="nb_j_par_mois"
                                     value={createm.nb_j_par_mois}
@@ -734,94 +733,85 @@ const MissionCreateAdmin = (props) => {
                                     onStarClick={(e) => onStarClick(e, 41, 'sens_effort')} />
                             </div>
                             <div className='mission-card'>
-                                <p>Passion </p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[42].passion}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 42, 'passion')} />
-                            </div>
-                            <div className='mission-card'>
                                 <p>Engagement associatif </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[43].engagement_asso}
+                                    value={rating[42].engagement_asso}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 43, 'engagement_asso')} />
+                                    onStarClick={(e) => onStarClick(e, 42, 'engagement_asso')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Gestion admin compta </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[44].gestion_admin_compta}
+                                    value={rating[43].gestion_admin_compta}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 44, 'gestion_admin_compta')} />
+                                    onStarClick={(e) => onStarClick(e, 43, 'gestion_admin_compta')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Gestion opérationnelle </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[45].gestion_ope}
+                                    value={rating[44].gestion_op}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 45, 'gestion_ope')} />
+                                    onStarClick={(e) => onStarClick(e, 44, 'gestion_op')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Gestion commerciale </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[46].gestion_commerciale}
+                                    value={rating[45].gestion_commerciale}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 46, 'gestion_commerciale')} />
+                                    onStarClick={(e) => onStarClick(e, 45, 'gestion_commerciale')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Marketing commercial digital </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[47].marketing_com_digit}
+                                    value={rating[46].marketing_com_digit}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 47, 'marketing_com_digit')} />
+                                    onStarClick={(e) => onStarClick(e, 46, 'marketing_com_digit')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Gestion Financière</p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[48].gestion_fi_controle_gestion}
+                                    value={rating[47].gestion_fi_controle_gestion}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 48, 'gestion_fi_controle_gestion')} />
+                                    onStarClick={(e) => onStarClick(e, 47, 'gestion_fi_controle_gestion')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Dsi</p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[49].dsi}
+                                    value={rating[48].dsi}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 49, 'dsi')} />
+                                    onStarClick={(e) => onStarClick(e, 48, 'dsi')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Gestion RH - Juridique </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[50].gestion_rh_juridique}
+                                    value={rating[49].gestion_rh_juridique}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 50, 'gestion_rh_juridique')} />
+                                    onStarClick={(e) => onStarClick(e, 49, 'gestion_rh_juridique')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Gestion relation client </p>
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[51].gestion_rel_client}
+                                    value={rating[50].gestion_rel_client}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 51, 'gestion_rel_client')} />
+                                    onStarClick={(e) => onStarClick(e, 50, 'gestion_rel_client')} />
                             </div>
                         <div className='champ-libre'>
                             <p>Autres skills </p>
@@ -837,72 +827,72 @@ const MissionCreateAdmin = (props) => {
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[52].francais}
+                                value={rating[51].francais}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 52, 'francais')}/>
+                                onStarClick={(e) => onStarClick(e, 51, 'francais')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Anglais</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[53].anglais}
+                                value={rating[52].anglais}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 53, 'anglais')}/>
+                                onStarClick={(e) => onStarClick(e, 52, 'anglais')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Espagnol</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[54].espagnol}
+                                value={rating[53].espagnol}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 54, 'espagnol')}/>
+                                onStarClick={(e) => onStarClick(e, 53, 'espagnol')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Allemand</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[55].allemand}
+                                value={rating[54].allemand}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 55, 'allemand')}/>
+                                onStarClick={(e) => onStarClick(e, 54, 'allemand')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Russe</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[56].russe}
+                                value={rating[55].russe}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 56, 'russe')}/>
+                                onStarClick={(e) => onStarClick(e, 55, 'russe')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Italien</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[57].italien}
+                                value={rating[56].italien}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 57, 'italien')}/>
+                                onStarClick={(e) => onStarClick(e, 56, 'italien')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Chinois</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[58].chinois}
+                                value={rating[57].chinois}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 58, 'chinois')}/>
+                                onStarClick={(e) => onStarClick(e, 57, 'chinois')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Arabe</p>
                             <StarRatingComponent 
                                 name="rate1" 
                                 starCount={3}
-                                value={rating[59].arabe}
+                                value={rating[58].arabe}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 59, 'arabe')}/>
+                                onStarClick={(e) => onStarClick(e, 58, 'arabe')}/>
                         </div>
                        <div className='mission-card'>
                             <p>Autres langues</p>
@@ -953,24 +943,23 @@ const MissionCreateAdmin = (props) => {
                         sens_collectif:rating[39].sens_collectif,
                         curiosite:rating[40].curiosite,
                         sens_effort:rating[41].sens_effort,
-                        passion:rating[42].passion,
-                        engagement_asso:rating[43].engagement_asso,
-                        gestion_admin_compta:rating[44].gestion_admin_compta,
-                        gestion_ope:rating[45].gestion_ope,
-                        gestion_commerciale:rating[46].gestion_commerciale,
-                        marketing_com_digit:rating[47].marketing_com_digit,
-                        gestion_fi_controle_gestion:rating[48].gestion_fi_controle_gestion,
-                        dsi:rating[49].dsi,
-                        gestion_rh_juridique:rating[50].gestion_rh_juridique,
-                        gestion_rel_client:rating[51].gestion_rel_client,
-                        francais:rating[52].francais,
-                        anglais:rating[53].anglais,
-                        espagnol:rating[54].espagnol,
-                        allemand:rating[55].allemand,
-                        russe:rating[56].russe,
-                        italien:rating[57].italien,
-                        chinois:rating[58].chinois,
-                        arabe:rating[59].arabe,
+                        engagement_asso:rating[42].engagement_asso,
+                        gestion_admin_compta:rating[43].gestion_admin_compta,
+                        gestion_op:rating[44].gestion_op,
+                        gestion_commerciale:rating[45].gestion_commerciale,
+                        marketing_com_digit:rating[46].marketing_com_digit,
+                        gestion_fi_controle_gestion:rating[47].gestion_fi_controle_gestion,
+                        dsi:rating[48].dsi,
+                        gestion_rh_juridique:rating[49].gestion_rh_juridique,
+                        gestion_rel_client:rating[50].gestion_rel_client,
+                        francais:rating[51].francais,
+                        anglais:rating[52].anglais,
+                        espagnol:rating[53].espagnol,
+                        allemand:rating[54].allemand,
+                        russe:rating[55].russe,
+                        italien:rating[56].italien,
+                        chinois:rating[57].chinois,
+                        arabe:rating[58].arabe,
 
                             })}>Valider</Button>     
                </div>
