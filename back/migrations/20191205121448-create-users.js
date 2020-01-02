@@ -9,7 +9,6 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       role: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       email: {
@@ -21,11 +20,9 @@ module.exports = {
         type: Sequelize.STRING
       },
       createdAt: {
-        allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE
       }
     });
