@@ -2,13 +2,14 @@ h2.missions-h2{
     text-align: left;
     font-size: 56px;
     font-weight: bold;
+    margin: 0px 3%;
 }
 
 div.missions {
     display: flex;
     flex-direction: row;
     flex-flow: wrap;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 div.missions-cards {
@@ -16,7 +17,7 @@ div.missions-cards {
     color: black;
     text-align: center;
     font-size: 24px;
-    margin:20px;
+    margin:10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

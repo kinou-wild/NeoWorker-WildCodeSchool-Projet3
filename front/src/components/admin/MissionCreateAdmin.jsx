@@ -161,7 +161,6 @@ const MissionCreateAdmin = (props) => {
         { italien: 0 },
         { chinois: 0 },
         { arabe: 0 }
-
     ])
 
     /* quand on clic sur une étoile, elle prend la valeur du clic, si on reclic, elle revient à 0 */
@@ -199,7 +198,7 @@ const MissionCreateAdmin = (props) => {
                 <p className='name-card'>Profil Admin</p>
                 <img className='pic-card' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='profil picture' />
             </div>
-            <h1 className='admin-h1'>Creation d'une mission NeoWorker</h1>
+            <h1 className='admin-h1'>Creation d'une mission NeoWorker <span className='textModif'>:</span></h1>
             <div className='notes'>
                 <Form onSubmit={createMissions}>
                     <FormGroup>
@@ -207,7 +206,6 @@ const MissionCreateAdmin = (props) => {
                             value={createm.note}
                             onChange={(e) => { setCreatem({ ...createm, note: e.target.value }) }} />
                     </FormGroup>
-
 
 
                     <div className='select-mission'>
@@ -269,7 +267,7 @@ const MissionCreateAdmin = (props) => {
                         <div className='champs-mission'>
                         
                             <FormGroup>
-                                <Input placeholder="Nom de l'entreprise manque dans la bdd"
+                                <Input placeholder="Nom de l'entreprise"
                                     id="nom_entreprise"
                                     name="nom_entreprise"
                                     value={createm.nom_entreprise}
@@ -814,8 +812,8 @@ const MissionCreateAdmin = (props) => {
                                     onStarClick={(e) => onStarClick(e, 50, 'gestion_rel_client')} />
                             </div>
                         <div className='champ-libre'>
-                            <p>Autres skills </p>
-                            <Input type="textaera" name="text" id="autres_skills" value={createm.autres_softskill} onChange={(e)=>setCreatem({...createm, autres_softskill: e.target.value})} />
+                            <p style={{minWidth:'110px', padding:'5px 10px'}}>Autres skills </p>
+                            <Input style={{marginRight:'5px'}} type="textaera" name="text" id="autres_skills" value={createm.autres_softskill} onChange={(e)=>setCreatem({...createm, autres_softskill: e.target.value})} />
                         </div>
                         </div>
 
@@ -896,7 +894,7 @@ const MissionCreateAdmin = (props) => {
                         </div>
                        <div className='mission-card'>
                             <p>Autres langues</p>
-                            <Input type="textaera" name="text" id="langues" value={createm.autres_langue} onChange={(e)=>setCreatem({...createm, autres_langue: e.target.value})} />
+                            <Input style={{marginRight:'5px'}} type="textaera" name="text" id="langues" value={createm.autres_langue} onChange={(e)=>setCreatem({...createm, autres_langue: e.target.value})} />
                         </div> 
                     </div>
                     <Button className='btn' type='submit' 

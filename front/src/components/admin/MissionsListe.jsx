@@ -33,8 +33,6 @@ const MissionsListe = () => {
 
     }
 
-    
-   
     return(
         
         <div className="admin-mission">
@@ -42,29 +40,81 @@ const MissionsListe = () => {
             <p className='name-card'>Profil Admin</p>
             <img className='pic-card' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='profil picture' />
         </div>
-        <h2 className='missions-h2'>Missions créées</h2>
+        <h2 className='missions-h2'>Missions à pourvoir <span className='textModif'>:</span></h2>
         <div className='missions'>
-            {missions.map(mission =>
+            {missions.map(mission => mission.status === 0 &&
             <div className='missions-cards'>
                 <div className='firstrow-card'>
                     <p className='titleofmission'>{mission.nom_mission}</p>
                     <p className='dateofmission'>du : {mission.date_debut} au : {mission.date_fin}</p>
                 </div>
                 <div className='secondrow-card'>
-                    <p>{mission.nom_entreprise}</p>
+                    <p>Entreprise : {mission.nom_entreprise}</p>
                     <Link to={`/mission/see/${mission.id}`}><Button className='button-card'>Voir</Button></Link>
                 </div>     
 
                 <div className='thirdrow-card'>
-                    <p>telephone : {mission.tel}</p>
+                    <p>Telephone : {mission.tel}</p>
                     <Link to={`/updateMission/${mission.id}`}><Button className='button-card'>Modifier</Button></Link>   
                 </div>
                 <div className='fourthrow-card'>
-                    <p>email : {mission.email}</p>
+                    <p>Email : {mission.email}</p>
                     <Button className='button-card' onClick={()=>fetchDeleteDataMission(mission.id)} >Supprimer</Button>
                 </div>
                 </div>)}
         </div>
+        <h2 className='missions-h2'>Missions Pourvus <span className='textModif'>:</span></h2>
+        <div className='missions'>
+            {missions.map(mission => mission.status === 1 &&
+            <div className='missions-cards'>
+                <div className='firstrow-card'>
+                    <p className='titleofmission'>{mission.nom_mission}</p>
+                    <p className='dateofmission'>du : {mission.date_debut} au : {mission.date_fin}</p>
+                </div>
+                <div className='secondrow-card'>
+                    <p>Entreprise : {mission.nom_entreprise}</p>
+                    <Link to={`/mission/see/${mission.id}`}><Button className='button-card'>Voir</Button></Link>
+                </div>     
+
+                <div className='thirdrow-card'>
+                    <p>Telephone : {mission.tel}</p>
+                    <Link to={`/updateMission/${mission.id}`}><Button className='button-card'>Modifier</Button></Link>   
+                </div>
+                <div className='fourthrow-card'>
+                    <p>Email : {mission.email}</p>
+                    <Button className='button-card' onClick={()=>fetchDeleteDataMission(mission.id)} >Supprimer</Button>
+                </div>
+                <div className='fourthrow-card'>
+                    <p>Neoworker : {mission.email}</p>
+                    <Button className='button-card' onClick={()=>fetchDeleteDataMission(mission.id)} >Supprimer</Button>
+                </div>
+                </div>)}
+        </div>
+        <h2 className='missions-h2'>Missions terminées <span className='textModif'>:</span></h2>
+        <div className='missions'>
+            {missions.map(mission => mission.status === 2 &&
+            <div className='missions-cards'>
+                <div className='firstrow-card'>
+                    <p className='titleofmission'>{mission.nom_mission}</p>
+                    <p className='dateofmission'>du : {mission.date_debut} au : {mission.date_fin}</p>
+                </div>
+                <div className='secondrow-card'>
+                    <p>Entreprise : {mission.nom_entreprise}</p>
+                    <Link to={`/mission/see/${mission.id}`}><Button className='button-card'>Voir</Button></Link>
+                </div>     
+
+                <div className='thirdrow-card'>
+                    <p>Telephone : {mission.tel}</p>
+                    <Link to={`/updateMission/${mission.id}`}><Button className='button-card'>Modifier</Button></Link>   
+                </div>
+                <div className='fourthrow-card'>
+                    <p>Email : {mission.email}</p>
+                    <Button className='button-card' onClick={()=>fetchDeleteDataMission(mission.id)} >Supprimer</Button>
+                </div>
+                </div>)}
+        </div>
+
+
         </div>
         )
 }
