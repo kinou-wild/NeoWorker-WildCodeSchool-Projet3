@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 import { SidebarContext } from '../SidebarContext'
 import { Button } from 'reactstrap'
 import './MissionsListe.css'
+import MissionDisplayer from "./MissionsListeCard"
+
 
 const MissionsListe = () => {
-
+    
     // hooks to get all missions
     const [missions, setMissions] = useState([])
 
@@ -26,11 +28,11 @@ const MissionsListe = () => {
             .then(response => setMissions(response.data))
             .catch((err) => console.log(err))
     }
+
     const fetchDeleteDataMission = (id) => {
         axios.delete(`http://localhost:5000/mission/${id}`)
             .catch((err) => console.log(err))
             window.location.reload(false);
-
     }
 
     var tempDate = new Date();
@@ -45,83 +47,25 @@ const MissionsListe = () => {
         </div>
         <h2 className='missions-h2'>Missions à pourvoir <span className='textModif'>:</span></h2>
         <div className='missions'>
-            {missions.map(mission => mission.status === 0 &&
-            <div className='missions-cards'>
-                <div className='firstrow-card'>
-                    <p className='titleofmission'>{mission.nom_mission}</p>
-                    <p className='dateofmission'>du : {mission.date_debut} au : {mission.date_fin}</p>
-                </div>
-                <div className='secondrow-card'>
-                    <p>Entreprise : {mission.nom_entreprise}</p>
-                    <Link to={`/mission/see/${mission.id}`}><Button className='button-card'>Voir</Button></Link>
-                </div>     
-
-                <div className='thirdrow-card'>
-                    <p>Telephone : {mission.tel}</p>
-                    <Link to={`/updateMission/${mission.id}`}><Button className='button-card'>Modifier</Button></Link>   
-                </div>
-                <div className='fourthrow-card'>
-                    <p>Email : {mission.email}</p>
-                    <Button className='button-card' onClick={()=>fetchDeleteDataMission(mission.id)} >Supprimer</Button>
-                </div>
-                </div>)}
-        </div>
-        <h2 className='missions-h2'>Missions Pourvus <span className='textModif'>:</span></h2>
+             {missions.filter(mission=> mission.status === 0).map(mission => {
+                 return <MissionDisplayer {...mission}/>
+             })}
+         </div>
+        <h2 className='missions-h2'>Missions Pourvues <span className='textModif'>:</span></h2>
         <div className='missions'>
-            {missions.map(mission => mission.status === 1 &&
-            <div className='missions-cards'>
-                <div className='firstrow-card'>
-                    <p className='titleofmission'>{mission.nom_mission}</p>
-                    <p className='dateofmission'>du : {mission.date_debut} au : {mission.date_fin}</p>
-                </div>
-                <div className='secondrow-card'>
-                    <p>Entreprise : {mission.nom_entreprise}</p>
-                    <Link to={`/mission/see/${mission.id}`}><Button className='button-card'>Voir</Button></Link>
-                </div>     
-
-                <div className='thirdrow-card'>
-                    <p>Telephone : {mission.tel}</p>
-                    <Link to={`/updateMission/${mission.id}`}><Button className='button-card'>Modifier</Button></Link>   
-                </div>
-                <div className='fourthrow-card'>
-                    <p>Email : {mission.email}</p>
-                    <Button className='button-card' onClick={()=>fetchDeleteDataMission(mission.id)} >Supprimer</Button>
-                </div>
-                <div className='fourthrow-card'>
-                    <p>Neoworker : {/* Appel du nom du neoworker selectionné */}</p>
-                    <Button className='button-card' onClick={()=>fetchDeleteDataMission(mission.id)} >Supprimer</Button>
-                </div>
-                </div>)}
+            {missions.filter(mission=> mission.status === 1).map(mission => {
+                return <MissionDisplayer {...mission}/>
+            })
+}
         </div>
         <h2 className='missions-h2'>Missions terminées <span className='textModif'>:</span></h2>
         <div className='missions'>
-            {missions.map(mission => mission.date_fin < date &&
-            <div className='missions-cards'>
-                <div className='firstrow-card'>
-                    <p className='titleofmission'>{mission.nom_mission}</p>
-                    <p className='dateofmission'>du : {mission.date_debut} au : {mission.date_fin}</p>
-                </div>
-                <div className='secondrow-card'>
-                    <p>Entreprise : {mission.nom_entreprise}</p>
-                    <Link to={`/mission/see/${mission.id}`}><Button className='button-card'>Voir</Button></Link>
-                </div>     
-
-                <div className='thirdrow-card'>
-                    <p>Telephone : {mission.tel}</p>
-                    <Link to={`/updateMission/${mission.id}`}><Button className='button-card'>Modifier</Button></Link>   
-                </div>
-                <div className='fourthrow-card'>
-                    <p>Email : {mission.email}</p>
-                    <Button className='button-card' onClick={()=>fetchDeleteDataMission(mission.id)} >Supprimer</Button>
-                </div>
-                <div className='fourthrow-card'>
-                    <p>Neoworker : {/* Appel du nom du neoworker selectionné */}</p>
-                    <Button className='button-card' onClick={()=>fetchDeleteDataMission(mission.id)} >Supprimer</Button>
-                </div>
-                </div>)}
+            {missions.filter(mission=>mission.status === 2).map(mission => {
+                return <MissionDisplayer {...mission}/>
+            })
+        }
         </div>
-        </div>
-        )
+            </div>)
 }
 
 export default MissionsListe;

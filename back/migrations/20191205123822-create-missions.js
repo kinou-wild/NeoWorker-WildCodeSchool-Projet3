@@ -33,10 +33,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       date_debut:{
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
       date_fin:{
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
       frequence:{
         type:Sequelize.STRING
