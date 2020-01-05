@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 app.use(express.json())
 app.use(cors())
 app.use(bodyParser.urlencoded({extended:true}))// pour les params
+app.use(bodyParser.json())
 
 //les root sont dans le dossier back/root/admin ou user
 

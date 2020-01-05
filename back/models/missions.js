@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     status:DataTypes.INTEGER,
     address:DataTypes.STRING,
     mobilite: DataTypes.STRING,
-    km_max: DataTypes.INTEGER,
+    km_max: DataTypes.STRING,
     siret: DataTypes.STRING,
     tel: DataTypes.STRING,
     cp:DataTypes.STRING,

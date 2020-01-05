@@ -4,8 +4,19 @@ import logo from '../../img/LOGO_CLASSIQUE_FOND TRANSPARENT_520X272.png'
 import './LandingAdmin.css'
 import {Link} from 'react-router-dom'
 import {SidebarContext} from '../SidebarContext'
+import {
+  login
+} from '../UserFunctions'
+
 
 const LandingAdmin = (props) => {
+
+  const [loginHooks, setLoginHooks] = useState({
+    email: '',
+    password: '',
+    errors: {}
+  })
+
   
     // créé et modifié le champ Email et Password
     const [email, setEmail] = useState("");
@@ -25,8 +36,101 @@ const LandingAdmin = (props) => {
       event.preventDefault();
     }
     
+
+    //onSubmit pour se login
+    const onSubmit = (e) => {
+      e.preventDefault()
+
+      const user = {
+        email: loginHooks.email,
+        password: loginHooks.password
+      }
+
+      login(user).then(res => {
+        console.log(res)
+        if (res!=='user doesnt exist') {
+          props.history.push(`/admin/homepage`)
+          window.location.reload()
+
+        }
+
+      })
+    }
   return (
       <div className='landing'>
+        <form noValidate onSubmit={onSubmit}>
+                <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+                <div className="form-group">
+                    <label htmlFor="email">Email address</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        name="email"
+                        placeholder="Enter your first name"
+                        value={loginHooks.email}
+                        onChange={(e) => { setLoginHooks({ ...loginHooks, email: e.target.value }) }}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        name="password"
+                        placeholder="Enter your first name"
+                        value={loginHooks.password}
+                        onChange={(e) => { setLoginHooks({ ...loginHooks, password: e.target.value }) }}
+                    />
+                </div>
+                <button type="submit">Sign in</button>
+            </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
         <img className='logoLanding' src = {logo} alt='logo' />
           <div className='landingText'>
             <h1 className='landingH1'>Bienvenue dans l’espace <span className='textModif'>Admin</span> NeoWorker<span className='textModif'>.</span></h1>
