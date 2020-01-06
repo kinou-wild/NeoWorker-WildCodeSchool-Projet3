@@ -1,16 +1,16 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const freelancer = sequelize.define('freelancer', {
-    img: DataTypes.BLOB,
+    img: DataTypes.STRING,
     title: DataTypes.STRING,
     firstname: DataTypes.STRING,
     lastname: DataTypes.STRING,
     address: DataTypes.STRING,
-    mobilite: DataTypes.BOOLEAN,
-    km_max:DataTypes.INTEGER,
+    mobilite: DataTypes.STRING,
+    km_max:DataTypes.STRING,
     tel:DataTypes.STRING,
     cp:DataTypes.STRING,
-    pref_lieu_de_travail: DataTypes.INTEGER,
+    pref_lieu_de_travail: DataTypes.STRING,
     disponibilite: DataTypes.INTEGER,
     tjm_min:DataTypes.INTEGER,
     tjm_max: DataTypes.INTEGER,

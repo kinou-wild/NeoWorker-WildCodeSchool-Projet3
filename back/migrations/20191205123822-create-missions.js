@@ -51,7 +51,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       km_max:{
-        type:Sequelize.INTEGER
+        type:Sequelize.STRING
       },
       tel:{
         type:Sequelize.STRING
