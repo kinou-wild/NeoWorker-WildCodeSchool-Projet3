@@ -4,7 +4,9 @@ module.exports = function (app) {
 
     //Get all mission
     app.get('/missions', (req, res) => {
-        models
+        if (req.query.status) {
+            
+            models
             .missions
             .findAll({
                 where: {
@@ -13,7 +15,17 @@ module.exports = function (app) {
                 include: [models.users]
             })
             .then(x => res.json(x))
-    });
+        }
+        else {
+                        
+            models
+            .missions
+            .findAll({
+                include: [models.users]
+            })
+            .then(x => res.json(x))
+        }
+        });
 
 
     //Get missions by id
