@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
-import { SidebarContext } from '../SidebarContext'
+
 
 const OneMission =(props)=>{
     const params = props.match.params
@@ -20,15 +20,6 @@ const OneMission =(props)=>{
         .then(res => setIdMission(res.data))
         .catch((err) => console.log(err))
     }
-
-    const { hook, hook2 } = useContext(SidebarContext)
-    const [showSidebar, setShowSidebar] = hook
-    const [roleSidebar, setRoleSidebar] = hook2
-
-    useEffect(() => {
-        setShowSidebar(true)
-        setRoleSidebar("admin")
-    })
 
     return(
     <div>

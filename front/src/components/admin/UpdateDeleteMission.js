@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
-import { SidebarContext } from '../SidebarContext'
+
 
 const UpdateDeleteMission =(props)=>{
     const params = props.match.params
@@ -104,14 +104,6 @@ const UpdateDeleteMission =(props)=>{
 
     }
 
-    const { hook, hook2 } = useContext(SidebarContext)
-    const [showSidebar, setShowSidebar] = hook
-    const [roleSidebar, setRoleSidebar] = hook2
-
-    useEffect(() => {
-        setShowSidebar(true)
-        setRoleSidebar("admin")
-    })
 
 
     return(

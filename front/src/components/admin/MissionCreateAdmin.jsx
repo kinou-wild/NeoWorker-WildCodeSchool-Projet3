@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 import StarRatingComponent from 'react-star-rating-component';
-import { SidebarContext } from '../SidebarContext'
 import './MissionCreateAdmin.css'
 import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom';
@@ -172,16 +171,6 @@ const MissionCreateAdmin = (props) => {
         }
 
     }
-  
-   /* Le boolean initialisé dans le Sidebar context passe à True à chaque refresh de page, pour que la Sidebar s'affiche */
-    const { hook, hook2 } = useContext(SidebarContext)
-    const [showSidebar, setShowSidebar] = hook
-    const [roleSidebar, setRoleSidebar] = hook2
-
-    useEffect(() => {
-        setShowSidebar(true)
-        setRoleSidebar("admin")
-    })
 
 
     // create a mission

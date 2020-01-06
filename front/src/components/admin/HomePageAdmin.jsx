@@ -1,19 +1,9 @@
-import React, {useContext, useEffect} from 'react'
-import {SidebarContext} from '../SidebarContext'
+import React, {useEffect} from 'react'
 import './HomePageAdmin.css'
 
 /* -------- Page d'accueil de la page Administrateur, après connexion ------------------ */
 const HomePageAdmin = () => {
 
-    /* Le boolean initialisé dans le Sidebar context passe à True à chaque refresh de page, pour que la Sidebar s'affiche */
-    // const { hook, hook2 } = useContext(SidebarContext)
-    // const [showSidebar, setShowSidebar] = hook
-    // const [roleSidebar, setRoleSidebar] = hook2
-
-    // useEffect(() => {
-    //     setShowSidebar(true)
-    //     setRoleSidebar("admin")
-    // })
 
     return(
         <div className="main-div">

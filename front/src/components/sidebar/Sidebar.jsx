@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from 'react'
 import './Sidebar.css'
 import NeoWorkerLogo from '../../img/LOGO CLASSIQUE_FOND TRANSPARENT_506X254.png'
 import { Link,withRouter } from 'react-router-dom'
-import { SidebarContext } from '../SidebarContext'
 import jwt_decode from 'jwt-decode'
 
 

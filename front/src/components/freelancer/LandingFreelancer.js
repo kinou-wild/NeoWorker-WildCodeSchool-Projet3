@@ -1,9 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Form, FormGroup, Label, Input } from 'reactstrap'
 import logo from '../../img/LOGO_CLASSIQUE_FOND TRANSPARENT_520X272.png'
 import './LandingFreelancer.css'
 import {Link} from 'react-router-dom'
-import {SidebarContext} from '../SidebarContext'
 import {
   login
 } from '../UserFunctions'
@@ -22,15 +21,7 @@ const LandingUser = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    /* Le boolean initialisé dans le Sidebar context passe à False à chaque refresh de page, pour que la Sidebar ne s'affiche pas*/
-    const { hook, hook2 } = useContext(SidebarContext)
-    const [showSidebar, setShowSidebar] = hook
-    const [roleSidebar, setRoleSidebar] = hook2
 
-    useEffect(() => {
-      setShowSidebar(false)
-      setRoleSidebar("neoworker")
-    })
   
     function handleSubmit(event) {
       event.preventDefault();

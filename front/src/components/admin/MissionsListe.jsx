@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
-import { SidebarContext } from '../SidebarContext'
 import { Button } from 'reactstrap'
 import './MissionsListe.css'
 import MissionDisplayer from "./MissionsListeCard"
@@ -14,10 +13,6 @@ const MissionsListe = () => {
     const [missionsAPourvoir, setMissionsAPourvoir] = useState([])
     const [missionsPourvues, setMissionsPourvues] = useState([])
     const [missionsTerminées, setMissionsTerminées] = useState([])
-
-    const { hook, hook2 } = useContext(SidebarContext)
-    const [showSidebar, setShowSidebar] = hook
-    const [roleSidebar, setRoleSidebar] = hook2
 
 
     //var hooks bar de recherche
@@ -50,8 +45,6 @@ const MissionsListe = () => {
 
     useEffect(() => {
         getMissions()
-        setShowSidebar(true)
-        setRoleSidebar("admin")
     }, [])
 
     // get all misions

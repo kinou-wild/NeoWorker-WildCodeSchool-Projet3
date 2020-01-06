@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { SidebarContext } from '../SidebarContext'
+
 
 const Slide4 = () => {
         //hooks de la data freelancer pour get un id
@@ -8,14 +8,6 @@ const Slide4 = () => {
         //hooks de la data user pour le get de l'id
         const [idUser, setIdUser] = useState([])
 
-    const { hook, hook2 } = useContext(SidebarContext)
-    const [showSidebar, setShowSidebar] = hook
-    const [roleSidebar, setRoleSidebar] = hook2
-
-    useEffect(() => {
-        setShowSidebar(true)
-        setRoleSidebar("neoworker")
-    })
 
 return(
 <div>
