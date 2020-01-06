@@ -7,7 +7,7 @@ function SearchBarNeo() {
   const [searchTerm, setSearchTerm] = useState({
         nom:''
     });
-    const [searchResults, setSearchResults] = useState([]);
+    const [search, setSearch] = useState([]);
     const[result,setResult]= useState([]);
 
     useEffect(() => {
@@ -16,12 +16,12 @@ function SearchBarNeo() {
 
     const fetchData = () => {
         axios.get('http://localhost:5000/neoworker')
-            .then(res => setSearchResults(res.data))
+            .then(res => setSearch(res.data))
             .catch(err => console.log(err))
     }
 
     useEffect(() => {
-        const results = searchResults.filter(person =>
+        const results = search.filter(person =>
             person.modele.toLowerCase().includes(searchTerm.nom));
             setResult(results);
     }, [searchTerm.nom]);
@@ -38,16 +38,16 @@ function SearchBarNeo() {
             />
             <ul>
                 {searchTerm.nom.length===0?
-                searchResults.map(item => {
+                search.map(item => {
                     return (
                         <div>
-                            <li>{item.modele}</li>
+                            <li>{item.lastname}</li>
                         </div>)
                 }):
                 result.map(item => {
                     return (
                         <div>
-                            <li>{item.modele}</li>
+                            <li>{item.lastname}</li>
                         </div>)
                 })}
 

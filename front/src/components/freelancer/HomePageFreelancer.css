@@ -149,3 +149,7 @@ Button.btn, Button.btn:hover {
     margin:0px 40%;
     border-radius: .25rem;
 }
+.transformation{
+    width: 20px;
+    height: 20px;
+}

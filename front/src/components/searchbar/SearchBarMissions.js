@@ -3,11 +3,12 @@ import axios from 'axios'
 import './SearchBarMissions.css'
 
 
+
 function SearchBarMission() {
   const [searchTerm, setSearchTerm] = useState({
         nom:''
     });
-    const [searchResults, setSearchResults] = useState([]);
+    const [search, setSearch] = useState([]);
     const[result,setResult]= useState([]);
 
     useEffect(() => {
@@ -16,17 +17,17 @@ function SearchBarMission() {
 
     const fetchData = () => {
         axios.get('http://localhost:5000/missions')
-            .then(res => setSearchResults(res.data))
+            .then(res => setSearch(res.data))
             .catch(err => console.log(err))
     }
 
     useEffect(() => {
-        const results = searchResults.filter(person =>
-            person.modele.toLowerCase().includes(searchTerm.nom));
+        const results = search.filter(person =>
+            person.nom_mission.toLowerCase().includes(searchTerm.nom));
             setResult(results);
     }, [searchTerm.nom]);
 
-
+    console.log (result.map(x=>x.nom_mission))
     return (
         <div className="search">
             <input
@@ -39,16 +40,16 @@ function SearchBarMission() {
             />
             <ul>
                 {searchTerm.nom.length===0?
-                searchResults.map(item => {
+                search.map(item => {
                     return (
                         <div>
-                            <li>{item.modele}</li>
+                            <li>{item.nom_mission}</li>
                         </div>)
                 }):
                 result.map(item => {
                     return (
                         <div>
-                            <li>{item.modele}</li>
+                            <li>{item.nom_mission}</li>
                         </div>)
                 })}
 

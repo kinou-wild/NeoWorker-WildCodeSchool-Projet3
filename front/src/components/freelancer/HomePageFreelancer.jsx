@@ -28,7 +28,7 @@ const HomePageFreelancer = () => {
     }, [])
 
     const fetchDataFree = () => {
-        axios.get(`http://localhost:5000/freelancer/1`)
+        axios.get(`http://localhost:5000/freelancer/`)
             .then(res => setIdFree(res.data))
             .catch((err) => console.log(err))
     }
@@ -45,12 +45,21 @@ const HomePageFreelancer = () => {
             .catch((err) => console.log(err))
     }
 
-   
-    
     useEffect(() => {
         setShowSidebar(true)
         setRoleSidebar("neoworker")
     })
+
+    /* //import image
+    const uploadImage = async e => {
+        const files = e.target.files
+        const data = new FormData()
+        data.append('file', files[0])
+        data.append('upload_preset', 'Alexandre')
+        setLoading(true)
+        const res = await fetch()
+    }
+ */
     return(
         <div className="freelancer-homepage">
                 <div className='profil-card'>
@@ -64,6 +73,9 @@ const HomePageFreelancer = () => {
                 <div className='homepage-profil'>
                     <div className="profil-img-creation-freelancer">
                         <img className='picture-profil'src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='photo de profil' />
+                        
+{/*                         <input name="file" type="file" className="transformation" data-cloudinary-field="image_id" onChange={uploadImage}/>
+ */}
                     </div>
                     <div className='infos-profil'>
                         <div className="champs-profil"><p>{idFree.firstname}</p></div>                        
