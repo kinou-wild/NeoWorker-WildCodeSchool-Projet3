@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     status:DataTypes.INTEGER,
     address:DataTypes.STRING,
     mobilite: DataTypes.STRING,
-    km_max: DataTypes.INTEGER,
+    km_max: DataTypes.STRING,
     siret: DataTypes.STRING,
     tel: DataTypes.STRING,
     cp:DataTypes.STRING,
@@ -65,6 +65,7 @@ module.exports = (sequelize, DataTypes) => {
     sport: DataTypes.STRING,
     engagement_asso: DataTypes.STRING,
     autres_softskill: DataTypes.STRING,
+    
     gestion_admin_compta: DataTypes.INTEGER,
     gestion_op: DataTypes.INTEGER,
     gestion_commerciale: DataTypes.INTEGER,
@@ -73,6 +74,7 @@ module.exports = (sequelize, DataTypes) => {
     dsi: DataTypes.INTEGER,
     gestion_rh_juridique: DataTypes.INTEGER,
     gestion_rel_client: DataTypes.INTEGER,
+
     francais: DataTypes.INTEGER,
     anglais: DataTypes.INTEGER,
     italien: DataTypes.INTEGER,

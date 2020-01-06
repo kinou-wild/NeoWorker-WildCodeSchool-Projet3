@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       img:{
-        type:Sequelize.BOOLEAN
+        type:Sequelize.STRING
       },
       title:{
         type:Sequelize.STRING
@@ -24,10 +24,10 @@ module.exports = {
         type:Sequelize.STRING
       },
       mobilite: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.STRING
       },
       km_max:{
-        type:Sequelize.INTEGER
+        type:Sequelize.STRING
       },
       tel:{
         type:Sequelize.STRING
@@ -36,7 +36,7 @@ module.exports = {
         type:Sequelize.STRING
       },
       pref_lieu_de_travail: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       disponibilite: {
         type: Sequelize.INTEGER
