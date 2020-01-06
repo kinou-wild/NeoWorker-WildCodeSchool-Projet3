@@ -41,7 +41,6 @@ const HomePageFreelancer = () => {
             const decoded = jwt_decode(token)
             setProfileHooks({
                 id:decoded.id
-
             })
         }
     }, [])
