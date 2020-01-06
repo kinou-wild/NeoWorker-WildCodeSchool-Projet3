@@ -938,7 +938,7 @@ const CreationNeoWorkerPage = (props) => {
                     </select>
 
                     <div>
-                        <div>
+                        <div className="prestation-checkbox-div">
                             <input type="checkbox" id="Option 1" name="Option 1" />
                             <label for="Option 1">Option 1</label>
                             <input type="checkbox" id="Option 2" name="Option 2" />
@@ -948,7 +948,7 @@ const CreationNeoWorkerPage = (props) => {
                             
                         </div>
                         <div>
-                            <div>
+                            <div className="prestation-checkbox-div">
                                 <input type="checkbox" id="Option 1" name="Option 1" />
                                 <label for="Option 1">Option 1</label>
                                 <input type="checkbox" id="Option 2" name="Option 2" />
