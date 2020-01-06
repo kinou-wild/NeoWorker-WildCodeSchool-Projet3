@@ -179,7 +179,6 @@ const CreationNeoWorkerPage = (props) => {
         { italien: 0 },
         { chinois: 0 },
         { arabe: 0 }
-
     ])
 
     /* quand on clic sur une étoile, elle prend la valeur du clic, si on reclic, elle revient à 0 */

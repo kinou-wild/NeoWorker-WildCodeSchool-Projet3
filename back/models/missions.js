@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     nb_j_par_mois: DataTypes.INTEGER,
     type_profil:DataTypes.STRING, //expert moyen..
     budget: DataTypes.INTEGER,
-    date_debut:DataTypes.DATE,
-    date_fin:DataTypes.DATE,
+    date_debut:DataTypes.DATEONLY,
+    date_fin:DataTypes.DATEONLY,
     frequence:DataTypes.STRING,
     status:DataTypes.INTEGER,
     address:DataTypes.STRING,
@@ -84,7 +84,7 @@ module.exports = (sequelize, DataTypes) => {
     allemand: DataTypes.INTEGER,
     espagnol: DataTypes.INTEGER,
     autres_langue: DataTypes.STRING,
-    }, {});
+    }, {timestamps:false});
 
   //table de jointures
   missions.associate = function(models) {
