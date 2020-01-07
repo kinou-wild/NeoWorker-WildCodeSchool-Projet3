@@ -42,7 +42,6 @@ const HomePageFreelancer = () => {
             })
         }
     }, [])
-
     return(
         <div>
             {idUsers.filter(x => x.id == profileHooks.id).map(x =>
@@ -87,10 +86,11 @@ const HomePageFreelancer = () => {
                             <div className="champs-reste-profil"><p>{x.freelancers[0].km_max}</p></div>
                     </div>
                 </div>
-                    <Link to={`/neoworker/editer/${x.freelancers[0].id}`}>
-                    <Button className='btn'>Editer</Button>
+                   <Link to={`/neoworker/editer/${profileHooks.id}`}>
+                <Button className='btn'>Editer</Button>
             </Link>
         </div>)}
+            
         </div>
     )
 }
