@@ -5,6 +5,8 @@
     background-color: white;
     display: flex;
     flex-direction: column;
+    color: #000099;
+    font-weight: bold;
 }
 
 .profil-card {
@@ -146,7 +148,8 @@
 .input-dispo,
 .input-pref_lieu_travail,
 .input-mobilite,
-.input-Km_max
+.input-Km_max,
+.famille-prestation-select
 {
     text-align: center !important;
     border-radius: 10px !important;
@@ -245,4 +248,27 @@
     box-shadow: 0px 4px 4px rgba(85, 71, 71, 0.25) !important;
 }
 
+.fifth-div-creation-neoworker {
+    flex-direction: column;
+}
+.prestation-checkbox-div {
+    flex-direction : column;
+}
 
+.checkbox-and-content {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.checkbox {
+    margin-right: 20px;
+}
+
+.famille-prestation-select {
+    margin-bottom: 50px;
+}
+
+.btn {
+    margin-top: 50px !important;
+}
