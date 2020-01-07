@@ -42,9 +42,9 @@ const SearchBarMission = ({setSearchTerm, searchTerm}) => {
                 result.map(item => {
                     return (
                         <div>
-                            <li>{item.nom_mission}</li>
+                            <Link>{item.nom_mission}</Link>
                             <Link to={`/mission/see/${item.id}`}>{item.id}</Link>
-
+ 
                         </div>)
                 })}
 

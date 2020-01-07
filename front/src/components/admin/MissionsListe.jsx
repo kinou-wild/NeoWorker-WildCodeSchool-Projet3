@@ -19,13 +19,13 @@ const MissionsListe = () => {
     const [missionsPourvues, setMissionsPourvues] = useState([])
     const [missionsTerminees, setMissionsTerminees] = useState([])
 
-    /*    //hooks searchbar
-       const [result, setResult] = useState()
-       //test search
-       const [searchTerm, setSearchTerm] = useState({
-           nom: ''
-       });
-       const setMySearch = setSearchTerm.bind(this) */
+    //hooks searchbar
+    const [result, setResult] = useState()
+    //test search
+    const [searchTerm, setSearchTerm] = useState({
+        nom: ''
+    });
+    const setMySearch = setSearchTerm.bind(this)
 
 
     // get all misions
@@ -41,56 +41,63 @@ const MissionsListe = () => {
             .catch((err) => console.log(err))
     }
 
+    // suppression mission
     const fetchDeleteDataMission = (id) => {
         axios.delete(`http://localhost:5000/mission/${id}`)
             .catch((err) => console.log(err))
         window.location.reload(false);
     }
 
+    // update mission
+    const fetchUpdateDataMission = (id) => {
+        axios.put(`http://localhost:5000/mission/${id}`)
+        .catch((err) => console.log(err))
+    }
+ 
 
-   /*  useEffect(() => {
+    useEffect(() => {
         getMissions()
         setShowSidebar(true)
         setRoleSidebar("admin")
-    }, []) */
+    }, [])
 
-   /*  const search = [...missionsAPourvoir, ...missionsPourvues, ...missionsTerminees]
+    const search = [...missionsAPourvoir, ...missionsPourvues, ...missionsTerminees]
     useEffect(() => {
 
-           const results = search.filter(person =>
-              person.nom_mission.toLowerCase().includes(searchTerm.nom));
-          setResult(results);
-      }, [searchTerm.nom]); */
-   
+        const results = search.filter(person =>
+            person.nom_mission.toLowerCase().includes(searchTerm.nom));
+        setResult(results);
+    }, [searchTerm.nom]);
 
 
-        return (
 
-            <div className="admin-mission">
-                {/*             <SearchBarMission setSearchTerm={setSearchTerm} searchTerm={searchTerm} /> */}
-                <h2 className='missions-h2'>Missions à pourvoir <span className='textModif'>:</span></h2>
-                <div className='missions'>
-                    {missionsAPourvoir.map(mission => {
-                        return <MissionDisplayer {...mission} />
-                    })}
-                </div>
-                <h2 className='missions-h2'>Missions pourvues <span className='textModif'>:</span></h2>
-                <div className='missions'>
-                    {missionsPourvues.map(mission => {
-                        return <MissionDisplayer {...mission} />
-                    })
-                    }
-                </div>
-                <h2 className='missions-h2'>Missions terminées <span className='textModif'>:</span></h2>
-                <div className='missions'>
-                    {missionsTerminees.map(mission => {
-                        return <MissionDisplayer {...mission} />
-                    })
-                    }
-                </div>
+    return (
 
+        <div className="admin-mission">
+            <SearchBarMission setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
+            <h2 className='missions-h2'>Missions à pourvoir <span className='textModif'>:</span></h2>
+            <div className='missions'>
+                {missionsAPourvoir.map(mission => {
+                    return <MissionDisplayer {...mission} />
+                })}
             </div>
-        )
-    }
+            <h2 className='missions-h2'>Missions pourvues <span className='textModif'>:</span></h2>
+            <div className='missions'>
+                {missionsPourvues.map(mission => {
+                    return <MissionDisplayer {...mission} />
+                })
+                }
+            </div>
+            <h2 className='missions-h2'>Missions terminées <span className='textModif'>:</span></h2>
+            <div className='missions'>
+                {missionsTerminees.map(mission => {
+                    return <MissionDisplayer {...mission} />
+                })
+                }
+            </div>
+
+        </div>
+    )
+}
 
 export default MissionsListe
