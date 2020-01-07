@@ -3,12 +3,15 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap'
 import './MissionsListe.css'
+
 const MissionsListeCard = (mission) => {
+
     const deleteCard = (id) => {
         axios.delete(`http://localhost:5000/mission/${id}`)
             .catch((err) => console.log(err))
             window.location.reload(false);
     }
+
     
     return(
             <div className='missions-cards'>
@@ -18,7 +21,7 @@ const MissionsListeCard = (mission) => {
                 </div>
                 <div className='secondrow-card'>
                     <p>Entreprise : {mission.nom_entreprise}</p>
-                    <Link to={`/mission/see/${mission.id}`}><Button className='button-card'>Voir</Button></Link>
+                    <Link to={`/seeMission/${mission.id}`}><Button className='button-card'>Voir</Button></Link>
                 </div>     
 
                 <div className='thirdrow-card'>
@@ -29,15 +32,13 @@ const MissionsListeCard = (mission) => {
                     <p>Email : {mission.email}</p>
                     <Button className='button-card' onClick={()=>deleteCard(mission.id)} >Supprimer</Button>
                 </div>
-                {mission.status === 2 ?
+                {mission.status === 2 || mission.status === 3 ?
                 <div className='fourthrow-card'>
                     <p>Neoworker : {/* Nom du neoworker depuis la TJ */}</p>
                 </div> : ''}
-
                 </div>
-
-
 
     )
 } 
+
 export default MissionsListeCard;

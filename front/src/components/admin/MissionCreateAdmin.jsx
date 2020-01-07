@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
+import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 import StarRatingComponent from 'react-star-rating-component';
 import { SidebarContext } from '../SidebarContext'
 import './MissionCreateAdmin.css'
@@ -29,7 +29,7 @@ const MissionCreateAdmin = (props) => {
         mobilite: "",
         km_max: 0,
         tel: '',
-        cp: 'code postal',
+        cp: '',
         pref_lieu_de_travail: 0,
         disponibilite: 0,
         excel: 0,
@@ -260,7 +260,7 @@ const MissionCreateAdmin = (props) => {
         e.preventDefault()
         axios.post('http://localhost:5000/missions', createm)
             .catch((err) => console.log(err))
-        props.history.push('/missions')
+        props.history.push('/admin/missions')
     }
 
     return (
@@ -293,6 +293,7 @@ const MissionCreateAdmin = (props) => {
 
                         <div className='selector-mission'>
                             <FormGroup>
+                                <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
                                 <Input type="select"
                                     id="pref_lieu_de_travail"
                                     name="pref_lieu_de_travail"
@@ -301,35 +302,38 @@ const MissionCreateAdmin = (props) => {
                                         setCreatem({
                                             ...createm,
                                             pref_lieu_de_travail: e.target.value == 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value == 'Travail à distance' ? 'Travail à distance' : 'Peu importe'})}}>
-                                    <option>Préférence lieu de travail</option>
+                                    <option hidden="true">-</option>
                                     <option>Présence en entreprise</option>
                                     <option>Travail à distance</option>
                                     <option>Peu importe</option>
                                 </Input>
                             </FormGroup>
                             <FormGroup>
+                            <Label>Profil <span className='textModif'>:</span></Label>
                                 <Input type="select" name="type_profil" id='type_profil'
                                     value={createm.type_profil}
                                     onChange={(e) => { setCreatem({ ...createm, type_profil: e.target.value == 'Regular' ? 'Regular' : 'Expert' }) }}>
-                                    <option>Profil</option>
+                                    <option hidden="true">-</option>
                                     <option>Regular</option>
                                     <option>Expert</option>
                                 </Input>
                             </FormGroup>
                             <FormGroup>
+                            <Label>Fréquence <span className='textModif'>:</span></Label>
                                 <Input type="select" name="frequence" id='frequence'
                                     value={createm.frequence}
                                     onChange={(e) => { setCreatem({ ...createm, frequence: e.target.value == 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
-                                    <option>Fréquence</option>
+                                    <option hidden="true">-</option>
                                     <option>Ponctuelle</option>
                                     <option>Récurrente</option>
                                 </Input>
                             </FormGroup>
                             <FormGroup>
+                            <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
                                 <Input type="select" name="mobilite" id='mobilite'
                                     value={createm.mobilite}
                                     onChange={(e) => { setCreatem({ ...createm, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
-                                    <option>Mobilite</option>
+                                    <option hidden="true">-</option>
                                     <option>Oui</option>
                                     <option>Non</option>
                                 </Input>
@@ -346,7 +350,8 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => { setCreatem({ ...createm, nom_entreprise: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input placeholder="Email" id="email"
+                                <Input placeholder="Email"
+                                    id="email"
                                     name="email"
                                     value={createm.email}
                                     type="email"
@@ -369,11 +374,12 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => { setCreatem({ ...createm, address: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input placeholder='Code Postal'
+                                <Input placeholder="Code Postal"
                                     id="cp"
                                     name="cp"
                                     value={createm.cp}
-                                    type="number"
+                                    type="text"
+                                    maxLength={5}
                                     onChange={(e) => { setCreatem({ ...createm, cp: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
@@ -414,6 +420,7 @@ const MissionCreateAdmin = (props) => {
                                     name="nb_j_par_mois"
                                     value={createm.nb_j_par_mois}
                                     type="number"
+                                    max="31"
                                     onChange={(e) => { setCreatem({ ...createm, nb_j_par_mois: e.target.value }) }} />
                             </FormGroup>
                         </div>
@@ -424,7 +431,7 @@ const MissionCreateAdmin = (props) => {
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[0].Excel}
+                                    value={rating[0].excel}
                                     emptyStarColor={`#C4C4C4`}
                                     onStarClick={(e) => onStarClick(e, 0, 'Excel')} />
                             </div>
@@ -433,7 +440,7 @@ const MissionCreateAdmin = (props) => {
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[1].Powerpoint}
+                                    value={rating[1].powerpoint}
                                     emptyStarColor={`#C4C4C4`}
                                     onStarClick={(e) => onStarClick(e, 1, 'Powerpoint')} />
                             </div>
@@ -451,7 +458,7 @@ const MissionCreateAdmin = (props) => {
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={3}
-                                    value={rating[3].Word}
+                                    value={rating[3].word}
                                     emptyStarColor={`#C4C4C4`}
                                     onStarClick={(e) => onStarClick(e, 3, 'Word')} />
                             </div>
