@@ -42,6 +42,9 @@ const MissionsListe = () => {
         window.location.reload(false);
     }
 
+
+    //
+    
     useEffect(() => {
         getMissions()
         setShowSidebar(true)
