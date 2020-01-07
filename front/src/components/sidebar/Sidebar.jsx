@@ -47,6 +47,8 @@ const Sidebar = (props) => {
         localStorage.removeItem('usertoken')
         setProfileHooks({role:''})
         props.history.push('/')
+        window.location.reload()
+
     } 
 //décoder le token
     useEffect(() => {
@@ -128,8 +130,8 @@ const Sidebar = (props) => {
     return (
         
         <>
-            {localStorage.usertoken && profileHooks.role ==='neoworker'?neoworker:
-                localStorage.usertoken && profileHooks.role==='admin'?admin: ""}
+            {localStorage.usertoken && profileHooks.role =='neoworker'?neoworker:
+                localStorage.usertoken && profileHooks.role=='admin'?admin: ""}
         
     </>
 
