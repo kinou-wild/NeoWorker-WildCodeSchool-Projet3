@@ -1,25 +1,21 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const missions = sequelize.define('missions', {
-    nom_mission:DataTypes.STRING,
-    nom_entreprise:DataTypes.STRING,
-    email: DataTypes.STRING,
-    note: DataTypes.STRING,
-    nb_j_par_mois: DataTypes.INTEGER,
-    type_profil:DataTypes.STRING, //expert moyen..
-    budget: DataTypes.INTEGER,
-    date_debut:DataTypes.DATEONLY,
-    date_fin:DataTypes.DATEONLY,
-    frequence:DataTypes.STRING,
-    status:DataTypes.INTEGER,
-    address:DataTypes.STRING,
+  const freelancer = sequelize.define('freelancer', {
+    img: DataTypes.STRING,
+    title: DataTypes.STRING,
+    firstname: DataTypes.STRING,
+    lastname: DataTypes.STRING,
+    address: DataTypes.STRING,
     mobilite: DataTypes.STRING,
-    km_max: DataTypes.STRING,
-    siret: DataTypes.STRING,
-    tel: DataTypes.STRING,
+    km_max:DataTypes.STRING,
+    tel:DataTypes.STRING,
     cp:DataTypes.STRING,
     pref_lieu_de_travail: DataTypes.STRING,
     disponibilite: DataTypes.INTEGER,
+    tjm_min:DataTypes.INTEGER,
+    tjm_max: DataTypes.INTEGER,
+    password: DataTypes.STRING,
+    email: DataTypes.STRING,
     excel: DataTypes.INTEGER,
     powerpoint: DataTypes.INTEGER,
     word: DataTypes.INTEGER,
@@ -63,9 +59,11 @@ module.exports = (sequelize, DataTypes) => {
     curiosite: DataTypes.INTEGER,
     sens_effort: DataTypes.INTEGER,
     sport: DataTypes.STRING,
+    passion: DataTypes.STRING,
     engagement_asso: DataTypes.STRING,
     autres_softskill: DataTypes.STRING,
-    
+
+
     assistance_suivi_comptable: DataTypes.BOOLEAN,
     relation_accountant: DataTypes.BOOLEAN,
     customer_recovery: DataTypes.BOOLEAN,
@@ -127,13 +125,22 @@ module.exports = (sequelize, DataTypes) => {
     assembly_and_monitoring_litigation_files: DataTypes.BOOLEAN,
     harmonization_of_contracts: DataTypes.BOOLEAN,
     RGPD_compliation: DataTypes.BOOLEAN,
-    harmonization_salary_scales: DataTypes.BOOLEAN,
-    provisional_management_of_jobs_and_skill: DataTypes.BOOLEAN,
-    recruitment_and_integration: DataTypes.BOOLEAN,
-    suivi_des_grands_comptes: DataTypes.BOOLEAN,
-    additional_sales: DataTypes.BOOLEAN,
-    measure_of_customers_satisfaction: DataTypes.BOOLEAN,
-    after_sales_service: DataTypes.BOOLEAN,
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     francais: DataTypes.INTEGER,
     anglais: DataTypes.INTEGER,
@@ -142,18 +149,17 @@ module.exports = (sequelize, DataTypes) => {
     russe: DataTypes.INTEGER,
     arabe: DataTypes.INTEGER,
     allemand: DataTypes.INTEGER,
-    espagnol: DataTypes.INTEGER,
-    autres_langue: DataTypes.STRING,
-    }, {timestamps:false});
+    autres_langue: DataTypes.STRING
+  }, {});
 
-  //table de jointures
-  missions.associate = function(models) {
-    missions.belongsToMany(models.users, {
-      through: 'tj_users_missions'
+  //table de jointure
+  freelancer.associate = function(models) {
+    freelancer.belongsToMany(models.users, {
+      through: 'tj_users_f'
     })
-    missions.belongsToMany(models.freelancer,{
+    freelancer.belongsToMany(models.missions,{
       through: 'tj_missions_f'
     })
   };
-  return missions;
+  return freelancer;
 };
