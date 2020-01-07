@@ -258,6 +258,8 @@
 .checkbox-and-content {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
 
 }
 
@@ -269,6 +271,10 @@
     margin-bottom: 50px;
 }
 
+.label-prestation {
+    margin: 0;
+}
+
 .btn {
-    margin-top: 50px !important;
+    margin-top: 50px;
 }
