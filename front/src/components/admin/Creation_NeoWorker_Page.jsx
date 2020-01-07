@@ -107,7 +107,7 @@ const CreationNeoWorkerPage = (props) => {
 
         assistance_suivi_comptable: false,
         relation_accountant: false,
-        customer_recovery: DataTypes.BOOLsEAN,
+        customer_recovery: DataTypes.BOOLEAN,
         payroll_preparation: false,
         assembly_approval_file: false,
         referencing_training_organization:false,
