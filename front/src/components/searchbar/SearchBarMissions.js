@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import './SearchBarMissions.css'
 import { Link } from 'react-router-dom';
+import Search from '../../img/search.png'
+
 
 const SearchBarMission = ({setSearchTerm, searchTerm}) => {
     const [search, setSearch] = useState([]);
@@ -35,7 +37,7 @@ const SearchBarMission = ({setSearchTerm, searchTerm}) => {
                 value={searchTerm.nom}
                 onChange={(e) => { setSearchTerm({ ...searchTerm, nom : e.target.value }) }}
 
-            />
+            /><img className='loop' src={Search} alt='search loop'/>
             <ul>
                 {searchTerm.nom.length===0?
 '':

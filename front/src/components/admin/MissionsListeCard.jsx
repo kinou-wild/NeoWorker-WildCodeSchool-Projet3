@@ -21,7 +21,7 @@ const MissionsListeCard = (mission) => {
                 </div>
                 <div className='secondrow-card'>
                     <p>Entreprise : {mission.nom_entreprise}</p>
-                    <Link to={`/mission/see/${mission.id}`}><Button className='button-card'>Voir</Button></Link>
+                    <Link to={`/seeMission/${mission.id}`}><Button className='button-card'>Voir</Button></Link>
                 </div>     
 
                 <div className='thirdrow-card'>
@@ -36,11 +36,9 @@ const MissionsListeCard = (mission) => {
                 <div className='fourthrow-card'>
                     <p>Neoworker : {/* Nom du neoworker depuis la TJ */}</p>
                 </div> : ''}
-
                 </div>
-
-
 
     )
 } 
+
 export default MissionsListeCard;

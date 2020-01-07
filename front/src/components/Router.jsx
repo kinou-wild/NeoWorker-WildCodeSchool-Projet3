@@ -10,7 +10,7 @@ import HomePageFreelancer from './freelancer/HomePageFreelancer';
 import EditHomePageFreelancer from './freelancer/EditHomePageFreelancer';
 import CompetencesFreelancer from './freelancer/CompetencesFreelancer';
 import MissionCreateAdmin from './admin/MissionCreateAdmin';
-import OneMission from './admin/OneMission'
+import SeeMission from './admin/SeeMission'
 import UpdateDeleteMission from './admin/UpdateDeleteMission'
 import Creation_NeoWorker_Page from './admin/Creation_NeoWorker_Page'
 import MissionsListe from './admin/MissionsListe';
@@ -114,11 +114,11 @@ const Router = () => {
                         && profileHooks.role=='neoworker'
                         ?HomePageFreelancer:''} />
 
-                        <Route exact path="/mission/see/:id" 
+                        <Route exact path="/seeMission/:id" 
                         component={profileHooks.role==''
                         ?LandingAdmin:localStorage.usertoken 
                         && profileHooks.role=='admin'
-                        ?OneMission:localStorage.usertoken 
+                        ?SeeMission:localStorage.usertoken 
                         && profileHooks.role=='neoworker'
                         ?HomePageFreelancer:''} />
 
