@@ -185,7 +185,7 @@ const UpdateDeleteMission =(props)=>{
     
     const getDataMission = () => {
         axios.get(`http://localhost:5000/mission/${params.id}`)
-        .then(res => setGetMission(res.data))
+        .then(res => setGetMission(res.data) & setUpdateMission(res.data))
         .catch((err) => console.log(err))
     }
 
@@ -194,7 +194,6 @@ const UpdateDeleteMission =(props)=>{
         axios.put(`http://localhost:5000/mission/${params.id}`,updateMission)
         .catch((err) => console.log(err))
         props.history.push('/admin/missions')
-
     }
 
     
@@ -213,10 +212,10 @@ const UpdateDeleteMission =(props)=>{
             </div>
             <h1 className='admin-h1'>Modification d'une mission NeoWorker <span className='textModif'>:</span></h1>
             <div className='notes'>
-                <Form onSubmit={updateDataMission}>
+                <form onSubmit={updateDataMission}>
                     <FormGroup>
                         <Input style={{ height: '150px' }} placeholder='Notes :' type="textarea" name="note" id="note"
-                            value={updateDataMission.note}
+                            value={updateMission.note}
                             onChange={(e) => { setUpdateMission({ ...updateMission, note: e.target.value }) }} />
                     </FormGroup>
 
@@ -226,7 +225,7 @@ const UpdateDeleteMission =(props)=>{
                         <Input style={{ textAlign: 'center' }} placeholder={getMission.nom_mission}
                             id="nom_mission"
                             name="nom_mission"
-                            value={updateDataMission.nom_mission}
+                            value={updateMission.nom_mission}
                             type="text"
                             onChange={(e) => { setUpdateMission({ ...updateMission, nom_mission: e.target.value }) }} />
                     </FormGroup>
@@ -237,7 +236,7 @@ const UpdateDeleteMission =(props)=>{
                                 <Input type="select"
                                     id="pref_lieu_de_travail"
                                     name="pref_lieu_de_travail"
-                                    value={updateDataMission.pref_lieu_de_travail}
+                                    value={updateMission.pref_lieu_de_travail}
                                     onChange={(e) => {
                                         setUpdateMission({
                                             ...updateMission,
@@ -251,7 +250,7 @@ const UpdateDeleteMission =(props)=>{
                             <FormGroup>
                             <Label>Profil <span className='textModif'>:</span></Label>
                                 <Input type="select" name="type_profil" id='type_profil'
-                                    value={updateDataMission.type_profil}
+                                    value={updateMission.type_profil}
                                     onChange={(e) => { setUpdateMission({ ...updateMission, type_profil: e.target.value == 'Regular' ? 'Regular' : 'Expert' }) }}>
                                     <option hidden="true">-</option>
                                     <option>Regular</option>
@@ -261,7 +260,7 @@ const UpdateDeleteMission =(props)=>{
                             <FormGroup>
                             <Label>Fréquence <span className='textModif'>:</span></Label>
                                 <Input type="select" name="frequence" id='frequence'
-                                    value={updateDataMission.frequence}
+                                    value={updateMission.frequence}
                                     onChange={(e) => { setUpdateMission({ ...updateMission, frequence: e.target.value == 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
                                     <option hidden="true">-</option>
                                     <option>Ponctuelle</option>
@@ -271,7 +270,7 @@ const UpdateDeleteMission =(props)=>{
                             <FormGroup>
                             <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
                                 <Input type="select" name="mobilite" id='mobilite'
-                                    value={updateDataMission.mobilite}
+                                    value={updateMission.mobilite}
                                     onChange={(e) => { setUpdateMission({ ...updateMission, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
                                     <option hidden="true">-</option>
                                     <option>Oui</option>
@@ -285,14 +284,14 @@ const UpdateDeleteMission =(props)=>{
                                 <Input placeholder="Nom de l'entreprise"
                                     id="nom_entreprise"
                                     name="nom_entreprise"
-                                    value={updateDataMission.nom_entreprise}
+                                    value={updateMission.nom_entreprise}
                                     type="text"
                                     onChange={(e) => { setUpdateMission({ ...updateMission, nom_entreprise: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
                                 <Input placeholder="Email" id="email"
                                     name="email"
-                                    value={updateDataMission.email}
+                                    value={updateMission.email}
                                     type="email"
                                     onChange={(e) => { setUpdateMission({ ...updateMission, email: e.target.value }) }} />
                             </FormGroup>
@@ -300,7 +299,7 @@ const UpdateDeleteMission =(props)=>{
                                 <Input placeholder="Téléphone"
                                     id="tel"
                                     name="tel"
-                                    value={updateDataMission.tel}
+                                    value={updateMission.tel}
                                     type="tel"
                                     onChange={(e) => { setUpdateMission({ ...updateMission, tel: e.target.value }) }} />
                             </FormGroup>
@@ -308,7 +307,7 @@ const UpdateDeleteMission =(props)=>{
                                 <Input placeholder="Adresse"
                                     id="address"
                                     name="address"
-                                    value={updateDataMission.address}
+                                    value={updateMission.address}
                                     type="text"
                                     onChange={(e) => { setUpdateMission({ ...updateMission, address: e.target.value }) }} />
                             </FormGroup>
@@ -316,7 +315,7 @@ const UpdateDeleteMission =(props)=>{
                                 <Input placeholder='Code Postal'
                                     id="cp"
                                     name="cp"
-                                    value={updateDataMission.cp}
+                                    value={updateMission.cp}
                                     type="text"
                                     maxLength={5}
                                     onChange={(e) => { setUpdateMission({ ...updateMission, cp: e.target.value }) }} />
@@ -325,7 +324,7 @@ const UpdateDeleteMission =(props)=>{
                                 <Input placeholder='Siret'
                                     id="siret"
                                     name="siret"
-                                    value={updateDataMission.siret}
+                                    value={updateMission.siret}
                                     type="number"
                                     onChange={(e) => { setUpdateMission({ ...updateMission, siret: e.target.value }) }} />
                             </FormGroup>
@@ -333,7 +332,7 @@ const UpdateDeleteMission =(props)=>{
                                 <Input placeholder='Budget'
                                     id="budget"
                                     name="budget"
-                                    value={updateDataMission.budget}
+                                    value={updateMission.budget}
                                     type="number"
                                     onChange={(e) => { setUpdateMission({ ...updateMission, budget: e.target.value }) }} />
                             </FormGroup>
@@ -341,7 +340,7 @@ const UpdateDeleteMission =(props)=>{
                                 <Input className='date-mission' placeholder='Date de début'
                                     id="date_debut"
                                     name="date_debut"
-                                    value={updateDataMission.date_debut}
+                                    value={updateMission.date_debut}
                                     type="date"
                                     onChange={(e) => { setUpdateMission({ ...updateMission, date_debut: e.target.value }) }} />
                             </FormGroup>
@@ -349,7 +348,7 @@ const UpdateDeleteMission =(props)=>{
                                 <Input className='date-mission' placeholder="Date de fin"
                                     id="date_fin"
                                     name="date_fin"
-                                    value={updateDataMission.date_fin}
+                                    value={updateMission.date_fin}
                                     type="date"
                                     onChange={(e) => { setUpdateMission({ ...updateMission, date_fin: e.target.value }) }} />
                             </FormGroup>
@@ -357,7 +356,7 @@ const UpdateDeleteMission =(props)=>{
                                 <Input placeholder='Nombre de jour(s) par mois'
                                     id="nb_j_par_mois"
                                     name="nb_j_par_mois"
-                                    value={updateDataMission.nb_j_par_mois}
+                                    value={updateMission.nb_j_par_mois}
                                     type="number"
                                     max="31"
                                     onChange={(e) => { setUpdateMission({ ...updateMission, nb_j_par_mois: e.target.value }) }} />
@@ -830,7 +829,7 @@ const UpdateDeleteMission =(props)=>{
                             </div>
                         <div className='champ-libre'>
                             <p style={{minWidth:'110px', padding:'5px 10px'}}>Autres skills </p>
-                            <Input style={{marginRight:'5px'}} type="textaera" name="text" id="autres_skills" value={updateDataMission.autres_softskill} onChange={(e)=>setUpdateMission({...updateMission, autres_softskill: e.target.value})} />
+                            <Input style={{marginRight:'5px'}} type="textaera" name="text" id="autres_skills" value={updateMission.autres_softskill} onChange={(e)=>setUpdateMission({...updateMission, autres_softskill: e.target.value})} />
                         </div>
                         </div>
 
@@ -911,12 +910,12 @@ const UpdateDeleteMission =(props)=>{
                         </div>
                        <div className='mission-card'>
                             <p>Autres langues</p>
-                            <Input style={{marginRight:'5px'}} type="textaera" name="text" id="langues" value={updateDataMission.autres_langue} onChange={(e)=>setUpdateMission({...updateMission, autres_langue: e.target.value})} />
+                            <Input style={{marginRight:'5px'}} type="textaera" name="text" id="langues" value={updateMission.autres_langue} onChange={(e)=>setUpdateMission({...updateMission, autres_langue: e.target.value})} />
                         </div> 
                     </div>
                     <Button className="btn" type="submit">Valider les modifications</Button>
                 </div>
-            </Form> 
+            </form> 
         </div>
     </div>
             )
