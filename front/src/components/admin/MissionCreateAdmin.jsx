@@ -374,6 +374,7 @@ const MissionCreateAdmin = (props) => {
                                     name="cp"
                                     value={createm.cp}
                                     type="number"
+                                    max={9999}
                                     onChange={(e) => { setCreatem({ ...createm, cp: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
@@ -413,7 +414,9 @@ const MissionCreateAdmin = (props) => {
                                     id="nb_j_par_mois"
                                     name="nb_j_par_mois"
                                     value={createm.nb_j_par_mois}
-                                    type="number"
+                                    type="number" 
+                                    min="1" 
+                                    max="31"
                                     onChange={(e) => { setCreatem({ ...createm, nb_j_par_mois: e.target.value }) }} />
                             </FormGroup>
                         </div>

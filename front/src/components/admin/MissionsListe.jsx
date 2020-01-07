@@ -20,12 +20,10 @@ const MissionsListe = () => {
     const [missionsTerminees, setMissionsTerminees] = useState([])
 
     //hooks searchbar
-    const [result, setResult] = useState()
-    //test search
+    const [result, setResult] = useState() 
     const [searchTerm, setSearchTerm] = useState({
         nom: ''
     });
-    const setMySearch = setSearchTerm.bind(this)
 
 
     // get all misions
@@ -41,6 +39,10 @@ const MissionsListe = () => {
             .catch((err) => console.log(err))
     }
 
+    const handleChange = e => {
+        setSearchTerm(e.target.value);
+    }
+
     // suppression mission
     const fetchDeleteDataMission = (id) => {
         axios.delete(`http://localhost:5000/mission/${id}`)
@@ -48,12 +50,13 @@ const MissionsListe = () => {
         window.location.reload(false);
     }
 
-    // update mission
+    //A voir si on conserve cette variable
+/*     // update mission
     const fetchUpdateDataMission = (id) => {
         axios.put(`http://localhost:5000/mission/${id}`)
         .catch((err) => console.log(err))
     }
- 
+  */
 
     useEffect(() => {
         getMissions()
@@ -64,12 +67,12 @@ const MissionsListe = () => {
     const search = [...missionsAPourvoir, ...missionsPourvues, ...missionsTerminees]
     useEffect(() => {
 
-        const results = search.filter(person =>
-            person.nom_mission.toLowerCase().includes(searchTerm.nom));
+        const results = search.filter(x =>
+            x.nom_mission.toLowerCase().includes(searchTerm.nom));
         setResult(results);
     }, [searchTerm.nom]);
 
-
+    console.log(search)
 
     return (
 
