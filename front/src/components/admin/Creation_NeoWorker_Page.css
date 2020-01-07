@@ -5,8 +5,6 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-
-
 }
 
 .profil-card {
@@ -30,6 +28,7 @@
     width: 80%;
     margin-top: 50px;
     margin-bottom: 80px;
+    font-weight: 500;
     
 }
 .formulaire-creation-neoworker {
@@ -109,7 +108,8 @@
 
 .second-div-creation-neoworker, 
 .third-div-creation-neoworker,
-.fourth-div-creation-neoworker {
+.fourth-div-creation-neoworker,
+.fifth-div-creation-neoworker {
     display:flex;
     flex-direction: row;
     justify-content: space-between;
@@ -172,7 +172,7 @@
     border-color:  #000099;
     border-width: 1px 0 0 0;
     border-radius: 20px;
-    width: 80vw !important;
+    width: 60vw !important;
     margin-top: 50px;
     margin-bottom: 50px;
     font-weight: bold;

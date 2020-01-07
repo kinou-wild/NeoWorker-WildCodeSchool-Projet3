@@ -275,6 +275,8 @@ const CreationNeoWorkerPage = (props) => {
         setRegisterHooks({ ...registerHooks, role: 'neoworker' })
     }
 
+    const [prestation, setPrestation] = useState("")
+
     return (
         <div className="main-div">
             {/*<div className='profil-card'>
@@ -325,7 +327,8 @@ const CreationNeoWorkerPage = (props) => {
                                 type="text" id="cp" name="cp"
                                 value={freelancer.cp}
                                 required
-                                onChange={(e) => { setFreelancer({ ...freelancer, cp: e.target.value }) }} />
+                                onChange={(e) => { setFreelancer({ ...freelancer, cp: e.target.value }) }}
+                                maxlength="5" />
 
                         </div>
 
@@ -927,48 +930,208 @@ const CreationNeoWorkerPage = (props) => {
                         </div>
                     </div>
 
-                    <p className="famille-prestation-title">Famille de prestations</p>
-
-                    <div className="fifth-div-creation-neoworker">
-
-                        <select>
-                            <option>Gestion administrative et comptable</option>
-                            <option>Gestion opérationnelle</option>
-                            <option>Gestion commerciale</option>
-                            <option>Marketing / Communication / Digital</option>
-                            <option>Gestion Financière / Contrôle de Gestion</option>
-                            <option>DSI</option>
-                            <option>Gestion Ressources Humaines / Juridique</option>
-                            <option>Gestion de la relation clients</option>
-                        </select>
 
 
-                        <div className="prestation-checkbox-div">
-                            <input type="checkbox" id="Option 1" name="Option 1" />
-                            <label for="Option 1">Option 1</label>
-                            <input type="checkbox" id="Option 2" name="Option 2" />
-                            <label for="Option 2">Option 2</label>
-                            <input type="checkbox" id="Option 3" name="Option 3" />
-                            <label for="Option 3">Option 3</label>
+                </div>
 
-                        </div>
-                        <div>
-                            <div className="prestation-checkbox-div">
-                                <input type="checkbox" id="Option 1" name="Option 1" />
-                                <label for="Option 1">Option 1</label>
-                                <input type="checkbox" id="Option 2" name="Option 2" />
-                                <label for="Option 2">Option 2</label>
-                                <input type="checkbox" id="Option 3" name="Option 3" />
-                                <label for="Option 3">Option 3</label>
-                            </div>
-                        </div>
+                <p className="main-title">Famille de prestations</p>
+
+                <div className="fifth-div-creation-neoworker">
+
+
+                    <select
+                        className="famille-prestation-select" type="select" name="famille-prestation" id='famille-prestation'
+                        onChange={(e) => setPrestation(e.target.value)}
+                    >
+                        <option value="Gestion administrative et comptable">Gestion administrative et comptable</option>
+                        <option value="Gestion opérationnelle">Gestion opérationnelle</option>
+                        <option value="Gestion commerciale">Gestion commerciale</option>
+                        <option value="Marketing / Communication / Digital">Marketing / Communication / Digital</option>
+                        <option value="Gestion Financière / Contrôle de Gestion">Gestion Financière / Contrôle de Gestion</option>
+                        <option value="DSI">DSI</option>
+                        <option value="Gestion Ressources Humaines / Juridique">Gestion Ressources Humaines / Juridique</option>
+                        <option value="Gestion de la relation clients">Gestion de la relation clients</option>
+                    </select>
+
+
+
+                    <div className="prestation-checkbox-div" style={prestation === 'Gestion administrative et comptable' ? { display: "contents" } : { display: "none" }}>
+                        <input type="checkbox" id="Option 1" name="Option 1" />
+                        <label for="Option 1">Assistance et suivi comptable (note de frais, suivi des règlements et de la trésorerie, ...)</label>
+                        <input type="checkbox" id="Option 2" name="Option 2" />
+                        <label for="Option 2">Relation avec le cabinet d'expertise comptable</label>
+                        <input type="checkbox" id="Option 3" name="Option 3" />
+                        <label for="Option 3">Relances clients</label>
+                        <input type="checkbox" id="Option 4" name="Option 4" />
+                        <label for="Option 4">Préparation des éléments de paie (Pointages, congés payés, arrêts maladie, primes, etc…)</label>
+                        <input type="checkbox" id="Option 5" name="Option 5" />
+                        <label for="Option 5">Montage de dossier d'agrément</label>
+                        <input type="checkbox" id="Option 6" name="Option 6" />
+                        <label for="Option 6">Référencement organismes de formations</label>
+                    </div>
+
+                    
+
+                    <div className="prestation-checkbox-div" style={prestation === 'Gestion opérationnelle' ? { display: "contents" } : { display: "none" }}>
+                        <input type="checkbox" id="Option 7" name="Option 7" />
+                        <label for="Option 7">Mise en place, optimisation et formation à l'utilisation de logiciels métiers</label>
+                        <input type="checkbox" id="Option 8" name="Option 8" />
+                        <label for="Option 8">Création et mise en place de procédures internes</label>
+                        <input type="checkbox" id="Option 9" name="Option 9" />
+                        <label for="Option 9">Création et traitement de base de données</label>
+                        <input type="checkbox" id="Option 10" name="Option 10" />
+                        <label for="Option 10">Intendance et gestion des achats</label>
+                        <input type="checkbox" id="Option 11" name="Option 11" />
+                        <label for="Option 11">Suivi des dossiers administratifs</label>
+                        <input type="checkbox" id="Option 12" name="Option 12" />
+                        <label for="Option 12">Assistanat de direction</label>
+                        <input type="checkbox" id="Option 13" name="Option 13" />
+                        <label for="Option 13">Classement de documents</label>
+                        <input type="checkbox" id="Option 14" name="Option 14" />
+                        <label for="Option 14">Secrétariat et tenue de l'agenda </label>
 
                     </div>
 
+                    
 
-                    <Button className='btn' onClick={idFreeRandomFreeRole} type='submit'>Valider</Button>
+                    <div className="prestation-checkbox-div" style={prestation === 'Gestion commerciale' ? { display: "contents" } : { display: "none" }}>
+                        <input type="checkbox" id="Option 15" name="Option 15" />
+                        <label for="Option 15">Stratégie et argumentaire commercial</label>
+                        <input type="checkbox" id="Option 16" name="Option 16" />
+                        <label for="Option 16">Création de tableaux de bord, de procédure et pilotage de l'activité commerciale</label>
+                        <input type="checkbox" id="Option 17" name="Option 17" />
+                        <label for="Option 17">Prospection / Outbound sales</label>
+                        <input type="checkbox" id="Option 18" name="Option 18" />
+                        <label for="Option 18">Intendance et gestion des achats</label>
+                        <input type="checkbox" id="Option 19" name="Option 19" />
+                        <label for="Option 19">Réponse aux appels d'offres publics et privés</label>
+                        <input type="checkbox" id="Option 20" name="Option 20" />
+                        <label for="Option 20">Administration des ventes</label>
+                        <input type="checkbox" id="Option 21" name="Option 21" />
+                        <label for="Option 21">Gestion des stocks</label>
+                        <input type="checkbox" id="Option 22" name="Option 22" />
+                        <label for="Option 22">Saisie des données commerciales dans un CRM</label>
+                        <input type="checkbox" id="Option 23" name="Option 23" />
+                        <label for="Option 23">Saisie des commandes</label>
+                        <input type="checkbox" id="Option 24" name="Option 24" />
+                        <label for="Option 24">Gestion des devis</label>
+                        <input type="checkbox" id="Option 25" name="Option 25" />
+                        <label for="Option 25">Facturation</label>
+                        <input type="checkbox" id="Option 26" name="Option 26" />
+                        <label for="Option 26">Gestion des réclamations</label>
+                    </div>
+
+                    
+
+                    <div className="prestation-checkbox-div" style={prestation === "Marketing / Communication / Digital" ? { display: "contents" } : { display: "none" }}>
+                        <input type="checkbox" id="Option 27" name="Option 27" />
+                        <label for="Option 27">Stratégie marketing et suivi opérationnel</label>
+                        <input type="checkbox" id="Option 28" name="Option 28" />
+                        <label for="Option 28">Réalisation d'études de marché</label>
+                        <input type="checkbox" id="Option 29" name="Option 29" />
+                        <label for="Option 29">Mise en œuvre d'une stratégie d'inbound marketing</label>
+                        <input type="checkbox" id="Option 30" name="Option 30" />
+                        <label for="Option 30">Outbound marketing</label>
+                        <input type="checkbox" id="Option 31" name="Option 31" />
+                        <label for="Option 31">Stratégie de communication</label>
+                        <input type="checkbox" id="Option 32" name="Option 32" />
+                        <label for="Option 32">Chef de projet externalisé</label>
+                        <input type="checkbox" id="Option 33" name="Option 33" />
+                        <label for="Option 33">Création et graphisme</label>
+                        <input type="checkbox" id="Option 34" name="Option 34" />
+                        <label for="Option 34">UX Design</label>
+                        <input type="checkbox" id="Option 35" name="Option 35" />
+                        <label for="Option 35">UI Design - infographisme</label>
+                        <input type="checkbox" id="Option 36" name="Option 36" />
+                        <label for="Option 36">Conception rédaction</label>
+                        <input type="checkbox" id="Option 37" name="Option 37" />
+                        <label for="Option 37">Community management</label>
+                        <input type="checkbox" id="Option 40" name="Option 40" />
+                        <label for="Option 40">Relation presse</label>
+                        <input type="checkbox" id="Option 41" name="Option 41" />
+                        <label for="Option 41">Evènementiel</label>
+                        <input type="checkbox" id="Option 42" name="Option 42" />
+                        <label for="Option 42">Partenariats, montage de réseaux de distribution, apporteurs d'affaire</label>
+                        <input type="checkbox" id="Option 43" name="Option 43" />
+                        <label for="Option 43">Travaux de traduction</label>
+                    </div>
+
+                    
+
+                    <div className="prestation-checkbox-div" style={prestation === "Gestion Financière / Contrôle de Gestion" ? { display: "contents" } : { display: "none" }}>
+                        <input type="checkbox" id="Option 44" name="Option 44" />
+                        <label for="Option 44">Direction administrative et financière externalisée</label>
+                        <input type="checkbox" id="Option 45" name="Option 45" />
+                        <label for="Option 45">Montage de dossier de financement / subvention</label>
+                        <input type="checkbox" id="Option 46" name="Option 46" />
+                        <label for="Option 46">Contrôle de gestion</label>
+                        <input type="checkbox" id="Option 47" name="Option 47" />
+                        <label for="Option 47">Tableau de bord et pilotage financier</label>
+                        <input type="checkbox" id="Option 48" name="Option 48" />
+                        <label for="Option 48">Création de business plan et budget prévisionnel</label>
+                        <input type="checkbox" id="Option 49" name="Option 49" />
+                        <label for="Option 49">Aide à la cession / rachat d'activités</label>
+                    </div>
+
+                   
+
+                    <div className="prestation-checkbox-div" style={prestation === "DSI" ? { display: "contents" } : { display: "none" }}>
+                        <input type="checkbox" id="Option 50" name="Option 50" />
+                        <label for="Option 50">Direction des Systèmes d'informations externalisée</label>
+                        <input type="checkbox" id="Option 51" name="Option 51" />
+                        <label for="Option 51">Schéma directeur SI</label>
+                        <input type="checkbox" id="Option 52" name="Option 52" />
+                        <label for="Option 52">Architecture fonctionnelle / applicative</label>
+                        <input type="checkbox" id="Option 53" name="Option 53" />
+                        <label for="Option 53">Infra / réseau</label>
+                    </div>
+
+                    
+
+                    <div className="prestation-checkbox-div" style={prestation === "Gestion Ressources Humaines / Juridique" ? { display: "contents" } : { display: "none" }}>
+                        <input type="checkbox" id="Option 54" name="Option 54" />
+                        <label for="Option 54">Direction des Ressources Humaines externalisée</label>
+                        <input type="checkbox" id="Option 55" name="Option 55" />
+                        <label for="Option 55">Gestion des plannings</label>
+                        <input type="checkbox" id="Option 56" name="Option 56" />
+                        <label for="Option 56">Suivi des éléments de paie (absences, CP, RTT..)</label>
+                        <input type="checkbox" id="Option 57" name="Option 57" />
+                        <label for="Option 57">Etablissement des contrats / éléments de fin de contrats</label>
+                        <input type="checkbox" id="Option 58" name="Option 58" />
+                        <label for="Option 58">Suivi mutuelle et medecine du travail</label>
+                        <input type="checkbox" id="Option 59" name="Option 59" />
+                        <label for="Option 59">Gestion des conflits</label>
+                        <input type="checkbox" id="Option 60" name="Option 60" />
+                        <label for="Option 60">Montage et suivi des dossiers de contentieux</label>
+                        <input type="checkbox" id="Option 61" name="Option 61" />
+                        <label for="Option 61">Harmonisation des contrats</label>
+                        <input type="checkbox" id="Option 62" name="Option 62" />
+                        <label for="Option 62">Mise en conformité RGPD</label>
+                        <input type="checkbox" id="Option 63" name="Option 63" />
+                        <label for="Option 63">Harmonisation des grilles salaires</label>
+                        <input type="checkbox" id="Option 64" name="Option 64" />
+                        <label for="Option 64">Gestion prévisionnelle des emplois et des compétences</label>
+                        <input type="checkbox" id="Option 65" name="Option 65" />
+                        <label for="Option 65">Recrutement et intégration</label>
+                    </div>
+
+                    
+
+                    <div className="prestation-checkbox-div" style={prestation === "Gestion de la relation clients" ? { display: "contents" } : { display: "none" }}>
+                        <input type="checkbox" id="Option 66" name="Option 66" />
+                        <label for="Option 66">Suivi grands comptes</label>
+                        <input type="checkbox" id="Option 67" name="Option 67" />
+                        <label for="Option 67">Ventes additionnelles</label>
+                        <input type="checkbox" id="Option 68" name="Option 68" />
+                        <label for="Option 68">Mesure de la satisfaction clients</label>
+                        <input type="checkbox" id="Option 69" name="Option 69" />
+                        <label for="Option 69">Service après ventes</label>
+                    </div>
+
+
+
                 </div>
-
+                <Button className='btn' onClick={idFreeRandomFreeRole} type='submit'>Valider</Button>
                 <form />
             </form>
         </div>
