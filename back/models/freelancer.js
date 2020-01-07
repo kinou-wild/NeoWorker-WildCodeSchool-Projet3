@@ -65,7 +65,7 @@ module.exports = (sequelize, DataTypes) => {
 
     assistance_suivi_comptable: DataTypes.BOOLEAN,
     relation_accountant: DataTypes.BOOLEAN,
-    customer_recovery: DataTypes.BOOLsEAN,
+    customer_recovery: DataTypes.BOOLEAN,
     payroll_preparation: DataTypes.BOOLEAN,
     assembly_approval_file: DataTypes.BOOLEAN,
     referencing_training_organization:DataTypes.BOOLEAN,
