@@ -929,15 +929,20 @@ const CreationNeoWorkerPage = (props) => {
 
                     <p className="famille-prestation-title">Famille de prestations</p>
 
-                    <select>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+                    <div className="fifth-div-creation-neoworker">
 
-                    <div>
+                        <select>
+                            <option>Gestion administrative et comptable</option>
+                            <option>Gestion opérationnelle</option>
+                            <option>Gestion commerciale</option>
+                            <option>Marketing / Communication / Digital</option>
+                            <option>Gestion Financière / Contrôle de Gestion</option>
+                            <option>DSI</option>
+                            <option>Gestion Ressources Humaines / Juridique</option>
+                            <option>Gestion de la relation clients</option>
+                        </select>
+
+
                         <div className="prestation-checkbox-div">
                             <input type="checkbox" id="Option 1" name="Option 1" />
                             <label for="Option 1">Option 1</label>
@@ -945,7 +950,7 @@ const CreationNeoWorkerPage = (props) => {
                             <label for="Option 2">Option 2</label>
                             <input type="checkbox" id="Option 3" name="Option 3" />
                             <label for="Option 3">Option 3</label>
-                            
+
                         </div>
                         <div>
                             <div className="prestation-checkbox-div">
@@ -957,6 +962,7 @@ const CreationNeoWorkerPage = (props) => {
                                 <label for="Option 3">Option 3</label>
                             </div>
                         </div>
+
                     </div>
 
 
