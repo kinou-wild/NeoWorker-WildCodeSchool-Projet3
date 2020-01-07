@@ -130,7 +130,7 @@ const Router = () => {
                         && profileHooks.role=='neoworker'
                         ?HomePageFreelancer:''} />
 
-                        <Route exact path="/neoworker/editer/:id" 
+                        <Route exact path="/neoworker/editer/:id/:idneo" 
                         component={profileHooks.role==''
                         ?LandingFreelancer:localStorage.usertoken 
                         && profileHooks.role=='admin'

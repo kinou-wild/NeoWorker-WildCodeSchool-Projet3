@@ -12,7 +12,6 @@ const MissionCreateAdmin = (props) => {
 
     // hooks to create a mission
     const [createm, setCreatem] = useState({
-        userId: 1,
         nom_mission: "",
         nom_entreprise: "",
         email: '',

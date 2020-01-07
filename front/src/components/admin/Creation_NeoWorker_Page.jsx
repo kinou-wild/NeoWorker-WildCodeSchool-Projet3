@@ -19,15 +19,6 @@ const CreationNeoWorkerPage = (props) => {
         errors: {}
     })
 
-    /* Le boolean initialisé dans le Sidebar context passe à True à chaque refresh de page, pour que la Sidebar s'affiche */
-    // const { hook, hook2 } = useContext(SidebarContext)
-    // const [showSidebar, setShowSidebar] = hook
-    // const [roleSidebar, setRoleSidebar] = hook2
-    // useEffect(() => {
-    //     setShowSidebar(true)
-    //     setRoleSidebar("admin")
-    // })
-
     //hooks de la data freelancer pour get
     const [idFree, setIdFree] = useState([])
 
@@ -46,7 +37,6 @@ const CreationNeoWorkerPage = (props) => {
         disponibilite: 0,
         tjm_min: 0,
         tjm_max: 0,
-        password: "",
         email: "",
         tel: "",
         cp:'',
@@ -272,7 +262,6 @@ const CreationNeoWorkerPage = (props) => {
             .catch(err => console.log(err))
     }
     
-    
 
     //le submit du register
     const onSubmit =(e) => {
@@ -311,7 +300,6 @@ const CreationNeoWorkerPage = (props) => {
             const idFreeRandomFreeRole=()=>{
                 setFreelancer({ ...freelancer, 
                     email: registerHooks.email,
-                    password:registerHooks.password,
                     id:randomIdFree(),
                     excel: rating[0].Excel,
                     powerpoint: rating[1].Powerpoint,

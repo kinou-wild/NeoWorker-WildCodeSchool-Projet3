@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
     disponibilite: DataTypes.INTEGER,
     tjm_min:DataTypes.INTEGER,
     tjm_max: DataTypes.INTEGER,
-    password: DataTypes.STRING,
     email: DataTypes.STRING,
     excel: DataTypes.INTEGER,
     powerpoint: DataTypes.INTEGER,
