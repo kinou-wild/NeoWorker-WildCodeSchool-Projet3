@@ -86,7 +86,7 @@ const HomePageFreelancer = () => {
                             <div className="champs-reste-profil"><p>{x.freelancers[0].km_max}</p></div>
                     </div>
                 </div>
-                   <Link to={`/neoworker/editer/${profileHooks.id}`}>
+                   <Link to={`/neoworker/editer/${profileHooks.id}/${x.freelancers[0].id}`}>
                 <Button className='btn'>Editer</Button>
             </Link>
         </div>)}
