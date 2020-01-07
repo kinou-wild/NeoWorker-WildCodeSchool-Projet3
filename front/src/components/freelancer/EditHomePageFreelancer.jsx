@@ -54,7 +54,6 @@ const EditHomePageFreelancer = (props) => {
              .catch(err => console.log(err))
             }
         
-        
           //update sur la data du free
           const updateQueryDataFree = (e) => {
             e.preventDefault()
