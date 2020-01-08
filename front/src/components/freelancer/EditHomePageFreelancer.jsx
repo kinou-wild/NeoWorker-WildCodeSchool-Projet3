@@ -14,7 +14,7 @@ const EditHomePageFreelancer = (props) => {
           const paramsIdUser = props.match.params.id;
           const paramsNeo = props.match.params.idneo;
 
-
+        const [getUser,setGetUser]=useState([])
 
 
           //hooks pour modif le updateFreelancer
@@ -55,24 +55,28 @@ const EditHomePageFreelancer = (props) => {
   },[])
   const fetchDataUser=()=>{
     axios.get(`http://localhost:5000/user/${paramsIdUser}`)
-    .then(res=>setUpdateUser(res.data))
+    .then(res=>setUpdateUser(res.data)& setGetUser(res.data))
     .catch(err=>console.log(err))
   }
   
   //update sur la data user
   const updateQueryDataUserFree = (e) => {
     e.preventDefault()
-    bcrypt.genSalt(10, function(err, salt) {
-      bcrypt.hash(updateUser.password, salt, function (err, hash) {
-        // Store hash in your password DB.
-        axios.put(`http://localhost:5000/user/${paramsIdUser}`, {...updateUser, password:hash, email:updateFreelancer.email})
-        .catch(err => console.log(err))
-      });
-    })
-  }
-  console.log(updateUser)
-        
 
+    if(updateUser.password.length==60){
+      axios.put(`http://localhost:5000/user/${paramsIdUser}`, updateUser.password)
+        .catch(err => console.log(err))
+    }else{
+      bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(updateUser.password, salt, function (err, hash) {
+          // Store hash in your password DB.
+          axios.put(`http://localhost:5000/user/${paramsIdUser}`, { ...updateUser, password:hash})
+          .catch(err => console.log(err))
+        });
+      })
+    }
+  }        
+console.log(updateUser)
   
 
           //update sur la data du free
@@ -95,10 +99,10 @@ const EditHomePageFreelancer = (props) => {
             }
         
         
-        //fonction qui modif le password user et le password free en même temps
-        const passwordUpdater = (e) => {
-          setUpdateUser({...updateUser, password: e.target.value})
-          setUpdateFreelancer({...updateFreelancer,password: e.target.value})}
+  //fonction qui modif le password user et le password free en même temps
+  const passwordUpdater = (e) => {
+    setUpdateUser({ ...updateUser, password: e.target.value })
+  }
 
     return(
       <div className="main-div">
@@ -106,7 +110,7 @@ const EditHomePageFreelancer = (props) => {
           <p className='name-card'>Profil Neoworker</p>
           <img className='pic-card' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='profil picture' />
         </div>
-        <form className="formulaire-creation-neoworker" onSubmit={updateQueryDataFree} >
+        <form className="formulaire-creation-neoworker" onSubmit={updaterEmailPassword} >
           <input className="input-metier"
             type="text" id="title" name="Métier"
             placeholder="Métier"
@@ -167,14 +171,13 @@ const EditHomePageFreelancer = (props) => {
                   required
                   onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, tel: e.target.value }) }} />
 
-                {/* <input
+                <input
                   className="input-password"
                   placeholder="Mot de passe" type="password"
                   id="password" name="password"
                   value={updateUser.password}
-                  value={updateFreelancer.password}
-                  onChange={(e) => {passwordUpdater(e) }}
-                />  */}
+                  onChange={(e) => { passwordUpdater(e) }}
+              /> 
               </div>
             </div>
           </div>
