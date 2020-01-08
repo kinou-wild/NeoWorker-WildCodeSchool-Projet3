@@ -47,103 +47,103 @@ const Router = () => {
                     <Switch>
                         <Route exact path="/" 
                         component={
-                            profileHooks.role==''
+                            profileHooks.role===''
                             ?AdminFreelancerChoose:localStorage.usertoken 
-                            && profileHooks.role=='admin'
+                            && profileHooks.role==='admin'
                             ?HomePageAdmin:localStorage.usertoken 
-                            && profileHooks.role=='neoworker'
+                            && profileHooks.role==='neoworker'
                             ?HomePageFreelancer:''}/>
 
                         <Route exact path="/neoworker" 
-                            component={profileHooks.role==''
+                            component={profileHooks.role===''
                             ?LandingFreelancer:localStorage.usertoken 
-                            && profileHooks.role=='neoworker'
+                            && profileHooks.role==='neoworker'
                             ?HomePageFreelancer
                             :localStorage.usertoken 
-                            && profileHooks.role=='admin'
+                            && profileHooks.role==='admin'
                             ?HomePageAdmin:''} />
 
                         <Route exact path="/admin" //marche pas en admin
-                        component={profileHooks.role==''
+                        component={profileHooks.role===''
                         ?LandingAdmin
                         :localStorage.usertoken 
-                        && profileHooks.role=='admin'
+                        && profileHooks.role==='admin'
                         ?HomePageAdmin:localStorage.usertoken 
-                        && profileHooks.role=='neoworker'
+                        && profileHooks.role==='neoworker'
                         ?HomePageFreelancer:''} />
 
                         <Route exact path="/admin/homepage" 
-                        component={profileHooks.role==''
+                        component={profileHooks.role===''
                         ?LandingAdmin:localStorage.usertoken 
-                        && profileHooks.role=='admin'
+                        && profileHooks.role==='admin'
                         ?HomePageAdmin:localStorage.usertoken 
-                        && profileHooks.role=='neoworker'
+                        && profileHooks.role==='neoworker'
                         ?HomePageFreelancer:''} /> 
                         
                         <Route exact path="/admin/neoworker/creer" 
-                        component={profileHooks.role==''
+                        component={profileHooks.role===''
                         ?LandingAdmin:localStorage.usertoken 
-                        && profileHooks.role=='admin'
+                        && profileHooks.role==='admin'
                         ?Creation_NeoWorker_Page:localStorage.usertoken 
-                        && profileHooks.role=='neoworker'
+                        && profileHooks.role==='neoworker'
                         ?HomePageFreelancer:''} />
 
                         <Route exact path="/neoworker/homepage" 
-                        component={profileHooks.role==''
+                        component={profileHooks.role===''
                         ?LandingFreelancer:localStorage.usertoken 
-                        && profileHooks.role=='admin'
+                        && profileHooks.role==='admin'
                         ?HomePageAdmin:localStorage.usertoken 
-                        && profileHooks.role=='neoworker'
+                        && profileHooks.role==='neoworker'
                         ?HomePageFreelancer:''} />
 
                         {/* route pour see all missions, create, delete, update */}
                         <Route exact path="/admin/missions" 
-                        component={profileHooks.role==''
+                        component={profileHooks.role===''
                         ?LandingAdmin:localStorage.usertoken 
-                        && profileHooks.role=='admin'
+                        && profileHooks.role==='admin'
                         ?MissionsListe:localStorage.usertoken 
-                        && profileHooks.role=='neoworker'
+                        && profileHooks.role==='neoworker'
                         ?HomePageFreelancer:''} />
 
                         <Route exact path="/admin/mission/creer" 
-                        component={profileHooks.role==''
+                        component={profileHooks.role===''
                         ?LandingAdmin:localStorage.usertoken 
-                        && profileHooks.role=='admin'
+                        && profileHooks.role==='admin'
                         ?MissionCreateAdmin:localStorage.usertoken 
-                        && profileHooks.role=='neoworker'
+                        && profileHooks.role==='neoworker'
                         ?HomePageFreelancer:''} />
 
                         <Route exact path="/seeMission/:id" 
-                        component={profileHooks.role==''
+                        component={profileHooks.role===''
                         ?LandingAdmin:localStorage.usertoken 
-                        && profileHooks.role=='admin'
+                        && profileHooks.role==='admin'
                         ?SeeMission:localStorage.usertoken 
-                        && profileHooks.role=='neoworker'
+                        && profileHooks.role==='neoworker'
                         ?HomePageFreelancer:''} />
 
                         <Route exact path="/updateMission/:id" 
-                        component={profileHooks.role==''
+                        component={profileHooks.role===''
                         ?LandingAdmin:localStorage.usertoken 
-                        && profileHooks.role=='admin'
+                        && profileHooks.role==='admin'
                         ?UpdateDeleteMission:localStorage.usertoken 
-                        && profileHooks.role=='neoworker'
+                        && profileHooks.role==='neoworker'
                         ?HomePageFreelancer:''} />
 
                         <Route exact path="/neoworker/editer/:id/:idneo" 
-                        component={profileHooks.role==''
+                        component={profileHooks.role===''
                         ?LandingFreelancer:localStorage.usertoken 
-                        && profileHooks.role=='admin'
+                        && profileHooks.role==='admin'
                         ?HomePageAdmin:localStorage.usertoken 
-                        && profileHooks.role=='neoworker'
+                        && profileHooks.role==='neoworker'
                         ?EditHomePageFreelancer:''} />
 
 
                         <Route exact path="/neoworker/competences/" 
-                        component={profileHooks.role==''
+                        component={profileHooks.role===''
                         ?LandingFreelancer:localStorage.usertoken 
-                        && profileHooks.role=='admin'
+                        && profileHooks.role==='admin'
                         ?HomePageAdmin:localStorage.usertoken 
-                        && profileHooks.role=='neoworker'
+                        && profileHooks.role==='neoworker'
                         ?CompetencesFreelancer:''} />
                     </Switch>
             </>
