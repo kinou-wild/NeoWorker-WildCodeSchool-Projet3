@@ -94,11 +94,11 @@ module.exports = app => {
                 freelancerId: req.body.freelancerId,
                 createdAt: today
             }
-            if(req.body.role=='admin'){
-                return(
-                    res.status(401).send('Unauthorized')
-                )
-            }
+            // if(req.body.role=='admin'){
+            //     return(
+            //         res.status(401).send('Unauthorized')
+            //     )
+            // }
             models
                 .users
                 .findOne({
@@ -129,42 +129,6 @@ module.exports = app => {
                 })
                 .catch(err => console.log(err))
         })
-
-
-
-
-        // app.put('/register/update/:id', (req, res) => {
-        //     const userData = {
-        //         email: req.body.email,
-        //         password: req.body.password,
-        //     }
-        //     models
-        //         .users
-        //         .update(bcrypt.hash(req.body.password, 10, (err, hash) => {
-        //             userData.password = hash
-
-        //         }, req.body.email), {
-        //             where: {
-        //                 id: req.params.id
-        //             }
-        //         })
-        //         .then(() => console.log('update OK'))
-        // }
-
-            // const userData = {
-                //     email: req.body.email,
-                //     password: req.body.password,
-                // }
-                // models
-                //     .users
-                //     .update(bcrypt.hash(req.body.password,10,(err,hash)=>{
-                //         userData.password=hash
-                //     },req.body.email)
-                //         ,{
-                //         where: {
-                //             id: req.params.id
-                //         }
-                //     })
 
 
 

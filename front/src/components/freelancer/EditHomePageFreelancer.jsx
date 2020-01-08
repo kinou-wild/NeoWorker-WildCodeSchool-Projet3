@@ -34,6 +34,12 @@ const EditHomePageFreelancer = (props) => {
             tel: "",
             cp: '',
           })
+          
+          //hooks pour modif le user
+          const [updateUser, setUpdateUser] = useState({
+            email: '',
+            password: ''
+          })
 
   useEffect(() => {
     fetchData()
@@ -42,25 +48,29 @@ const EditHomePageFreelancer = (props) => {
     axios.get(`http://localhost:5000/freelancer/${paramsNeo}`)
       .then(res => setUpdateFreelancer(res.data))
       .catch(err => console.log(err))
-
   }
-           //hooks pour modif le user
-           const [updateUser, setUpdateUser] = useState({
-             email: '',
-             password: ''
-           })
-        
-           //update sur la data user
-           const updateQueryDataUserFree = (e) => {
-             e.preventDefault()
-              bcrypt.genSalt(10, function(err, salt) {
-              bcrypt.hash(updateUser.password, salt, function (err, hash) {
-                 // Store hash in your password DB.
-                axios.put(`http://localhost:5000/user/${paramsIdUser}`, {...updateUser, password:hash})
-                .catch(err => console.log(err))
-               });
-             })
-            }
+
+  useEffect(()=>{
+    fetchDataUser()
+  },[])
+  const fetchDataUser=()=>{
+    axios.get(`http://localhost:5000/user/${paramsIdUser}`)
+    .then(res=>setUpdateUser(res.data))
+    .catch(err=>console.log(err))
+  }
+  
+  //update sur la data user
+  const updateQueryDataUserFree = (e) => {
+    e.preventDefault()
+    bcrypt.genSalt(10, function(err, salt) {
+      bcrypt.hash(updateUser.password, salt, function (err, hash) {
+        // Store hash in your password DB.
+        axios.put(`http://localhost:5000/user/${paramsIdUser}`, {...updateUser, password:hash, email:updateFreelancer.email})
+        .catch(err => console.log(err))
+      });
+    })
+  }
+  console.log(updateUser)
         
 
   
@@ -80,8 +90,8 @@ const EditHomePageFreelancer = (props) => {
         
           //fonction qui modif l'email user et l'email free en même temps
         const emailUpdater = (e) => {
-          setUpdateUser({...updateUser, email: e.target.value})
           setUpdateFreelancer({...updateFreelancer, email: e.target.value})
+          setUpdateUser({...updateUser, email: e.target.value})
             }
         
         
@@ -157,14 +167,14 @@ const EditHomePageFreelancer = (props) => {
                   required
                   onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, tel: e.target.value }) }} />
 
-                <input
+                {/* <input
                   className="input-password"
                   placeholder="Mot de passe" type="password"
                   id="password" name="password"
                   value={updateUser.password}
                   value={updateFreelancer.password}
                   onChange={(e) => {passwordUpdater(e) }}
-                /> 
+                />  */}
               </div>
             </div>
           </div>

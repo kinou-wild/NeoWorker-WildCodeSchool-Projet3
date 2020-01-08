@@ -41,6 +41,7 @@ const HomePageFreelancer = () => {
             })
         }
     }, [])
+    
     return(
         <div>
             {idUsers.filter(x => x.id == profileHooks.id).map(x =>
