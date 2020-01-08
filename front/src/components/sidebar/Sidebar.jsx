@@ -10,6 +10,7 @@ import jwt_decode from 'jwt-decode'
 const Sidebar = (props) => {
 
     const [profileHooks, setProfileHooks] = useState({
+        id:'',
         email: '',
         password: '',
         role:'',
@@ -52,17 +53,16 @@ const Sidebar = (props) => {
     } 
 //décoder le token
     useEffect(() => {
-        console.log(localStorage.usertoken)
         const token = localStorage.usertoken
         if (token) {
         const decoded = jwt_decode(token)
         setProfileHooks({
+            id:decoded.id,
             email: decoded.email,
             password: decoded.password,
             role:decoded.role
         })}
     }, [])
-
 
     const neoworker =(
         <div className={profileHooks.role === 'neoworker' && localStorage.usertoken ? "sidebar" : "sidebar-hidden"}>
@@ -70,7 +70,7 @@ const Sidebar = (props) => {
             <div className="sidebar-field-group">
 
                 <Link to='/neoworker/homepage'><p className="sidebar-field">Mon Espace Perso</p></Link>
-                <Link to='/neoworker/competences'><p className="sidebar-field">Mes Compétences</p></Link>
+                <Link to={`/neoworker/competences/${profileHooks.id}`}><p className="sidebar-field">Mes Compétences</p></Link>
                 <Link to='/'><p className="sidebar-field">Mes Missions</p></Link>
                 <Link to='/'><p className="sidebar-field">Mes Documents</p></Link>
 

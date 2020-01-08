@@ -2,13 +2,15 @@ import React, {useContext, useState, useEffect} from 'react'
 import './HomePageFreelancer.css'
 import { Button, Label, Input, InputGroup,InputGroupText,FormGroup,} from 'reactstrap'
 import {Link} from 'react-router-dom'
+import '../freelancer/EditHomePageFreelancer.css'
 import axios from 'axios';
 const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+
 
 /* -------- Page d'édition pour l'espace perso Neoworker ------------------ */
 const EditHomePageFreelancer = (props) => {
 
+          const [changerMDP,setChangerMDP]=useState(true)
 
           //recup des query de l'id
           const paramsIdUser = props.match.params.id;
@@ -41,6 +43,7 @@ const EditHomePageFreelancer = (props) => {
             password: ''
           })
 
+
   useEffect(() => {
     fetchData()
   }, [])
@@ -64,7 +67,7 @@ const EditHomePageFreelancer = (props) => {
     e.preventDefault()
 
     if(updateUser.password.length==60){
-      axios.put(`http://localhost:5000/user/${paramsIdUser}`, updateUser.password)
+      axios.put(`http://localhost:5000/user/${paramsIdUser}`, {...updateUser})
         .catch(err => console.log(err))
     }else{
       bcrypt.genSalt(10, function(err, salt) {
@@ -75,8 +78,8 @@ const EditHomePageFreelancer = (props) => {
         });
       })
     }
+    props.history.push('/neoworker/homepage')
   }        
-console.log(updateUser)
   
 
           //update sur la data du free
@@ -84,6 +87,7 @@ console.log(updateUser)
             e.preventDefault()
               axios.put(`http://localhost:5000/freelancer/${paramsNeo}`, updateFreelancer)
               .catch(err=>console.log(err))
+            props.history.push('/neoworker/homepage')
           }
         
           //fonction qui regroupe l'axios put du dataUserFree et l'axios du dataFree
@@ -103,6 +107,8 @@ console.log(updateUser)
   const passwordUpdater = (e) => {
     setUpdateUser({ ...updateUser, password: e.target.value })
   }
+
+
 
     return(
       <div className="main-div">
@@ -170,12 +176,13 @@ console.log(updateUser)
                   value={updateFreelancer.tel}
                   required
                   onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, tel: e.target.value }) }} />
-
+                {/* <button onClick={()=>setChangerMDP(!changerMDP)}>Changer le mot de passe</button> */}
                 <input
-                  className="input-password"
+                  // className={changerMDP ==true ?'input-password unshow':''}
+                  className='input-password'
                   placeholder="Mot de passe" type="password"
                   id="password" name="password"
-                  value={updateUser.password}
+                  value={updateUser.password.length==60?'password':updateUser.password}
                   onChange={(e) => { passwordUpdater(e) }}
               /> 
               </div>

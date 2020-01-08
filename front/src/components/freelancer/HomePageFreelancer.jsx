@@ -32,7 +32,6 @@ const HomePageFreelancer = () => {
 
     //décoder le token
     useEffect(() => {
-        console.log(localStorage.usertoken)
         const token = localStorage.usertoken
         if (token) {
             const decoded = jwt_decode(token)

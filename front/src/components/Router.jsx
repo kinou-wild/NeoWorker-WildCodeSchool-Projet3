@@ -39,7 +39,6 @@ const Router = () => {
 
  
 
-
         return (
             <>
             
@@ -138,7 +137,7 @@ const Router = () => {
                         ?EditHomePageFreelancer:''} />
 
 
-                        <Route exact path="/neoworker/competences/" 
+                        <Route exact path="/neoworker/competences/:id" 
                         component={profileHooks.role===''
                         ?LandingFreelancer:localStorage.usertoken 
                         && profileHooks.role==='admin'
