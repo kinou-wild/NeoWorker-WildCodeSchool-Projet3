@@ -94,6 +94,11 @@ module.exports = app => {
                 freelancerId: req.body.freelancerId,
                 createdAt: today
             }
+            if(req.body.role=='admin'){
+                return(
+                    res.status(401).send('Unauthorized')
+                )
+            }
             models
                 .users
                 .findOne({
