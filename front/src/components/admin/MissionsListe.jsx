@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
-import { SidebarContext } from '../SidebarContext'
 import { Button } from 'reactstrap'
 import MissionDisplayer from "./MissionsListeCard"
 import SearchBarMission from '../searchbar/SearchBarMissions'
@@ -10,9 +9,6 @@ import './MissionsListe.css'
 
 const MissionsListe = () => {
 
-    const { hook, hook2 } = useContext(SidebarContext)
-    const [showSidebar, setShowSidebar] = hook
-    const [roleSidebar, setRoleSidebar] = hook2
 
     const [missionsAPourvoir, setMissionsAPourvoir] = useState([])
     const [missionsPourvues, setMissionsPourvues] = useState([])
@@ -47,8 +43,7 @@ const MissionsListe = () => {
 
     useEffect(() => {
         getMissions()
-        setShowSidebar(true)
-        setRoleSidebar("admin")
+      
     }, [])
 
     const search = [...missionsAPourvoir, ...missionsPourvues, ...missionsTerminees]

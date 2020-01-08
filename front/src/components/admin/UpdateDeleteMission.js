@@ -6,14 +6,13 @@ import React, {
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
-import { SidebarContext } from '../SidebarContext'
+import { Link } from 'react-router-dom';
+
 
 const UpdateDeleteMission =(props)=>{
 
     const params = props.match.params
-    const { hook, hook2 } = useContext(SidebarContext)
-    const [showSidebar, setShowSidebar] = hook
-    const [roleSidebar, setRoleSidebar] = hook2
+   
 
     const [getMission, setGetMission] = useState([])
 
@@ -197,11 +196,6 @@ const UpdateDeleteMission =(props)=>{
     }
 
     
-    useEffect(() => {
-        setShowSidebar(true)
-        setRoleSidebar("admin")
-    })
-
 
     return (
                           

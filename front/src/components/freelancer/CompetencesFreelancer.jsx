@@ -1,5 +1,4 @@
 import React, {useContext, useEffect,useState} from 'react'
-import {SidebarContext} from '../SidebarContext'
 import { Button } from 'reactstrap'
 import axios from 'axios'
 import Slider from "react-slick";
@@ -15,15 +14,6 @@ import './CompetencesFreelancer.css'
 /* -------- Page d'accueil de la page Freelancer, après connexion ------------------ */
 const CompetencesFreelancer = () => {
 
-    /* Le boolean initiapsé dans le Sidebar context passe à True à chaque refresh de page, pour que la Sidebar s'affiche */
-    const { hook, hook2 } = useContext(SidebarContext)
-    const [showSidebar, setShowSidebar] = hook
-    const [roleSidebar, setRoleSidebar] = hook2
-
-    useEffect(() => {
-        setShowSidebar(true)
-        setRoleSidebar("neoworker")
-    })
 
     //hooks de la data freelancer pour get un id
     const [idFree, setIdFree] = useState([])
@@ -54,9 +44,6 @@ const CompetencesFreelancer = () => {
             .then(res => setIdUser(res.data))
     }
 
-    useEffect(() => {
-        setShowSidebar(true)
-    })
 
     var settings = {
       infinite: true,

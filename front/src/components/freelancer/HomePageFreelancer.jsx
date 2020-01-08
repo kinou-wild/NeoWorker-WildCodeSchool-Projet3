@@ -1,5 +1,4 @@
 import React, {useContext, useEffect,useState} from 'react'
-import {SidebarContext} from '../SidebarContext'
 import './HomePageFreelancer.css'
 import { Button } from 'reactstrap'
 import axios from 'axios'

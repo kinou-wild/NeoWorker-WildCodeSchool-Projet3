@@ -1,5 +1,4 @@
 import React, {useContext, useState, useEffect} from 'react'
-import {SidebarContext} from '../SidebarContext'
 import './HomePageFreelancer.css'
 import { Button, Label, Input, InputGroup,InputGroupText,FormGroup,} from 'reactstrap'
 import {Link} from 'react-router-dom'
@@ -11,15 +10,6 @@ const jwt = require('jsonwebtoken')
 const EditHomePageFreelancer = (props) => {
 
 
-    /* Le boolean initialisé dans le Sidebar context passe à True à chaque refresh de page, pour que la Sidebar s'affiche */
-  const { hook, hook2 } = useContext(SidebarContext)
-  const [showSidebar, setShowSidebar] = hook
-  const [roleSidebar, setRoleSidebar] = hook2
-
-  useEffect(() => {
-    setShowSidebar(true)
-    setRoleSidebar("neoworker")
-  })
           //recup des query de l'id
           const paramsIdUser = props.match.params.id;
           const paramsNeo = props.match.params.idneo;

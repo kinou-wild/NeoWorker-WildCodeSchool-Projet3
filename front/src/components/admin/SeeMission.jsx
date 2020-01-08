@@ -1,19 +1,14 @@
 import React, {
     useState,
     useEffect,
-    useContext
 } from 'react';
 import { Form, FormGroup, Input, Label } from 'reactstrap'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
-import { SidebarContext } from '../SidebarContext'
 
 const SeeMission =(props)=>{
 
     const params = props.match.params
-    const { hook, hook2 } = useContext(SidebarContext)
-    const [showSidebar, setShowSidebar] = hook
-    const [roleSidebar, setRoleSidebar] = hook2
 
     const [getMission, setGetMission] = useState([])
 
@@ -115,10 +110,6 @@ const SeeMission =(props)=>{
 
 
     
-    useEffect(() => {
-        setShowSidebar(true)
-        setRoleSidebar("admin")
-    })
 
 
     return (
