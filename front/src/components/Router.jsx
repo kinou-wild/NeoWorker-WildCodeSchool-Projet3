@@ -146,6 +146,9 @@ const Router = () => {
                         ?HomePageAdmin:localStorage.usertoken 
                         && profileHooks.role=='neoworker'
                         ?CompetencesFreelancer:''} />
+
+                        //afficher un freelancer en tant qu'admin
+                        <Route exact path="/admin/neoworker/:id" component=''/>
                     </Switch>
             </SidebarController>
             </>
