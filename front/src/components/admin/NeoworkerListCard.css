@@ -1,18 +1,25 @@
+.div-neoworkerList {
+  display: flex ;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
 .neoworkerCard {
     display: flex;
+    flex-direction: row;
     align-items: center;
     margin-bottom: 8px;
     background: white;
     padding: 8px 16px;
     border: 1px solid rgb(235,235,235);
     box-shadow: aliceblue;
-    width: 200px;
+    width: 50%;
   }
 
-.neoworkerCard .neoworkerCard-content {
+ .neoworkerCard-content {
     flex-grow: 1;
     padding: 0 24px;
-    width: 45%
+    width: 80%
   }
 
   .neoworkerCard-btn-container {

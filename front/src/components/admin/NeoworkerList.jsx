@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import NeoworkerListCard from './NeoworkerListCard'
+import NeoworkerListCard from './NeoWorkerListCard'
 
 const NeoworkerList = () => {
 
@@ -9,37 +9,30 @@ const NeoworkerList = () => {
 
     //function to get list of Neoworkers
     const getNeoworker = () => {
-        axios.get('http//localhost:5000/freelancers')
+        axios.get('http://localhost:5000/freelancers')
         .then(res => setList(res.data))
         .catch((err) => console.log(err))
     }
-
-    // hook to get NeoWorkers by id
-    const [neoworkerById, setNeoworkerById] = useState([])
-
-    //function to get neoworker by id
-    const getNeoworkerById = () => {
-        axios.get('http//localhost:5000/freelancers/:id')
-        .then(res => setNeoworkerbyId(res.data))
-        .catch((err) => console.log(err))
-    }
-
+    useEffect(() => {
+        getNeoworker()
+    }, [])
+    
     //hook to update a freelancer
     const [updateNeoworker, setUpdateNeoworker] = useState([])
 
     //function to update a freelancer
-    const update = () => {
+    const update = (e, id) => {
         e.preventDefault()
-        axios.put('http//localhost:5000/freelancers/:id')
+        axios.put(`http//localhost:5000/freelancers/${id}`)
         .then(res => setUpdateNeoworker(res.data))
         .catch((err) => console.log(err))
     }
 
     return(
-        <div>
+        <div style= {{padding:'500px'}}>
             <div>
                 {list.map( x => (
-                    <NeoworkerListCard firstname= {x.firstname} lastname={x.lastname} title={x.title} />
+                    <NeoworkerListCard key={x.id} id={x.id} firstname= {x.firstname} lastname={x.lastname} title={x.title} />
                 ))}
             </div>
         </div>

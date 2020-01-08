@@ -2,7 +2,7 @@ import React from 'react'
 import './NeoworkerListCard.css'
 import {Link} from 'react-router-dom'
 
-const NeoworkerListCard = ({firstname, lastname, title, status}) => {
+const NeoworkerListCard = ({firstname, lastname, title, status, id}) => {
 return(
     <div className='neoworkerCard'>
         <div className='neoworkerCard-content'>
@@ -11,7 +11,7 @@ return(
             <p>{status}</p>
         </div>
         <div className="neoworkerCard-btn-container">
-            <Link to="/admin/neoworker/:id">
+            <Link to={`/admin/neoworker/${id}`}>
                 <button className='neoworkerCard-btn'> voir</button>
             </Link>
             <Link to="/neoworker/editer/:id">
