@@ -266,7 +266,6 @@ const MissionCreateAdmin = (props) => {
                             onChange={(e) => { setCreatem({ ...createm, note: e.target.value }) }} />
                     </FormGroup>
 
-
                     <div className='select-mission'>
                     <FormGroup>
                         <Input style={{ textAlign: 'center' }} placeholder="Nom de la mission"
@@ -276,8 +275,6 @@ const MissionCreateAdmin = (props) => {
                             type="text"
                             onChange={(e) => { setCreatem({ ...createm, nom_mission: e.target.value }) }} />
                     </FormGroup>
-
-
 
                         <div className='selector-mission'>
                             <FormGroup>
