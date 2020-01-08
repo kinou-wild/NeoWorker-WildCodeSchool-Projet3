@@ -25,7 +25,6 @@ const MissionsListe = () => {
         nom: ''
     });
 
-
     // get all misions
     const getMissions = () => {
         axios.get('http://localhost:5000/missions?status=0')
@@ -39,29 +38,8 @@ const MissionsListe = () => {
             .catch((err) => console.log(err))
     }
 
-    const handleChange = e => {
-        setSearchTerm(e.target.value);
-    }
-
-    // suppression mission
-    const fetchDeleteDataMission = (id) => {
-        axios.delete(`http://localhost:5000/mission/${id}`)
-            .catch((err) => console.log(err))
-        window.location.reload(false);
-    }
-
-    //A voir si on conserve cette variable
-/*     // update mission
-    const fetchUpdateDataMission = (id) => {
-        axios.put(`http://localhost:5000/mission/${id}`)
-        .catch((err) => console.log(err))
-    }
-  */
-
     useEffect(() => {
         getMissions()
-        setShowSidebar(true)
-        setRoleSidebar("admin")
     }, [])
 
     const search = [...missionsAPourvoir, ...missionsPourvues, ...missionsTerminees]
@@ -72,7 +50,6 @@ const MissionsListe = () => {
         setResult(results);
     }, [searchTerm.nom]);
 
-    console.log(search)
 
     return (
 
@@ -80,7 +57,9 @@ const MissionsListe = () => {
             <SearchBarMission setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
             <h2 className='missions-h2'>Missions à pourvoir <span className='textModif'>:</span></h2>
             <div className='missions'>
-                {missionsAPourvoir.map(mission => {
+                {missionsAPourvoir
+                    .filter(x=>x.nom_mission.includes(searchTerm.nom) )
+                    .map(mission => {
                     return <MissionDisplayer {...mission} />
                 })}
             </div>

@@ -7,10 +7,6 @@ const SearchBarMission = ({setSearchTerm, searchTerm}) => {
     const [search, setSearch] = useState([]);
     const[result,setResult]= useState([]);
 
-     useEffect(() => {
-         fetchData()
-     }, [])
-
     const fetchData = () => {
         axios.get('http://localhost:5000/missions')
             .then(res => setSearch(res.data))
@@ -25,7 +21,6 @@ const SearchBarMission = ({setSearchTerm, searchTerm}) => {
             setResult(results);
     }, [searchTerm.nom]);
 
-    console.log (result.map(x=>x.nom_mission))
     return (
         <div className="search">
             <input
@@ -37,15 +32,9 @@ const SearchBarMission = ({setSearchTerm, searchTerm}) => {
 
             />
             <ul>
-                {searchTerm.nom.length===0?
-'':
+                {searchTerm.nom.length===0? '':
                 result.map(item => {
-                    return (
-                        <div>
-                            <Link>{item.nom_mission}</Link>
-                            <Link to={`/mission/see/${item.id}`}>{item.id}</Link>
- 
-                        </div>)
+                   
                 })}
 
                 
