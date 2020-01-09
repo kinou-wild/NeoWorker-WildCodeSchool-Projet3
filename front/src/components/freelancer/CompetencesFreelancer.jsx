@@ -11,38 +11,24 @@ import './CompetencesFreelancer.css'
 
 
 
-/* -------- Page d'accueil de la page Freelancer, après connexion ------------------ */
-const CompetencesFreelancer = () => {
 
-
-    //hooks de la data freelancer pour get un id
-    const [idFree, setIdFree] = useState([])
+const CompetencesFreelancer = (props) => {
 
     //hooks de la data user pour le get de l'id
-    const [idUser, setIdUser] = useState([])
+    const [idUsers, setIdUsers] = useState([])
 
+const params=props.match.params.id
+    
+// cycle de vie du fetchData pour getter le profil du User
+useEffect(() => {
+    fetchDataUserFree()
+}, []);
 
-    // cycle de vie du fetchData pour getter le profil du freelancer
-    useEffect(() => {
-        fetchDataFree()
-    }, [])
-
-    const fetchDataFree = () => {
-        axios.get(`http://localhost:5000/freelancer/1`)
-            .then(res => setIdFree(res.data))
-            .catch((err) => console.log(err))
-    }
-
-    // cycle de vie du fetchData pour getter le profil du User
-
-    useEffect(() => {
-        fetchDataUserFree()
-    }, []);
-
-    const fetchDataUserFree = () => {
-        axios.get('http://localhost:5000/user/1')
-            .then(res => setIdUser(res.data))
-    }
+const fetchDataUserFree = () => {
+    axios.get(`http://localhost:5000/admin`)
+    .then(res => setIdUsers(res.data))
+    .catch((err) => console.log(err))
+}
 
 
     var settings = {
@@ -58,7 +44,7 @@ const CompetencesFreelancer = () => {
                 <img className='pic-card' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='profil picture'/>
             </div> 
                 <Slider {...settings}>
-                    <Slide1/>
+                <Slide1 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])}/>
                     <Slide2/>
                     <Slide3/>
                     <Slide4/>

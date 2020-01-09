@@ -13,7 +13,9 @@ import SeeMission from './admin/SeeMission'
 import UpdateDeleteMission from './admin/UpdateDeleteMission'
 import Creation_NeoWorker_Page from './admin/Creation_NeoWorker_Page'
 import MissionsListe from './admin/MissionsListe';
-import jwt_decode from 'jwt-decode'
+import jwt_decode from 'jwt-decode';
+import NeoworkerList from './admin/NeoworkerList'
+import OneNeoworker from './admin/OneNeoworker';
 
 /* ------------------------ Router ---------------------------------- */
 const Router = () => {
@@ -38,7 +40,6 @@ const Router = () => {
     }, [])
 
  
-
 
         return (
             <>
@@ -138,13 +139,20 @@ const Router = () => {
                         ?EditHomePageFreelancer:''} />
 
 
-                        <Route exact path="/neoworker/competences/" 
+                        <Route exact path="/neoworker/competences/:id" 
                         component={profileHooks.role===''
                         ?LandingFreelancer:localStorage.usertoken 
                         && profileHooks.role==='admin'
                         ?HomePageAdmin:localStorage.usertoken 
                         && profileHooks.role==='neoworker'
                         ?CompetencesFreelancer:''} />
+
+                        //show neoworker list
+                        <Route exact path="/admin/neoworker/liste" component={NeoworkerList}/>
+                        
+                        //afficher un freelancer en tant qu'admin
+                        <Route exact path="/admin/neoworker/:id" component={OneNeoworker}/>
+                        
                     </Switch>
             </>
         )

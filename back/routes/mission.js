@@ -5,7 +5,6 @@ module.exports = function (app) {
     //Get all mission
     app.get('/missions', (req, res) => {
         if (req.query.status) {
-            
             models
             .missions
             .findAll({
@@ -16,8 +15,7 @@ module.exports = function (app) {
             })
             .then(x => res.json(x))
         }
-        else {
-                        
+        else {         
             models
             .missions
             .findAll({
@@ -56,7 +54,7 @@ module.exports = function (app) {
                 where: {
                     id: req.params.id
                 }
-            }).then(() => console.log("Updated"))
+            }).then((x) => console.log("Updated") & res.end())
     });
 
     //Delete missions
@@ -67,8 +65,6 @@ module.exports = function (app) {
                 where: {
                     id: req.params.id
                 }
-            }).then(() => console.log("Deleted"))
+            }).then(() => console.log("Deleted") & res.end())
     });
-
-
 };

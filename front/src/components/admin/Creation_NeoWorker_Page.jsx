@@ -1,9 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { FormGroup, InputGroupText, Input, Form, Button } from 'reactstrap';
+import React, { useEffect, useState } from 'react'
+import { FormGroup, InputGroupText, Input, Button } from 'reactstrap';
 import './Creation_NeoWorker_Page.css'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
 import { register } from '../UserFunctions'
+import profilPic from '../../img/anais.jpg'
+
 
 
 
@@ -345,11 +347,10 @@ const CreationNeoWorkerPage = (props) => {
 
     return (
         <div className="main-div">
-            {/*<div className='profil-card'>
-                <p className='name-card'>Profil Admin</p>
-                <img className='pic-card' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476084398?k=6&m=476084398&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='profil picture' />
-            </div>*/}
-
+            <div className='profil-card'>
+                <p className='name-card'> Anais</p>
+                <img className='pic-card' src={profilPic} alt='profil picture' />
+            </div>
             <form className="formulaire-creation-neoworker" onSubmit={onSubmit} >
                 <p className="main-title">Création d'un nouveau NeoWorker</p>
                 <input className="input-metier"
