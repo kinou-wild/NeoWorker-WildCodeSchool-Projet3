@@ -7,7 +7,6 @@ import './MissionsListe.css'
 
 const MissionsListe = () => {
 
-
     const [missionsAPourvoir, setMissionsAPourvoir] = useState([])
     const [missionsPourvues, setMissionsPourvues] = useState([])
     const [missionsTerminees, setMissionsTerminees] = useState([])
@@ -30,15 +29,6 @@ const MissionsListe = () => {
             .catch((err) => console.log(err))
     }
 
-    const fetchDeleteDataMission = (id) => {
-        axios.delete(`http://localhost:5000/mission/${id}`)
-            .catch((err) => console.log(err))
-        window.location.reload(false);
-    }
-
-
-
-
     useEffect(() => {
         getMissions()
       
@@ -51,7 +41,6 @@ const MissionsListe = () => {
             person.nom_mission.toLowerCase().includes(searchTerm.nom));
         setResult(results);
     }, [searchTerm.nom]);
-
 
 
     return (
