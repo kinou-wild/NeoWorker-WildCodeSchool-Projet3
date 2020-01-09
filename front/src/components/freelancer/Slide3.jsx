@@ -30,7 +30,7 @@ const Slide3 = (props) => {
                             <p>Engagement Associatif</p>
                             <input type="textaera" name="text" id="autres_skills" value={x.autres_softskill} />
                         </div>
-                        <div className='champ-libre'>
+                        <div className='mission-card'>
                             <p>Autres skills</p>
                             <input type="textaera" name="text" id="autres_skills" value={x.autres_softskill} />
                         </div>
