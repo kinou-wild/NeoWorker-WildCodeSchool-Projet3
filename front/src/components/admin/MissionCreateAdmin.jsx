@@ -223,9 +223,9 @@ const MissionCreateAdmin = (props) => {
 
 
     // create a mission
-    const createMissions = (e) => {
+    const createMissions = async (e) => {
         e.preventDefault()
-        axios.post('http://localhost:5000/missions', createm)
+        await axios.post('http://localhost:5000/missions', createm)
             .catch((err) => console.log(err))
         props.history.push('/admin/missions')
     }

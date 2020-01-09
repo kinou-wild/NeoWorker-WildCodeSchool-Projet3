@@ -19,14 +19,14 @@ const MissionsListe = () => {
     });
 
     // get all misions
-    const getMissions = () => {
-        axios.get('http://localhost:5000/missions?status=0')
+    const getMissions = async () => {
+        await axios.get('http://localhost:5000/missions?status=0')
             .then(response => setMissionsAPourvoir(response.data))
             .catch((err) => console.log(err))
-        axios.get('http://localhost:5000/missions?status=1')
+        await axios.get('http://localhost:5000/missions?status=1')
             .then(response => setMissionsPourvues(response.data))
             .catch((err) => console.log(err))
-        axios.get('http://localhost:5000/missions?status=2')
+        await axios.get('http://localhost:5000/missions?status=2')
             .then(response => setMissionsTerminees(response.data))
             .catch((err) => console.log(err))
     }
@@ -38,8 +38,8 @@ const MissionsListe = () => {
     const search = [...missionsAPourvoir, ...missionsPourvues, ...missionsTerminees]
     useEffect(() => {
 
-        const results = search.filter(x =>
-            x.nom_mission.toLowerCase().includes(searchTerm.nom));
+    const results = search.filter(x =>
+        x.nom_mission.toLowerCase().includes(searchTerm.nom));
         setResult(results);
     }, [searchTerm.nom]);
 

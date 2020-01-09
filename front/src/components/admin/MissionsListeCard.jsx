@@ -28,7 +28,7 @@ const MissionsListeCard = (mission) => {
                 </div>
                 <div className='fourthrow-card'>
                     <p>Email : {mission.email}</p>
-                    <Button className='button-card' onClick={()=>deleteCard(mission.id)} >Supprimer</Button>
+                    <Button className='button-card' onClick={()=> { if (window.confirm('Voulez-vous vraiment supprimer cette mission ?')) deleteCard(mission.id)}} >Supprimer</Button>
                 </div>
                 {mission.status === 2 || mission.status === 3 ?
                 <div className='fourthrow-card'>
