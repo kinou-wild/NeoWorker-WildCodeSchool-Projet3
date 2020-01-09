@@ -4,6 +4,8 @@ import StarRatingComponent from 'react-star-rating-component';
 import './MissionCreateAdmin.css'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom';
+import profilPic from '../../img/anais.jpg'
+
 
 
 /* -------- Page creation mission ---------- */
@@ -233,8 +235,8 @@ const MissionCreateAdmin = (props) => {
     return (
         <div className="admin-mission">
             <div className='profil-card'>
-                <p className='name-card'>Profil Admin</p>
-                <img className='pic-card' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='profil picture' />
+                <p className='name-card'> Anais</p>
+                <img className='pic-card' src={profilPic} alt='profil picture' />
             </div>
             <h1 className='admin-h1'>Creation d'une mission NeoWorker <span className='textModif'>:</span></h1>
             <div className='notes'>
