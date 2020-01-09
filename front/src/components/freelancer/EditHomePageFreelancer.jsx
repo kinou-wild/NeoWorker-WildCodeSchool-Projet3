@@ -127,31 +127,7 @@ const EditHomePageFreelancer = (props) => {
   const passwordUpdater = (e) => {
     setUpdateUser({ ...updateUser, password: e.target.value })
   }
-
-  //update sur la data du free
-  const updateQueryDataFree = (e) => {
-    e.preventDefault()
-    axios.put(`http://localhost:5000/freelancer/${paramsNeo}`, updateFreelancer)
-      .catch(err => console.log(err))
-    props.history.push('/neoworker/homepage')
-  }
-
-  //fonction qui regroupe l'axios put du dataUserFree et l'axios du dataFree
-  const updaterEmailPassword = (e) => {
-    updateQueryDataFree(e)
-    updateQueryDataUserFree(e)
-  }
-
-  //fonction qui modif l'email user et l'email free en même temps
-  const emailUpdater = (e) => {
-    setUpdateFreelancer({ ...updateFreelancer, email: e.target.value })
-    setUpdateUser({ ...updateUser, email: e.target.value })
-  }
-
-  //fonction qui modif le password user et le password free en même temps
-  const passwordUpdater = (e) => {
-    setUpdateUser({ ...updateUser, password: e.target.value })
-  }
+  
 
   return (
     <div className="main-div">
