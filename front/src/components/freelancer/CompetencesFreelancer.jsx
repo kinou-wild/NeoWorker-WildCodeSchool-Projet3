@@ -10,8 +10,6 @@ import Slide4 from './Slide4'
 import './CompetencesFreelancer.css'
 
 
-
-
 const CompetencesFreelancer = (props) => {
 
     //hooks de la data user pour le get de l'id
@@ -30,7 +28,6 @@ const fetchDataUserFree = () => {
     .catch((err) => console.log(err))
 }
 
-
     var settings = {
       infinite: true,
       slidesToShow: 1,
@@ -45,7 +42,7 @@ const fetchDataUserFree = () => {
             </div> 
                 <Slider {...settings}>
                 <Slide1 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])}/>
-                    <Slide2/>
+                    <Slide2 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])}/>
                     <Slide3/>
                     <Slide4/>
                 </Slider>
