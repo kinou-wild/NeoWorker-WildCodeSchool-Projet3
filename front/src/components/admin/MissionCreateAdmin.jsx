@@ -1,12 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 import StarRatingComponent from 'react-star-rating-component';
 import './MissionCreateAdmin.css'
 import axios from 'axios'
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import profilPic from '../../img/anais.jpg'
 
 
-/* -------- Page creation mission ------------------ */
+
+/* -------- Page creation mission ---------- */
 const MissionCreateAdmin = (props) => {
 
     // hooks to create a mission
@@ -73,18 +75,7 @@ const MissionCreateAdmin = (props) => {
         curiosite: 0,
         sens_effort: 0,
         sport: "",
-        engagement_asso: "",
         autres_softskill: "",
-
-        gestion_admin_compta: 0,
-        gestion_op: 0,
-        gestion_commerciale: 0,
-        marketing_com_digit: 0,
-        gestion_fi_controle_gestion: 0,
-        dsi: 0,
-        gestion_rh_juridique: 0,
-        gestion_rel_client: 0,
-
         assistance_suivi_comptable: false,
         relation_accountant: false,
         customer_recovery: false,
@@ -167,10 +158,10 @@ const MissionCreateAdmin = (props) => {
 
     /* hooks pour le rating par étoiles */
     const [rating, setRating] = useState([
-        { Excel: 0 },
-        { Powerpoint: 0 },
+        { excel: 0 },
+        { powerpoint: 0 },
         { microsoft_365: 0 },
-        { Word: 0 },
+        { word: 0 },
         { crm_hubspot: 0 },
         { crm_salesforce: 0 },
         { crm_pipedrive: 0 },
@@ -211,17 +202,7 @@ const MissionCreateAdmin = (props) => {
         { sens_effort: 0 },
         { sport: 0 },
         { passion: 0 },
-        { engagement_asso: 0 },
         { autres_softskill: 0 },
-        { gestion_admin_compta: 0 },
-        { gestion_op: 0 },
-        { gestion_commerciale: 0 },
-        { marketing_com_digit: 0 },
-        { gestion_fi_controle_gestion: 0 },
-        { dsi: 0 },
-        { gestion_rh_juridique: 0 },
-        { gestion_rel_client: 0 },
-        //ajout dans la bdd
         { francais: 0 },
         { anglais: 0 },
         { espagnol: 0 },
@@ -244,9 +225,9 @@ const MissionCreateAdmin = (props) => {
 
 
     // create a mission
-    const createMissions = (e) => {
+    const createMissions = async (e) => {
         e.preventDefault()
-        axios.post('http://localhost:5000/missions', createm)
+        await axios.post('http://localhost:5000/missions', createm)
             .catch((err) => console.log(err))
         props.history.push('/admin/missions')
     }
@@ -254,8 +235,8 @@ const MissionCreateAdmin = (props) => {
     return (
         <div className="admin-mission">
             <div className='profil-card'>
-                <p className='name-card'>Profil Admin</p>
-                <img className='pic-card' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='profil picture' />
+                <p className='name-card'> Anais</p>
+                <img className='pic-card' src={profilPic} alt='profil picture' />
             </div>
             <h1 className='admin-h1'>Creation d'une mission NeoWorker <span className='textModif'>:</span></h1>
             <div className='notes'>
@@ -314,7 +295,7 @@ const MissionCreateAdmin = (props) => {
                                 </Input>
                             </FormGroup>
                             <FormGroup>
-                            <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
+                            <Label> Mobilité <span className='textModif'>:</span></Label>
                                 <Input type="select" name="mobilite" id='mobilite'
                                     value={createm.mobilite}
                                     onChange={(e) => { setCreatem({ ...createm, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
@@ -415,25 +396,22 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Excel</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[0].excel}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 0, 'Excel')} />
+                                    onStarClick={(e) => onStarClick(e, 0, 'excel')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Powerpoint</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[1].powerpoint}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 1, 'Powerpoint')} />
+                                    onStarClick={(e) => onStarClick(e, 1, 'powerpoint')} />
                             </div>
                             <div className='mission-card'>
                                 <p>Microsoft 365</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[2].microsoft_365}
                                     emptyStarColor={`#C4C4C4`}
@@ -442,16 +420,14 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Word</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[3].word}
                                     emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 3, 'Word')} />
+                                    onStarClick={(e) => onStarClick(e, 3, 'word')} />
                             </div>
                             <div className='mission-card'>
                                 <p>CRM Hubspot</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[4].crm_hubspot}
                                     emptyStarColor={`#C4C4C4`}
@@ -460,7 +436,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>CRM Salesforce</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[5].crm_salesforce}
                                     emptyStarColor={`#C4C4C4`}
@@ -469,7 +444,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>CRM Pipedrive</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[6].crm_pipedrive}
                                     emptyStarColor={`#C4C4C4`}
@@ -478,7 +452,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>CRM </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[7].crm}
                                     emptyStarColor={`#C4C4C4`}
@@ -487,7 +460,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Suite Adobe </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[8].suite_adobe}
                                     emptyStarColor={`#C4C4C4`}
@@ -496,7 +468,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Illustrator </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[9].illustrator}
                                     emptyStarColor={`#C4C4C4`}
@@ -505,7 +476,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>In Design </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[10].in_design}
                                     emptyStarColor={`#C4C4C4`}
@@ -514,7 +484,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Photoshop </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[11].photoshop}
                                     emptyStarColor={`#C4C4C4`}
@@ -523,7 +492,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Marketing FB </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[12].marketing_fb}
                                     emptyStarColor={`#C4C4C4`}
@@ -532,7 +500,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Google adwards </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[13].google_adwards}
                                     emptyStarColor={`#C4C4C4`}
@@ -541,7 +508,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Instagram </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[14].insta}
                                     emptyStarColor={`#C4C4C4`}
@@ -550,7 +516,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Reseaux sociaux </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[15].reseaux_sociaux}
                                     emptyStarColor={`#C4C4C4`}
@@ -559,7 +524,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Keynote </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[16].keynote}
                                     emptyStarColor={`#C4C4C4`}
@@ -568,7 +532,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Pages </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[17].pages}
                                     emptyStarColor={`#C4C4C4`}
@@ -577,7 +540,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>G Suite Google </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[18].gsuite_google}
                                     emptyStarColor={`#C4C4C4`}
@@ -586,7 +548,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Numbers </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[19].numbers}
                                     emptyStarColor={`#C4C4C4`}
@@ -595,7 +556,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Erp sap </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[20].erp_sap}
                                     emptyStarColor={`#C4C4C4`}
@@ -604,7 +564,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Ciel Gestion </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[21].ciel_gestion}
                                     emptyStarColor={`#C4C4C4`}
@@ -613,7 +572,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Cegid </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[22].cegid}
                                     emptyStarColor={`#C4C4C4`}
@@ -622,7 +580,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Sage gestion commercial </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[23].sage_gestion_commercial}
                                     emptyStarColor={`#C4C4C4`}
@@ -631,7 +588,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Sage comptabilité </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[24].sage_comptabilite}
                                     emptyStarColor={`#C4C4C4`}
@@ -640,7 +596,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Quadra </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[25].quadra}
                                     emptyStarColor={`#C4C4C4`}
@@ -653,7 +608,6 @@ const MissionCreateAdmin = (props) => {
                         <div className='mission-card'>
                                 <p>Résolution de problèmes</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[26].reso_pb}
                                     emptyStarColor={`#C4C4C4`}
@@ -662,7 +616,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Confiance</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[27].confiance}
                                     emptyStarColor={`#C4C4C4`}
@@ -671,7 +624,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Empathie</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[28].empathie}
                                     emptyStarColor={`#C4C4C4`}
@@ -680,7 +632,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Intelligence émotionnelle</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[29].intelligence_emo}
                                     emptyStarColor={`#C4C4C4`}
@@ -689,7 +640,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Communication </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[30].communication}
                                     emptyStarColor={`#C4C4C4`}
@@ -698,7 +648,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Gestion du temps </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[31].gestion_temps}
                                     emptyStarColor={`#C4C4C4`}
@@ -707,7 +656,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Gestion du stress </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[32].gestion_stress}
                                     emptyStarColor={`#C4C4C4`}
@@ -716,7 +664,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Créativité</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[33].creativite}
                                     emptyStarColor={`#C4C4C4`}
@@ -725,7 +672,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Esprit d'entreprise</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[34].esprit_entre}
                                     emptyStarColor={`#C4C4C4`}
@@ -734,7 +680,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Audace</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[35].audace}
                                     emptyStarColor={`#C4C4C4`}
@@ -743,7 +688,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Vision, visualisation </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[36].vision_visu}
                                     emptyStarColor={`#C4C4C4`}
@@ -752,7 +696,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Motivation</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[37].motivation}
                                     emptyStarColor={`#C4C4C4`}
@@ -761,7 +704,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Présence</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[38].presence}
                                     emptyStarColor={`#C4C4C4`}
@@ -770,7 +712,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Sens collectif</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[39].sens_collectif}
                                     emptyStarColor={`#C4C4C4`}
@@ -779,7 +720,6 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Curiosité</p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[40].curiosite}
                                     emptyStarColor={`#C4C4C4`}
@@ -788,93 +728,11 @@ const MissionCreateAdmin = (props) => {
                             <div className='mission-card'>
                                 <p>Sens de l'effort </p>
                                 <StarRatingComponent
-                                    name="rate1"
                                     starCount={3}
                                     value={rating[41].sens_effort}
                                     emptyStarColor={`#C4C4C4`}
                                     onStarClick={(e) => onStarClick(e, 41, 'sens_effort')} />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Engagement associatif </p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[42].engagement_asso}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 42, 'engagement_asso')} />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Gestion admin compta </p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[43].gestion_admin_compta}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 43, 'gestion_admin_compta')} />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Gestion opérationnelle </p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[44].gestion_op}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 44, 'gestion_op')} />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Gestion commerciale </p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[45].gestion_commerciale}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 45, 'gestion_commerciale')} />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Marketing commercial digital </p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[46].marketing_com_digit}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 46, 'marketing_com_digit')} />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Gestion Financière</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[47].gestion_fi_controle_gestion}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 47, 'gestion_fi_controle_gestion')} />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Dsi</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[48].dsi}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 48, 'dsi')} />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Gestion RH - Juridique </p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[49].gestion_rh_juridique}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 49, 'gestion_rh_juridique')} />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Gestion relation client </p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={rating[50].gestion_rel_client}
-                                    emptyStarColor={`#C4C4C4`}
-                                    onStarClick={(e) => onStarClick(e, 50, 'gestion_rel_client')} />
-                            </div>
+                            </div>                          
                         <div className='champ-libre'>
                             <p style={{minWidth:'110px', padding:'5px 10px'}}>Autres skills </p>
                             <Input style={{marginRight:'5px'}} type="textaera" name="text" id="autres_skills" value={createm.autres_softskill} onChange={(e)=>setCreatem({...createm, autres_softskill: e.target.value})} />
@@ -887,86 +745,83 @@ const MissionCreateAdmin = (props) => {
                         <div className='mission-card'>
                             <p>Français</p>
                             <StarRatingComponent 
-                                name="rate1" 
                                 starCount={3}
-                                value={rating[51].francais}
+                                value={rating[43].francais}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 51, 'francais')}/>
+                                onStarClick={(e) => onStarClick(e, 43, 'francais')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Anglais</p>
                             <StarRatingComponent 
-                                name="rate1" 
                                 starCount={3}
-                                value={rating[52].anglais}
+                                value={rating[44].anglais}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 52, 'anglais')}/>
+                                onStarClick={(e) => onStarClick(e, 44, 'anglais')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Espagnol</p>
                             <StarRatingComponent 
-                                name="rate1" 
                                 starCount={3}
-                                value={rating[53].espagnol}
+                                value={rating[45].espagnol}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 53, 'espagnol')}/>
+                                onStarClick={(e) => onStarClick(e, 45, 'espagnol')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Allemand</p>
                             <StarRatingComponent 
-                                name="rate1" 
                                 starCount={3}
-                                value={rating[54].allemand}
+                                value={rating[46].allemand}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 54, 'allemand')}/>
+                                onStarClick={(e) => onStarClick(e, 46, 'allemand')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Russe</p>
                             <StarRatingComponent 
-                                name="rate1" 
                                 starCount={3}
-                                value={rating[55].russe}
+                                value={rating[47].russe}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 55, 'russe')}/>
+                                onStarClick={(e) => onStarClick(e, 47, 'russe')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Italien</p>
                             <StarRatingComponent 
-                                name="rate1" 
                                 starCount={3}
-                                value={rating[56].italien}
+                                value={rating[48].italien}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 56, 'italien')}/>
+                                onStarClick={(e) => onStarClick(e, 48, 'italien')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Chinois</p>
                             <StarRatingComponent 
-                                name="rate1" 
                                 starCount={3}
-                                value={rating[57].chinois}
+                                value={rating[49].chinois}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 57, 'chinois')}/>
+                                onStarClick={(e) => onStarClick(e, 49, 'chinois')}/>
                         </div>
                         <div className='mission-card'>
                             <p>Arabe</p>
                             <StarRatingComponent 
-                                name="rate1" 
                                 starCount={3}
-                                value={rating[58].arabe}
+                                value={rating[50].arabe}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 58, 'arabe')}/>
+                                onStarClick={(e) => onStarClick(e, 50, 'arabe')}/>
                         </div>
                     <div className='mission-card'>
                             <p>Autres langues</p>
-                            <Input style={{marginRight:'5px'}} type="textaera" name="text" id="langues" value={createm.autres_langue} onChange={(e)=>setCreatem({...createm, autres_langue: e.target.value})} />
+                            <Input style={{marginRight:'5px'}} 
+                            type="textaera" 
+                            name="text" 
+                            id="langues" 
+                            value={createm.autres_langue} 
+                            onChange={(e)=>setCreatem({...createm, autres_langue: e.target.value})} />
                         </div> 
                     </div>
                     <Button className='btn' type='submit' 
                     onClick={() => setCreatem({ ...createm, 
-                        excel: rating[0].Excel,
-                        powerpoint: rating[1].Powerpoint,
+                        excel: rating[0].excel,
+                        powerpoint: rating[1].powerpoint,
                         microsoft_365: rating[2].microsoft_365,
-                        word: rating[3].Word,
+                        word: rating[3].word,
                         crm_hubspot: rating[4].crm_hubspot,
                         crm_salesforce: rating[5].crm_salesforce,
                         crm_pipedrive: rating[6].crm_pipedrive,
@@ -1005,23 +860,15 @@ const MissionCreateAdmin = (props) => {
                         sens_collectif:rating[39].sens_collectif,
                         curiosite:rating[40].curiosite,
                         sens_effort:rating[41].sens_effort,
-                        engagement_asso:rating[42].engagement_asso,
-                        gestion_admin_compta:rating[43].gestion_admin_compta,
-                        gestion_op:rating[44].gestion_op,
-                        gestion_commerciale:rating[45].gestion_commerciale,
-                        marketing_com_digit:rating[46].marketing_com_digit,
-                        gestion_fi_controle_gestion:rating[47].gestion_fi_controle_gestion,
-                        dsi:rating[48].dsi,
-                        gestion_rh_juridique:rating[49].gestion_rh_juridique,
-                        gestion_rel_client:rating[50].gestion_rel_client,
-                        francais:rating[51].francais,
-                        anglais:rating[52].anglais,
-                        espagnol:rating[53].espagnol,
-                        allemand:rating[54].allemand,
-                        russe:rating[55].russe,
-                        italien:rating[56].italien,
-                        chinois:rating[57].chinois,
-                        arabe:rating[58].arabe,
+
+                        francais: rating[43].francais,
+                        anglais: rating[44].anglais,
+                        espagnol: rating[45].espagnol,
+                        allemand: rating[46].allemand,
+                        russe: rating[47].russe,
+                        italien: rating[48].italien,
+                        chinois: rating[49].chinois,
+                        arabe: rating[50].arabe,
 
                             })}>Valider</Button>     
                </div>

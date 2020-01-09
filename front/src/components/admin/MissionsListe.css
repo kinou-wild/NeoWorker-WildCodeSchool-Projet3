@@ -61,3 +61,10 @@ p.dateofmission {
 p.titleofmission {
     font-weight: bold;
 }
+
+p.name-card {
+    display: flex;
+    align-self: start;
+    padding-top: 15px;
+    font-weight: bold;
+}

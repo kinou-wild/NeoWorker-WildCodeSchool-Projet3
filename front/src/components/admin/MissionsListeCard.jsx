@@ -1,4 +1,4 @@
-import React, {useState,useEffect,useContext} from 'react';
+import React from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap'
@@ -12,7 +12,6 @@ const MissionsListeCard = (mission) => {
             window.location.reload(false);
     }
 
-    
     return(
             <div className='missions-cards'>
                 <div className='firstrow-card'>
@@ -23,14 +22,13 @@ const MissionsListeCard = (mission) => {
                     <p>Entreprise : {mission.nom_entreprise}</p>
                     <Link to={`/seeMission/${mission.id}`}><Button className='button-card'>Voir</Button></Link>
                 </div>     
-
                 <div className='thirdrow-card'>
                     <p>Telephone : {mission.tel}</p>
                     <Link to={`/updateMission/${mission.id}`}><Button className='button-card'>Modifier</Button></Link>   
                 </div>
                 <div className='fourthrow-card'>
                     <p>Email : {mission.email}</p>
-                    <Button className='button-card' onClick={()=>deleteCard(mission.id)} >Supprimer</Button>
+                    <Button className='button-card' onClick={()=> { if (window.confirm('Voulez-vous vraiment supprimer cette mission ?')) deleteCard(mission.id)}} >Supprimer</Button>
                 </div>
                 {mission.status === 2 || mission.status === 3 ?
                 <div className='fourthrow-card'>
