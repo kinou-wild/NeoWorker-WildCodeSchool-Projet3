@@ -1,6 +1,5 @@
 const models = require('../models')
 
-
 module.exports = function(app) {
 
     //get freelancer by id
@@ -20,8 +19,6 @@ module.exports = function(app) {
         .then(x=>res.json(x))
     })
 
-
-
      //création freelancer
     app.post('/freelancers', (req, res) => {
         models
@@ -31,7 +28,6 @@ module.exports = function(app) {
             newFree.addUsers(req.body.userId)
             res.json(newFree)
         })
-
     });
     
 
@@ -46,6 +42,5 @@ module.exports = function(app) {
         })
         .then(() => res.end())
     );
-
-   
+    
 }

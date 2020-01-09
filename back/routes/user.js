@@ -1,6 +1,3 @@
-// const models = require('../models/users')
-
-
 const models = require('../models')
 
 //a voir si besoin 
@@ -8,7 +5,6 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 process.env.SECRET_KEY = 'secret'
-
 
 module.exports = app => {
 
@@ -54,7 +50,6 @@ module.exports = app => {
                 })
         })
 
-
         app.put('/user/:id', (req, res) => {
             models
                 .users
@@ -65,7 +60,6 @@ module.exports = app => {
                 })
                 .then(() => res.end())
             })
-
 
         app.delete('/user/:id', (req, res) => {
             models
@@ -78,12 +72,7 @@ module.exports = app => {
                 .then(() => res.end())
         })
 
-
-
-
-
         //authentif/////////////////////////
-
         app.post('/register', (req, res) => {
             const today = new Date()
             const userData = {
@@ -130,8 +119,6 @@ module.exports = app => {
                 .catch(err => console.log(err))
         })
 
-
-
 app.post('/login', (req, res) => {
     models
         .users
@@ -153,8 +140,5 @@ app.post('/login', (req, res) => {
         })
         .catch(err => res.send(err))
 })
-
-
-
 
 }

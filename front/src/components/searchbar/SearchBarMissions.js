@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import './SearchBarMissions.css'
-import { Link } from 'react-router-dom';
 import Search from '../../img/search.png'
 
 
@@ -16,7 +15,6 @@ const SearchBarMission = ({setSearchTerm, searchTerm}) => {
     }
 
     useEffect(() => {
-
         fetchData()
         const results = search.filter(person =>
             person.nom_mission.toLowerCase().includes(searchTerm.nom));
@@ -30,16 +28,13 @@ const SearchBarMission = ({setSearchTerm, searchTerm}) => {
                 type="text"
                 placeholder="Search"
                 value={searchTerm.nom}
-                onChange={(e) => { setSearchTerm({ ...searchTerm, nom : e.target.value }) }}
-
-            /><img className='loop' src={Search} alt='search loop'/>
+                onChange={(e) => { setSearchTerm({ ...searchTerm, nom : e.target.value }) }}/>
+            <img className='loop' src={Search} alt='search loop'/>
             <ul>
                 {searchTerm.nom.length===0? '':
                 result.map(item => {
-                   
                 })}
 
-                
             </ul>
         </div>
     );

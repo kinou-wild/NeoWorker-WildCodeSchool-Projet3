@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import './SearchBarNeo.css'
 
-
 function SearchBarNeo() {
   const [searchTerm, setSearchTerm] = useState({
         nom:''
@@ -26,16 +25,13 @@ function SearchBarNeo() {
             setResult(results);
     }, [searchTerm.nom]);
 
-
     return (
         <div className="search">
             <input
                 type="text"
                 placeholder="Search"
                 value={searchTerm.nom}
-                onChange={(e) => { setSearchTerm({ ...searchTerm,nom:e.target.value }) }}
-
-            />
+                onChange={(e) => { setSearchTerm({ ...searchTerm,nom:e.target.value }) }}/>
             <ul>
                 {searchTerm.nom.length===0?
                 search.map(item => {
@@ -51,7 +47,6 @@ function SearchBarNeo() {
                         </div>)
                 })}
 
-                
             </ul>
         </div>
     );

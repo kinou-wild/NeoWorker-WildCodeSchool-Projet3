@@ -25,6 +25,7 @@ img.pic-profil{
     width: 15%;
     border-radius: 50%;
 }
+
 .competences-content {
     display: flex;
     justify-content: space-evenly;
@@ -56,7 +57,7 @@ img.pic-profil{
     min-width: 40%;
     border: 2px solid;
     text-align: center;
-   }
+}
 
 .competences-card {
     display: flex;
