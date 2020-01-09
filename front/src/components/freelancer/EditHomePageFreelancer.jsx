@@ -40,6 +40,29 @@ const EditHomePageFreelancer = (props) => {
     password: ''
   })
 
+  const [loading, setLoading] = useState(false)
+
+
+  
+
+  const uploadImage = async e => {
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'neoworker')
+    setLoading(true)
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/duadv7hhn/image/upload',
+      {
+        method: 'POST',
+        body: data
+      }
+    )
+    const file = await res.json()
+
+    setUpdateFreelancer({ img: file.secure_url })
+    setLoading(false)
+  }
 
   useEffect(() => {
     fetchData()
@@ -76,6 +99,33 @@ const EditHomePageFreelancer = (props) => {
       })
     }
     props.history.push('/neoworker/homepage')
+  }        
+  
+
+          //update sur la data du free
+          const updateQueryDataFree = async (e) => {
+            e.preventDefault()
+            await axios.put(`http://localhost:5000/freelancer/${paramsNeo}`, updateFreelancer)
+              .catch(err=>console.log(err))
+            props.history.push('/neoworker/homepage')
+          }
+        
+          //fonction qui regroupe l'axios put du dataUserFree et l'axios du dataFree
+          const updaterEmailPassword = (e) => {
+            updateQueryDataFree(e)
+            updateQueryDataUserFree(e)
+          }
+        
+          //fonction qui modif l'email user et l'email free en même temps
+        const emailUpdater = (e) => {
+          setUpdateFreelancer({...updateFreelancer, email: e.target.value})
+          setUpdateUser({...updateUser, email: e.target.value})
+            }
+        
+        
+  //fonction qui modif le password user et le password free en même temps
+  const passwordUpdater = (e) => {
+    setUpdateUser({ ...updateUser, password: e.target.value })
   }
 
   //update sur la data du free

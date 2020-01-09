@@ -51,76 +51,36 @@ const LandingUser = (props) => {
 
   return (
       <div className='landing'>
-
-      <form noValidate onSubmit={onSubmit}>
-                <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-                <div className="form-group">
-                    <label htmlFor="email">Email address</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        name="email"
-                        placeholder="Enter your first name"
-                        value={loginHooks.email}
-                        onChange={(e) => { setLoginHooks({ ...loginHooks, email: e.target.value }) }}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        name="password"
-                        placeholder="Enter your first name"
-                        value={loginHooks.password}
-                        onChange={(e) => { setLoginHooks({ ...loginHooks, password: e.target.value }) }}
-                    />
-                </div>
-                <button type="submit">Sign in</button>
-            </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <img className='logoLanding' src = {logo} alt='logo' />
           <div className='landingText'>
             <h1 className='landingH1'>Bienvenue dans l’espace <span className='textModif'>Freelance</span> NeoWorker<span className='textModif'>.</span></h1>
               <h2 className='landingH2'>Connectez-vous pour gérer votre profil et vos disponibilitées.</h2>
           </div>
           <div className='connectingForm'>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={onSubmit}>
               <FormGroup row>
                 <Label for="exampleEmail" sm={2}>Email</Label>
                   <Col sm={10}>
-                    <Input className='inputEmail' type="email" name="email" id="exampleEmail" placeholder="Email" />
+                    <Input className='inputEmail' type="email" name="email" id="exampleEmail" placeholder="Email" 
+                      value={loginHooks.email}
+                      onChange={(e) => { setLoginHooks({ ...loginHooks, email: e.target.value }) }}/>
                   </Col>
               </FormGroup>
               <FormGroup row>
                 <Label for="examplePassword" sm={2}>Password</Label>
                   <Col sm={10}>
-                    <Input className='inputPassword' type="password" name="password" id="examplePassword" placeholder="Mot de passe" />
+                    <Input className='inputPassword' type="password" name="password" id="examplePassword" placeholder="Mot de passe" 
+                    value={loginHooks.password}
+                        onChange={(e) => { setLoginHooks({ ...loginHooks, password: e.target.value }) }}
+                    />
                   </Col>
               </FormGroup>
-            </Form>
             <a href='/'>Mot de passe oublié ?</a>
-          </div>
+            
           <div className="text-center">
-            <Link to='/neoworker/homepage'>
               <button className='btnConnection' type="submit">Se connecter</button>
-            </Link>
+          </div>
+            </Form>
           </div>
       </div>
   );
