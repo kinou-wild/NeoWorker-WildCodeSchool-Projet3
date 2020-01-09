@@ -43,6 +43,29 @@ const EditHomePageFreelancer = (props) => {
             password: ''
           })
 
+  const [loading, setLoading] = useState(false)
+
+
+  
+
+  const uploadImage = async e => {
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'neoworker')
+    setLoading(true)
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/duadv7hhn/image/upload',
+      {
+        method: 'POST',
+        body: data
+      }
+    )
+    const file = await res.json()
+
+    setUpdateFreelancer({ img: file.secure_url })
+    setLoading(false)
+  }
 
   useEffect(() => {
     fetchData()
@@ -83,9 +106,9 @@ const EditHomePageFreelancer = (props) => {
   
 
           //update sur la data du free
-          const updateQueryDataFree = (e) => {
+          const updateQueryDataFree = async (e) => {
             e.preventDefault()
-              axios.put(`http://localhost:5000/freelancer/${paramsNeo}`, updateFreelancer)
+            await axios.put(`http://localhost:5000/freelancer/${paramsNeo}`, updateFreelancer)
               .catch(err=>console.log(err))
             props.history.push('/neoworker/homepage')
           }
@@ -113,8 +136,8 @@ const EditHomePageFreelancer = (props) => {
     return(
       <div className="main-div">
         <div className='profil-card'>
-          <p className='name-card'>Profil Neoworker</p>
-          <img className='pic-card' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='profil picture' />
+    <p className='name-card'>{updateFreelancer.firstname} {updateFreelancer.lastname}</p>
+          <img className='pic-card' src={updateFreelancer.img}  alt='profil picture' />
         </div>
         <form className="formulaire-creation-neoworker" onSubmit={updaterEmailPassword} >
           <input className="input-metier"
@@ -125,8 +148,18 @@ const EditHomePageFreelancer = (props) => {
             onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, title: e.target.value }) }} />
           <div className="first-div-creation-neoworker">
             <div className="align-photoprofilwithinput-div">
-              <img className="profil-img-creation" src="https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=" />
+              <img className="profil-img-creation" src={updateFreelancer.img} alt='profil picture' />
               <div className="align-field-text-div">
+                <form onSubmit={updateQueryDataFree}>
+                  <input
+                    type="file"
+                    name="file"
+                    placeholder="Upload an image"
+                    onChange={uploadImage}
+                  />
+                  <button type='submit'>Ajouter image</button>
+                </form>
+
                 <input
                   className="input-firstname"
                   placeholder="Prénom" type="text"
@@ -271,10 +304,13 @@ const EditHomePageFreelancer = (props) => {
               </FormGroup>
             </div>
           </div>
+          
 
           <div><hr className="separator-line"></hr> </div>
           <button onClick={updaterEmailPassword} type='submit'>update</button>
         </form>
+       
+
         </div>
     )
 }

@@ -46,8 +46,8 @@ const HomePageFreelancer = () => {
             {idUsers.filter(x => x.id == profileHooks.id).map(x =>
             <div key={x.freelancers[0].id} className="freelancer-homepage">
                 <div className='profil-card'>
-                    <p className='name-card'>{x.freelancers[0].firstname}</p>
-                    <img className='pic-card' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='profil picture'/>
+            <p className='name-card'>{x.freelancers[0].firstname} {x.freelancers[0].lastname}</p>
+                    <img className='pic-card' src={x.freelancers[0].img} alt='profil picture'/>
                 </div> 
                 <div>
                     <h1 className='freelancer-h1'>Bienvenue sur ton espace personnel</h1>
@@ -55,7 +55,7 @@ const HomePageFreelancer = () => {
                     <div className="champs-profil-title"><p id='freelancer-title' placeholder='métier'>{x.freelancers[0].title}</p></div>
                 <div className='homepage-profil'>
                     <div className="profil-img-creation-freelancer">
-                        <img className='picture-profil'src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='photo de profil' />
+                        <img className='picture-profil'src={x.freelancers[0].img} alt='photo de profil' />
                         
 {/*                         <input name="file" type="file" className="transformation" data-cloudinary-field="image_id" onChange={uploadImage}/>
  */}
