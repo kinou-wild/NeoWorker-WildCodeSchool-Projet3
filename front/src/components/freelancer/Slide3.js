@@ -1,74 +1,98 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React from 'react'
+import StarRatingComponent from 'react-star-rating-component';
 
-const Slide3 = () => {
-        //hooks de la data freelancer pour get un id
-        const [idFree, setIdFree] = useState([])
+const Slide3 = (props) => {
+           const data = props.data
 
-        //hooks de la data user pour le get de l'id
-        const [idUser, setIdUser] = useState([])
-
-  
+  console.log(data)
 return(
 <div>
-
-<h2 className='competences-title'>Centre d'interet</h2>
-<div className='competences'>
-    <div className='competences-card'>
-        <p>sport</p>
-        <p>{String(idFree.sport)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>passion</p>
-        <p>{String(idFree.passion)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>engagement_asso</p>
-        <p>{String(idFree.engagement_asso)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>autres_softskill</p>
-        <p>{String(idFree.autres_softskill)}</p>
-    </div>
-</div>
-
 <h2 className='competences-title'>Langues</h2>
-<div className='competences'>                    
-    <div className='competences-card'>
-        <p>francais</p>
-        <p>{String(idFree.francais)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>anglais</p>
-        <p>{String(idFree.anglais)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>itapen</p>
-        <p>{String(idFree.itapen)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>chinois</p>
-        <p>{String(idFree.chinois)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>russe</p>
-        <p>{String(idFree.russe)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>arabe</p>
-        <p>{String(idFree.arabe)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>allemand</p>
-        <p>{String(idFree.allemand)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>autres_langue</p>
-        <p>{String(idFree.autres_langue)}</p>
-    </div>
-    </div>
-</div>
+<div className='competences'>
+    {data.map(x=>
+                <div className='cards'>
+                     <div className='mission-card'>
+                            <p>Français</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.francais}
+                                emptyStarColor={`#C4C4C4`}
+                             />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Anglais</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.anglais}
+                                emptyStarColor={`#C4C4C4`}
+                                 />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Espagnol</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.espagnol}
+                                emptyStarColor={`#C4C4C4`}
+                                />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Allemand</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.allemand}
+                                emptyStarColor={`#C4C4C4`}
+                                />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Russe</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.russe}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Italien</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.italien}
+                                emptyStarColor={`#C4C4C4`}
+                                />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Chinois</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.chinois}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Arabe</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.arabe}
+                                emptyStarColor={`#C4C4C4`}
+                                 />
+                        </div>
+                        <div className='mission-card'>
+    <p>Autres langues : {x.autres_langue}</p>
+                            
+                        </div>
+                </div>
+            )}
 
+</div>
+</div>
 )
 }
 
-export default Slide3
+        export default Slide3;
