@@ -6,9 +6,6 @@ import axios from 'axios'
 import { register } from '../UserFunctions'
 import profilPic from '../../img/anais.jpg'
 
-
-
-
 const CreationNeoWorkerPage = (props) => {
 
     //enregistrement d'un user freelancer
@@ -22,7 +19,6 @@ const CreationNeoWorkerPage = (props) => {
 
     //hooks de la data freelancer pour get
     const [idFree, setIdFree] = useState([])
-
 
     //hooks du post de la data freelancer
     const [freelancer, setFreelancer] = useState({
@@ -84,15 +80,15 @@ const CreationNeoWorkerPage = (props) => {
         curiosite: 0,
         sens_effort: 0,
         sport: "",
-        engagement_asso: "",
         autres_softskill: "",
+
         assistance_suivi_comptable: false,
         relation_accountant: false,
         customer_recovery: false,
         payroll_preparation: false,
         assembly_approval_file: false,
-        referencing_training_organization:false,
-        use_business_software:false,
+        referencing_training_organization: false,
+        use_business_software: false,
         internal_procedure: false,
         database: false,
         gestion_achat: false,
@@ -103,6 +99,7 @@ const CreationNeoWorkerPage = (props) => {
         commercial_strategy_and_sales_pitch: false,
         management_of_commercial_activity: false,
         prospecting_outbound_sales: false,
+        gestion_achat2: false,
         response_to_pulic_and_private_tenders: false,
         sales_administration: false,
         stock_management: false,
@@ -213,7 +210,6 @@ const CreationNeoWorkerPage = (props) => {
         { sens_effort: 0 },
         { sport: 0 },
         { passion: 0 },
-        { engagement_asso: 0 },
         { autres_softskill: 0 },
         //ajout dans la bdd
         { francais: 0 },
@@ -254,7 +250,6 @@ const CreationNeoWorkerPage = (props) => {
         axios.post('http://localhost:5000/freelancers', freelancer)
             .then(response => console.log(response))
             .catch(err => console.log(err))
-
 
         const newUser = {
             role: registerHooks.role,
@@ -328,7 +323,6 @@ const CreationNeoWorkerPage = (props) => {
             sens_collectif: rating[39].sens_collectif,
             curiosite: rating[40].curiosite,
             sens_effort: rating[41].sens_effort,
-            engagement_asso: rating[42].engagement_asso,
             francais: rating[43].francais,
             anglais: rating[44].anglais,
             espagnol: rating[45].espagnol,
@@ -337,16 +331,9 @@ const CreationNeoWorkerPage = (props) => {
             italien: rating[48].italien,
             chinois: rating[49].chinois,
             arabe: rating[50].arabe,
-
-
-
         })
         setRegisterHooks({ ...registerHooks, role: 'neoworker' })
     }
-
-    const [prestation, setPrestation] = useState("")
-
-    const [checkbox, setCheckbox] = useState(false)
 
     return (
         <div className="main-div">
@@ -374,7 +361,6 @@ const CreationNeoWorkerPage = (props) => {
                                 value={freelancer.firstname}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, firstname: e.target.value }) }} />
-
                             <input
                                 className="input-lastname"
                                 placeholder="Nom"
@@ -382,7 +368,6 @@ const CreationNeoWorkerPage = (props) => {
                                 value={freelancer.lastname}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, lastname: e.target.value }) }} />
-
                             <input
                                 className="input-address"
                                 placeholder="Adresse"
@@ -390,7 +375,6 @@ const CreationNeoWorkerPage = (props) => {
                                 value={freelancer.address}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, address: e.target.value }) }} />
-
                             <input
                                 className="input-cp"
                                 placeholder="Code postal"
@@ -399,9 +383,7 @@ const CreationNeoWorkerPage = (props) => {
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, cp: e.target.value }) }}
                                 maxlength="5" />
-
                         </div>
-
                         <div className="align-field-text-div">
                             <input
                                 className="input-email" placeholder="Email"
@@ -409,26 +391,22 @@ const CreationNeoWorkerPage = (props) => {
                                 value={registerHooks.email}
                                 required
                                 onChange={(e) => { setRegisterHooks({ ...registerHooks, email: e.target.value }) }} />
-
                             <input
                                 className="input-tel" placeholder="Telephone"
                                 type="text" id="tel" name="tel"
                                 value={freelancer.tel}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, tel: e.target.value }) }} />
-
                             <input
                                 className="input-password"
                                 placeholder="Mot de passe" type="text"
                                 id="password" name="password"
                                 value={registerHooks.password}
-                                onChange={(e) => { setRegisterHooks({ ...registerHooks, password: e.target.value }) }}
-                            />
+                                onChange={(e) => { setRegisterHooks({ ...registerHooks, password: e.target.value }) }} />
                         </div>
                     </div>
                 </div>
                 <div className="second-div-creation-neoworker">
-
                     <div className="div-tj_min" >
                         <InputGroupText className="input-group-text">Taux journalier minimum</InputGroupText>
                         <input className="input-tj_min"
@@ -437,7 +415,6 @@ const CreationNeoWorkerPage = (props) => {
                             required
                             onChange={(e) => { setFreelancer({ ...freelancer, tjm_min: e.target.value }) }} />
                     </div>
-
                     <div className="div-tj_max">
                         <InputGroupText className="input-group-text">Taux journalier maximum</InputGroupText>
                         <input className="input-tj_max" type="number"
@@ -447,7 +424,6 @@ const CreationNeoWorkerPage = (props) => {
                             onChange={(e) => { setFreelancer({ ...freelancer, tjm_max: e.target.value }) }} />
                     </div>
                 </div>
-
                 <div className="third-div-creation-neoworker">
                     <div className="div-dispo">
                         <InputGroupText className="input-group-text">Disponibilité (nombres jours/mois)</InputGroupText>
@@ -477,7 +453,6 @@ const CreationNeoWorkerPage = (props) => {
                         </FormGroup>
                     </div>
                 </div>
-
                 <div className="fourth-div-creation-neoworker">
                     <div className="div-mobilite">
                         <InputGroupText className="input-group-text">Mobilité</InputGroupText>
@@ -491,9 +466,6 @@ const CreationNeoWorkerPage = (props) => {
                             </Input>
                         </FormGroup>
                     </div>
-
-
-
                     <div className="div-km_max">
                         <InputGroupText className="input-group-text">Km maximum</InputGroupText>
                         <FormGroup>
@@ -510,15 +482,9 @@ const CreationNeoWorkerPage = (props) => {
                         </FormGroup>
                     </div>
                 </div>
-
-
-
                 <div><hr className="separator-line"></hr></div>
-
                 {/*<div className="title-softskills"><p>Soft Skills</p></div>*/}
-
                 <div className="div-rating">
-
                     <h2 className='mission-title'>Outils</h2>
                     <div className='cards'>
                         <div className='mission-card'>
@@ -756,7 +722,6 @@ const CreationNeoWorkerPage = (props) => {
                                 onStarClick={(e) => onStarClick(e, 25, 'quadra')} />
                         </div>
                     </div>
-
                     <h2 className='mission-title'>Soft Skills</h2>
                     <div className='cards'>
                         <div className='mission-card'>
@@ -903,23 +868,11 @@ const CreationNeoWorkerPage = (props) => {
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 41, 'sens_effort')} />
                         </div>
-                        <div className='mission-card'>
-                            <p>Engagement associatif </p>
-                            <StarRatingComponent
-                                name="rate1"
-                                starCount={3}
-                                value={rating[42].engagement_asso}
-                                emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 42, 'engagement_asso')} />
-                        </div>
-
                         <div className='champ-libre'>
                             <p>Autres skills</p>
                             <Input type="textaera" name="text" id="autres_skills" value={freelancer.autres_softskill} onChange={(e) => setFreelancer({ ...freelancer, autres_softskill: e.target.value })} />
                         </div>
                     </div>
-
-
                     <h2 className='mission-title'>Langues</h2>
                     <div className='cards'>
                         <div className='mission-card'>
@@ -999,20 +952,16 @@ const CreationNeoWorkerPage = (props) => {
                             <Input type="textaera" name="text" id="langues" value={freelancer.autres_langue} onChange={(e) => setFreelancer({ ...freelancer, autres_langue: e.target.value })} />
                         </div>
                     </div>
-
-
-
                 </div>
 
-                <p className="main-title">Famille de prestations</p>
+                <div><hr className="separator-line"></hr></div>
 
+                <p className="main-title">Famille de prestations</p>
                 <div className="fifth-div-creation-neoworker">
 
-
-                    <select
+                    {/*<select
                         className="famille-prestation-select" type="select" name="famille-prestation" id='famille-prestation'
-                        onChange={(e) => setPrestation(e.target.value)}
-                    >
+                        onChange={(e) => setPrestation(e.target.value)}>
                         <option>--Choisir une option--</option>
                         <option value="Gestion administrative et comptable">Gestion administrative et comptable</option>
                         <option value="Gestion opérationnelle">Gestion opérationnelle</option>
@@ -1023,196 +972,188 @@ const CreationNeoWorkerPage = (props) => {
                         <option value="Gestion Ressources Humaines / Juridique">Gestion Ressources Humaines / Juridique</option>
                         <option value="Gestion de la relation clients">Gestion de la relation clients</option>
                     </select>
+                    */}
 
-
-
-                    <div className="prestation-checkbox-div" style={prestation === 'Gestion administrative et comptable' ? { display: "flex" } : { display: "none" }}>
+                    <div className="prestation-checkbox-div">
+                        <p className="family-prestation-title">Gestion administrative et comptable</p>
                         <div className="checkbox-and-content">
-                            <input type="checkbox" className="checkbox" id="Option 1" name="Option 1" />
+                            <input type="checkbox" className="checkbox" id="Option 1" name="Option 1" onClick={() => setFreelancer({ ...freelancer, assistance_suivi_comptable: document.getElementById('Option 1').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 1">Assistance et suivi comptable (note de frais, suivi des règlements et de la trésorerie, ...)</label></div>
                         <div className="checkbox-and-content">
-                            <input type="checkbox" className="checkbox" id="Option 2" name="Option 2" />
+                            <input type="checkbox" className="checkbox" id="Option 2" name="Option 2" onClick={() => setFreelancer({ ...freelancer, relation_accountant: document.getElementById('Option 2').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 2">Relation avec le cabinet d'expertise comptable</label></div>
                         <div className="checkbox-and-content">
-                            <input type="checkbox" className="checkbox" id="Option 3" name="Option 3" />
+                            <input type="checkbox" className="checkbox" id="Option 3" name="Option 3" onClick={() => setFreelancer({ ...freelancer, customer_recovery: document.getElementById('Option 3').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 3">Relances clients</label></div>
                         <div className="checkbox-and-content">
-                            <input type="checkbox" className="checkbox" id="Option 4" name="Option 4" />
+                            <input type="checkbox" className="checkbox" id="Option 4" name="Option 4" onClick={() => setFreelancer({ ...freelancer, payroll_preparation: document.getElementById('Option 4').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 4">Préparation des éléments de paie (Pointages, congés payés, arrêts maladie, primes, etc…)</label></div>
                         <div className="checkbox-and-content">
-                            <input type="checkbox" className="checkbox" id="Option 5" name="Option 5" />
+                            <input type="checkbox" className="checkbox" id="Option 5" name="Option 5" onClick={() => setFreelancer({ ...freelancer, assembly_approval_file: document.getElementById('Option 5').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 5">Montage de dossier d'agrément</label></div>
                         <div className="checkbox-and-content">
-                            <input type="checkbox" className="checkbox" id="Option 6" name="Option 6" />
+                            <input type="checkbox" className="checkbox" id="Option 6" name="Option 6" onClick={() => setFreelancer({ ...freelancer, referencing_training_organization: document.getElementById('Option 6').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 6">Référencement organismes de formations</label></div>
                     </div>
 
-
-
-                    <div className="prestation-checkbox-div" style={prestation === 'Gestion opérationnelle' ? { display: "flex" } : { display: "none" }}>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 7" name="Option 7" />
+                    <div className="prestation-checkbox-div">
+                        <p className="family-prestation-title">Gestion opérationnelle</p>
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 7" name="Option 7" onClick={() => setFreelancer({ ...freelancer, use_business_software: document.getElementById('Option 7').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 7">Mise en place, optimisation et formation à l'utilisation de logiciels métiers</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 8" name="Option 8" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 8" name="Option 8" onClick={() => setFreelancer({ ...freelancer, internal_procedure: document.getElementById('Option 8').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 8">Création et mise en place de procédures internes</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 9" name="Option 9" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 9" name="Option 9" onClick={() => setFreelancer({ ...freelancer, database: document.getElementById('Option 9').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 9">Création et traitement de base de données</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 10" name="Option 10" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 10" name="Option 10" onClick={() => setFreelancer({ ...freelancer, gestion_achat: document.getElementById('Option 10').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 10">Intendance et gestion des achats</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 11" name="Option 11" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 11" name="Option 11" onClick={() => setFreelancer({ ...freelancer, administrative_file_management: document.getElementById('Option 11').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 11">Suivi des dossiers administratifs</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 12" name="Option 12" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 12" name="Option 12" onClick={() => setFreelancer({ ...freelancer, management_assistantship: document.getElementById('Option 12').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 12">Assistanat de direction</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 13" name="Option 13" />
-                            <label className="label-prestation" for="Option 13">Classement de documents</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 14" name="Option 14" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 13" name="Option 13" onClick={() => setFreelancer({ ...freelancer, filing_documents: document.getElementById('Option 13').checked === true ? true : false })} />
+                            <label className="label-prestationGestion administrative et comptable" for="Option 13">Classement de documents</label></div>
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 14" name="Option 14" onClick={() => setFreelancer({ ...freelancer, secretariat_and_maintenance_agenda: document.getElementById('Option 14').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 14">Secrétariat et tenue de l'agenda </label></div>
-
                     </div>
 
-
-
-                    <div className="prestation-checkbox-div" style={prestation === 'Gestion commerciale' ? { display: "flex" } : { display: "none" }}>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 15" name="Option 15" />
+                    <div className="prestation-checkbox-div">
+                        <p className="family-prestation-title">Gestion commerciale</p>
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 15" name="Option 15" onClick={() => setFreelancer({ ...freelancer, commercial_strategy_and_sales_pitch: document.getElementById('Option 15').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 15">Stratégie et argumentaire commercial</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 16" name="Option 16" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 16" name="Option 16" onClick={() => setFreelancer({ ...freelancer, management_of_commercial_activity: document.getElementById('Option 16').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 16">Création de tableaux de bord, de procédure et pilotage de l'activité commerciale</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 17" name="Option 17" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 17" name="Option 17" onClick={() => setFreelancer({ ...freelancer, prospecting_outbound_sales: document.getElementById('Option 17').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 17">Prospection / Outbound sales</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 18" name="Option 18" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 18" name="Option 18" onClick={() => setFreelancer({ ...freelancer, gestion_achat2: document.getElementById('Option 18').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 18">Intendance et gestion des achats</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 19" name="Option 19" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 19" name="Option 19" onClick={() => setFreelancer({ ...freelancer, response_to_pulic_and_private_tenders: document.getElementById('Option 19').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 19">Réponse aux appels d'offres publics et privés</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 20" name="Option 20" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 20" name="Option 20" onClick={() => setFreelancer({ ...freelancer, sales_administration: document.getElementById('Option 20').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 20">Administration des ventes</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 21" name="Option 21" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 21" name="Option 21" onClick={() => setFreelancer({ ...freelancer, stock_management: document.getElementById('Option 21').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 21">Gestion des stocks</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 22" name="Option 22" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 22" name="Option 22" onClick={() => setFreelancer({ ...freelancer, business_data_crm: document.getElementById('Option 22').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 22">Saisie des données commerciales dans un CRM</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 23" name="Option 23" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 23" name="Option 23" onClick={() => setFreelancer({ ...freelancer, order_data_entry: document.getElementById('Option 23').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 23">Saisie des commandes</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 24" name="Option 24" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 24" name="Option 24" onClick={() => setFreelancer({ ...freelancer, quote_management: document.getElementById('Option 24').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 24">Gestion des devis</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 25" name="Option 25" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 25" name="Option 25" onClick={() => setFreelancer({ ...freelancer, billing: document.getElementById('Option 25').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 25">Facturation</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 26" name="Option 26" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 26" name="Option 26" onClick={() => setFreelancer({ ...freelancer, claims_management: document.getElementById('Option 26').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 26">Gestion des réclamations</label></div>
                     </div>
 
-
-
-                    <div className="prestation-checkbox-div" style={prestation === "Marketing / Communication / Digital" ? { display: "flex" } : { display: "none" }}>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 27" name="Option 27" />
+                    <div className="prestation-checkbox-div">
+                        <p className="family-prestation-title">Marketing / Communication / Digital</p>
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 27" name="Option 27" onClick={() => setFreelancer({ ...freelancer, marketing_strategy_and_operational_monitoring: document.getElementById('Option 27').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 27">Stratégie marketing et suivi opérationnel</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 28" name="Option 28" />
-                            <label className="label-prestation" for="Option 28">Réalisation d'études de marché</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 29" name="Option 29" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 28" name="Option 28" onClick={() => setFreelancer({ ...freelancer, marketing_study: document.getElementById('Option 28').checked === true ? true : false })} />
+                            <label className="label-prestation" for="Option 28">Réalisation d'études de marché </label></div>
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 29" name="Option 29" onClick={() => setFreelancer({ ...freelancer, implementation_of_inbound_marketing_strategy: document.getElementById('Option 29').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 29">Mise en œuvre d'une stratégie d'inbound marketing</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 30" name="Option 30" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 30" name="Option 30" onClick={() => setFreelancer({ ...freelancer, outbound_marketing: document.getElementById('Option 30').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 30">Outbound marketing</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 31" name="Option 31" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 31" name="Option 31" onClick={() => setFreelancer({ ...freelancer, communication_strategy: document.getElementById('Option 31').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 31">Stratégie de communication</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 32" name="Option 32" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 32" name="Option 32" onClick={() => setFreelancer({ ...freelancer, outsourced_project_manager: document.getElementById('Option 32').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 32">Chef de projet externalisé</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 33" name="Option 33" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 33" name="Option 33" onClick={() => setFreelancer({ ...freelancer, creation_and_graphics: document.getElementById('Option 33').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 33">Création et graphisme</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 34" name="Option 34" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 34" name="Option 34" onClick={() => setFreelancer({ ...freelancer, ux_design: document.getElementById('Option 34').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 34">UX Design</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 35" name="Option 35" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 35" name="Option 35" onClick={() => setFreelancer({ ...freelancer, ui_design_computer_graphics: document.getElementById('Option 35').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 35">UI Design - infographisme</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 36" name="Option 36" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 36" name="Option 36" onClick={() => setFreelancer({ ...freelancer, redaction_design: document.getElementById('Option 36').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 36">Conception rédaction</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 37" name="Option 37" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 37" name="Option 37" onClick={() => setFreelancer({ ...freelancer, community_management: document.getElementById('Option 37').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 37">Community management</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 40" name="Option 40" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 38" name="Option 38" onClick={() => setFreelancer({ ...freelancer, seo_optimization: document.getElementById('Option 38').checked === true ? true : false })} />
+                            <label className="label-prestation" for="Option 38">Optimisation SEO</label></div>
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 39" name="Option 39" onClick={() => setFreelancer({ ...freelancer, website_creation: document.getElementById('Option 39').checked === true ? true : false })} />
+                            <label className="label-prestation" for="Option 39">Création de site web</label></div>
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 40" name="Option 40" onClick={() => setFreelancer({ ...freelancer, press_relation: document.getElementById('Option 40').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 40">Relation presse</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 41" name="Option 41" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 41" name="Option 41" onClick={() => setFreelancer({ ...freelancer, event: document.getElementById('Option 41').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 41">Evènementiel</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 42" name="Option 42" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 42" name="Option 42" onClick={() => setFreelancer({ ...freelancer, partnership_distribution_network_and_business_contribution: document.getElementById('Option 42').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 42">Partenariats, montage de réseaux de distribution, apporteurs d'affaire</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 43" name="Option 43" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 43" name="Option 43" onClick={() => setFreelancer({ ...freelancer, translation_work: document.getElementById('Option 43').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 43">Travaux de traduction</label></div>
                     </div>
 
-
-
-                    <div className="prestation-checkbox-div" style={prestation === "Gestion Financière / Contrôle de Gestion" ? { display: "flex" } : { display: "none" }}>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 44" name="Option 44" />
+                    <div className="prestation-checkbox-div">
+                        <p className="family-prestation-title">Gestion Financière / Contrôle de Gestion</p>
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 44" name="Option 44" onClick={() => setFreelancer({ ...freelancer, administrative_and_financial_management: document.getElementById('Option 44').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 44">Direction administrative et financière externalisée</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 45" name="Option 45" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 45" name="Option 45" onClick={() => setFreelancer({ ...freelancer, financing_grant_application: document.getElementById('Option 45').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 45">Montage de dossier de financement / subvention</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 46" name="Option 46" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 46" name="Option 46" onClick={() => setFreelancer({ ...freelancer, management_control: document.getElementById('Option 46').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 46">Contrôle de gestion</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 47" name="Option 47" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 47" name="Option 47" onClick={() => setFreelancer({ ...freelancer, dashboard_and_financial_management: document.getElementById('Option 47').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 47">Tableau de bord et pilotage financier</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 48" name="Option 48" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 48" name="Option 48" onClick={() => setFreelancer({ ...freelancer, business_pland_and_provisional_budget: document.getElementById('Option 48').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 48">Création de business plan et budget prévisionnel</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 49" name="Option 49" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 49" name="Option 49" onClick={() => setFreelancer({ ...freelancer, transfer_aid_and_buyout_of_business: document.getElementById('Option 49').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 49">Aide à la cession / rachat d'activités</label></div>
                     </div>
 
-
-
-                    <div className="prestation-checkbox-div" style={prestation === "DSI" ? { display: "flex" } : { display: "none" }}>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 50" name="Option 50" />
+                    <div className="prestation-checkbox-div">
+                        <p className="family-prestation-title">DSI</p>
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 50" name="Option 50" onClick={() => setFreelancer({ ...freelancer, outsourced_information_system_management: document.getElementById('Option 50').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 50">Direction des Systèmes d'informations externalisée</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 51" name="Option 51" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 51" name="Option 51" onClick={() => setFreelancer({ ...freelancer, schema_directeur_si: document.getElementById('Option 51').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 51">Schéma directeur SI</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 52" name="Option 52" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 52" name="Option 52" onClick={() => setFreelancer({ ...freelancer, functional_architecture: document.getElementById('Option 52').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 52">Architecture fonctionnelle / applicative</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 53" name="Option 53" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 53" name="Option 53" onClick={() => setFreelancer({ ...freelancer, infra_reseau: document.getElementById('Option 53').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 53">Infra / réseau</label></div>
                     </div>
 
-
-
-                    <div className="prestation-checkbox-div" style={prestation === "Gestion Ressources Humaines / Juridique" ? { display: "flex" } : { display: "none" }}>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 54" name="Option 54" />
+                    <div className="prestation-checkbox-div">
+                        <p className="family-prestation-title">Gestion Ressources Humaines / Juridique</p>
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 54" name="Option 54" onClick={() => setFreelancer({ ...freelancer, outsourced_hr_department: document.getElementById('Option 54').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 54">Direction des Ressources Humaines externalisée</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 55" name="Option 55" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 55" name="Option 55" onClick={() => setFreelancer({ ...freelancer, plannings_management: document.getElementById('Option 55').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 55">Gestion des plannings</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 56" name="Option 56" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 56" name="Option 56" onClick={() => setFreelancer({ ...freelancer, payroll_tracking: document.getElementById('Option 56').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 56">Suivi des éléments de paie (absences, CP, RTT..)</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 57" name="Option 57" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 57" name="Option 57" onClick={() => setFreelancer({ ...freelancer, establishment_of_contracts_end_of_contracts: document.getElementById('Option 57').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 57">Etablissement des contrats / éléments de fin de contrats</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 58" name="Option 58" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 58" name="Option 58" onClick={() => setFreelancer({ ...freelancer, suivi_mutuelle_medecine_du_travail: document.getElementById('Option 58').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 58">Suivi mutuelle et medecine du travail</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 59" name="Option 59" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 59" name="Option 59" onClick={() => setFreelancer({ ...freelancer, conflict_management: document.getElementById('Option 59').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 59">Gestion des conflits</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 60" name="Option 60" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 60" name="Option 60" onClick={() => setFreelancer({ ...freelancer, assembly_and_monitoring_litigation_files: document.getElementById('Option 60').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 60">Montage et suivi des dossiers de contentieux</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 61" name="Option 61" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 61" name="Option 61" onClick={() => setFreelancer({ ...freelancer, harmonization_of_contracts: document.getElementById('Option 61').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 61">Harmonisation des contrats</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 62" name="Option 62" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 62" name="Option 62" onClick={() => setFreelancer({ ...freelancer, RGPD_compliation: document.getElementById('Option 62').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 62">Mise en conformité RGPD</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 63" name="Option 63" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 63" name="Option 63" onClick={() => setFreelancer({ ...freelancer, harmonization_salary_scales: document.getElementById('Option 63').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 63">Harmonisation des grilles salaires</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 64" name="Option 64" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 64" name="Option 64" onClick={() => setFreelancer({ ...freelancer, provisional_management_of_jobs_and_skill: document.getElementById('Option 64').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 64">Gestion prévisionnelle des emplois et des compétences</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 65" name="Option 65" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 65" name="Option 65" onClick={() => setFreelancer({ ...freelancer, recruitment_and_integration: document.getElementById('Option 65').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 65">Recrutement et intégration</label></div>
                     </div>
 
-
-
-                    <div className="prestation-checkbox-div" style={prestation === "Gestion de la relation clients" ? { display: "flex" } : { display: "none" }}>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 66" name="Option 66" />
+                    <div className="prestation-checkbox-div">
+                        <p className="family-prestation-title">Gestion de la relation clients</p>
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 66" name="Option 66" onClick={() => setFreelancer({ ...freelancer, suivi_des_grands_comptes: document.getElementById('Option 66').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 66">Suivi grands comptes</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 67" name="Option 67" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 67" name="Option 67" onClick={() => setFreelancer({ ...freelancer, additional_sales: document.getElementById('Option 67').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 67">Ventes additionnelles</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 68" name="Option 68" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 68" name="Option 68" onClick={() => setFreelancer({ ...freelancer, measure_of_customers_satisfaction: document.getElementById('Option 68').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 68">Mesure de la satisfaction clients</label></div>
-                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 69" name="Option 69" />
+                        <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 69" name="Option 69" onClick={() => setFreelancer({ ...freelancer, after_sales_service: document.getElementById('Option 69').checked === true ? true : false })} />
                             <label className="label-prestation" for="Option 69">Service après ventes</label></div>
                     </div>
-
-
-
                 </div>
                 <Button className='btn' onClick={idFreeRandomFreeRole} type='submit'>Valider</Button>
                 <form />
             </form>
         </div>
-
     )
 }
 

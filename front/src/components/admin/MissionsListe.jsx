@@ -42,10 +42,7 @@ const MissionsListe = () => {
         setResult(results);
     }, [searchTerm.nom]);
 
-
     return (
-
-
 
         <div className="admin-mission">
             <div className='profil-card'>
@@ -75,7 +72,6 @@ const MissionsListe = () => {
                 })
                 }
             </div>
-
         </div>
     )
 }

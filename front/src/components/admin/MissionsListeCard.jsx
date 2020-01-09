@@ -35,7 +35,6 @@ const MissionsListeCard = (mission) => {
                     <p>Neoworker : {/* Nom du neoworker depuis la TJ */}</p>
                 </div> : ''}
                 </div>
-
     )
 } 
 

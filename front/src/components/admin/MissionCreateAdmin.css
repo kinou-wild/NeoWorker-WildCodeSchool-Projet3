@@ -1,9 +1,11 @@
 .form-control{
     color:#000099!important;
 }
+
 .selector{
     color: #000099;
 }
+
 div.admin-mission {
     color: #000099;
     width: 80%;
@@ -45,7 +47,7 @@ Button.btn, Button.btn:hover {
 
 ::placeholder {
     color: #ED6A09!important;
-  }
+}
 
 h2.mission-title {
     color: #ED6A09;
@@ -91,6 +93,7 @@ div.cards{
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
 .date-mission{
     color: #ED6A09!important;
 }

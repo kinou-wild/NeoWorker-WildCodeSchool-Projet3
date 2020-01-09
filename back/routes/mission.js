@@ -25,7 +25,6 @@ module.exports = function (app) {
         }
         });
 
-
     //Get missions by id
     app.get('/mission/:id', (req, res) => {
         models
@@ -67,4 +66,5 @@ module.exports = function (app) {
                 }
             }).then(() => console.log("Deleted") & res.end())
     });
+    
 };

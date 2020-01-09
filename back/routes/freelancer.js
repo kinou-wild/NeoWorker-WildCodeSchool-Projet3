@@ -1,8 +1,8 @@
 const models = require('../models')
 
-
 module.exports = function(app) {
 
+    //get freelancer by id
     app.get('/freelancer/:id', (req, res) => {
         models
         .freelancer
@@ -11,14 +11,13 @@ module.exports = function(app) {
     })
 
 
+    // get all freelancer
     app.get('/freelancers', (req,res)=>{
         models
         .freelancer
         .findAll({include : [models.users]})
         .then(x=>res.json(x))
     })
-
-
 
      //création freelancer
     app.post('/freelancers', (req, res) => {
@@ -29,7 +28,6 @@ module.exports = function(app) {
             newFree.addUsers(req.body.userId)
             res.json(newFree)
         })
-
     });
     
 
@@ -44,6 +42,5 @@ module.exports = function(app) {
         })
         .then(() => console.log("Mise à jour faite"))
     );
-
-   
+    
 }

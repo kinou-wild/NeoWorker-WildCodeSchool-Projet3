@@ -6,9 +6,7 @@ export const register = newUser => {
             role: newUser.role,
             email: newUser.email,
             password: newUser.password,
-            freelancerId:newUser.freelancerId
-
-
+            freelancerId: newUser.freelancerId
         })
         .then(response => {
             console.log('Registered')
@@ -19,17 +17,17 @@ export const register = newUser => {
 export const login = user => {
     return axios
         .post('http://localhost:5000/login', {
-            role:user.role,
+            role: user.role,
             email: user.email,
             password: user.password
         })
         .then(response => {
-            if (response.data !=='user doesnt exist'){
-            localStorage.setItem('usertoken', response.data)}
+            if (response.data !== 'user doesnt exist') {
+                localStorage.setItem('usertoken', response.data)
+            }
             return response.data
         })
         .catch(err => {
             console.log(err)
         })
 }
-

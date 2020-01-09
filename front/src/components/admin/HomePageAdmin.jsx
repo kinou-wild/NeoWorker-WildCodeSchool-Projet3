@@ -2,10 +2,8 @@ import React, {useEffect} from 'react'
 import './HomePageAdmin.css'
 import profilPic from '../../img/anais.jpg'
 
-
 /* -------- Page d'accueil de la page Administrateur, après connexion ------------------ */
 const HomePageAdmin = () => {
-
 
     return(
         <div className="main-div">

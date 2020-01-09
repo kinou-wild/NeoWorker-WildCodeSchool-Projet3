@@ -1,12 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState } from "react";
 import { Col, Form, FormGroup, Label, Input } from 'reactstrap'
 import logo from '../../img/LOGO_CLASSIQUE_FOND TRANSPARENT_520X272.png'
 import './LandingAdmin.css'
 import {Link} from 'react-router-dom'
-import {
-  login
-} from '../UserFunctions'
-
+import {login} from '../UserFunctions'
 
 const LandingAdmin = (props) => {
 
@@ -15,19 +12,15 @@ const LandingAdmin = (props) => {
     password: '',
     errors: {}
   })
-
   
     // créé et modifié le champ Email et Password
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
-
   
     function handleSubmit(event) {
       event.preventDefault();
     }
     
-
     //onSubmit pour se login
     const onSubmit = (e) => {
       e.preventDefault()
@@ -42,11 +35,10 @@ const LandingAdmin = (props) => {
         if (res!=='user doesnt exist') {
           props.history.push(`/admin/homepage`)
           window.location.reload()
-
         }
-
       })
     }
+
   return (
       <div className='landing'>
         <form noValidate onSubmit={onSubmit}>
@@ -59,8 +51,7 @@ const LandingAdmin = (props) => {
                         name="email"
                         placeholder="Enter your first name"
                         value={loginHooks.email}
-                        onChange={(e) => { setLoginHooks({ ...loginHooks, email: e.target.value }) }}
-                    />
+                        onChange={(e) => { setLoginHooks({ ...loginHooks, email: e.target.value }) }} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
@@ -70,58 +61,10 @@ const LandingAdmin = (props) => {
                         name="password"
                         placeholder="Enter your first name"
                         value={loginHooks.password}
-                        onChange={(e) => { setLoginHooks({ ...loginHooks, password: e.target.value }) }}
-                    />
+                        onChange={(e) => { setLoginHooks({ ...loginHooks, password: e.target.value }) }} />
                 </div>
                 <button type="submit">Sign in</button>
-            </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
+            </form>  
         <img className='logoLanding' src = {logo} alt='logo' />
           <div className='landingText'>
             <h1 className='landingH1'>Bienvenue dans l’espace <span className='textModif'>Admin</span> NeoWorker<span className='textModif'>.</span></h1>
@@ -152,4 +95,5 @@ const LandingAdmin = (props) => {
       </div>
   );
 }
+
 export default LandingAdmin
