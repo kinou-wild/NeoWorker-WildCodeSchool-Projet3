@@ -2,6 +2,7 @@ const models = require('../models')
 
 module.exports = function(app) {
 
+    //get freelancer by id
     app.get('/freelancer/:id', (req, res) => {
         models
         .freelancer
@@ -10,6 +11,7 @@ module.exports = function(app) {
     })
 
 
+    // get all freelancer
     app.get('/freelancers', (req,res)=>{
         models
         .freelancer
