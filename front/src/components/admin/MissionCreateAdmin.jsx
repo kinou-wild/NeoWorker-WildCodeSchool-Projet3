@@ -363,8 +363,8 @@ const MissionCreateAdmin = (props) => {
                                     id="cp"
                                     name="cp"
                                     value={createm.cp}
-                                    type="text"
-                                    maxLength={5}
+                                    type="number"
+                                    max={9999}
                                     onChange={(e) => { setCreatem({ ...createm, cp: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
@@ -404,7 +404,8 @@ const MissionCreateAdmin = (props) => {
                                     id="nb_j_par_mois"
                                     name="nb_j_par_mois"
                                     value={createm.nb_j_par_mois}
-                                    type="number"
+                                    type="number" 
+                                    min="1" 
                                     max="31"
                                     onChange={(e) => { setCreatem({ ...createm, nb_j_par_mois: e.target.value }) }} />
                             </FormGroup>
@@ -955,7 +956,7 @@ const MissionCreateAdmin = (props) => {
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 58, 'arabe')}/>
                         </div>
-                       <div className='mission-card'>
+                    <div className='mission-card'>
                             <p>Autres langues</p>
                             <Input style={{marginRight:'5px'}} type="textaera" name="text" id="langues" value={createm.autres_langue} onChange={(e)=>setCreatem({...createm, autres_langue: e.target.value})} />
                         </div> 
