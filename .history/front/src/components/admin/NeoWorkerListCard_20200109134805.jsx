@@ -8,7 +8,7 @@ return(
     <div className='neoworkerCard'>
         <div className='neoworkerCard-content'>
             <h1>{list.firstname} {list.lastname}</h1>
-            <p>{list.title}</p>
+            <p>{list.address}</p>
             <p>{list.status}</p>
         </div>
         <div className="neoworkerCard-btn-container">

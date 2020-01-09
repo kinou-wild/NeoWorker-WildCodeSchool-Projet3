@@ -8,7 +8,7 @@ const OneNeoworker = (props) => {
 
     //function to get neoworker by id
     const getNeoworkerById = (id) => {
-        axios.get(`http://localhost:5000/freelancer/${id}`)
+        axios.get(`//http://localhost:5000/freelancer/${id}`)
         .then(res => setNeoworkerById(res.data))
         .catch((err) => console.log(err))
     }
@@ -22,6 +22,7 @@ const OneNeoworker = (props) => {
 
     return(
         <div style={{padding:'500px'}}>
+            xxxxxxxxxxxx
                <OneNeoworkerCard neoworker={neoworkerById}/>
         </div>
     )

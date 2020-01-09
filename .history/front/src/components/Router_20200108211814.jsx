@@ -150,13 +150,13 @@ const Router = () => {
                         ?CompetencesFreelancer:''} />
 
                         //show neoworker list
-                        <Route exact path="/admin/neoworker/liste" component={NeoworkerList}/>
-                        
-                        //afficher un freelancer en tant qu'admin
-                        <Route exact path="/admin/neoworker/:id" component={OneNeoworker}/>
+                        <Route exact="/admin/neoworker/liste" component={NeoworkerList}/>
+
                         
                     </Switch>
             </SidebarController>
+            //afficher un freelancer en tant qu'admin
+                        <Route exact path="/admin/neoworker/:id" component={OneNeoworker}/>
             </>
         )
     }

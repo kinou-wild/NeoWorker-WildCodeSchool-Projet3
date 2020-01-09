@@ -10,6 +10,7 @@ return(
             <h1>{list.firstname} {list.lastname}</h1>
             <p>{list.title}</p>
             <p>{list.status}</p>
+            <p>{list.address}</p>
         </div>
         <div className="neoworkerCard-btn-container">
             <Link to={`/admin/neoworker/${list.id}`}>

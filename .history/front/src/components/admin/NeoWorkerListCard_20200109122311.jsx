@@ -12,7 +12,7 @@ return(
             <p>{list.status}</p>
         </div>
         <div className="neoworkerCard-btn-container">
-            <Link to={`/admin/neoworker/${list.id}`}>
+            <Link to={`/admin/neoworker/${list.id}`>
                 <button className='neoworkerCard-btn'> voir</button>
             </Link>
             <Link to={`/neoworker/editer/${list.id}`}>

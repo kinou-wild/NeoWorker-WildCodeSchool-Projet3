@@ -1,7 +1,7 @@
 import React from 'react'
 import './NeoworkerListCard.css'
 import {Link} from 'react-router-dom'
-
+import NeoworkerList from './NeoworkerList'
 
 const NeoworkerListCard = ({list}) => {
 return(

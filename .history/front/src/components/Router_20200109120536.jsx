@@ -151,12 +151,12 @@ const Router = () => {
 
                         //show neoworker list
                         <Route exact path="/admin/neoworker/liste" component={NeoworkerList}/>
-                        
-                        //afficher un freelancer en tant qu'admin
-                        <Route exact path="/admin/neoworker/:id" component={OneNeoworker}/>
+
                         
                     </Switch>
             </SidebarController>
+            //afficher un freelancer en tant qu'admin
+                        <Route exact path="/admin/neoworker/:id" component={OneNeoworker}/>
             </>
         )
     }

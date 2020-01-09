@@ -4,7 +4,7 @@ import NeoworkerListCard from './NeoWorkerListCard'
 
 const NeoworkerList = () => {
 
-    //hooks to get all freelancers
+    //hook to get all freelancers
     const [list, setList] = useState([])
 
     //function to get list of Neoworkers
@@ -17,13 +17,13 @@ const NeoworkerList = () => {
         getNeoworker()
     }, [])
     
-    //hooks to update a freelancer
+    //hook to update a freelancer
     const [updateNeoworker, setUpdateNeoworker] = useState([])
 
     //function to update a freelancer
     const update = (e, id) => {
         e.preventDefault()
-        axios.put(`http://localhost:5000/freelancers/${id}`)
+        axios.put(`http//localhost:5000/freelancers/${id}`)
         .then(res => setUpdateNeoworker(res.data))
         .catch((err) => console.log(err))
     }
@@ -31,9 +31,7 @@ const NeoworkerList = () => {
     return(
         <div style= {{padding:'500px'}}>
             <div>
-                {list.map( x => (
-                    <NeoworkerListCard key={x.id} list={{...x}} />
-                ))}
+                    <NeoworkerListCard key={list.id} list={{...list.map()}} />
             </div>
         </div>
     )

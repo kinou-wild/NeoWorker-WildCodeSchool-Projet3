@@ -4,7 +4,7 @@ import NeoworkerListCard from './NeoWorkerListCard'
 
 const NeoworkerList = () => {
 
-    //hooks to get all freelancers
+    //hook to get all freelancers
     const [list, setList] = useState([])
 
     //function to get list of Neoworkers
@@ -17,7 +17,7 @@ const NeoworkerList = () => {
         getNeoworker()
     }, [])
     
-    //hooks to update a freelancer
+    //hook to update a freelancer
     const [updateNeoworker, setUpdateNeoworker] = useState([])
 
     //function to update a freelancer

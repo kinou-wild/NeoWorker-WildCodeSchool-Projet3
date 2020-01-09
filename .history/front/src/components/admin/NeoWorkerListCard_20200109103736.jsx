@@ -2,8 +2,7 @@ import React from 'react'
 import './NeoworkerListCard.css'
 import {Link} from 'react-router-dom'
 
-
-const NeoworkerListCard = ({list}) => {
+const NeoworkerListCard = (list) => {
 return(
     <div className='neoworkerCard'>
         <div className='neoworkerCard-content'>

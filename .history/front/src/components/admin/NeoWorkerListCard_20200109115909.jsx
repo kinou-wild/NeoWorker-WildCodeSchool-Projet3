@@ -12,7 +12,10 @@ return(
             <p>{list.status}</p>
         </div>
         <div className="neoworkerCard-btn-container">
-            <Link to={`/admin/neoworker/${list.id}`}>
+            <Link to={{
+                pathname:`/admin/neoworker/${list.id}`,
+                state: {list: true}
+            }}>
                 <button className='neoworkerCard-btn'> voir</button>
             </Link>
             <Link to={`/neoworker/editer/${list.id}`}>

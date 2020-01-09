@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 
 
 const OneNeoworkerCard = ({neoworker}) => {
-    console.log(neoworker)
     return(
         <div>
             <h1>{neoworker.title}</h1>
