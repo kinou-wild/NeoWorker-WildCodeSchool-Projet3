@@ -72,6 +72,7 @@ module.exports = (sequelize, DataTypes) => {
     internal_procedure: DataTypes.BOOLEAN,
     database: DataTypes.BOOLEAN,
     gestion_achat: DataTypes.BOOLEAN,
+    gestion_achat2:DataTypes.BOOLEAN,
     administrative_file_management: DataTypes.BOOLEAN,
     management_assistantship: DataTypes.BOOLEAN,
     secretariat_and_maintenance_agenda: DataTypes.BOOLEAN,

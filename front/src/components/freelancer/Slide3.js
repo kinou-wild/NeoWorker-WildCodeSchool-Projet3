@@ -4,7 +4,6 @@ import StarRatingComponent from 'react-star-rating-component';
 const Slide3 = (props) => {
            const data = props.data
 
-  console.log(data)
 return(
 <div>
 <h2 className='competences-title'>Langues</h2>
@@ -28,15 +27,6 @@ return(
                                 value={x.anglais}
                                 emptyStarColor={`#C4C4C4`}
                                  />
-                        </div>
-                        <div className='mission-card'>
-                            <p>Espagnol</p>
-                            <StarRatingComponent
-                                name="rate1"
-                                starCount={3}
-                                value={x.espagnol}
-                                emptyStarColor={`#C4C4C4`}
-                                />
                         </div>
                         <div className='mission-card'>
                             <p>Allemand</p>

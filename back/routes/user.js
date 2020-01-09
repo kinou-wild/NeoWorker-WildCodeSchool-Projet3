@@ -63,7 +63,7 @@ module.exports = app => {
                         id: req.params.id
                     }
                 })
-                .then(() => console.log('update OK'))
+                .then(() => res.end())
             })
 
 
@@ -75,7 +75,7 @@ module.exports = app => {
                         id: req.params.id
                     }
                 })
-                .then(() => console.log('delete ok'))
+                .then(() => res.end())
         })
 
 

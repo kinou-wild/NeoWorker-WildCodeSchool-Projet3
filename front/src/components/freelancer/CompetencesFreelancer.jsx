@@ -47,7 +47,8 @@ const fetchDataUserFree = () => {
                     <Slide1 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])}/>
                     <Slide2/>
                     <Slide3 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])} />
-                    <Slide4/>
+                    <Slide4 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])} />
+
                 </Slider>
            
                 <Link to={`/neoworker/editer/:id`}>
