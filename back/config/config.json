@@ -1,13 +1,8 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "textex82",
     "database": "neoworker",
-=======
-    "password": "StevieCutman",
-    "database": "neowork",
->>>>>>> freelancer_list_stevie
     "host": "127.0.0.1",
     "dialect": "mysql",
     "timezone": "Europe/Warsaw",
