@@ -74,7 +74,7 @@ return(
                                  />
                         </div>
                         <div className='mission-card'>
-    <p>Autres langues : {x.autres_langue}</p>
+                        <p>Autres langues : {x.autres_langue}</p>
                             
                         </div>
                 </div>
