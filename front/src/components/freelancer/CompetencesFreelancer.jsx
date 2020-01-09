@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import { Link } from 'react-router-dom'
 import Slide1 from './Slide1'
 import Slide2 from './Slide2'
-import Slide3 from './Slide3.js'
+import Slide3 from './Slide3'
 import Slide4 from './Slide4'
 import './CompetencesFreelancer.css'
 
@@ -43,7 +43,7 @@ const fetchDataUserFree = () => {
                 <Slider {...settings}>
                 <Slide1 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])}/>
                     <Slide2 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])}/>
-                    <Slide3/>
+                    <Slide3 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])}/>
                     <Slide4/>
                 </Slider>
            

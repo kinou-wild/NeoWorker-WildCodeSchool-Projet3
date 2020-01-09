@@ -6,8 +6,6 @@ const Slide1 = (props) => {
 
     const data = props.data
 
-
-
     return (
 
         <div>
@@ -249,7 +247,8 @@ const Slide1 = (props) => {
                             />
                         </div>
                     </div>
-                )}
+                )
+                }
 
             </div>
         </div>
