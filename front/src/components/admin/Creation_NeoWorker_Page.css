@@ -29,8 +29,7 @@
 .main-title {
     width: 80%;
     margin-top: 50px;
-    margin-bottom: 80px;
-    font-weight: 500;
+    margin-bottom: 50px;
     
 }
 .formulaire-creation-neoworker {
@@ -238,7 +237,9 @@
 }
 
 .mission-title,
-.main-title {
+.main-title,
+.family-prestation-title {
+
     color: #ED6A09;
     font-size: 40px;
     display: flex;
@@ -252,6 +253,7 @@
     flex-direction: column;
 }
 .prestation-checkbox-div {
+    display:flex;
     flex-direction : column;
 }
 
@@ -277,4 +279,11 @@
 
 .btn {
     margin-top: 50px;
+}
+
+.family-prestation-title {
+    font-size: 30px !important;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: 500;
 }
