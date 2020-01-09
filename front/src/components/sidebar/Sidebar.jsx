@@ -66,7 +66,7 @@ const Sidebar = (props) => {
 
     const neoworker =(
         <div className={profileHooks.role === 'neoworker' && localStorage.usertoken ? "sidebar" : "sidebar-hidden"}>
-            <img className="sidebar-logo" src={NeoWorkerLogo} alt="neo worker logo"></img>
+            <Link to='/neoworker/homepage' ><img className="sidebar-logo" src={NeoWorkerLogo} alt="neo worker logo"></img></Link>
             <div className="sidebar-field-group">
 
                 <Link to='/neoworker/homepage'><p className="sidebar-field">Mon Espace Perso</p></Link>
@@ -88,7 +88,7 @@ const Sidebar = (props) => {
 
     const admin =(
         <div className={profileHooks.role === 'admin' && localStorage.usertoken ? "sidebar" : "sidebar-hidden"}>
-            <img className="sidebar-logo" src={NeoWorkerLogo} alt="neo worker logo"></img>
+            <Link to='/admin' ><img className="sidebar-logo" src={NeoWorkerLogo} alt="neo worker logo"></img></Link>
             <div className="sidebar-field-group">
 
                 <p className="sidebar-field" onClick={changeFieldBoolean}>NeoWorker</p>
