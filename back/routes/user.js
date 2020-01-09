@@ -58,7 +58,7 @@ module.exports = app => {
                         id: req.params.id
                     }
                 })
-                .then(() => console.log('update OK'))
+                .then(() => res.end())
             })
 
         app.delete('/user/:id', (req, res) => {
@@ -69,7 +69,7 @@ module.exports = app => {
                         id: req.params.id
                     }
                 })
-                .then(() => console.log('delete ok'))
+                .then(() => res.end())
         })
 
         //authentif/////////////////////////

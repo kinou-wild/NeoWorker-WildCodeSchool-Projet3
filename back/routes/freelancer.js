@@ -40,7 +40,7 @@ module.exports = function(app) {
                 id: req.params.id
             }
         })
-        .then(() => console.log("Mise à jour faite"))
+        .then(() => res.end())
     );
     
 }

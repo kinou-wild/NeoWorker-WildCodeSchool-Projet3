@@ -40,10 +40,11 @@ const fetchDataUserFree = () => {
                 <img className='pic-card' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='profil picture'/>
             </div> 
                 <Slider {...settings}>
-                <Slide1 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])}/>
+                    <Slide1 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])}/>
                     <Slide2/>
-                    <Slide3/>
-                    <Slide4/>
+                    <Slide3 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])} />
+                    <Slide4 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])} />
+
                 </Slider>
                 <Link to={`/neoworker/editer/:id`}>
                     <Button className='btn'>Editer</Button>
