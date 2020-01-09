@@ -6,9 +6,6 @@ import axios from 'axios'
 import { register } from '../UserFunctions'
 import profilPic from '../../img/anais.jpg'
 
-
-
-
 const CreationNeoWorkerPage = (props) => {
 
     //enregistrement d'un user freelancer
@@ -22,7 +19,6 @@ const CreationNeoWorkerPage = (props) => {
 
     //hooks de la data freelancer pour get
     const [idFree, setIdFree] = useState([])
-
 
     //hooks du post de la data freelancer
     const [freelancer, setFreelancer] = useState({
@@ -86,13 +82,14 @@ const CreationNeoWorkerPage = (props) => {
         sport: "",
         engagement_asso: "",
         autres_softskill: "",
+
         assistance_suivi_comptable: false,
         relation_accountant: false,
         customer_recovery: false,
         payroll_preparation: false,
         assembly_approval_file: false,
-        referencing_training_organization:false,
-        use_business_software:false,
+        referencing_training_organization: false,
+        use_business_software: false,
         internal_procedure: false,
         database: false,
         gestion_achat: false,
@@ -255,7 +252,6 @@ const CreationNeoWorkerPage = (props) => {
             .then(response => console.log(response))
             .catch(err => console.log(err))
 
-
         const newUser = {
             role: registerHooks.role,
             email: registerHooks.email,
@@ -337,9 +333,6 @@ const CreationNeoWorkerPage = (props) => {
             italien: rating[48].italien,
             chinois: rating[49].chinois,
             arabe: rating[50].arabe,
-
-
-
         })
         setRegisterHooks({ ...registerHooks, role: 'neoworker' })
     }
@@ -374,7 +367,6 @@ const CreationNeoWorkerPage = (props) => {
                                 value={freelancer.firstname}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, firstname: e.target.value }) }} />
-
                             <input
                                 className="input-lastname"
                                 placeholder="Nom"
@@ -382,7 +374,6 @@ const CreationNeoWorkerPage = (props) => {
                                 value={freelancer.lastname}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, lastname: e.target.value }) }} />
-
                             <input
                                 className="input-address"
                                 placeholder="Adresse"
@@ -390,7 +381,6 @@ const CreationNeoWorkerPage = (props) => {
                                 value={freelancer.address}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, address: e.target.value }) }} />
-
                             <input
                                 className="input-cp"
                                 placeholder="Code postal"
@@ -399,9 +389,7 @@ const CreationNeoWorkerPage = (props) => {
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, cp: e.target.value }) }}
                                 maxlength="5" />
-
                         </div>
-
                         <div className="align-field-text-div">
                             <input
                                 className="input-email" placeholder="Email"
@@ -409,26 +397,22 @@ const CreationNeoWorkerPage = (props) => {
                                 value={registerHooks.email}
                                 required
                                 onChange={(e) => { setRegisterHooks({ ...registerHooks, email: e.target.value }) }} />
-
                             <input
                                 className="input-tel" placeholder="Telephone"
                                 type="text" id="tel" name="tel"
                                 value={freelancer.tel}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, tel: e.target.value }) }} />
-
                             <input
                                 className="input-password"
                                 placeholder="Mot de passe" type="text"
                                 id="password" name="password"
                                 value={registerHooks.password}
-                                onChange={(e) => { setRegisterHooks({ ...registerHooks, password: e.target.value }) }}
-                            />
+                                onChange={(e) => { setRegisterHooks({ ...registerHooks, password: e.target.value }) }} />
                         </div>
                     </div>
                 </div>
                 <div className="second-div-creation-neoworker">
-
                     <div className="div-tj_min" >
                         <InputGroupText className="input-group-text">Taux journalier minimum</InputGroupText>
                         <input className="input-tj_min"
@@ -437,7 +421,6 @@ const CreationNeoWorkerPage = (props) => {
                             required
                             onChange={(e) => { setFreelancer({ ...freelancer, tjm_min: e.target.value }) }} />
                     </div>
-
                     <div className="div-tj_max">
                         <InputGroupText className="input-group-text">Taux journalier maximum</InputGroupText>
                         <input className="input-tj_max" type="number"
@@ -447,7 +430,6 @@ const CreationNeoWorkerPage = (props) => {
                             onChange={(e) => { setFreelancer({ ...freelancer, tjm_max: e.target.value }) }} />
                     </div>
                 </div>
-
                 <div className="third-div-creation-neoworker">
                     <div className="div-dispo">
                         <InputGroupText className="input-group-text">Disponibilité (nombres jours/mois)</InputGroupText>
@@ -477,7 +459,6 @@ const CreationNeoWorkerPage = (props) => {
                         </FormGroup>
                     </div>
                 </div>
-
                 <div className="fourth-div-creation-neoworker">
                     <div className="div-mobilite">
                         <InputGroupText className="input-group-text">Mobilité</InputGroupText>
@@ -491,9 +472,6 @@ const CreationNeoWorkerPage = (props) => {
                             </Input>
                         </FormGroup>
                     </div>
-
-
-
                     <div className="div-km_max">
                         <InputGroupText className="input-group-text">Km maximum</InputGroupText>
                         <FormGroup>
@@ -510,15 +488,9 @@ const CreationNeoWorkerPage = (props) => {
                         </FormGroup>
                     </div>
                 </div>
-
-
-
                 <div><hr className="separator-line"></hr></div>
-
                 {/*<div className="title-softskills"><p>Soft Skills</p></div>*/}
-
                 <div className="div-rating">
-
                     <h2 className='mission-title'>Outils</h2>
                     <div className='cards'>
                         <div className='mission-card'>
@@ -756,7 +728,6 @@ const CreationNeoWorkerPage = (props) => {
                                 onStarClick={(e) => onStarClick(e, 25, 'quadra')} />
                         </div>
                     </div>
-
                     <h2 className='mission-title'>Soft Skills</h2>
                     <div className='cards'>
                         <div className='mission-card'>
@@ -912,14 +883,11 @@ const CreationNeoWorkerPage = (props) => {
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 42, 'engagement_asso')} />
                         </div>
-
                         <div className='champ-libre'>
                             <p>Autres skills</p>
                             <Input type="textaera" name="text" id="autres_skills" value={freelancer.autres_softskill} onChange={(e) => setFreelancer({ ...freelancer, autres_softskill: e.target.value })} />
                         </div>
                     </div>
-
-
                     <h2 className='mission-title'>Langues</h2>
                     <div className='cards'>
                         <div className='mission-card'>
@@ -999,20 +967,12 @@ const CreationNeoWorkerPage = (props) => {
                             <Input type="textaera" name="text" id="langues" value={freelancer.autres_langue} onChange={(e) => setFreelancer({ ...freelancer, autres_langue: e.target.value })} />
                         </div>
                     </div>
-
-
-
                 </div>
-
                 <p className="main-title">Famille de prestations</p>
-
                 <div className="fifth-div-creation-neoworker">
-
-
                     <select
                         className="famille-prestation-select" type="select" name="famille-prestation" id='famille-prestation'
-                        onChange={(e) => setPrestation(e.target.value)}
-                    >
+                        onChange={(e) => setPrestation(e.target.value)}>
                         <option>--Choisir une option--</option>
                         <option value="Gestion administrative et comptable">Gestion administrative et comptable</option>
                         <option value="Gestion opérationnelle">Gestion opérationnelle</option>
@@ -1023,9 +983,6 @@ const CreationNeoWorkerPage = (props) => {
                         <option value="Gestion Ressources Humaines / Juridique">Gestion Ressources Humaines / Juridique</option>
                         <option value="Gestion de la relation clients">Gestion de la relation clients</option>
                     </select>
-
-
-
                     <div className="prestation-checkbox-div" style={prestation === 'Gestion administrative et comptable' ? { display: "flex" } : { display: "none" }}>
                         <div className="checkbox-and-content">
                             <input type="checkbox" className="checkbox" id="Option 1" name="Option 1" />
@@ -1046,9 +1003,6 @@ const CreationNeoWorkerPage = (props) => {
                             <input type="checkbox" className="checkbox" id="Option 6" name="Option 6" />
                             <label className="label-prestation" for="Option 6">Référencement organismes de formations</label></div>
                     </div>
-
-
-
                     <div className="prestation-checkbox-div" style={prestation === 'Gestion opérationnelle' ? { display: "flex" } : { display: "none" }}>
                         <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 7" name="Option 7" />
                             <label className="label-prestation" for="Option 7">Mise en place, optimisation et formation à l'utilisation de logiciels métiers</label></div>
@@ -1066,11 +1020,7 @@ const CreationNeoWorkerPage = (props) => {
                             <label className="label-prestation" for="Option 13">Classement de documents</label></div>
                         <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 14" name="Option 14" />
                             <label className="label-prestation" for="Option 14">Secrétariat et tenue de l'agenda </label></div>
-
                     </div>
-
-
-
                     <div className="prestation-checkbox-div" style={prestation === 'Gestion commerciale' ? { display: "flex" } : { display: "none" }}>
                         <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 15" name="Option 15" />
                             <label className="label-prestation" for="Option 15">Stratégie et argumentaire commercial</label></div>
@@ -1097,9 +1047,6 @@ const CreationNeoWorkerPage = (props) => {
                         <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 26" name="Option 26" />
                             <label className="label-prestation" for="Option 26">Gestion des réclamations</label></div>
                     </div>
-
-
-
                     <div className="prestation-checkbox-div" style={prestation === "Marketing / Communication / Digital" ? { display: "flex" } : { display: "none" }}>
                         <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 27" name="Option 27" />
                             <label className="label-prestation" for="Option 27">Stratégie marketing et suivi opérationnel</label></div>
@@ -1132,9 +1079,6 @@ const CreationNeoWorkerPage = (props) => {
                         <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 43" name="Option 43" />
                             <label className="label-prestation" for="Option 43">Travaux de traduction</label></div>
                     </div>
-
-
-
                     <div className="prestation-checkbox-div" style={prestation === "Gestion Financière / Contrôle de Gestion" ? { display: "flex" } : { display: "none" }}>
                         <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 44" name="Option 44" />
                             <label className="label-prestation" for="Option 44">Direction administrative et financière externalisée</label></div>
@@ -1149,9 +1093,6 @@ const CreationNeoWorkerPage = (props) => {
                         <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 49" name="Option 49" />
                             <label className="label-prestation" for="Option 49">Aide à la cession / rachat d'activités</label></div>
                     </div>
-
-
-
                     <div className="prestation-checkbox-div" style={prestation === "DSI" ? { display: "flex" } : { display: "none" }}>
                         <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 50" name="Option 50" />
                             <label className="label-prestation" for="Option 50">Direction des Systèmes d'informations externalisée</label></div>
@@ -1162,9 +1103,6 @@ const CreationNeoWorkerPage = (props) => {
                         <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 53" name="Option 53" />
                             <label className="label-prestation" for="Option 53">Infra / réseau</label></div>
                     </div>
-
-
-
                     <div className="prestation-checkbox-div" style={prestation === "Gestion Ressources Humaines / Juridique" ? { display: "flex" } : { display: "none" }}>
                         <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 54" name="Option 54" />
                             <label className="label-prestation" for="Option 54">Direction des Ressources Humaines externalisée</label></div>
@@ -1191,9 +1129,6 @@ const CreationNeoWorkerPage = (props) => {
                         <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 65" name="Option 65" />
                             <label className="label-prestation" for="Option 65">Recrutement et intégration</label></div>
                     </div>
-
-
-
                     <div className="prestation-checkbox-div" style={prestation === "Gestion de la relation clients" ? { display: "flex" } : { display: "none" }}>
                         <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 66" name="Option 66" />
                             <label className="label-prestation" for="Option 66">Suivi grands comptes</label></div>
@@ -1204,15 +1139,11 @@ const CreationNeoWorkerPage = (props) => {
                         <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 69" name="Option 69" />
                             <label className="label-prestation" for="Option 69">Service après ventes</label></div>
                     </div>
-
-
-
                 </div>
                 <Button className='btn' onClick={idFreeRandomFreeRole} type='submit'>Valider</Button>
                 <form />
             </form>
         </div>
-
     )
 }
 

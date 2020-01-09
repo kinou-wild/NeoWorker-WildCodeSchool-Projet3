@@ -33,6 +33,7 @@
     font-weight: 500;
     
 }
+
 .formulaire-creation-neoworker {
     display:flex;
     flex-direction: column;
@@ -67,7 +68,6 @@
     width: 80%;
     justify-content: space-around;
     align-self: center;
-
 }
 
 .align-photoprofilwithinput-div {
@@ -105,7 +105,6 @@
     color: #000099;
     font-size: 24px;
     font-weight: bold;
-
 }
 
 .second-div-creation-neoworker, 
@@ -160,8 +159,6 @@
     font-weight: bold !important;
 }
 
-
-
 .input-group-text {
     color: #ED6A09 !important;
     font-weight: bold !important;
@@ -194,7 +191,6 @@
 }
 
 .title-softskills {
-
     color: #ED6A09 !important;
     align-self: center !important;
     width: 100% !important;
@@ -219,7 +215,6 @@
     margin: 10px;
     width: 30%;
     color: #000099;
-
 }
 
 .champ-libre {
@@ -251,6 +246,7 @@
 .fifth-div-creation-neoworker {
     flex-direction: column;
 }
+
 .prestation-checkbox-div {
     flex-direction : column;
 }

@@ -1,12 +1,8 @@
-import React, {
-    useState,
-    useEffect,
-} from 'react';
+import React, {useState, useEffect,} from 'react';
 import { Form, FormGroup, Input, Label } from 'reactstrap'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
 import profilPic from '../../img/anais.jpg'
-
 
 const SeeMission =(props)=>{
 
@@ -192,7 +188,6 @@ const SeeMission =(props)=>{
                             </FormGroup>
                             <FormGroup>
                                 <Input disabled placeholder="Téléphone"
-                                    
                                     name="tel"
                                     value={getMission.tel}
                                     type="tel"
@@ -200,15 +195,13 @@ const SeeMission =(props)=>{
                             </FormGroup>
                             <FormGroup>
                                 <Input disabled placeholder="Adresse"
-                                    
                                     name="address"
                                     value={getMission.address}
                                     type="text"
                                     onChange={(e) => { setUpdateMission({ ...updateMission, address: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input disabled placeholder='Code Postal'
-                                    
+                                <Input disabled placeholder='Code Postal'       
                                     name="cp"
                                     value={getMission.cp}
                                     type="text"
@@ -217,7 +210,6 @@ const SeeMission =(props)=>{
                             </FormGroup>
                             <FormGroup>
                                 <Input disabled placeholder='Siret'
-                                    
                                     name="siret"
                                     value={getMission.siret}
                                     type="number"
@@ -225,7 +217,6 @@ const SeeMission =(props)=>{
                             </FormGroup>
                             <FormGroup>
                                 <Input disabled placeholder='Budget'
-                                    
                                     name="budget"
                                     value={getMission.budget}
                                     type="number"
@@ -233,7 +224,6 @@ const SeeMission =(props)=>{
                             </FormGroup>
                             <FormGroup>
                                 <Input disabled className='date-mission' placeholder='Date de début'
-                                    
                                     name="date_debut"
                                     value={getMission.date_debut}
                                     type="date"
@@ -241,7 +231,6 @@ const SeeMission =(props)=>{
                             </FormGroup>
                             <FormGroup>
                                 <Input disabled className='date-mission' placeholder="Date de fin"
-                                    
                                     name="date_fin"
                                     value={getMission.date_fin}
                                     type="date"
@@ -249,7 +238,6 @@ const SeeMission =(props)=>{
                             </FormGroup>
                             <FormGroup>
                                 <Input disabled placeholder='Nombre de jour(s) par mois'
-                                    
                                     name="nb_j_par_mois"
                                     value={getMission.nb_j_par_mois}
                                     type="number"
@@ -468,7 +456,6 @@ const SeeMission =(props)=>{
                                     />
                             </div>
                         </div>
-
                         <h2 className='mission-title'>Soft Skills</h2>
                         <div className='cards'>
                         <div className='mission-card'>
@@ -603,9 +590,7 @@ const SeeMission =(props)=>{
                             <p style={{minWidth:'110px', padding:'5px 10px'}}>Autres skills </p>
                             <Input disabled style={{marginRight:'5px'}} type="textaera" name="text"  value={getMission.autres_softskill} onChange={(e)=>setUpdateMission({...updateMission, autres_softskill: e.target.value})} />
                         </div>
-                        </div>
-
-                    
+                    </div>
                     <h2 className='mission-title'>Langues</h2>
                     <div className='cards'>
                         <div className='mission-card'>

@@ -1,11 +1,9 @@
-import React, {useContext, useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import './HomePageFreelancer.css'
-import { Button, Label, Input, InputGroup,InputGroupText,FormGroup,} from 'reactstrap'
-import {Link} from 'react-router-dom'
+import { Input,InputGroupText,FormGroup,} from 'reactstrap'
 import '../freelancer/EditHomePageFreelancer.css'
 import axios from 'axios';
 const bcrypt = require('bcryptjs')
-
 
 /* -------- Page d'édition pour l'espace perso Neoworker ------------------ */
 const EditHomePageFreelancer = (props) => {
@@ -17,7 +15,6 @@ const EditHomePageFreelancer = (props) => {
           const paramsNeo = props.match.params.idneo;
 
         const [getUser,setGetUser]=useState([])
-
 
           //hooks pour modif le updateFreelancer
           const[updateFreelancer, setUpdateFreelancer]= useState({
@@ -81,7 +78,6 @@ const EditHomePageFreelancer = (props) => {
     props.history.push('/neoworker/homepage')
   }        
   
-
           //update sur la data du free
           const updateQueryDataFree = (e) => {
             e.preventDefault()
@@ -101,14 +97,11 @@ const EditHomePageFreelancer = (props) => {
           setUpdateFreelancer({...updateFreelancer, email: e.target.value})
           setUpdateUser({...updateUser, email: e.target.value})
             }
-        
-        
+         
   //fonction qui modif le password user et le password free en même temps
   const passwordUpdater = (e) => {
     setUpdateUser({ ...updateUser, password: e.target.value })
   }
-
-
 
     return(
       <div className="main-div">
@@ -135,7 +128,6 @@ const EditHomePageFreelancer = (props) => {
                   value={updateFreelancer.firstname}
                   required
                   onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, firstname: e.target.value }) }} />
-
                 <input
                   className="input-lastname"
                   placeholder="Nom"
@@ -143,7 +135,6 @@ const EditHomePageFreelancer = (props) => {
                   value={updateFreelancer.lastname}
                   required
                   onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, lastname: e.target.value }) }} />
-
                 <input
                   className="input-address"
                   placeholder="address"
@@ -151,7 +142,6 @@ const EditHomePageFreelancer = (props) => {
                   value={updateFreelancer.address}
                   required
                   onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, address: e.target.value }) }} />
-
                 <input
                   className="input-cp"
                   placeholder="cp"
@@ -159,9 +149,6 @@ const EditHomePageFreelancer = (props) => {
                   value={updateFreelancer.cp}
                   required
                   onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, cp: e.target.value }) }} />
-
-
-
                 <input
                   className="input-email" placeholder="Email"
                   type="text" id="email" name="email"
@@ -169,7 +156,6 @@ const EditHomePageFreelancer = (props) => {
                   value={updateFreelancer.email}
                   required
                   onChange={(e) => { emailUpdater(e) } } />
-
                 <input
                   className="input-tel" placeholder="Telephone"
                   type="text" id="tel" name="tel"
@@ -189,7 +175,6 @@ const EditHomePageFreelancer = (props) => {
             </div>
           </div>
           <div className="second-div-creation-neoworker">
-
             <div className="div-tj_min" >
               <InputGroupText className="input-group-text">Taux journalier minimum</InputGroupText>
               <input className="input-tj_min"
@@ -198,7 +183,6 @@ const EditHomePageFreelancer = (props) => {
                 required
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, tjm_min: e.target.value }) }} />
             </div>
-
             <div className="div-tj_max">
               <InputGroupText>Taux journalier maximum</InputGroupText>
               <input className="input-tj_max" type="number"
@@ -208,7 +192,6 @@ const EditHomePageFreelancer = (props) => {
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, tjm_max: e.target.value }) }} />
             </div>
           </div>
-
           <div className="third-div-creation-neoworker">
             <div className="div-dispo">
               <InputGroupText>Disponibilité (nombres jours/mois)</InputGroupText>
@@ -238,7 +221,6 @@ const EditHomePageFreelancer = (props) => {
               </FormGroup>
             </div>
           </div>
-
           <div className="fourth-div-creation-neoworker">
             <div className="div-mobilite">
               <InputGroupText>Mobilité</InputGroupText>
@@ -252,9 +234,6 @@ const EditHomePageFreelancer = (props) => {
                 </Input>
               </FormGroup>
             </div>
-
-
-
             <div className="div-km_max">
               <InputGroupText>Km maximum</InputGroupText>
               <FormGroup className="input-Km_max">
@@ -271,7 +250,6 @@ const EditHomePageFreelancer = (props) => {
               </FormGroup>
             </div>
           </div>
-
           <div><hr className="separator-line"></hr> </div>
           <button onClick={updaterEmailPassword} type='submit'>update</button>
         </form>

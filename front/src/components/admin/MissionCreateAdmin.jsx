@@ -6,8 +6,6 @@ import axios from 'axios'
 import { withRouter } from 'react-router-dom';
 import profilPic from '../../img/anais.jpg'
 
-
-
 /* -------- Page creation mission ---------- */
 const MissionCreateAdmin = (props) => {
 
@@ -220,9 +218,7 @@ const MissionCreateAdmin = (props) => {
         } else {
             setRating([...rating, rating[index][name] = nextValue]);
         }
-
     }
-
 
     // create a mission
     const createMissions = async (e) => {
@@ -246,7 +242,6 @@ const MissionCreateAdmin = (props) => {
                             value={createm.note}
                             onChange={(e) => { setCreatem({ ...createm, note: e.target.value }) }} />
                     </FormGroup>
-
                     <div className='select-mission'>
                     <FormGroup>
                         <Input style={{ textAlign: 'center' }} placeholder="Nom de la mission"
@@ -256,7 +251,6 @@ const MissionCreateAdmin = (props) => {
                             type="text"
                             onChange={(e) => { setCreatem({ ...createm, nom_mission: e.target.value }) }} />
                     </FormGroup>
-
                         <div className='selector-mission'>
                             <FormGroup>
                                 <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
@@ -305,8 +299,7 @@ const MissionCreateAdmin = (props) => {
                                 </Input>
                                 </FormGroup>
                         </div>
-                        <div className='champs-mission'>
-                        
+                        <div className='champs-mission'>  
                             <FormGroup>
                                 <Input placeholder="Nom de l'entreprise"
                                     id="nom_entreprise"
@@ -602,7 +595,6 @@ const MissionCreateAdmin = (props) => {
                                     onStarClick={(e) => onStarClick(e, 25, 'quadra')} />
                             </div>
                         </div>
-
                         <h2 className='mission-title'>Soft Skills</h2>
                         <div className='cards'>
                         <div className='mission-card'>
@@ -737,9 +729,7 @@ const MissionCreateAdmin = (props) => {
                             <p style={{minWidth:'110px', padding:'5px 10px'}}>Autres skills </p>
                             <Input style={{marginRight:'5px'}} type="textaera" name="text" id="autres_skills" value={createm.autres_softskill} onChange={(e)=>setCreatem({...createm, autres_softskill: e.target.value})} />
                         </div>
-                        </div>
-
-                    
+                        </div>       
                     <h2 className='mission-title'>Langues</h2>
                     <div className='cards'>
                         <div className='mission-card'>
@@ -872,9 +862,9 @@ const MissionCreateAdmin = (props) => {
 
                             })}>Valider</Button>     
                </div>
-            </Form> </div>
+            </Form> 
+            </div>
            </div>
-        
             )
         }
         

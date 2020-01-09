@@ -9,9 +9,6 @@ import Slide3 from './Slide3.js'
 import Slide4 from './Slide4'
 import './CompetencesFreelancer.css'
 
-
-
-
 const CompetencesFreelancer = (props) => {
 
     //hooks de la data user pour le get de l'id
@@ -29,7 +26,6 @@ const fetchDataUserFree = () => {
     .then(res => setIdUsers(res.data))
     .catch((err) => console.log(err))
 }
-
 
     var settings = {
       infinite: true,
@@ -49,13 +45,10 @@ const fetchDataUserFree = () => {
                     <Slide3/>
                     <Slide4/>
                 </Slider>
-           
                 <Link to={`/neoworker/editer/:id`}>
                     <Button className='btn'>Editer</Button>
                 </Link>
-
             </div>
-
     )
 }
 

@@ -4,7 +4,6 @@ import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
 import profilPic from '../../img/anais.jpg'
 
-
 const UpdateDeleteMission =(props)=>{
 
     const params = props.match.params
@@ -462,7 +461,6 @@ const UpdateDeleteMission =(props)=>{
                                     onStarClick={(e) => onStarClick(e,'quadra')} />
                             </div>
                         </div>
-
                         <h2 className='mission-title'>Soft Skills</h2>
                         <div className='cards'>
                         <div className='mission-card'>
@@ -598,8 +596,6 @@ const UpdateDeleteMission =(props)=>{
                             <Input style={{marginRight:'5px'}} type="textaera" name="text" value={updateMission.autres_softskill} onChange={(e)=>setUpdateMission({...updateMission, autres_softskill: e.target.value})} />
                         </div>
                         </div>
-
-                    
                     <h2 className='mission-title'>Langues</h2>
                     <div className='cards'>
                         <div className='mission-card'>
