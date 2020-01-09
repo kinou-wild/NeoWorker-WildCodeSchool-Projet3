@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import './HomePageFreelancer.css'
-import { Input, InputGroupText, FormGroup, } from 'reactstrap'
+import { Button, Label, Input, InputGroup, InputGroupText, FormGroup, } from 'reactstrap'
+import { Link } from 'react-router-dom'
 import '../freelancer/EditHomePageFreelancer.css'
 import axios from 'axios';
 const bcrypt = require('bcryptjs')
+
 
 /* -------- Page d'édition pour l'espace perso Neoworker ------------------ */
 const EditHomePageFreelancer = (props) => {
@@ -15,6 +17,7 @@ const EditHomePageFreelancer = (props) => {
   const paramsNeo = props.match.params.idneo;
 
   const [getUser, setGetUser] = useState([])
+
 
   //hooks pour modif le updateFreelancer
   const [updateFreelancer, setUpdateFreelancer] = useState({
@@ -43,7 +46,7 @@ const EditHomePageFreelancer = (props) => {
   const [loading, setLoading] = useState(false)
 
 
-  
+
 
   const uploadImage = async e => {
     const files = e.target.files
@@ -99,41 +102,42 @@ const EditHomePageFreelancer = (props) => {
       })
     }
     props.history.push('/neoworker/homepage')
-  }        
-  
+  }
 
-          //update sur la data du free
-          const updateQueryDataFree = async (e) => {
-            e.preventDefault()
-            await axios.put(`http://localhost:5000/freelancer/${paramsNeo}`, updateFreelancer)
-              .catch(err=>console.log(err))
-            props.history.push('/neoworker/homepage')
-          }
-        
-          //fonction qui regroupe l'axios put du dataUserFree et l'axios du dataFree
-          const updaterEmailPassword = (e) => {
-            updateQueryDataFree(e)
-            updateQueryDataUserFree(e)
-          }
-        
-          //fonction qui modif l'email user et l'email free en même temps
-        const emailUpdater = (e) => {
-          setUpdateFreelancer({...updateFreelancer, email: e.target.value})
-          setUpdateUser({...updateUser, email: e.target.value})
-            }
-        
-        
+
+  //update sur la data du free
+  const updateQueryDataFree = async (e) => {
+    e.preventDefault()
+    await axios.put(`http://localhost:5000/freelancer/${paramsNeo}`, updateFreelancer)
+      .catch(err => console.log(err))
+    props.history.push('/neoworker/homepage')
+  }
+
+  //fonction qui regroupe l'axios put du dataUserFree et l'axios du dataFree
+  const updaterEmailPassword = (e) => {
+    updateQueryDataFree(e)
+    updateQueryDataUserFree(e)
+  }
+
+  //fonction qui modif l'email user et l'email free en même temps
+  const emailUpdater = (e) => {
+    setUpdateFreelancer({ ...updateFreelancer, email: e.target.value })
+    setUpdateUser({ ...updateUser, email: e.target.value })
+  }
+
+
   //fonction qui modif le password user et le password free en même temps
   const passwordUpdater = (e) => {
     setUpdateUser({ ...updateUser, password: e.target.value })
   }
-  
+
+
 
   return (
     <div className="main-div">
       <div className='profil-card'>
-        <p className='name-card'>Profil Neoworker</p>
-        <img className='pic-card' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='profil picture' />
+        <p className='name-card'>{updateFreelancer.firstname} {updateFreelancer.lastname}</p>
+        <img className='pic-card' src={updateFreelancer.img} alt='profil picture' />
       </div>
       <form className="formulaire-creation-neoworker" onSubmit={updaterEmailPassword} >
         <input className="input-metier"
@@ -144,8 +148,18 @@ const EditHomePageFreelancer = (props) => {
           onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, title: e.target.value }) }} />
         <div className="first-div-creation-neoworker">
           <div className="align-photoprofilwithinput-div">
-            <img className="profil-img-creation" src="https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=" />
+            <img className="profil-img-creation" src={updateFreelancer.img} alt='profil picture' />
             <div className="align-field-text-div">
+              <form onSubmit={updateQueryDataFree}>
+                <input
+                  type="file"
+                  name="file"
+                  placeholder="Upload an image"
+                  onChange={uploadImage}
+                />
+                <button type='submit'>Ajouter image</button>
+              </form>
+
               <input
                 className="input-firstname"
                 placeholder="Prénom" type="text"
@@ -154,6 +168,7 @@ const EditHomePageFreelancer = (props) => {
                 value={updateFreelancer.firstname}
                 required
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, firstname: e.target.value }) }} />
+
               <input
                 className="input-lastname"
                 placeholder="Nom"
@@ -161,6 +176,7 @@ const EditHomePageFreelancer = (props) => {
                 value={updateFreelancer.lastname}
                 required
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, lastname: e.target.value }) }} />
+
               <input
                 className="input-address"
                 placeholder="address"
@@ -168,6 +184,7 @@ const EditHomePageFreelancer = (props) => {
                 value={updateFreelancer.address}
                 required
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, address: e.target.value }) }} />
+
               <input
                 className="input-cp"
                 placeholder="cp"
@@ -175,6 +192,9 @@ const EditHomePageFreelancer = (props) => {
                 value={updateFreelancer.cp}
                 required
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, cp: e.target.value }) }} />
+
+
+
               <input
                 className="input-email" placeholder="Email"
                 type="text" id="email" name="email"
@@ -182,6 +202,7 @@ const EditHomePageFreelancer = (props) => {
                 value={updateFreelancer.email}
                 required
                 onChange={(e) => { emailUpdater(e) }} />
+
               <input
                 className="input-tel" placeholder="Telephone"
                 type="text" id="tel" name="tel"
@@ -201,6 +222,7 @@ const EditHomePageFreelancer = (props) => {
           </div>
         </div>
         <div className="second-div-creation-neoworker">
+
           <div className="div-tj_min" >
             <InputGroupText className="input-group-text">Taux journalier minimum</InputGroupText>
             <input className="input-tj_min"
@@ -209,6 +231,7 @@ const EditHomePageFreelancer = (props) => {
               required
               onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, tjm_min: e.target.value }) }} />
           </div>
+
           <div className="div-tj_max">
             <InputGroupText>Taux journalier maximum</InputGroupText>
             <input className="input-tj_max" type="number"
@@ -218,6 +241,7 @@ const EditHomePageFreelancer = (props) => {
               onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, tjm_max: e.target.value }) }} />
           </div>
         </div>
+
         <div className="third-div-creation-neoworker">
           <div className="div-dispo">
             <InputGroupText>Disponibilité (nombres jours/mois)</InputGroupText>
@@ -247,6 +271,7 @@ const EditHomePageFreelancer = (props) => {
             </FormGroup>
           </div>
         </div>
+
         <div className="fourth-div-creation-neoworker">
           <div className="div-mobilite">
             <InputGroupText>Mobilité</InputGroupText>
@@ -260,6 +285,9 @@ const EditHomePageFreelancer = (props) => {
               </Input>
             </FormGroup>
           </div>
+
+
+
           <div className="div-km_max">
             <InputGroupText>Km maximum</InputGroupText>
             <FormGroup className="input-Km_max">
@@ -276,9 +304,13 @@ const EditHomePageFreelancer = (props) => {
             </FormGroup>
           </div>
         </div>
+
+
         <div><hr className="separator-line"></hr> </div>
         <button onClick={updaterEmailPassword} type='submit'>update</button>
       </form>
+
+
     </div>
   )
 }
