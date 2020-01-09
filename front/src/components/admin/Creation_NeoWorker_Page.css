@@ -216,10 +216,6 @@
     color: #000099;
 }
 
-.champ-libre {
-    width: 50% !important;
-}
-
 .cards{
     display: flex;
     flex-direction: row;
