@@ -32,7 +32,6 @@ const HomePageFreelancer = () => {
 
     //décoder le token
     useEffect(() => {
-        console.log(localStorage.usertoken)
         const token = localStorage.usertoken
         if (token) {
             const decoded = jwt_decode(token)
@@ -41,6 +40,7 @@ const HomePageFreelancer = () => {
             })
         }
     }, [])
+    
     return(
         <div>
             {idUsers.filter(x => x.id == profileHooks.id).map(x =>

@@ -1,120 +1,255 @@
 import React, { useContext, useEffect, useState } from 'react'
+import StarRatingComponent from 'react-star-rating-component';
 
-const Slide1 = () => {
-    //hooks de la data freelancer pour get un id
-    const [idFree, setIdFree] = useState([])
+const Slide1 = (props) => {
+    
 
-    //hooks de la data user pour le get de l'id
-    const [idUser, setIdUser] = useState([])
+   const data= props.data
+   
+
 
 return(
 <div>
 <h2 className='competences-title'>Outils</h2>
 <div className='competences'>
-    <div className='competences-card'>
-        <p>excel</p>
-        <p>{String(idFree.excel)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>powerpoint</p>
-        <p>{String(idFree.powerpoint)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>word</p>
-        <p>{String(idFree.word)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>microsoft_365</p>
-        <p>{String(idFree.microsoft_365)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>crm_hubspot</p>
-        <p>{String(idFree.crm_hubspot)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>crm_salesforce</p>
-        <p>{String(idFree.salesforce)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>crm_pipedrive</p>
-        <p>{String(idFree.crm_pipedrive)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>crm</p>
-        <p>{String(idFree.crm)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>suite_adobe</p>
-        <p>{String(idFree.suite_adobe)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>illustrator</p>
-        <p>{String(idFree.illustrator)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>in_design</p>
-        <p>{String(idFree.in_design)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>photoshop</p>
-        <p>{String(idFree.photoshop)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>marketing_fb</p>
-        <p>{String(idFree.marketing_fb)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>google_adwards</p>
-        <p>{String(idFree.google_adwards)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>insta</p>
-        <p>{String(idFree.insta)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>reseaux_sociaux</p>
-        <p>{String(idFree.reseaux_sociaux)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>keynote</p>
-        <p>{String(idFree.keynote)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>pages</p>
-        <p>{String(idFree.pages)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>gsuite_google</p>
-        <p>{String(idFree.gsuite_google)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>numbers</p>
-        <p>{String(idFree.numbers)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>erp_sap</p>
-        <p>{String(idFree.erp_sap)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>ciel_gestion</p>
-        <p>{String(idFree.ciel_gestion)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>cegid</p>
-        <p>{String(idFree.cegid)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>sage_gestion_commercial</p>
-        <p>{String(idFree.sage_gestion_commercial)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>sage_comptabipte</p>
-        <p>{String(idFree.sage_comptabipte)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>quadra</p>
-        <p>{String(idFree.quadra)}</p>
-    </div>
+    {data.map(x=>
+                <div className='cards'>
+                    <div className='mission-card'>
+                        <p>Excel</p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.excel}
+                            emptyStarColor={`#C4C4C4`}
+                             />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Powerpoint</p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.powerpoint}
+                            emptyStarColor={`#C4C4C4`} />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Microsoft 365</p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.microsoft_365}
+                            emptyStarColor={`#C4C4C4`}
+                             />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Word</p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.word}
+                            emptyStarColor={`#C4C4C4`}
+                             />
+                    </div>
+                    <div className='mission-card'>
+                        <p>CRM Hubspot</p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.crm_hubspot}
+                            emptyStarColor={`#C4C4C4`}
+                            />
+                    </div>
+                    <div className='mission-card'>
+                        <p>CRM Salesforce</p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.crm_salesforce}
+                            emptyStarColor={`#C4C4C4`}
+                            />
+                    </div>
+                    <div className='mission-card'>
+                        <p>CRM Pipedrive</p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.crm_pipedrive}
+                            emptyStarColor={`#C4C4C4`}
+                         />
+                    </div>
+                    <div className='mission-card'>
+                        <p>CRM </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.crm}
+                            emptyStarColor={`#C4C4C4`}
+                         />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Suite Adobe </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.suite_adobe}
+                            emptyStarColor={`#C4C4C4`}
+                             />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Illustrator </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.illustrator}
+                            emptyStarColor={`#C4C4C4`}
+                             />
+                    </div>
+                    <div className='mission-card'>
+                        <p>In Design </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.in_design}
+                            emptyStarColor={`#C4C4C4`}
+                             />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Photoshop </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.photoshop}
+                            emptyStarColor={`#C4C4C4`}
+                            />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Marketing FB </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.marketing_fb}
+                            emptyStarColor={`#C4C4C4`}
+                            />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Google adwards </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.google_adwards}
+                            emptyStarColor={`#C4C4C4`}
+                            />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Instagram </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.insta}
+                            emptyStarColor={`#C4C4C4`}
+                             />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Reseaux sociaux </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.reseaux_sociaux}
+                            emptyStarColor={`#C4C4C4`}
+                             />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Keynote </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.keynote}
+                            emptyStarColor={`#C4C4C4`}
+                             />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Pages </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.pages}
+                            emptyStarColor={`#C4C4C4`}
+                             />
+                    </div>
+                    <div className='mission-card'>
+                        <p>G Suite Google </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.gsuite_google}
+                            emptyStarColor={`#C4C4C4`}
+                             />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Numbers </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.numbers}
+                            emptyStarColor={`#C4C4C4`}
+                             />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Erp sap </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.erp_sap}
+                            emptyStarColor={`#C4C4C4`}
+                             />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Ciel Gestion </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.ciel_gestion}
+                            emptyStarColor={`#C4C4C4`}
+                            />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Cegid </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.cegid}
+                            emptyStarColor={`#C4C4C4`}
+                             />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Sage gestion commercial </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.sage_gestion_commercial}
+                            emptyStarColor={`#C4C4C4`}
+                             />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Sage comptabilité </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.sage_comptabilite}
+                            emptyStarColor={`#C4C4C4`}
+                             />
+                    </div>
+                    <div className='mission-card'>
+                        <p>Quadra </p>
+                        <StarRatingComponent
+                            name="rate1"
+                            starCount={3}
+                            value={x.quadra}
+                            emptyStarColor={`#C4C4C4`}
+                            />
+                    </div>
+                </div>
+            )}
+
 </div>
 </div>
 )

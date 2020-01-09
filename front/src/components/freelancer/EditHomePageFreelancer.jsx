@@ -2,19 +2,21 @@ import React, {useContext, useState, useEffect} from 'react'
 import './HomePageFreelancer.css'
 import { Button, Label, Input, InputGroup,InputGroupText,FormGroup,} from 'reactstrap'
 import {Link} from 'react-router-dom'
+import '../freelancer/EditHomePageFreelancer.css'
 import axios from 'axios';
 const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+
 
 /* -------- Page d'édition pour l'espace perso Neoworker ------------------ */
 const EditHomePageFreelancer = (props) => {
 
+          const [changerMDP,setChangerMDP]=useState(true)
 
           //recup des query de l'id
           const paramsIdUser = props.match.params.id;
           const paramsNeo = props.match.params.idneo;
 
-
+        const [getUser,setGetUser]=useState([])
 
 
           //hooks pour modif le updateFreelancer
@@ -34,6 +36,13 @@ const EditHomePageFreelancer = (props) => {
             tel: "",
             cp: '',
           })
+          
+          //hooks pour modif le user
+          const [updateUser, setUpdateUser] = useState({
+            email: '',
+            password: ''
+          })
+
 
   useEffect(() => {
     fetchData()
@@ -42,27 +51,35 @@ const EditHomePageFreelancer = (props) => {
     axios.get(`http://localhost:5000/freelancer/${paramsNeo}`)
       .then(res => setUpdateFreelancer(res.data))
       .catch(err => console.log(err))
-
   }
-           //hooks pour modif le user
-           const [updateUser, setUpdateUser] = useState({
-             email: '',
-             password: ''
-           })
-        
-           //update sur la data user
-           const updateQueryDataUserFree = (e) => {
-             e.preventDefault()
-              bcrypt.genSalt(10, function(err, salt) {
-              bcrypt.hash(updateUser.password, salt, function (err, hash) {
-                 // Store hash in your password DB.
-                axios.put(`http://localhost:5000/user/${paramsIdUser}`, {...updateUser, password:hash})
-                .catch(err => console.log(err))
-               });
-             })
-            }
-        
 
+  useEffect(()=>{
+    fetchDataUser()
+  },[])
+  const fetchDataUser=()=>{
+    axios.get(`http://localhost:5000/user/${paramsIdUser}`)
+    .then(res=>setUpdateUser(res.data)& setGetUser(res.data))
+    .catch(err=>console.log(err))
+  }
+  
+  //update sur la data user
+  const updateQueryDataUserFree = (e) => {
+    e.preventDefault()
+
+    if(updateUser.password.length==60){
+      axios.put(`http://localhost:5000/user/${paramsIdUser}`, {...updateUser})
+        .catch(err => console.log(err))
+    }else{
+      bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(updateUser.password, salt, function (err, hash) {
+          // Store hash in your password DB.
+          axios.put(`http://localhost:5000/user/${paramsIdUser}`, { ...updateUser, password:hash})
+          .catch(err => console.log(err))
+        });
+      })
+    }
+    props.history.push('/neoworker/homepage')
+  }        
   
 
           //update sur la data du free
@@ -70,6 +87,7 @@ const EditHomePageFreelancer = (props) => {
             e.preventDefault()
               axios.put(`http://localhost:5000/freelancer/${paramsNeo}`, updateFreelancer)
               .catch(err=>console.log(err))
+            props.history.push('/neoworker/homepage')
           }
         
           //fonction qui regroupe l'axios put du dataUserFree et l'axios du dataFree
@@ -80,15 +98,17 @@ const EditHomePageFreelancer = (props) => {
         
           //fonction qui modif l'email user et l'email free en même temps
         const emailUpdater = (e) => {
-          setUpdateUser({...updateUser, email: e.target.value})
           setUpdateFreelancer({...updateFreelancer, email: e.target.value})
+          setUpdateUser({...updateUser, email: e.target.value})
             }
         
         
-        //fonction qui modif le password user et le password free en même temps
-        const passwordUpdater = (e) => {
-          setUpdateUser({...updateUser, password: e.target.value})
-          setUpdateFreelancer({...updateFreelancer,password: e.target.value})}
+  //fonction qui modif le password user et le password free en même temps
+  const passwordUpdater = (e) => {
+    setUpdateUser({ ...updateUser, password: e.target.value })
+  }
+
+
 
     return(
       <div className="main-div">
@@ -96,7 +116,7 @@ const EditHomePageFreelancer = (props) => {
           <p className='name-card'>Profil Neoworker</p>
           <img className='pic-card' src='https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' alt='profil picture' />
         </div>
-        <form className="formulaire-creation-neoworker" onSubmit={updateQueryDataFree} >
+        <form className="formulaire-creation-neoworker" onSubmit={updaterEmailPassword} >
           <input className="input-metier"
             type="text" id="title" name="Métier"
             placeholder="Métier"
@@ -156,15 +176,15 @@ const EditHomePageFreelancer = (props) => {
                   value={updateFreelancer.tel}
                   required
                   onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, tel: e.target.value }) }} />
-
+                {/* <button onClick={()=>setChangerMDP(!changerMDP)}>Changer le mot de passe</button> */}
                 <input
-                  className="input-password"
+                  // className={changerMDP ==true ?'input-password unshow':''}
+                  className='input-password'
                   placeholder="Mot de passe" type="password"
                   id="password" name="password"
-                  value={updateUser.password}
-                  value={updateFreelancer.password}
-                  onChange={(e) => {passwordUpdater(e) }}
-                /> 
+                  value={updateUser.password.length==60?'password':updateUser.password}
+                  onChange={(e) => { passwordUpdater(e) }}
+              /> 
               </div>
             </div>
           </div>
