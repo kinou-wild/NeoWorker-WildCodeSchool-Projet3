@@ -374,7 +374,7 @@ const MissionCreateAdmin = (props) => {
                                     onChange={(e) => { setCreatem({ ...createm, date_fin: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>
-                                <Input placeholder='Nombre de jour(s) par mois'
+                                <Input style={{width:'250px'}} placeholder='Nombre de jour(s) par mois'
                                     id="nb_j_par_mois"
                                     name="nb_j_par_mois"
                                     value={createm.nb_j_par_mois}
