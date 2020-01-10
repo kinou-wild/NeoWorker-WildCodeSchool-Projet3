@@ -1,26 +1,36 @@
-.div-neoworkerList {
-  display: flex ;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-
 .neoworkerCard {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    margin-bottom: 8px;
     background: white;
     padding: 8px 16px;
-    border: 1px solid rgb(235,235,235);
-    box-shadow: aliceblue;
-    width: 50%;
-  }
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    padding: 10px;
+    color: black;
+    text-align: center;
+    font-size: 24px;
+    margin: 10px;
+    justify-content: space-between;
+    border-radius: .25rem;
+    width: 476px;
+    height: 200px;
+    left: 364px;
+    top: 222px;
+}
 
  .neoworkerCard-content {
     flex-grow: 1;
     padding: 0 24px;
-    width: 80%
+    width: 80%;
   }
+
+.neoworkerCard-h1{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.neoworkerCard-p{
+  font-size: 20px;
+}
 
   .neoworkerCard-btn-container {
       display: flex;
@@ -28,9 +38,11 @@
   }
 .neoworkerCard-btn {
     color: white;
-    font-size: 15px!important;
+    font-size: 20px;
     background: #ED6A09;
-    border-radius: .25rem;
-    width: auto!important;
-    margin: 0px!important;
+    border-radius: 40%;
+    height: 40px;
+    width: 100px;
+    border: none;
+    margin-bottom: 10px;
 }
