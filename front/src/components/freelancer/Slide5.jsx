@@ -1,58 +1,88 @@
 import React, {useState} from 'react'
-import { Dropdown } from "semantic-ui-react";
+import StarRatingComponent from 'react-star-rating-component';
 
-const options = [
-    {
-      key: "gestion_admin_compta",
-      text: "Gestion administrative et comptabilitée",
-      value: "idFree.gestion_admin_compta"
-    },
-    {
-      key: "gestion_op",
-      text: "Gestion Opérationnel",
-      value: "idFree.gestion_op"
-    },
-    {
-      key: "gestion_commerciale",
-      text: "Gestion Commerciale ",
-      value: "idFree.gestion_commerciale"
-    },
-    {
-      key: "marketing_com_digit",
-      text: "Marketing Digital",
-      value: "idFree.marketing_com_digit"
-    },
-    {
-      key: "gestion_fi_controle_gestion",
-      text: "Gestion Financière et controle de gestion",
-      value: "idFree.gestion_fi_controle_gestion"
-    },
-    {
-      key: "dsi",
-      text: "Directeur des systèmes d information",
-      value: "idFree.dsi"
-    },
-    {
-      key: "gestion_rh_juridique",
-      text: "Gestion ressources humaine et juridique",
-      value: "idFree.gestion_rh_juridique"
-    },
-    {
-      key: "gestion_rel_cpent",
-      text: "Gestion relation client",
-      value: "idFree.gestion_rel_cpent"
-    }
-  ];
 
-const Slide5 = () => {
-        //hooks de la data freelancer pour get un id
-        const [idFree, setIdFree] = useState([])
-
-        //hooks de la data user pour le get de l'id
-        const [idUser, setIdUser] = useState([])
+const Slide5 = (props) => {
+  const data = props.data
 
 return(
-<Dropdown placeholder="Famille de prestations" fluid multiple selection options={options} />
+    < div >
+    <h2 className='competences-title'>Langues</h2>
+    <div className='competences'>
+      {data.map(x =>
+        <div className='cards'>
+          <div className='mission-card'>
+            <p>Français</p>
+            <StarRatingComponent
+              name="rate1"
+              starCount={3}
+              value={x.francais}
+              emptyStarColor={`#C4C4C4`}
+            />
+          </div>
+          <div className='mission-card'>
+            <p>Anglais</p>
+            <StarRatingComponent
+              name="rate1"
+              starCount={3}
+              value={x.anglais}
+              emptyStarColor={`#C4C4C4`}
+            />
+          </div>
+          <div className='mission-card'>
+            <p>Allemand</p>
+            <StarRatingComponent
+              name="rate1"
+              starCount={3}
+              value={x.allemand}
+              emptyStarColor={`#C4C4C4`}
+            />
+          </div>
+          <div className='mission-card'>
+            <p>Russe</p>
+            <StarRatingComponent
+              name="rate1"
+              starCount={3}
+              value={x.russe}
+              emptyStarColor={`#C4C4C4`}
+            />
+          </div>
+          <div className='mission-card'>
+            <p>Italien</p>
+            <StarRatingComponent
+              name="rate1"
+              starCount={3}
+              value={x.italien}
+              emptyStarColor={`#C4C4C4`}
+            />
+          </div>
+          <div className='mission-card'>
+            <p>Chinois</p>
+            <StarRatingComponent
+              name="rate1"
+              starCount={3}
+              value={x.chinois}
+              emptyStarColor={`#C4C4C4`}
+            />
+          </div>
+          <div className='mission-card'>
+            <p>Arabe</p>
+            <StarRatingComponent
+              name="rate1"
+              starCount={3}
+              value={x.arabe}
+              emptyStarColor={`#C4C4C4`}
+            />
+          </div>
+          <div className='mission-card'>
+            <p>Autres langues : {x.autres_langue}</p>
+
+          </div>
+        </div>
+      )}
+
+    </div>
+</div >
 )
 }
 

@@ -7,6 +7,8 @@ import Slide1 from './Slide1'
 import Slide2 from './Slide2'
 import Slide3 from './Slide3'
 import Slide4 from './Slide4'
+import Slide5 from './Slide5'
+
 import './CompetencesFreelancer.css'
 
 const CompetencesFreelancer = (props) => {
@@ -45,6 +47,7 @@ const CompetencesFreelancer = (props) => {
                 <Slide2 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])} />
                 <Slide3 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])} />
                 <Slide4 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])} />
+                <Slide5 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])}/>
             </Slider>
             <Link to={`/neoworker/editer/:id`}>
                 <Button className='btn'>Editer</Button>
