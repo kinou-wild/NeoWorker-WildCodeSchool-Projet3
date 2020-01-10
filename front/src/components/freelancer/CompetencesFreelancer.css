@@ -87,5 +87,8 @@ Button.btn, Button.btn:hover {
 z-index: 5;
 }
 
-
+.cards {
+    width: 100%;
+    
+}
 

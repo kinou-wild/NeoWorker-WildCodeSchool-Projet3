@@ -20,15 +20,15 @@ const Slide3 = (props) => {
                     <div className='cards'>
                         <div className='mission-card'>
                             <p>Sport</p>
-                            <input type="textaera" name="text" id="autres_skills" value={x.autres_softskill} />
+                            <input type="textarea" name="text" id="sport" value={x.sport} />
                         </div>
                         <div className='mission-card'>
                             <p>Passion</p>
-                            <input type="textaera" name="text" id="autres_skills" value={x.autres_softskill} />
+                            <input type="textaera" name="text" id="passion" value={x.passion} />
                         </div>
                         <div className='mission-card'>
                             <p>Engagement Associatif</p>
-                            <input type="textaera" name="text" id="autres_skills" value={x.autres_softskill} />
+                            <input type="textaera" name="text" id="engagement_asso" value={x.engagement_asso} />
                         </div>
                         <div className='mission-card'>
                             <p>Autres skills</p>
