@@ -266,8 +266,8 @@ const CreationNeoWorkerPage = (props) => {
 
     //crea d'un id free random
     const randomIdFree = () => {
-        const id = Math.floor(Math.random() * 1000000)
-        if (idFree.filter(id => id.id !== id)) {
+        const idd = Math.floor(Math.random() * 1000000)
+        if (idFree.filter(id => id.id !== idd)) { /////////////////////////vérif si marche /////
             return id
         } else {
             randomIdFree()

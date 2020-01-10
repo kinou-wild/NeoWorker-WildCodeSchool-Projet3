@@ -102,6 +102,8 @@ const EditHomePageFreelancer = (props) => {
       })
     }
     props.history.push('/neoworker/homepage')
+    window.location.reload();
+
   }
 
 
