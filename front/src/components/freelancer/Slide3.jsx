@@ -29,8 +29,7 @@ const Slide3 = (props) => {
                             <input type="textaera" name="text" id="autres_skills" value={x.autres_softskill} />
                         </div>
                     </div>
-                )
-                }
+                )}
             </div>
         </div>
     )
