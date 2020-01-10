@@ -6,7 +6,7 @@ const Slide5 = (props) => {
   const data = props.data
 
 return(
-    < div >
+    <div>
     <h2 className='competences-title'>Langues</h2>
     <div className='competences'>
       {data.map(x =>

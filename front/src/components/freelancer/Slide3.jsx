@@ -1,36 +1,76 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useState,useEffect} from 'react'
+import axios from 'axios'
 
 
 const Slide3 = (props) => {
-   
-    const data = props.data
+    let data = {
+        sport:'',
+        passion:'',
+        engagement_asso:''
+    }
+    if (props.data[0])  {
 
+        data = props.data[0]
+    }
+    const [updata,setUpdate]=useState({
+        sport:'',
+        passion:'',
+        engagement_asso:''})
+
+const dataChoice = (choice) => {
+const allData = Object.entries(choice)
+    let value = {}
+allData.map( x => {
+    if(x[1]){
+        let u = x[0]
+        let i = x[1]
+        value={...value, [u]:i}
+    }
+
+}
+    
+)
+return value
+}    
+    const updaterData=()=>{
+        axios.put(`http://localhost:5000/freelancer/${data.id}`, dataChoice(updata))  
+        .catch(err=>console.log(err))
+    }
     return (
 
         <div>
             <h2 className='competences-title'>Centre d'interet</h2>
             <div className='competences'>
-                {data.map(x =>
-                    <div className='cards'>
+        
+                    <form className='cards' onSubmit={updaterData}>
                         <div className='mission-card'>
-                            <p>Sport</p>
-                            <input type="textarea" name="text" id="sport" value={x.sport} />
+                            <label>
+                                Sport :
+                            <input type="text" name="text" id="sport" placeholder={data.sport} 
+                            value={updata.sport} 
+                            onChange={(e)=>{setUpdate({...updata, sport:e.target.value})}}/>
+                            </label>
                         </div>
                         <div className='mission-card'>
-                            <p>Passion</p>
-                            <input type="textaera" name="text" id="passion" value={x.passion} />
+                            <label>
+                                Passion :
+                            <input type="text" name="text" id="passion" placeholder={data.passion} 
+                            value={updata.passion}
+                            onChange={(e)=>{setUpdate({...updata,passion:e.target.value})}}/>
+                            </label>
                         </div>
                         <div className='mission-card'>
-                            <p>Engagement Associatif</p>
-                            <input type="textaera" name="text" id="engagement_asso" value={x.engagement_asso} />
+                            <label>
+                                Engagement Associatif :
+                            <input type="text" name="text" id="engagement_asso" placeholder={data.engagement_asso} 
+                            value={updata.engagement_asso}
+                            onChange={(e)=>{setUpdate({...updata,engagement_asso:e.target.value})}} />
+                            </label>
                         </div>
-                        <div className='mission-card'>
-                            <p>Autres skills</p>
-                            <input type="textaera" name="text" id="autres_skills" value={x.autres_softskill} />
-                        </div>
-                    </div>
-                )
-                }
+                        
+                        <button type='submit'>Modifier</button>
+                    </form>
+                
             </div>
         </div>
     )
