@@ -2,6 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const freelancer = sequelize.define('freelancer', {
     img: DataTypes.STRING,
+    status: DataTypes.INTEGER,
     title: DataTypes.STRING,
     firstname: DataTypes.STRING,
     lastname: DataTypes.STRING,
