@@ -4,27 +4,6 @@
   flex-direction: row;
 }
 
-.neoworker-div{
-  padding: 200px;
-  width: 80%;
-  height: 100%;
-  float: right;
-  padding-left: 100px;
-}
-.neoworker-h2{
-  text-align: left;
-  font-size: 56px;
-  font-weight: bold;
-  margin: 0px 3%;
-  color: #000099
-}
-
-.neoworker-card-div{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
 .neoworkerCard {
     display: flex;
     align-items: center;
