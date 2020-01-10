@@ -69,12 +69,6 @@
   top: 222px;
 }
 
-.neoworkerCard-content {
-  flex-grow: 1;
-  padding: 0 24px;
-  width: 80%
-}
-
 .neoworkerCard-h1 {
   font-size: 30px;
   font-weight: bold;
