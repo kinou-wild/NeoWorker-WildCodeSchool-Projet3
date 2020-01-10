@@ -338,7 +338,7 @@ const MissionCreateAdmin = (props) => {
                                     name="cp"
                                     value={createm.cp}
                                     type="number"
-                                    max={9999}
+                                    max={99999}
                                     onChange={(e) => { setCreatem({ ...createm, cp: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup>

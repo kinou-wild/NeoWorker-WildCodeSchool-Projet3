@@ -86,3 +86,9 @@ Button.btn, Button.btn:hover {
 .slick-prev, .slick-prev:before {
 z-index: 5;
 }
+
+.cards {
+    width: 100%;
+    
+}
+

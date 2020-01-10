@@ -1,84 +1,175 @@
 import React, { useContext, useEffect, useState } from 'react'
-
-const Slide2 = () => {
-        //hooks de la data freelancer pour get un id
-        const [idFree, setIdFree] = useState([])
-
-        //hooks de la data user pour le get de l'id
-        const [idUser, setIdUser] = useState([])
+import StarRatingComponent from 'react-star-rating-component';
 
 
+const Slide2 = (props) => {
+    //hooks de la data freelancer pour get un id
+    const [idFree, setIdFree] = useState([])
 
-return(
-<div>
-<h2 className='competences-title'>Soft Skills</h2>
-<div className='competences'>
-    <div className='competences-card'>
-        <p>reso_pb</p>
-        <p>{String(idFree.reso_pb)}</p>
-    </div>
-    <div className='competences-card'>                            
-        <p>confiance</p>
-        <p>{String(idFree.confiance)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>empathie</p>
-        <p>{String(idFree.empathie)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>intelpgence_emo</p>
-        <p>{String(idFree.intelpgence_emo)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>communication</p>
-        <p>{String(idFree.communication)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>gestion_temps</p>
-        <p>{String(idFree.gestion_temps)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>gestion_stress</p>
-        <p>{String(idFree.gestion_stress)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>creativite</p>
-        <p>{String(idFree.creativite)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>esprit_entre</p>
-        <p>{String(idFree.esprit_entre)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>audace</p>
-        <p>{String(idFree.audace)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>vision_visu</p>
-        <p>{String(idFree.vision_visu)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>motivation</p>
-        <p>{String(idFree.motivation)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>presence</p>
-        <p>{String(idFree.presence)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>sens_collectif</p>
-        <p>{String(idFree.sens_collectif)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>curiosite</p>
-        <p>{String(idFree.curiosite)}</p>
-    </div>
-    <div className='competences-card'>
-        <p>sens_effort</p>
-        <p>{String(idFree.sens_effort)}</p>
-    </div>
-</div>
-</div>
-)}
+    //hooks de la data user pour le get de l'id
+    const [idUser, setIdUser] = useState([])
+
+    const data = props.data
+
+    return (
+
+        <div>
+            <h2 className='competences-title'>Soft Skills</h2>
+            <div className='competences'>
+                {data.map(x =>
+                    <div className='cards'>
+                        <div className='competences-card'>
+                            <p>Résolution de problèmes</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.reso_pb}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='competences-card'>
+                            <p>Confiance</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.confiance}
+                                emptyStarColor={`#C4C4C4`} />
+                        </div>
+                        <div className='competences-card'>
+                            <p>Empathie</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.empathie}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+
+                        <div className='competences-card'>
+                            <p>Intelligence Emotionnelle</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.intelligence_emo}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='competences-card'>
+                            <p>Communication</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.communication}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='competences-card'>
+                            <p>Gestion du temps</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.gestion_temps}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='competences-card'>
+                            <p>Gestion du stress</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.gestion_stress}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='competences-card'>
+                            <p>Créativité</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.creativite}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='competences-card'>
+                            <p>Esprit d'entreprise </p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.esprit_entre}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='competences-card'>
+                            <p>Audace</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.audace}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='competences-card'>
+                            <p>Vision</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.vision_visu}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='competences-card'>
+                            <p>Motivation</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.motivation}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='competences-card'>
+                            <p>Présence </p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.presence}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='competences-card'>
+                            <p>Sens collectif</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.sens_collectif}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='competences-card'>
+                            <p>Curiosité</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.curiosite}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='competences-card'>
+                            <p>Sens de l'effort </p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={x.sens_effort}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                    </div>
+                )
+                }
+            </div>
+        </div >
+    )
+}
+
 
 export default Slide2
+
