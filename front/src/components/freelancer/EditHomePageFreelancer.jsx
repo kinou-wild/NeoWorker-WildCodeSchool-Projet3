@@ -132,7 +132,6 @@ const EditHomePageFreelancer = (props) => {
   }
 
 
-
   return (
     <div className="main-div">
       <div className='profil-card'>
