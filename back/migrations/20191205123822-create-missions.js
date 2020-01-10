@@ -203,30 +203,211 @@ module.exports = {
       autres_softskill: {
         type: Sequelize.STRING
       },
-      gestion_admin_compta: {
-        type: Sequelize.INTEGER
+      assistance_suivi_comptable: {
+        type: Sequelize.BOOLEAN
       },
-      gestion_op: {
-        type: Sequelize.INTEGER
-      },
-      gestion_commerciale: {
-        type: Sequelize.INTEGER
-      },
-      marketing_com_digit: {
-        type: Sequelize.INTEGER
-      },
-      gestion_fi_controle_gestion: {
-        type: Sequelize.INTEGER
-      },
-      dsi: {
-        type: Sequelize.INTEGER
-      },
-      gestion_rh_juridique: {
-        type: Sequelize.INTEGER
-      },
-      gestion_rel_client: {
-        type: Sequelize.INTEGER
-      },
+    relation_accountant: {
+      type: Sequelize.BOOLEAN
+    },
+    customer_recovery: {
+      type: Sequelize.BOOLEAN
+    },
+    payroll_preparation: {
+      type: Sequelize.BOOLEAN
+    },
+    assembly_approval_file: {
+      type: Sequelize.BOOLEAN
+    },
+    referencing_training_organization:{
+      type: Sequelize.BOOLEAN
+    },
+    use_business_software:{
+      type: Sequelize.BOOLEAN
+    },
+    internal_procedure: {
+      type: Sequelize.BOOLEAN
+    },
+    database: {
+      type: Sequelize.BOOLEAN
+    },
+    gestion_achat: {
+      type: Sequelize.BOOLEAN
+    },
+    administrative_file_management: {
+      type: Sequelize.BOOLEAN
+    },
+    management_assistantship: {
+      type: Sequelize.BOOLEAN
+    },
+    secretariat_and_maintenance_agenda: {
+      type: Sequelize.BOOLEAN
+    },
+    filing_documents: {
+      type: Sequelize.BOOLEAN
+    },
+    commercial_strategy_and_sales_pitch: {
+      type: Sequelize.BOOLEAN
+    },
+    management_of_commercial_activity: {
+      type: Sequelize.BOOLEAN
+    },
+    prospecting_outbound_sales: {
+      type: Sequelize.BOOLEAN
+    },
+    response_to_pulic_and_private_tenders: {
+      type: Sequelize.BOOLEAN
+    },
+    sales_administration: {
+      type: Sequelize.BOOLEAN
+    },
+    stock_management: {
+      type: Sequelize.BOOLEAN
+    },
+    business_data_crm: {
+      type: Sequelize.BOOLEAN
+    },
+    order_data_entry: {
+      type: Sequelize.BOOLEAN
+    },
+    quote_management: {
+      type: Sequelize.BOOLEAN
+    },
+    billing: {
+      type: Sequelize.BOOLEAN
+    },
+    claims_management: {
+      type: Sequelize.BOOLEAN
+    },
+    marketing_strategy_and_operational_monitoring: {
+      type: Sequelize.BOOLEAN
+    },
+    marketing_study: {
+      type: Sequelize.BOOLEAN
+    },
+    implementation_of_inbound_marketing_strategy: {
+      type: Sequelize.BOOLEAN
+    },
+    outbound_marketing: {
+      type: Sequelize.BOOLEAN
+    },
+    communication_strategy: {
+      type: Sequelize.BOOLEAN
+    },
+    outsourced_project_manager: {
+      type: Sequelize.BOOLEAN
+    },
+    creation_and_graphics: {
+      type: Sequelize.BOOLEAN
+    },
+    ux_design: {
+      type: Sequelize.BOOLEAN
+    },
+    ui_design_computer_graphics: {
+      type: Sequelize.BOOLEAN
+    },
+    redaction_design: {
+      type: Sequelize.BOOLEAN
+    },
+    seo_optimization: {
+      type: Sequelize.BOOLEAN
+    },
+    website_creation: {
+      type: Sequelize.BOOLEAN
+    },
+    community_management: {
+      type: Sequelize.BOOLEAN
+    },
+    press_relation: {
+      type: Sequelize.BOOLEAN
+    },
+    event: {
+      type: Sequelize.BOOLEAN
+    },
+    partnership_distribution_network_and_business_contribution: {
+      type: Sequelize.BOOLEAN
+    },
+    translation_work: {
+      type: Sequelize.BOOLEAN
+    },
+    administrative_and_financial_management: {
+      type: Sequelize.BOOLEAN
+    },
+    financing_grant_application: {
+      type: Sequelize.BOOLEAN
+    },
+    management_control: {
+      type: Sequelize.BOOLEAN
+    },
+    dashboard_and_financial_management: {
+      type: Sequelize.BOOLEAN
+    },
+    business_pland_and_provisional_budget: {
+      type: Sequelize.BOOLEAN
+    },
+    transfer_aid_and_buyout_of_business: {
+      type: Sequelize.BOOLEAN
+    },
+    outsourced_information_system_management: {
+      type: Sequelize.BOOLEAN
+    },
+    schema_directeur_si: {
+      type: Sequelize.BOOLEAN
+    },
+    functional_architecture: {
+      type: Sequelize.BOOLEAN
+    },
+    infra_reseau: {
+      type: Sequelize.BOOLEAN
+    },
+    outsourced_hr_department: {
+      type: Sequelize.BOOLEAN
+    },
+    plannings_management: {
+      type: Sequelize.BOOLEAN
+    },
+    payroll_tracking: {
+      type: Sequelize.BOOLEAN
+    },
+    establishment_of_contracts_end_of_contracts: {
+      type: Sequelize.BOOLEAN
+    },
+    suivi_mutuelle_medecine_du_travail: {
+      type: Sequelize.BOOLEAN
+    },
+    conflict_management: {
+      type: Sequelize.BOOLEAN
+    },
+    assembly_and_monitoring_litigation_files: {
+      type: Sequelize.BOOLEAN
+    },
+    harmonization_of_contracts: {
+      type: Sequelize.BOOLEAN
+    },
+    RGPD_compliation: {
+      type: Sequelize.BOOLEAN
+    },
+    harmonization_salary_scales: {
+      type: Sequelize.BOOLEAN
+    },
+    provisional_management_of_jobs_and_skill: {
+      type: Sequelize.BOOLEAN
+    },
+    recruitment_and_integration: {
+      type: Sequelize.BOOLEAN
+    },
+    suivi_des_grands_comptes: {
+      type: Sequelize.BOOLEAN
+    },
+    additional_sales: {
+      type: Sequelize.BOOLEAN
+    },
+    measure_of_customers_satisfaction: {
+      type: Sequelize.BOOLEAN
+    },
+    after_sales_service: {
+      type: Sequelize.BOOLEAN
+    },
+
       francais: {
         type: Sequelize.INTEGER
       },
