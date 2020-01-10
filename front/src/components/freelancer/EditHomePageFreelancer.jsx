@@ -90,7 +90,7 @@ const EditHomePageFreelancer = (props) => {
     e.preventDefault()
 
     if (updateUser.password.length == 60) {
-      axios.put(`http://localhost:5000/user/${paramsIdUser}`, { ...updateUser })
+      axios.put(`http://localhost:5000/user/${paramsIdUser}`, updateUser)
         .catch(err => console.log(err))
     } else {
       bcrypt.genSalt(10, function (err, salt) {
