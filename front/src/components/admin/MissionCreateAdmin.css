@@ -110,3 +110,8 @@ select#km_max.form-control {
 input, textarea {
     font-weight: 600!important;
 }
+
+p.made{
+    color: #000099;
+font-weight: bold;
+}
