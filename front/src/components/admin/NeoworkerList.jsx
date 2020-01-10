@@ -21,7 +21,7 @@ const NeoworkerList = () => {
     //hooks to update a freelancer
     const [updateNeoworker, setUpdateNeoworker] = useState([])
 
-    //function to update a freelancer
+    //function to update a freelancer/////////////////////////////////////////pas encore utilisé ??
     const update = (e, id) => {
         e.preventDefault()
         axios.put(`http://localhost:5000/freelancers/${id}`)

@@ -7,16 +7,15 @@ import {login} from '../UserFunctions'
 
 const LandingAdmin = (props) => {
 
+//hooks qui permet de ce login si email et password deja dans la bdd grace au register
   const [loginHooks, setLoginHooks] = useState({
     email: '',
     password: '',
     errors: {}
   })
   
-    // créé et modifié le champ Email et Password
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
   
+    /////////////////////////////////////////////////////////////////fonction qui sert à rien demander aux potos surtout le nerveux qui boit beaucoup de pastis
     function handleSubmit(event) {
       event.preventDefault();
     }
