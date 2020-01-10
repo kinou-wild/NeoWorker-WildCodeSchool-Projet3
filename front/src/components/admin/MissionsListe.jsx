@@ -3,7 +3,7 @@ import axios from 'axios'
 import MissionDisplayer from "./MissionsListeCard"
 import SearchBarMission from '../searchbar/SearchBarMissions'
 import profilPic from '../../img/anais.jpg'
-import './MissionsListe.css'
+import './ListeNeoworker&Mission.css'
 
 const MissionsListe = () => {
 

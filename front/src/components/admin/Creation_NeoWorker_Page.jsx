@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Form, FormGroup, InputGroupText, Input, Button, Label } from 'reactstrap';
-import './Creation_NeoWorker_Page.css'
+import './FormulaireCreationMission&Neoworker.css'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
 import { register } from '../UserFunctions'
@@ -966,7 +966,7 @@ const CreationNeoWorkerPage = (props) => {
 
 
                     <h2 className='mission-title'>Famille de prestations</h2>
-                    <div className="fifth-div-creation-neoworker">
+                    <div>
 
                         {/*<select
                         className="famille-prestation-select" type="select" name="famille-prestation" id='famille-prestation'
