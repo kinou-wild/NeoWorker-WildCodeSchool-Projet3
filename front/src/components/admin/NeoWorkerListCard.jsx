@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 const NeoworkerListCard = ({list}) => {
 return(
     <div className='neoworkerCard'>
-        <img></img>
+        <img>img</img>
         <div className='neoworkerCard-content'>
             <h1 className='neoworkerCard-h1'>{list.firstname} {list.lastname}</h1>
             <p className='neoworkerCard-p'>{list.tel}</p>
