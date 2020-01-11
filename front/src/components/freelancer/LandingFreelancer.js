@@ -54,7 +54,7 @@ const LandingUser = (props) => {
         <img className='logoLanding' src = {logo} alt='logo' />
           <div className='landingText'>
             <h1 className='landingH1'>Bienvenue dans l’espace <span className='textModif'>Freelance</span> NeoWorker<span className='textModif'>.</span></h1>
-              <h2 className='landingH2'>Connectez-vous pour gérer votre profil et vos disponibilitées.</h2>
+              <h2 className='landingH2'>Connectez-vous pour gérer votre profil et vos disponibilités.</h2>
           </div>
           <div className='connectingForm'>
             <Form onSubmit={onSubmit}>

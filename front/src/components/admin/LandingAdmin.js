@@ -43,7 +43,7 @@ const LandingAdmin = (props) => {
         <img className='logoLanding' src = {logo} alt='logo' />
           <div className='landingText'>
             <h1 className='landingH1'>Bienvenue dans l’espace <span className='textModif'>Admin</span> NeoWorker<span className='textModif'>.</span></h1>
-              <h2 className='landingH2'>Connectez-vous pour gérer les NeoWorkers et leurs activité.</h2>
+              <h2 className='landingH2'>Connectez-vous pour gérer les NeoWorkers et leurs activités.</h2>
           </div>
           <div className='connectingForm'>
             <Form onSubmit={onSubmit}>

@@ -6,10 +6,13 @@ import profilPic from '../../img/anais.jpg'
 
 const SeeMission = (props) => {
 
+    //recup les props du parent 
     const params = props.match.params
 
+    //hooks pour get mission comme son nom l'indique 
     const [getMission, setGetMission] = useState([])
 
+    //hooks pour update une mission
     const [updateMission, setUpdateMission] = useState({
 
         nom_mission: "",
@@ -87,6 +90,7 @@ const SeeMission = (props) => {
         autres_langue: ""
     })
 
+    //hooks pour refresh le getDataMission si
     useEffect(() => { getDataMission() }, [])
 
     const getDataMission = () => {

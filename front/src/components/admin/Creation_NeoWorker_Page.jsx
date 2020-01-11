@@ -268,7 +268,7 @@ const CreationNeoWorkerPage = (props) => {
     const randomIdFree = () => {
         const idd = Math.floor(Math.random() * 1000000)
         if (idFree.filter(id => id.id !== idd)) { /////////////////////////vérif si marche /////
-            return id
+            return idd
         } else {
             randomIdFree()
         }
@@ -341,7 +341,7 @@ const CreationNeoWorkerPage = (props) => {
                 <p className='name-card'> Anais</p>
                 <img className='pic-card' src={profilPic} alt='profil picture' />
             </div>
-            <h1 className='admin-h1'>Creation d'un NeoWorker<span className='textModif'>:</span></h1>
+            <h1 className='admin-h1'>Création d'un NeoWorker<span className='textModif'>:</span></h1>
             <div className='body'>
                 <Form className="formulaire-creation-neoworker" onSubmit={onSubmit} >
                     <FormGroup>
