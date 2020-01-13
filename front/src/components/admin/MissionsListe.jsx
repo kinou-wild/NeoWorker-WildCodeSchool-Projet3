@@ -7,6 +7,8 @@ import './ListeNeoworker&Mission.css'
 
 const MissionsListe = () => {
 
+
+    // 3hooks pour classer les missions : à pourvoir, pourvue, terminée
     const [missionsAPourvoir, setMissionsAPourvoir] = useState([])
     const [missionsPourvues, setMissionsPourvues] = useState([])
     const [missionsTerminees, setMissionsTerminees] = useState([])
@@ -17,7 +19,7 @@ const MissionsListe = () => {
         nom: ''
     });
 
-    // get all misions
+    // get  dans la bdd all misions 
     const getMissions = async () => {
         await axios.get('http://localhost:5000/missions?status=0')
             .then(response => setMissionsAPourvoir(response.data))
@@ -30,10 +32,13 @@ const MissionsListe = () => {
             .catch((err) => console.log(err))
     }
 
+    //permet de refresh le get mission si un truc change sur la page 
     useEffect(() => {
         getMissions()
     }, [])
 
+
+    ////////////////////////////////////////////////////////////////////////////////Attention c'est pas dans le component searchBar woulah ?
     const search = [...missionsAPourvoir, ...missionsPourvues, ...missionsTerminees]
     useEffect(() => {
 

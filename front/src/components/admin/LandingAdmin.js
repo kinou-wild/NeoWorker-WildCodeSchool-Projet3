@@ -7,16 +7,15 @@ import {login} from '../UserFunctions'
 
 const LandingAdmin = (props) => {
 
+//hooks qui permet de ce login si email et password deja dans la bdd grace au register
   const [loginHooks, setLoginHooks] = useState({
     email: '',
     password: '',
     errors: {}
   })
   
-    // créé et modifié le champ Email et Password
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
   
+    /////////////////////////////////////////////////////////////////fonction qui sert à rien demander aux potos surtout le nerveux qui boit beaucoup de pastis
     function handleSubmit(event) {
       event.preventDefault();
     }
@@ -44,7 +43,7 @@ const LandingAdmin = (props) => {
         <img className='logoLanding' src = {logo} alt='logo' />
           <div className='landingText'>
             <h1 className='landingH1'>Bienvenue dans l’espace <span className='textModif'>Admin</span> NeoWorker<span className='textModif'>.</span></h1>
-              <h2 className='landingH2'>Connectez-vous pour gérer les NeoWorkers et leurs activité.</h2>
+              <h2 className='landingH2'>Connectez-vous pour gérer les NeoWorkers et leurs activités.</h2>
           </div>
           <div className='connectingForm'>
             <Form onSubmit={onSubmit}>

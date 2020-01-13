@@ -235,7 +235,7 @@ const MissionCreateAdmin = (props) => {
                 <p className='name-card'> Anais</p>
                 <img className='pic-card' src={profilPic} alt='profil picture' />
             </div>
-            <h1 className='admin-h1'>Creation d'une mission NeoWorker <span className='textModif'>:</span></h1>
+            <h1 className='admin-h1'>Création d'une mission NeoWorker <span className='textModif'>:</span></h1>
             <div className='body'>
                 <Form onSubmit={createMissions}>
                     <FormGroup>

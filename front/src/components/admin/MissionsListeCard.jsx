@@ -6,6 +6,7 @@ import './ListeNeoworker&Mission.css'
 
 const MissionsListeCard = (mission) => {
 
+    //permet de delete une card dans la bdd 
     const deleteCard = (id) => {
         axios.delete(`http://localhost:5000/mission/${id}`)
             .catch((err) => console.log(err))

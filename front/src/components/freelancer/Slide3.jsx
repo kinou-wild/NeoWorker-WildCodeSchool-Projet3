@@ -39,7 +39,7 @@ return value
     return (
 
         <div>
-            <h2 className='competences-title'>Centre d'interet</h2>
+            <h2 className='competences-title'>Centres d'intérêt</h2>
             <div className='competences'>
         
                     <form className='cards' onSubmit={updaterData}>
