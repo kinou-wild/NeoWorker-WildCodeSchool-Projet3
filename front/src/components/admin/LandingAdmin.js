@@ -14,7 +14,7 @@ const LandingAdmin = (props) => {
   })
   
   
-    /////////////////////////////////////////////////////////////////fonction qui sert à rien demander aux potos surtout le nerveux qui boit beaucoup de pastis
+//fonction qui sert à rien demander aux potos surtout le nerveux qui boit beaucoup de pastis
     function handleSubmit(event) {
       event.preventDefault();
     }
