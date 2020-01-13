@@ -162,6 +162,10 @@ const Slide2 = (props) => {
                                 emptyStarColor={`#C4C4C4`}
                             />
                         </div>
+                        <div className='competences-card'>
+                            <p>Autres skills</p>
+                            <nput type="textaera" name="text" id="autres_skills" value={x.autres_softskill} />
+                        </div>
                     </div>
                 )
                 }

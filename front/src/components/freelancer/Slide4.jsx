@@ -7,7 +7,6 @@ const Slide4 = (props) => {
     const data = props.data
     const [prestation, setPrestation] = useState("")
 
-////////////////////METTRE BON CHAMPS DANS LE POINT MAP/////////////////////
 
 return(
 
@@ -41,7 +40,7 @@ return(
                         <div className="prestation-checkbox-div" style={prestation === 'Gestion administrative et comptable' ? { display: "flex" } : { display: "none" }}>
                             <div className="checkbox-and-content">
                                 <input type="checkbox" className="checkbox" id="Option 1" name="Option 1" checked={x.assistance_suivi_comptable?"checked":""} />
-                                <label className="label-prestation" for="Option 1">Assistance et suivi comptable (note de frais, suivi des règlements et de la trésorerie, ...)</label></div>
+                                <label className="label-prestation" for="Option 1">Assistance et suivi comptable note de frais, suivi des règlements et de la trésorerie, ...</label></div>
                             <div className="checkbox-and-content">
                                 <input type="checkbox" className="checkbox" id="Option 2" name="Option 2" checked={x.relation_accountant? "checked" : ""} />
                                 <label className="label-prestation" for="Option 2">Relation avec le cabinet d'expertise comptable</label></div>
