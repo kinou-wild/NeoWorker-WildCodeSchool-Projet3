@@ -163,3 +163,16 @@ p.name-card {
   padding-top: 15px;
   font-weight: bold;
 }
+
+/* ------------------------ Commun ----------------- */
+
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+  color:#000099;
+  margin-right: 0.5em;
+  opacity: 0.7;
+}
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+  content: "";
+}
