@@ -45,7 +45,7 @@ const Router = () => {
             <Switch>
                 <Route exact path="/"
                     component={
-                        profileHooks.role === ''
+                        profileHooks.role === '' 
                             ? AdminFreelancerChoose : localStorage.usertoken
                                 && profileHooks.role === 'admin'
                                 ? HomePageAdmin : localStorage.usertoken
