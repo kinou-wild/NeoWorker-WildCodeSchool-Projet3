@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import StarRatingComponent from 'react-star-rating-component';
+import StarRatingComponent from 'react-star-ratinh-component';
 import { Form, FormGroup, InputGroupText, Input, Button, Label } from 'reactstrap';
 import {Link} from 'react-router-dom'
 
@@ -252,7 +252,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.in_design}
+                                value={neoworker..in_design}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -261,7 +261,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.photoshop}
+                                value={neoworker..photoshop}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -270,7 +270,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.marketing_fb}
+                                value={neoworker..marketing_fb}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -279,7 +279,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.google_adwards}
+                                value={neoworker..google_adwards}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -288,7 +288,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.insta}
+                                value={neoworker..insta}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -297,7 +297,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.reseaux_sociaux}
+                                value={neoworker..reseaux_sociaux}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -306,7 +306,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.keynote}
+                                value={neoworker..keynote}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -315,7 +315,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.pages}
+                                value={neoworker..pages}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -324,7 +324,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.gsuite_google}
+                                value={neoworker..gsuite_google}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -333,7 +333,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.numbers}
+                                value={neoworker..numbers}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -342,7 +342,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.erp_sap}
+                                value={neoworker..erp_sap}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -351,7 +351,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.ciel_gestion}
+                                value={neoworker..ciel_gestion}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -360,7 +360,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.cegid}
+                                value={neoworker..cegid}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -369,7 +369,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.sage_gestion_commercial}
+                                value={neoworker..sage_gestion_commercial}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -378,7 +378,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.sage_comptabilite}
+                                value={neoworker..sage_comptabilite}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -387,7 +387,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.quadra}
+                                value={neoworker..quadra}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -399,7 +399,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.reso_pb}
+                                value={neoworker..reso_pb}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -408,7 +408,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.confiance}
+                                value={neoworker..confiance}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -417,7 +417,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.empathie}
+                                value={neoworker..empathie}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -426,7 +426,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.intelligence_emo}
+                                value={neoworker..intelligence_emo}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -435,7 +435,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.communication}
+                                value={neoworker..communication}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -444,7 +444,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.gestion_temps}
+                                value={neoworker..gestion_temps}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -453,7 +453,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.gestion_stress}
+                                value={neoworker..gestion_stress}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -462,7 +462,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.creativite}
+                                value={neoworker..creativite}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -471,7 +471,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.esprit_entre}
+                                value={neoworker..esprit_entre}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -480,7 +480,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.audace}
+                                value={neoworker..audace}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -489,7 +489,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.vision_visu}
+                                value={neoworker..vision_visu}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -498,7 +498,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.motivation}
+                                value={neoworker..motivation}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -507,7 +507,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.presence}
+                                value={neoworker..presence}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -516,7 +516,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.sens_collectif}
+                                value={neoworker..sens_collectif}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -525,7 +525,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.curiosite}
+                                value={neoworker..curiosite}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -534,7 +534,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.sens_effort}
+                                value={neoworker..sens_effort}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -550,7 +550,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.francais}
+                                value={neoworker..francais}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -559,7 +559,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.anglais}
+                                value={neoworker..anglais}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -568,7 +568,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.espagnol}
+                                value={neoworker..espagnol}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -577,7 +577,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.allemand}
+                                value={neoworker..allemand}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -586,7 +586,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.russe}
+                                value={neoworker..russe}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -595,7 +595,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.italien}
+                                value={neoworker..italien}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -604,7 +604,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.chinois}
+                                value={neoworker..chinois}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -613,7 +613,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.arabe}
+                                value={neoworker..arabe}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -648,7 +648,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion administrative et comptable</p>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 1" name="Option 1" value={neoworker.assistance_suivi_comptable}/>
+                                <input type="checkbox" className="checkbox" id="Option 1" name="Option 1" />
                                 <label className="label-prestation" for="Option 1">Assistance et suivi comptable (note de frais, suivi des règlements et de la trésorerie, ...)</label></div>
                             <div className="checkbox-and-content">
                                 <input type="checkbox" className="checkbox" id="Option 2" name="Option 2" />
@@ -822,13 +822,13 @@ const OneNeoworkerCard = ({neoworker}) => {
                         </div>
                     </div>
                     
-                    <Button className='button-card' type='submit'>modifier</Button>
+                    <Button className='btn' type='submit'>modifier</Button>
                 </Form>
             </div>
             </div>
             
             <Link to='/admin/neoworker/liste'>
-                <button className='button-card'>back to list</button>
+                <button>back to list</button>
             </Link>
         </div>
     )
