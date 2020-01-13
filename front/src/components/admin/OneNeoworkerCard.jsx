@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
-import { Form, FormGroup, InputGroupText, Input, Button, Label } from 'reactstrap';
+import { Form, FormGroup, Input, Button, Label } from 'reactstrap';
 import {Link} from 'react-router-dom'
 
 

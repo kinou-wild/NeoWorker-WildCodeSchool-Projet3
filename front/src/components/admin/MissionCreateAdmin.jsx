@@ -233,7 +233,7 @@ const MissionCreateAdmin = (props) => {
         <div className="admin-mission">
             <div className='profil-card'>
                 <p className='name-card'> Anais</p>
-                <img className='pic-card' src={profilPic} alt='profil picture' />
+                <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
             <h1 className='admin-h1'>Création d'une mission NeoWorker <span className='textModif'>:</span></h1>
             <div className='body'>
@@ -347,7 +347,7 @@ const MissionCreateAdmin = (props) => {
                                 onChange={(e) => {
                                     setCreatem({
                                         ...createm,
-                                        pref_lieu_de_travail: e.target.value == 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value == 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
+                                        pref_lieu_de_travail: e.target.value === 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value === 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
                                     })
                                 }}>
                                 <option hidden="true">-</option>
@@ -360,7 +360,7 @@ const MissionCreateAdmin = (props) => {
                             <Label>Profil <span className='textModif'>:</span></Label>
                             <Input type="select" name="type_profil" id='type_profil'
                                 value={createm.type_profil}
-                                onChange={(e) => { setCreatem({ ...createm, type_profil: e.target.value == 'Regular' ? 'Regular' : 'Expert' }) }}>
+                                onChange={(e) => { setCreatem({ ...createm, type_profil: e.target.value === 'Regular' ? 'Regular' : 'Expert' }) }}>
                                 <option hidden="true">-</option>
                                 <option>Regular</option>
                                 <option>Expert</option>
@@ -370,7 +370,7 @@ const MissionCreateAdmin = (props) => {
                             <Label>Fréquence <span className='textModif'>:</span></Label>
                             <Input type="select" name="frequence" id='frequence'
                                 value={createm.frequence}
-                                onChange={(e) => { setCreatem({ ...createm, frequence: e.target.value == 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
+                                onChange={(e) => { setCreatem({ ...createm, frequence: e.target.value === 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
                                 <option hidden="true">-</option>
                                 <option>Ponctuelle</option>
                                 <option>Récurrente</option>

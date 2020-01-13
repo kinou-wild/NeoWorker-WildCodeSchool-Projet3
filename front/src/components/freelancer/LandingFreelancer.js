@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Col, Form, FormGroup, Label, Input } from 'reactstrap'
 import logo from '../../img/LOGO_CLASSIQUE_FOND TRANSPARENT_520X272.png'
 import './LandingFreelancer.css'
-import {Link} from 'react-router-dom'
-import {
-  login
-} from '../UserFunctions'
+import {login} from '../UserFunctions'
 
 
 const LandingUser = (props) => {
@@ -15,21 +12,7 @@ const LandingUser = (props) => {
      password: '',
      errors: {}
    })
-  
-
-    // créé et modifié le champ Email et Password
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
-
-  
-    function handleSubmit(event) {
-      event.preventDefault();
-    }
-
-
-
-
+   
      //onSubmit pour se login
      const onSubmit = (e) => {
        e.preventDefault()
@@ -43,11 +26,7 @@ const LandingUser = (props) => {
          if (res !== 'user doesnt exist') {
           props.history.push(`/neoworker/homepage`)
           window.location.reload()
-
-         }
-
-       })
-     }
+         }})}
 
   return (
       <div className='landing'>

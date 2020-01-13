@@ -115,7 +115,7 @@ const UpdateDeleteMission = (props) => {
         <div className="admin-mission">
             <div className='profil-card'>
                 <p className='name-card'> Anais</p>
-                <img className='pic-card' src={profilPic} alt='profil picture' />
+                <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
             <h1 className='admin-h1'>Modification d'une mission NeoWorker <span className='textModif'>:</span></h1>
             <div className='body'>
@@ -215,7 +215,7 @@ const UpdateDeleteMission = (props) => {
                                 onChange={(e) => {
                                     setUpdateMission({
                                         ...updateMission,
-                                        pref_lieu_de_travail: e.target.value == 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value == 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
+                                        pref_lieu_de_travail: e.target.value === 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value === 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
                                     })
                                 }}>
                                 <option hidden={true}>-</option>
@@ -227,7 +227,7 @@ const UpdateDeleteMission = (props) => {
                         <FormGroup>
                             <Label>Profil <span className='textModif'>:</span></Label>
                             <Input type="select" name="type_profil" value={updateMission.type_profil}
-                                onChange={(e) => { setUpdateMission({ ...updateMission, type_profil: e.target.value == 'Regular' ? 'Regular' : 'Expert' }) }}>
+                                onChange={(e) => { setUpdateMission({ ...updateMission, type_profil: e.target.value === 'Regular' ? 'Regular' : 'Expert' }) }}>
                                 <option hidden={true}>-</option>
                                 <option>Regular</option>
                                 <option>Expert</option>
@@ -236,7 +236,7 @@ const UpdateDeleteMission = (props) => {
                         <FormGroup>
                             <Label>Fréquence <span className='textModif'>:</span></Label>
                             <Input type="select" name="frequence" value={updateMission.frequence}
-                                onChange={(e) => { setUpdateMission({ ...updateMission, frequence: e.target.value == 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
+                                onChange={(e) => { setUpdateMission({ ...updateMission, frequence: e.target.value === 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
                                 <option hidden={true}>-</option>
                                 <option>Ponctuelle</option>
                                 <option>Récurrente</option>

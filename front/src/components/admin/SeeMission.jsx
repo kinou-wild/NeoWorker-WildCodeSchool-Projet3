@@ -174,7 +174,7 @@ const SeeMission = (props) => {
         <div className="admin-mission">
             <div className='profil-card'>
                 <p className='name-card'> Anais</p>
-                <img className='pic-card' src={profilPic} alt='profil picture' />
+                <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
             <h1 className='admin-h1'>Voir la mission NeoWorker <span className='textModif'>:</span></h1>
             <div className='body'>
@@ -278,7 +278,7 @@ const SeeMission = (props) => {
                                 onChange={(e) => {
                                     setUpdateMission({
                                         ...updateMission,
-                                        pref_lieu_de_travail: e.target.value == 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value == 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
+                                        pref_lieu_de_travail: e.target.value === 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value === 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
                                     })
                                 }}>
                                 <option hidden="true">-</option>
@@ -291,7 +291,7 @@ const SeeMission = (props) => {
                             <Label>Profil <span className='textModif'>:</span></Label>
                             <Input disabled type="select" name="type_profil"
                                 value={getMission.type_profil}
-                                onChange={(e) => { setUpdateMission({ ...updateMission, type_profil: e.target.value == 'Regular' ? 'Regular' : 'Expert' }) }}>
+                                onChange={(e) => { setUpdateMission({ ...updateMission, type_profil: e.target.value === 'Regular' ? 'Regular' : 'Expert' }) }}>
                                 <option hidden="true">-</option>
                                 <option>Regular</option>
                                 <option>Expert</option>
@@ -301,7 +301,7 @@ const SeeMission = (props) => {
                             <Label>Fréquence <span className='textModif'>:</span></Label>
                             <Input disabled type="select" name="frequence"
                                 value={getMission.frequence}
-                                onChange={(e) => { setUpdateMission({ ...updateMission, frequence: e.target.value == 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
+                                onChange={(e) => { setUpdateMission({ ...updateMission, frequence: e.target.value === 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
                                 <option hidden="true">-</option>
                                 <option>Ponctuelle</option>
                                 <option>Récurrente</option>

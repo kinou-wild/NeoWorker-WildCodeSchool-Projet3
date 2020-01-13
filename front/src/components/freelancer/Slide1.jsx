@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React from 'react'
 import StarRatingComponent from 'react-star-rating-component';
 
 const Slide1 = (props) => {
