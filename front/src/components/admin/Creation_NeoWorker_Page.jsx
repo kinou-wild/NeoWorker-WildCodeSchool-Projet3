@@ -25,6 +25,7 @@ const CreationNeoWorkerPage = (props) => {
         id: '',
         img: "",
         title: "",
+        note:'',
         firstname: "",
         lastname: "",
         address: "",
