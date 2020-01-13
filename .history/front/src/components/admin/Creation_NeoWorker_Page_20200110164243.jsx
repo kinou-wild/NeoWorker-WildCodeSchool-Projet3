@@ -358,6 +358,7 @@ const CreationNeoWorkerPage = (props) => {
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, title: e.target.value }) }} />
                         </FormGroup>
+
                         <FormGroup>
                             <Input
                                 className="input-firstname"
@@ -443,6 +444,8 @@ const CreationNeoWorkerPage = (props) => {
                                 value={freelancer.disponibilite}
                                 required onChange={(e) => { setFreelancer({ ...freelancer, disponibilite: e.target.value }) }} />
                         </FormGroup>
+
+
                         <div className='selector-mission'>
                             <FormGroup>
                                 <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>

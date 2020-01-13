@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import StarRatingComponent from 'react-star-rating-component';
+import StarRatingComponent from 'react-star-ratinh-component';
 import { Form, FormGroup, InputGroupText, Input, Button, Label } from 'reactstrap';
 import {Link} from 'react-router-dom'
 
@@ -550,7 +550,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.francais}
+                                value={neoworker..francais}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -559,7 +559,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.anglais}
+                                value={neoworker..anglais}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -568,7 +568,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.espagnol}
+                                value={neoworker..espagnol}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -577,7 +577,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.allemand}
+                                value={neoworker..allemand}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -586,7 +586,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.russe}
+                                value={neoworker..russe}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -595,7 +595,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.italien}
+                                value={neoworker..italien}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -604,7 +604,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.chinois}
+                                value={neoworker..chinois}
                                 emptyStarColor={`#C4C4C4`}
                                 />
                         </div>
@@ -613,7 +613,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={neoworker.arabe}
+                                value={neoworker..arabe}
                                 emptyStarColor={`#C4C4C4`}
                                  />
                         </div>
@@ -648,7 +648,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion administrative et comptable</p>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 1" name="Option 1" value={neoworker.assistance_suivi_comptable}/>
+                                <input type="checkbox" className="checkbox" id="Option 1" name="Option 1" />
                                 <label className="label-prestation" for="Option 1">Assistance et suivi comptable (note de frais, suivi des règlements et de la trésorerie, ...)</label></div>
                             <div className="checkbox-and-content">
                                 <input type="checkbox" className="checkbox" id="Option 2" name="Option 2" />
@@ -822,13 +822,13 @@ const OneNeoworkerCard = ({neoworker}) => {
                         </div>
                     </div>
                     
-                    <Button className='button-card' type='submit'>modifier</Button>
+                    <Button className='btn' type='submit'>modifier</Button>
                 </Form>
             </div>
             </div>
             
             <Link to='/admin/neoworker/liste'>
-                <button className='button-card'>back to list</button>
+                <button>back to list</button>
             </Link>
         </div>
     )

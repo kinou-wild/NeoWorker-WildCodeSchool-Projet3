@@ -648,7 +648,7 @@ const OneNeoworkerCard = ({neoworker}) => {
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion administrative et comptable</p>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 1" name="Option 1" value={neoworker.assistance_suivi_comptable}/>
+                                <input type="checkbox" className="checkbox" id="Option 1" name="Option 1" value={neoworker.assistance_suivi_comptable.checked === true ? true : false}/>
                                 <label className="label-prestation" for="Option 1">Assistance et suivi comptable (note de frais, suivi des règlements et de la trésorerie, ...)</label></div>
                             <div className="checkbox-and-content">
                                 <input type="checkbox" className="checkbox" id="Option 2" name="Option 2" />
@@ -822,13 +822,13 @@ const OneNeoworkerCard = ({neoworker}) => {
                         </div>
                     </div>
                     
-                    <Button className='button-card' type='submit'>modifier</Button>
+                    <Button className='btn' type='submit'>modifier</Button>
                 </Form>
             </div>
             </div>
             
             <Link to='/admin/neoworker/liste'>
-                <button className='button-card'>back to list</button>
+                <button>back to list</button>
             </Link>
         </div>
     )

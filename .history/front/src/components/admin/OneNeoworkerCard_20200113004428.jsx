@@ -822,13 +822,13 @@ const OneNeoworkerCard = ({neoworker}) => {
                         </div>
                     </div>
                     
-                    <Button className='button-card' type='submit'>modifier</Button>
+                    <Button className='btn' type='submit'>modifier</Button>
                 </Form>
             </div>
             </div>
             
             <Link to='/admin/neoworker/liste'>
-                <button className='button-card'>back to list</button>
+                <button>back to list</button>
             </Link>
         </div>
     )
