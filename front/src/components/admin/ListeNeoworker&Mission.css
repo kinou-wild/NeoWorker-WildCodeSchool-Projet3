@@ -123,7 +123,7 @@ div.missions-cards {
 
 Button.button-card, Button.button-car:hover {
   color: white;
-  font-size: 15px!important;
+  font-size: 16px!important;
   background: #ED6A09;
   border-radius: .25rem;
   width: auto!important;
@@ -150,7 +150,7 @@ div.thirdrow-card {
 
 p.dateofmission {
   color: #000099;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 p.titleofmission {
@@ -160,7 +160,7 @@ p.titleofmission {
 p.name-card {
   display: flex;
   align-self: start;
-  padding-top: 15px;
+  padding-top: 16px;
   font-weight: bold;
 }
 

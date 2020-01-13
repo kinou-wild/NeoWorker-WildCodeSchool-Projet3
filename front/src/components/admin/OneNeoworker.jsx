@@ -32,9 +32,9 @@ const OneNeoworker = (props) => {
     
 
     return(
-        <div style={{padding:'500px'}}>
+        <>
                <OneNeoworkerCard neoworker={neoworkerById} />
-        </div>
+        </>
     )
 }
 
