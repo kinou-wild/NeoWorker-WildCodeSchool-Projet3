@@ -32,7 +32,7 @@
     padding-bottom: 16px;
     padding-top: 16px;
     width: 100%;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .sidebar-field:hover:not(.active) {
@@ -56,6 +56,11 @@
     color: white;
 }
 
+.div-logo {
+    display: flex;
+    justify-content: center;
+}
+
 .sidebar-logo {
     width: 80%;
     position: sticky;
@@ -75,6 +80,7 @@
     text-align: center;
     flex-wrap: wrap;
     padding-bottom: 10px;
+    text-decoration: none;
 }
 
 .sidebar-div-deconnection:hover:not(.active) {
