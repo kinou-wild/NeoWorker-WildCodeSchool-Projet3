@@ -348,6 +348,7 @@ const CreationNeoWorkerPage = (props) => {
                     <FormGroup>
                         <Input style={{ height: '150px' }} placeholder='Notes :' type="textarea" name="note" id="note"
                             value={freelancer.note}
+                            required
                             onChange={(e) => { setFreelancer({ ...freelancer, note: e.target.value }) }} />
                     </FormGroup>
                     <div className='champs-mission'>
@@ -391,7 +392,7 @@ const CreationNeoWorkerPage = (props) => {
                             <Input
                                 className="input-cp"
                                 placeholder="Code postal"
-                                type="text" id="cp" name="cp"
+                                type="number" id="cp" name="cp"
                                 value={freelancer.cp}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, cp: e.target.value }) }}
@@ -400,7 +401,7 @@ const CreationNeoWorkerPage = (props) => {
                         <FormGroup>
                             <Input
                                 className="input-email" placeholder="Email"
-                                type="text" id="email" name="email"
+                                type="email" id="email" name="email"
                                 value={registerHooks.email}
                                 required
                                 onChange={(e) => { setRegisterHooks({ ...registerHooks, email: e.target.value }) }} />
@@ -408,7 +409,7 @@ const CreationNeoWorkerPage = (props) => {
                         <FormGroup>
                             <Input
                                 className="input-tel" placeholder="Telephone"
-                                type="text" id="tel" name="tel"
+                                type="number" id="tel" name="tel"
                                 value={freelancer.tel}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, tel: e.target.value }) }} />
@@ -416,8 +417,9 @@ const CreationNeoWorkerPage = (props) => {
                         <FormGroup>
                             <Input
                                 className="input-password"
-                                placeholder="Mot de passe" type="text"
+                                placeholder="Mot de passe" type="password"
                                 id="password" name="password"
+                                required
                                 value={registerHooks.password}
                                 onChange={(e) => { setRegisterHooks({ ...registerHooks, password: e.target.value }) }} />
                         </FormGroup>
@@ -451,6 +453,7 @@ const CreationNeoWorkerPage = (props) => {
                                     id="pref_lieu_de_travail"
                                     name="pref_lieu_de_travail"
                                     value={freelancer.pref_lieu_de_travail}
+                                    required
                                     onChange={(e) => {
                                         setFreelancer({
                                             ...freelancer,
@@ -468,6 +471,7 @@ const CreationNeoWorkerPage = (props) => {
                                 <Label>Mobilité <span className='textModif'>:</span></Label>
                                 <Input type="select" name="mobilite" id='mobilite'
                                     value={freelancer.mobilite}
+                                    required
                                     onChange={(e) => { setFreelancer({ ...freelancer, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
                                     <option hidden="true">-</option>
                                     <option>Oui</option>
@@ -479,6 +483,7 @@ const CreationNeoWorkerPage = (props) => {
                                 <Label>Km maximum <span className='textModif'>:</span></Label>
                                 <Input type="select" name="km_max" id='km_max'
                                     value={freelancer.km_max}
+                                    required
                                     onChange={(e) => { setFreelancer({ ...freelancer, km_max: e.target.value === '10 km' ? '10 km' : e.target.value === '20 km' ? '20 km' : e.target.value === '30 km' ? '30 km' : e.target.value === '40 km' ? '40 km' : e.target.value === '50 km' ? '50 km' : '10 km' }) }}>
                                     <option hidden="true">-</option>
                                     <option>10 km</option>
