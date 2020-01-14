@@ -344,7 +344,7 @@ const CreationNeoWorkerPage = (props) => {
             </div>
             <h1 className='admin-h1'>Création d'un NeoWorker<span className='textModif'>:</span></h1>
             <div className='body'>
-                <Form className="formulaire-creation-neoworker" onSubmit={onSubmit} >
+                <Form onSubmit={onSubmit} >
                     <FormGroup>
                         <Input style={{ height: '150px' }} placeholder='Notes :' type="textarea" name="note" id="note"
                             value={freelancer.note}
@@ -352,7 +352,7 @@ const CreationNeoWorkerPage = (props) => {
                     </FormGroup>
                     <div className='champs-mission'>
                         <FormGroup>
-                            <Input style={{ textAlign: 'center' }}
+                            <Input className="input-metier"
                                 type="text" id="title" name="Métier"
                                 placeholder="Métier"
                                 value={freelancer.title}

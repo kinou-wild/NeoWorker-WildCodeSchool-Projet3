@@ -25,6 +25,34 @@ div.body {
     margin: auto;
 }
 
+
+.input-firstname, 
+.input-lastname, 
+.input-email, 
+.input-tel,
+.input-password,
+.input-address,
+.input-cp,
+.input-metier,
+.input-tj_min,
+.input-tj_max,
+.input-dispo,
+.input-pref_lieu_travail,
+.input-mobilite,
+.input-Km_max
+{
+    width: 40%;
+    margin-top:10px;
+    margin-bottom:10px;
+    text-align: center;
+    border-radius: 10px;
+    border-color: white;
+    box-shadow: 0px 4px 4px rgba(85, 71, 71, 0.25);
+    color: #000099;
+    font-size: 24px;
+    font-weight: 500! important;
+}
+
 div.champs-mission {
     display: flex;
 	flex-direction: row;
@@ -129,6 +157,8 @@ font-weight: bold;
     border-radius: .25rem;
     box-shadow: 0px 4px 4px rgba(85, 71, 71, 0.25) !important;
     font-size: 20px;
+    margin: 10px 0px;
+    font-weight: bold;
 }
 
 .checkbox-and-content {
@@ -153,11 +183,6 @@ font-weight: bold;
 
 .btn {
     margin-top: 50px;
-}
-
-.family-prestation-title {
-    margin: 10px 0px;
-    font-weight: bold;
 }
 
 input[type="date"]:before {
