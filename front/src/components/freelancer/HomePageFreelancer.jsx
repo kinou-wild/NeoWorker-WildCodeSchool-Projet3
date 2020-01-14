@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { useContext, useEffect, useState } from 'react'
-=======
-import React, {useEffect,useState} from 'react'
->>>>>>> prototype-app
+import React, { useEffect, useState } from 'react'
 import './HomePageFreelancer.css'
 import { Button } from 'reactstrap'
 import axios from 'axios'
@@ -44,7 +40,6 @@ const HomePageFreelancer = () => {
             })
         }
     }, [])
-<<<<<<< HEAD
 
     return (
         <>
@@ -53,168 +48,116 @@ const HomePageFreelancer = () => {
                     <div className='profil-card'>
                         <p className='name-card'>{x.freelancers[0].firstname} {x.freelancers[0].lastname}</p>
                         <img className='pic-card' src={x.freelancers[0].img == '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : x.freelancers[0].img} alt='profil picture' />
-=======
-    
-    return(
-        <div>
-            {idUsers.filter(x => x.id === profileHooks.id).map(x =>
-            <div key={x.freelancers[0].id} className="freelancer-homepage">
-                <div className='profil-card'>
-            <p className='name-card'>{x.freelancers[0].firstname} {x.freelancers[0].lastname}</p>
-                        <img className='pic-card' src={x.freelancers[0].img === '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : x.freelancers[0].img} alt='profil pic' />
-
-                </div> 
-                <div>
-                    <h1 className='freelancer-h1'>Bienvenue sur ton espace personnel</h1>
-                </div>
-                    <div className="champs-profil-title"><p id='freelancer-title' placeholder='métier'>{x.freelancers[0].title}</p></div>
-                <div className='homepage-profil'>
-                    <div className="profil-img-creation-freelancer">
-                        <img className='picture-profil' src={x.freelancers[0].img === '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : x.freelancers[0].img} alt='profil pic' />
-                        
-{/*                         <input name="file" type="file" className="transformation" data-cloudinary-field="image_id" onChange={uploadImage}/>
- */}
-                    </div>
-                    <div className='infos-profil'>
-                        <div className="champs-profil"><p>{x.freelancers[0].firstname}</p></div>                        
-                            <div className="champs-profil"><p>{x.freelancers[0].lastname}</p></div>
-                            <div className="champs-profil"><p>{x.freelancers[0].email}</p></div>
-                            <div className="champs-profil"><p>{x.freelancers[0].tel}</p></div>
-                    </div>
-                </div>
-                <div className='reste-profil'>
-                    <div className="container-champs-reste-profil">
-                            <div className="champs-reste-profil"><p>{x.freelancers[0].tjm_min}</p></div>
-                            <div className="champs-reste-profil"><p>{x.freelancers[0].tjm_max}</p></div>
-                    </div>
-                    <div className="container-champs-reste-profil">
-                            <div className="champs-reste-profil"><p>{x.freelancers[0].disponibilite}</p></div>
-                            <div className="champs-reste-profil"><p>{x.freelancers[0].mobilite}</p></div>
-                    </div>
-                    <div className="container-champs-reste-profil">
-                            <div className="champs-reste-profil"><p>{x.freelancers[0].address}</p></div>
-                            <div className="champs-reste-profil"><p>{x.freelancers[0].cp}</p></div>
->>>>>>> prototype-app
                     </div>
                     <div className="formulaire-creation-neoworker">
                         <p className="main-title">Bienvenue sur ton espace personnel</p>
 
                         <div className="first-div-creation-neoworker">
-                            <div className="input-group-text">Métier</div>
-                            <input className="input-metier"
+                            <div className="field-group-text">Métier</div>
+                            <input className="field-metier"
                                 disabled type="text" id="title" name="Métier"
                                 placeholder="Métier"
                                 value={x.freelancers[0].title}
                             />
                             <img className="profil-img-creation" src={x.freelancers[0].img == '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : x.freelancers[0].img} />
 
-                            <div className="input-group-text">Prénom</div>
+                            <div className="field-group-text">Prénom</div>
                             <input
-                                className="input-firstname"
+                                className="field-firstname"
                                 placeholder="Prénom" disabled type="text"
                                 id="firstname"
                                 name="firstname"
                                 value={x.freelancers[0].firstname}
                             />
-                            <div className="input-group-text">Nom</div>
+                            <div className="field-group-text">Nom</div>
                             <input
-                                className="input-lastname"
+                                className="field-lastname"
                                 placeholder="Nom"
                                 disabled type="text" id="lastname" name="lastname"
                                 value={x.freelancers[0].lastname}
                             />
-                            <div className="input-group-text">Adresse</div>
+                            <div className="field-group-text">Adresse</div>
                             <input
-                                className="input-address"
+                                className="field-address"
                                 placeholder="Adresse"
                                 disabled type="text" id="address" name="address"
                                 value={x.freelancers[0].address}
                             />
-                            <div className="input-group-text">Code Postal</div>
+                            <div className="field-group-text">Code Postal</div>
                             <input
-                                className="input-cp"
+                                className="field-cp"
                                 placeholder="Code postal"
                                 disabled type="text" id="cp" name="cp"
                                 value={x.freelancers[0].cp}
                             />
 
 
-                            <div className="input-group-text">Email</div>
+                            <div className="field-group-text">Email</div>
                             <input
-                                className="input-email" placeholder="Email"
+                                className="field-email" placeholder="Email"
                                 disabled type="text" id="email" name="email"
                                 value={x.freelancers[0].email}
                             />
-                            <div className="input-group-text">N° de téléphone</div>
+                            <div className="field-group-text">N° de téléphone</div>
                             <input
-                                className="input-tel" placeholder="Telephone"
+                                className="field-tel" placeholder="Telephone"
                                 disabled type="text" id="tel" name="tel"
                                 value={x.freelancers[0].tel}
                             />
-                            <div className="input-group-text">Password</div>
+                            {/*<div className="field-group-text">Password</div>
                             <input
-                                className="input-password"
+                                className="field-password"
                                 placeholder="Mot de passe" disabled type="text"
                                 id="password" name="password"
                                 value={x.freelancers[0].password}
-                            />
+                            />*/}
 
-                            <div className="input-group-text">Taux journalier minimum</div>
-                            <input className="input-tj_min"
+                            <div className="field-group-text">Taux journalier minimum</div>
+                            <input className="field-tj_min"
                                 disabled type="number" id="tjm_min" name="tjm_min"
                                 value={x.freelancers[0].tjm_min}
                             />
 
 
-                            <div className="input-group-text">Taux journalier maximum</div>
-                            <input className="input-tj_max" disabled type="number"
+                            <div className="field-group-text">Taux journalier maximum</div>
+                            <input className="field-tj_max" disabled type="number"
                                 id="tjm_max" name="tjm_max"
                                 value={x.freelancers[0].tjm_max}
                             />
 
-
-
-
-                            <div className="input-group-text">Disponibilité</div>
-                            <input className="input-dispo" disabled type="number"
+                            <div className="field-group-text">Disponibilité</div>
+                            <input className="field-dispo" disabled type="number"
                                 id="disponibilite" name="disponibilite"
+                                value={x.freelancers[0].disponibilite}
                             />
 
 
-                            <div className="input-group-text">Préférence lieu de travail</div>
+                            <div className="field-group-text">Préférence lieu de travail</div>
 
-                            <input className="input-pref_lieu_travail" disabled type="text"
+                            <input className="field-pref_lieu_travail" disabled type="text"
                                 id="pref_lieu_de_travail"
                                 name="pref_lieu_de_travail"
                                 value={x.freelancers[0].pref_lieu_de_travail}
                             />
 
 
+                            <div className="field-group-text">Mobilité</div>
 
-
-
-
-                            <div className="input-group-text">Mobilité</div>
-
-                            <input className="input-mobilite" disabled type="text" name="mobilite" id='mobilite'
+                            <input className="field-mobilite" disabled type="text" name="mobilite" id='mobilite'
                                 value={x.freelancers[0].mobilite}
                             >
 
                             </input>
 
+                            <div className="field-group-text">Kilomètres max</div>
 
-
-                            <div className="input-group-text">Kilomètres max</div>
-
-                            <input className="input-Km_max" disabled type="text" name="km_max" id='km_max'
+                            <input className="field-Km_max" disabled type="text" name="km_max" id='km_max'
                                 value={x.freelancers[0].km_max}
                             >
 
                             </input>
 
                         </div>
-
-
 
 
                         <div>

@@ -88,7 +88,7 @@ const Sidebar = (props) => {
 
     const admin =(
         <div className={profileHooks.role === 'admin' && localStorage.usertoken ? "sidebar" : "sidebar-hidden"}>
-            <Link to='/admin' ><img className="sidebar-logo" src={NeoWorkerLogo} alt="neo worker logo"></img></Link>
+            <Link to='/admin' className="div-logo"><img className="sidebar-logo" src={NeoWorkerLogo} alt="neo worker logo"></img></Link>
             <div className="sidebar-field-group">
 
                 <p className="sidebar-field" onClick={changeFieldBoolean}>NeoWorker</p>
@@ -110,7 +110,7 @@ const Sidebar = (props) => {
                     <p className={hiddenfield2 === true ? "sidebar-little-field" : "sidebar-hidden-little-field"}>Liste</p>
                 </Link>
 
-                <Link to='/admin/matchingHistory'><p className="sidebar-field">Historique matching</p></Link>
+                <Link to='/admin/matchingHistory'className="sidebar-field"><p>Historique matching</p></Link>
 
             </div>
 
