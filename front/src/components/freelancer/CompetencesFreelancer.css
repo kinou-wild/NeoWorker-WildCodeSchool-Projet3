@@ -93,3 +93,7 @@ Button.btn, Button.btn:hover {
     
 }
 
+.cards-competences-title {
+    overflow-x: scroll;
+}
+

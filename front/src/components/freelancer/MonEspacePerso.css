@@ -1,0 +1,192 @@
+.main-div {
+    width: 80%;
+    height: auto;
+    float: right;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    color: #000099;
+}
+
+.profil-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 20px;
+}
+
+.name-card {
+    margin: 0px;
+    padding-right: 15px;
+}
+
+.pic-card {
+    height: 50px;
+    border-radius: 50%;
+}
+
+.main-title {
+    width: 80%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+
+    
+}
+
+.formulaire-creation-neoworker {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+
+}
+
+::placeholder {
+    color: #ED6A09 !important;
+    opacity: 0.5 !important;
+}
+
+.first-div-creation-neoworker {
+    display:flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+}
+
+.align-photoprofilwithinput-div,
+.align-photoprofilwithfield-div
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profil-img-creation {
+    border-radius: 50%;
+    width: 30%;
+    align-self: center;
+}
+
+.align-field-text-div {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.field-firstname, 
+.field-lastname, 
+.field-email, 
+.field-tel,
+.field-password,
+.field-address,
+.field-cp,
+.field-metier,
+.field-tj_min,
+.field-tj_max,
+.field-dispo,
+.field-pref_lieu_travail,
+.field-mobilite,
+.field-Km_max
+{
+    width: 70%;
+    margin-top:10px;
+    margin-bottom:10px;
+    text-align: center;
+    border-radius: 10px;
+    border-color: white;
+    box-shadow: 0px 4px 4px rgba(85, 71, 71, 0.25);
+    color: #000099;
+    font-size: 24px;
+    font-weight: 500! important;
+    align-self: center;
+}
+
+.second-div-creation-neoworker, 
+.third-div-creation-neoworker,
+.fourth-div-creation-neoworker,
+.fifth-div-creation-neoworker {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align:center;
+    align-self:center;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.div-tj_min,
+.div-tj_max,
+.div-dispo,
+.div-pref_lieu_travail,
+.div-mobilite,
+.div-km_max
+{
+    width: 30%;
+    display:flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom:10px;
+    text-align: center !important;
+    color: #000099;
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.field-group-text {
+    display:flex;
+    color: #ED6A09;
+    font-weight: bold;
+    opacity: 0.5;
+    width: 100%;
+    align-self: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.form-control {
+    margin-right: 0px !important;
+}
+;
+.input-email, 
+.input-tel,
+.input-password,
+.input-address,
+.input-cp,
+.input-metier,
+.input-tj_min,
+.input-tj_max,
+.input-dispo,
+.input-pref_lieu_travail,
+.input-mobilite,
+.input-Km_max
+{
+    width: 40%;
+    margin-top:10px;
+    margin-bottom:10px;
+    text-align: center !important;
+    border-radius: 10px;
+    border-color: white;
+    box-shadow: 0px 4px 4px rgba(85, 71, 71, 0.25);
+    color: #000099;
+    font-size: 24px;
+    font-weight: 500! important;
+}
+
+.input-metier {
+    width: 80%;
+}
+
+.profil-img-and-choice {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}

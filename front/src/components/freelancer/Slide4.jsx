@@ -14,7 +14,7 @@ return(
         <h2 className='competences-title'>Prestations</h2>
         <div className='competences'>
             {data.map(x =>
-                <div className='cards competences-title'>
+                <div className='cards-competences-title'>
                     
 
                     <div className="fifth-div-creation-neoworker competences-title">
