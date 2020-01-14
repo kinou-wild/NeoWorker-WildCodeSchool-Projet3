@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 import './ListeNeoworker&Mission.css'
 
 
-const OneNeoworkerCard = ({neoworker, onClick}) => {
+const OneNeoworkerCard = ({neoworker}) => {
 
     const [ignoreNeoworker, setIgnoreNeoworker] = useState(neoworker.status)
   
@@ -826,7 +826,7 @@ const OneNeoworkerCard = ({neoworker, onClick}) => {
             <div className='oneNeoworkerCard-div-btn'> 
                     <button 
                     className='button-card'
-                    onClick={onClick}
+                    onClick={ setIgnoreNeoworker({...neoworker, status: 4})}
                     >ignorer</button>
                     <Link to=''>
                         <button className='button-card'>Modifier</button> 
@@ -840,4 +840,5 @@ const OneNeoworkerCard = ({neoworker, onClick}) => {
     )
 }
 
+console.log(ignoreNeoworker)
 export default OneNeoworkerCard

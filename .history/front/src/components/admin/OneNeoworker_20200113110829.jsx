@@ -18,15 +18,22 @@ const OneNeoworker = (props) => {
         console.log(neoworkerById)
     }, [])
     
-   const handleClick = (e) => {
-       setNeoworkerById({...neoworkerById, status: 3})
-   }
+    // //hooks to update a neoworker
+    // const [updateNeoworker, setUpdateNeoworker] = useState({neoworkerById})
+
+    // //function to update a freelancer
+    // const update = (e, id) => {
+    //     e.preventDefault()
+    //     axios.put(`http://localhost:5000/freelancers/${id}`)
+    //     .then(res => setUpdateNeoworker(res.data))
+    //     .catch((err) => console.log(err))
+    // }
 
     
 
     return(
         <>
-               <OneNeoworkerCard neoworker={neoworkerById} onClick={handleClick}/>
+               <OneNeoworkerCard neoworker={neoworkerById} />
         </>
     )
 }

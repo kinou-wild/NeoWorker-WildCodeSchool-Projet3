@@ -5,9 +5,8 @@ import {Link} from 'react-router-dom'
 import './ListeNeoworker&Mission.css'
 
 
-const OneNeoworkerCard = ({neoworker, onClick}) => {
-
-    const [ignoreNeoworker, setIgnoreNeoworker] = useState(neoworker.status)
+const OneNeoworkerCard = ({neoworker}) => {
+    console.log(neoworker)
   
     return(
         <div>
@@ -20,13 +19,13 @@ const OneNeoworkerCard = ({neoworker, onClick}) => {
             <div className='body'>
                 <Form className="formulaire-creation-neoworker"  >
                     <FormGroup>
-                        <Input disabled style={{ height: '150px' }} placeholder='Notes :' type="textarea" name="note" id="note"
+                        <Input style={{ height: '150px' }} placeholder='Notes :' type="textarea" name="note" id="note"
                             value={neoworker.note}
                              />
                     </FormGroup>
                     <div className='champs-mission'>
                         <FormGroup>
-                            <Input  style={{ textAlign: 'center' }}
+                            <Input style={{ textAlign: 'center' }}
                                 type="text" id="title" name="Métier"
                                 placeholder="Métier"
                                 value={neoworker.title}
@@ -120,11 +119,15 @@ const OneNeoworkerCard = ({neoworker, onClick}) => {
                         <div className='selector-mission'>
                             <FormGroup>
                                 <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
-                                <Input 
+                                <Input type="select"
                                     id="pref_lieu_de_travail"
                                     name="pref_lieu_de_travail"
                                     value={neoworker.pref_lieu_de_travail}
                                     >
+                                    <option hidden="true">-</option>
+                                    <option>Présence en entreprise</option>
+                                    <option>Travail à distance</option>
+                                    <option>Peu importe</option>
                                 </Input>
                             </FormGroup>
 
@@ -141,7 +144,7 @@ const OneNeoworkerCard = ({neoworker, onClick}) => {
 
                             <FormGroup>
                                 <Label>Km maximum <span className='textModif'>:</span></Label>
-                                <Input name="km_max" id='km_max'
+                                <Input type="select" name="km_max" id='km_max'
                                     value={neoworker.km_max}
                                     >
                                     <option hidden="true">-</option>
@@ -823,11 +826,7 @@ const OneNeoworkerCard = ({neoworker, onClick}) => {
                     </div> 
                 </Form>
             </div>
-            <div className='oneNeoworkerCard-div-btn'> 
-                    <button 
-                    className='button-card'
-                    onClick={onClick}
-                    >ignorer</button>
+            <div className='oneNeoworkerCard-div-btn'>                   
                     <Link to=''>
                         <button className='button-card'>Modifier</button> 
                     </Link>
@@ -839,5 +838,4 @@ const OneNeoworkerCard = ({neoworker, onClick}) => {
         </div>
     )
 }
-
 export default OneNeoworkerCard

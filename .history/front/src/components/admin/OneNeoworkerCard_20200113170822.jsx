@@ -5,9 +5,7 @@ import {Link} from 'react-router-dom'
 import './ListeNeoworker&Mission.css'
 
 
-const OneNeoworkerCard = ({neoworker, onClick}) => {
-
-    const [ignoreNeoworker, setIgnoreNeoworker] = useState(neoworker.status)
+const OneNeoworkerCard = ({neoworker}) => {
   
     return(
         <div>
@@ -824,20 +822,19 @@ const OneNeoworkerCard = ({neoworker, onClick}) => {
                 </Form>
             </div>
             <div className='oneNeoworkerCard-div-btn'> 
-                    <button 
-                    className='button-card'
-                    onClick={onClick}
-                    >ignorer</button>
+                    <button className='button-card'
+                    onClick={ setIgnoreNeowroker(... neoworker, status: 4)}>
+                        ignorer
+                    </button>
                     <Link to=''>
                         <button className='button-card'>Modifier</button> 
                     </Link>
                     <Link to='/admin/neoworker/liste'>
                         <button className='button-card'>back to list</button>
                     </Link>
-                    </div>
+            </div>
             </div>
         </div>
     )
 }
-
 export default OneNeoworkerCard

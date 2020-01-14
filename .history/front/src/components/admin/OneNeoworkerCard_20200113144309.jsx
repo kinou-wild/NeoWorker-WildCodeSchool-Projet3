@@ -2,12 +2,10 @@ import React, {useState, useEffect} from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 import { Form, FormGroup, InputGroupText, Input, Button, Label } from 'reactstrap';
 import {Link} from 'react-router-dom'
-import './ListeNeoworker&Mission.css'
 
 
-const OneNeoworkerCard = ({neoworker, onClick}) => {
-
-    const [ignoreNeoworker, setIgnoreNeoworker] = useState(neoworker.status)
+const OneNeoworkerCard = ({neoworker}) => {
+    console.log(neoworker)
   
     return(
         <div>
@@ -20,13 +18,13 @@ const OneNeoworkerCard = ({neoworker, onClick}) => {
             <div className='body'>
                 <Form className="formulaire-creation-neoworker"  >
                     <FormGroup>
-                        <Input disabled style={{ height: '150px' }} placeholder='Notes :' type="textarea" name="note" id="note"
+                        <Input style={{ height: '150px' }} placeholder='Notes :' type="textarea" name="note" id="note"
                             value={neoworker.note}
                              />
                     </FormGroup>
                     <div className='champs-mission'>
                         <FormGroup>
-                            <Input  style={{ textAlign: 'center' }}
+                            <Input style={{ textAlign: 'center' }}
                                 type="text" id="title" name="Métier"
                                 placeholder="Métier"
                                 value={neoworker.title}
@@ -120,18 +118,23 @@ const OneNeoworkerCard = ({neoworker, onClick}) => {
                         <div className='selector-mission'>
                             <FormGroup>
                                 <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
-                                <Input 
+                                <Input type="select"
                                     id="pref_lieu_de_travail"
                                     name="pref_lieu_de_travail"
                                     value={neoworker.pref_lieu_de_travail}
                                     >
+                                    <option hidden="true">-</option>
+                                    <option>Présence en entreprise</option>
+                                    <option>Travail à distance</option>
+                                    <option>Peu importe</option>
                                 </Input>
                             </FormGroup>
 
                             <FormGroup>
                                 <Label>Mobilité <span className='textModif'>:</span></Label>
-                                <Input 
+                                <Input
                                     id='mobilite' 
+                                    // type="select" 
                                     name="mobilite" 
                                     value={neoworker.mobilite}
                                     >
@@ -141,7 +144,7 @@ const OneNeoworkerCard = ({neoworker, onClick}) => {
 
                             <FormGroup>
                                 <Label>Km maximum <span className='textModif'>:</span></Label>
-                                <Input name="km_max" id='km_max'
+                                <Input type="select" name="km_max" id='km_max'
                                     value={neoworker.km_max}
                                     >
                                     <option hidden="true">-</option>
@@ -821,23 +824,16 @@ const OneNeoworkerCard = ({neoworker, onClick}) => {
                                 <label className="label-prestation" for="Option 69">Service après ventes</label></div>
                         </div>
                     </div> 
-                </Form>
-            </div>
-            <div className='oneNeoworkerCard-div-btn'> 
-                    <button 
-                    className='button-card'
-                    onClick={onClick}
-                    >ignorer</button>
-                    <Link to=''>
-                        <button className='button-card'>Modifier</button> 
-                    </Link>
+                    <div>                   
+                    <Button className='button-card' type='submit'>modifier</Button>
                     <Link to='/admin/neoworker/liste'>
                         <button className='button-card'>back to list</button>
                     </Link>
                     </div>
+                </Form>
+            </div>
             </div>
         </div>
     )
 }
-
 export default OneNeoworkerCard

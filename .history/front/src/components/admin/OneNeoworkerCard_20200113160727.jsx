@@ -5,9 +5,8 @@ import {Link} from 'react-router-dom'
 import './ListeNeoworker&Mission.css'
 
 
-const OneNeoworkerCard = ({neoworker, onClick}) => {
-
-    const [ignoreNeoworker, setIgnoreNeoworker] = useState(neoworker.status)
+const OneNeoworkerCard = ({neoworker}) => {
+    console.log(neoworker)
   
     return(
         <div>
@@ -26,7 +25,7 @@ const OneNeoworkerCard = ({neoworker, onClick}) => {
                     </FormGroup>
                     <div className='champs-mission'>
                         <FormGroup>
-                            <Input  style={{ textAlign: 'center' }}
+                            <Input disabled style={{ textAlign: 'center' }}
                                 type="text" id="title" name="Métier"
                                 placeholder="Métier"
                                 value={neoworker.title}
@@ -823,11 +822,7 @@ const OneNeoworkerCard = ({neoworker, onClick}) => {
                     </div> 
                 </Form>
             </div>
-            <div className='oneNeoworkerCard-div-btn'> 
-                    <button 
-                    className='button-card'
-                    onClick={onClick}
-                    >ignorer</button>
+            <div className='oneNeoworkerCard-div-btn'>                   
                     <Link to=''>
                         <button className='button-card'>Modifier</button> 
                     </Link>
@@ -839,5 +834,4 @@ const OneNeoworkerCard = ({neoworker, onClick}) => {
         </div>
     )
 }
-
 export default OneNeoworkerCard

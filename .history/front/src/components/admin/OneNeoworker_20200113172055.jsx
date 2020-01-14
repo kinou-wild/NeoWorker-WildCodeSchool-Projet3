@@ -18,15 +18,15 @@ const OneNeoworker = (props) => {
         console.log(neoworkerById)
     }, [])
     
-   const handleClick = (e) => {
-       setNeoworkerById({...neoworkerById, status: 3})
+   const handleClick = () => {
+       setNeoworkerById(neoworkerById.status: 4)
    }
 
     
 
     return(
         <>
-               <OneNeoworkerCard neoworker={neoworkerById} onClick={handleClick}/>
+               <OneNeoworkerCard neoworker={neoworkerById} />
         </>
     )
 }

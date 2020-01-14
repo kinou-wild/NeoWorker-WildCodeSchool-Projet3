@@ -1,4 +1,4 @@
-git checcd/*---------------------------------------------- Neoworker --------------------------------------------------- */
+/*---------------------------------------------- Neoworker --------------------------------------------------- */
 
 .neoworker-div {
   padding: 200px;
@@ -42,8 +42,6 @@ git checcd/*---------------------------------------------- Neoworker -----------
 }
 
 .neoworkerCard-content {
-  display: flex;
-  flex-direction: column;
   flex-grow: 1;
   padding: 0 24px;
   width: 80%;
@@ -72,8 +70,6 @@ git checcd/*---------------------------------------------- Neoworker -----------
 }
 
 .neoworkerCard-h1 {
-  display: flex;
-  flex-direction: row;
   font-size: 30px;
   font-weight: bold;
 }
@@ -95,22 +91,10 @@ git checcd/*---------------------------------------------- Neoworker -----------
   margin-bottom: 10px;
 }
 
-.firstrow-card {
-  display: flex;
-  justify-content: space-between;
-}
-
-.secondrow-card, div.thirdrow-card, div.fourthrow-card {
-  display: flex;
-  justify-content: space-between;
-  font-size: 16px;
-}
-
-
-.oneNeoworkerCard-div-btn {
+.oneNeoworkerCard-div-btn{
   align-items: center;
+  justify-content: center;
 }
-
 
 /*----------------------------------------- Mission ----------------------------------------------------------*/
 

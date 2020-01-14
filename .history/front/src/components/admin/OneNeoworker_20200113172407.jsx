@@ -19,7 +19,7 @@ const OneNeoworker = (props) => {
     }, [])
     
    const handleClick = (e) => {
-       setNeoworkerById({...neoworkerById, status: 3})
+       setNeoworkerById(neoworkerById.status = '4')
    }
 
     
