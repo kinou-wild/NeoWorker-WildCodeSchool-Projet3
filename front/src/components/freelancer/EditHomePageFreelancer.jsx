@@ -77,24 +77,24 @@ const EditHomePageFreelancer = (props) => {
   useEffect(() => {
     fetchDataUser()
   }, [])
-  const fetchDataUser = () => {
-    axios.get(`http://localhost:5000/user/${paramsIdUser}`)
+  const fetchDataUser = async() => {
+   await axios.get(`http://localhost:5000/user/${paramsIdUser}`)
       .then(res => setUpdateUser(res.data) & setGetUser(res.data))
       .catch(err => console.log(err))
   }
-
   //update sur la data user
-  const updateQueryDataUserFree = (e) => {
+  const updateQueryDataUserFree = async(e) => {
     e.preventDefault()
 
-    if (updateUser.password.length === 60) {
-      axios.put(`http://localhost:5000/user/${paramsIdUser}`, updateUser)
+    if (updateUser.password.length == 60) {
+     await axios.put(`http://localhost:5000/user/${paramsIdUser}`, updateUser)
+        .then(res=>console.log(res))
         .catch(err => console.log(err))
     } else {
-      bcrypt.genSalt(10, function (err, salt) {
+      await bcrypt.genSalt(10, function (err, salt) {
         bcrypt.hash(updateUser.password, salt, function (err, hash) {
           // Store hash in your password DB.
-          axios.put(`http://localhost:5000/user/${paramsIdUser}`, { ...updateUser, password: hash })
+            axios.put(`http://localhost:5000/user/${paramsIdUser}`, { ...updateUser, password: hash })
             .catch(err => console.log(err))
         });
       })
@@ -316,5 +316,6 @@ const EditHomePageFreelancer = (props) => {
   )
 }
 
-export default EditHomePageFreelancer;
+export default EditHomePageFreelancer;  
+
 
