@@ -51,6 +51,7 @@ img.pic-profil{
     border: 2px solid #c4c4c4;
     border-radius: .25rem;
     margin-top: 100px;
+    height: auto;
 }
 
 .champs-profil {
@@ -84,7 +85,7 @@ Button.btn, Button.btn:hover {
 }
 
 .slick-prev, .slick-prev:before {
-z-index: 5;
+    z-index: 5;
 }
 
 .cards {

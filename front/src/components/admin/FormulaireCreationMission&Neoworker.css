@@ -1,5 +1,7 @@
 .form-control{
     color:#000099!important;
+    margin:0 !important;
+    padding: 0!important;
 }
 
 .selector{
@@ -23,34 +25,6 @@ h1.admin-h1{
 div.body {
     width: 80%;
     margin: auto;
-}
-
-
-.input-firstname, 
-.input-lastname, 
-.input-email, 
-.input-tel,
-.input-password,
-.input-address,
-.input-cp,
-.input-metier,
-.input-tj_min,
-.input-tj_max,
-.input-dispo,
-.input-pref_lieu_travail,
-.input-mobilite,
-.input-Km_max
-{
-    width: 40%;
-    margin-top:10px;
-    margin-bottom:10px;
-    text-align: center;
-    border-radius: 10px;
-    border-color: white;
-    box-shadow: 0px 4px 4px rgba(85, 71, 71, 0.25);
-    color: #000099;
-    font-size: 24px;
-    font-weight: 500! important;
 }
 
 div.champs-mission {

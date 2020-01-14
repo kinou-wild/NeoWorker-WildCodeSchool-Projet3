@@ -91,7 +91,7 @@
 .field-mobilite,
 .field-Km_max
 {
-    width: 40%;
+    width: 100%;
     margin-top:10px;
     margin-bottom:10px;
     text-align: center;
@@ -138,9 +138,11 @@
 }
 
 .field-group-text {
+    display:flex;
     color: #ED6A09;
     font-weight: bold;
     opacity: 0.5;
     width: 100%;
     align-self: center;
+    justify-content: center;
 }
