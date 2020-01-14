@@ -11,7 +11,7 @@ const HomePageAdmin = () => {
         <div className="main-div">
             <div className='profil-card'>
                 <p className='name-card'> Anais</p>
-                <img className='pic-card' src={profilPic} alt='profil picture' />
+                <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
             <p className="admin-homepage-title">Bienvenue dans l'espace <span className="admin-homepage-orange"> Admin</span> NeoWorker<span className="admin-homepage-orange">.</span></p>
             <img className='home-pic' src={homePic} alt='draw' />

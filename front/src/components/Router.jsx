@@ -143,10 +143,10 @@ const Router = () => {
                                 && profileHooks.role === 'neoworker'
                                 ? CompetencesFreelancer : ''} />
 
-                //show neoworker list
+                {/* show neoworker list */}
                 <Route exact path="/admin/neoworker/liste" component={NeoworkerList} />
 
-                //afficher un freelancer en tant qu'admin
+                {/* afficher un freelancer en tant qu'admin */}
                 <Route exact path="/admin/neoworker/:id" component={OneNeoworker} />
 
             </Switch>

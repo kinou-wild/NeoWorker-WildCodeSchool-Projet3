@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Form, FormGroup, InputGroupText, Input, Button, Label } from 'reactstrap';
+import { Form, FormGroup, Input, Button, Label } from 'reactstrap';
 import './FormulaireCreationMission&Neoworker.css'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
@@ -25,6 +25,7 @@ const CreationNeoWorkerPage = (props) => {
         id: '',
         img: "",
         title: "",
+        note:'',
         firstname: "",
         lastname: "",
         address: "",
@@ -339,7 +340,7 @@ const CreationNeoWorkerPage = (props) => {
         <div className="admin-neoworker">
             <div className='profil-card'>
                 <p className='name-card'> Anais</p>
-                <img className='pic-card' src={profilPic} alt='profil picture' />
+                <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
             <h1 className='admin-h1'>Création d'un NeoWorker<span className='textModif'>:</span></h1>
             <div className='body'>
@@ -453,7 +454,7 @@ const CreationNeoWorkerPage = (props) => {
                                     onChange={(e) => {
                                         setFreelancer({
                                             ...freelancer,
-                                            pref_lieu_de_travail: e.target.value == 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value == 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
+                                            pref_lieu_de_travail: e.target.value === 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value === 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
                                         })
                                     }}>
                                     <option hidden="true">-</option>

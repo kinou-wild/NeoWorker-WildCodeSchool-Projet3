@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Sidebar.css'
 import NeoWorkerLogo from '../../img/LOGO CLASSIQUE_FOND TRANSPARENT_506X254.png'
 import { Link,withRouter } from 'react-router-dom'
@@ -130,8 +130,8 @@ const Sidebar = (props) => {
     return (
         
         <>
-            {localStorage.usertoken && profileHooks.role =='neoworker'?neoworker:
-                localStorage.usertoken && profileHooks.role=='admin'?admin: ""}
+            {localStorage.usertoken && profileHooks.role ==='neoworker'?neoworker:
+                localStorage.usertoken && profileHooks.role ==='admin'?admin: ""}
         
     </>
 

@@ -1,7 +1,6 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './HomePageFreelancer.css'
-import { Button, Label, Input, InputGroup, InputGroupText, FormGroup, } from 'reactstrap'
-import { Link } from 'react-router-dom'
+import { Input, InputGroupText, FormGroup, } from 'reactstrap'
 import '../freelancer/EditHomePageFreelancer.css'
 import axios from 'axios';
 const bcrypt = require('bcryptjs')
@@ -89,7 +88,7 @@ const EditHomePageFreelancer = (props) => {
   const updateQueryDataUserFree = (e) => {
     e.preventDefault()
 
-    if (updateUser.password.length == 60) {
+    if (updateUser.password.length === 60) {
       axios.put(`http://localhost:5000/user/${paramsIdUser}`, updateUser)
         .catch(err => console.log(err))
     } else {
@@ -138,7 +137,7 @@ const EditHomePageFreelancer = (props) => {
     <div className="main-div">
       <div className='profil-card'>
         <p className='name-card'>{updateFreelancer.firstname} {updateFreelancer.lastname}</p>
-        <img className='pic-card' src={updateFreelancer.img == '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : updateFreelancer.img} alt='profil picture'/>
+        <img className='pic-card' src={updateFreelancer.img === '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : updateFreelancer.img} alt='profil pic'/>
 
         
       </div>
@@ -151,7 +150,7 @@ const EditHomePageFreelancer = (props) => {
           onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, title: e.target.value }) }} />
         <div className="first-div-creation-neoworker">
           <div className="align-photoprofilwithinput-div">
-            <img className='profil-img-creation' src={updateFreelancer.img == '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : updateFreelancer.img} alt='profil picture'/>
+            <img className='profil-img-creation' src={updateFreelancer.img === '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : updateFreelancer.img} alt='profil pic'/>
 
             
             <div className="align-field-text-div">
@@ -216,11 +215,11 @@ const EditHomePageFreelancer = (props) => {
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, tel: e.target.value }) }} />
               {/* <button onClick={()=>setChangerMDP(!changerMDP)}>Changer le mot de passe</button> */}
               <input
-                // className={changerMDP ==true ?'input-password unshow':''}
+                // className={changerMDP ===true ?'input-password unshow':''}
                 className='input-password'
                 placeholder="Mot de passe" type="password"
                 id="password" name="password"
-                value={updateUser.password.length == 60 ? 'password' : updateUser.password}
+                value={updateUser.password.length === 60 ? 'password' : updateUser.password}
                 onChange={(e) => { passwordUpdater(e) }}
               />
             </div>
@@ -265,7 +264,7 @@ const EditHomePageFreelancer = (props) => {
                 onChange={(e) => {
                   setUpdateFreelancer({
                     ...updateFreelancer,
-                    pref_lieu_de_travail: e.target.value == 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value == 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
+                    pref_lieu_de_travail: e.target.value === 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value === 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
                   })
                 }}>
                 <option disabled selected>Préférence lieu de travail</option>

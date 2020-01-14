@@ -75,6 +75,7 @@ module.exports = app => {
             .then(() => res.end())
     })
 
+ 
     //authentif register/////////////////////////
     app.post('/register', (req, res) => {
         const today = new Date()
@@ -86,19 +87,15 @@ module.exports = app => {
             freelancerId: req.body.freelancerId,
             createdAt: today
         }
-        // if(req.body.role=='admin'){
-        //     return(
-        //         res.status(401).send('Unauthorized')
-        //     )
-        // }
+     
         models
             .users
             .findOne({
                 where: {
                     email: req.body.email
                 }
+                
             })
-
             .then(user => {
                 if (!user) {
                     bcrypt.hash(req.body.password, 10, (err, hash) => {

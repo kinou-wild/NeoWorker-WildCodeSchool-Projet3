@@ -53,7 +53,7 @@ const MissionsListe = () => {
             <div className='profil-card'>
             <SearchBarMission setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
                 <p className='name-card'> Anais</p>
-                <img className='pic-card' src={profilPic} alt='profil picture' />
+                <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
             <h2 className='missions-h2'>Missions à pourvoir <span className='textModif'>:</span></h2>
             <div className='missions'>
