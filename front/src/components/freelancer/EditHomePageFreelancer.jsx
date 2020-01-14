@@ -91,7 +91,7 @@ const EditHomePageFreelancer = (props) => {
         .then(res=>console.log(res))
         .catch(err => console.log(err))
     } else {
-      await bcrypt.genSalt(10, function (err, salt) {
+        bcrypt.genSalt(10, function (err, salt) {
         bcrypt.hash(updateUser.password, salt, function (err, hash) {
           // Store hash in your password DB.
             axios.put(`http://localhost:5000/user/${paramsIdUser}`, { ...updateUser, password: hash })
