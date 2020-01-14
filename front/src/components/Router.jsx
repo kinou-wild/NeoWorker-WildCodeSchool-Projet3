@@ -10,7 +10,7 @@ import EditHomePageFreelancer from './freelancer/EditHomePageFreelancer';
 import CompetencesFreelancer from './freelancer/CompetencesFreelancer';
 import MissionCreateAdmin from './admin/MissionCreateAdmin';
 import SeeMission from './admin/SeeMission'
-import UpdateDeleteMission from './admin/UpdateDeleteMission'
+import UpdateMission from './admin/UpdateMission'
 import Creation_NeoWorker_Page from './admin/Creation_NeoWorker_Page'
 import MissionsListe from './admin/MissionsListe';
 import jwt_decode from 'jwt-decode';
@@ -123,7 +123,7 @@ const Router = () => {
                     component={profileHooks.role === ''
                         ? LandingAdmin : localStorage.usertoken
                             && profileHooks.role === 'admin'
-                            ? UpdateDeleteMission : localStorage.usertoken
+                            ? UpdateMission : localStorage.usertoken
                                 && profileHooks.role === 'neoworker'
                                 ? HomePageFreelancer : ''} />
 
