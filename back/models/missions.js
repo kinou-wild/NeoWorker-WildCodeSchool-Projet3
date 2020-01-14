@@ -117,7 +117,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     disponibilite: DataTypes.INTEGER,
-
+    
     excel: {
       type: DataTypes.INTEGER,
       validate: {
