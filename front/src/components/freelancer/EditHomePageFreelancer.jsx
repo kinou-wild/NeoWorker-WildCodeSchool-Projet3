@@ -78,30 +78,41 @@ const EditHomePageFreelancer = (props) => {
     fetchDataUser()
   }, [])
   const fetchDataUser = () => {
-   axios.get(`http://localhost:5000/user/${paramsIdUser}`)
+    axios.get(`http://localhost:5000/user/${paramsIdUser}`)
       .then(res => setUpdateUser(res.data) & setGetUser(res.data))
       .catch(err => console.log(err))
   }
   //update sur la data user
   const updateQueryDataUserFree = (e) => {
     e.preventDefault()
-
-    if (updateUser.password.length == 60) {
-        axios.put(`http://localhost:5000/user/${paramsIdUser}`, updateUser)
+    console.log(updateUser)
+    if (updateUser.password.length === 60) {
+      console.log(updateUser.password.length)
+      axios.put(`http://localhost:5000/user/${paramsIdUser}`, updateUser)
         .catch(err => console.log(err))
-    } else {
-        bcrypt.genSalt(10, function (err, salt) {
-        bcrypt.hash(updateUser.password, salt, function (err, hash) {
+        .then(x => {
+          props.history.push('/neoworker/homepage')
+          window.location.reload();
+        })
+    }
+    else {
+      let hashedPassword = ''
+      console.log('Hello World')
+      bcrypt.genSalt(10, function (err, salt) {
+        bcrypt.hash(updateUser.password, salt, async function (err, hash) {
           // Store hash in your password DB.
-            axios.put(`http://localhost:5000/user/${paramsIdUser}`, { ...updateUser, password: hash })
+          hashedPassword = hash
+          await axios.put(`http://localhost:5000/user/${paramsIdUser}`, { ...updateUser, password: hashedPassword })
             .catch(err => console.log(err))
-        });
+            .then(x => {
+              props.history.push('/neoworker/homepage')
+              window.location.reload();
+            });
+        })
       })
     }
-    props.history.push('/neoworker/homepage')
-    window.location.reload();
-
   }
+
 
 
   //update sur la data du free
@@ -113,8 +124,8 @@ const EditHomePageFreelancer = (props) => {
   }
 
   //fonction qui regroupe l'axios put du dataUserFree et l'axios du dataFree
-  const updaterEmailPassword = (e) => {
-    updateQueryDataFree(e)
+  const updaterEmailPassword = async (e) => {
+    await updateQueryDataFree(e)
     updateQueryDataUserFree(e)
   }
 
@@ -150,18 +161,18 @@ const EditHomePageFreelancer = (props) => {
 
           <div className="align-photoprofilwithinput-div">
             <div className="profil-img-and-choice">
-              
-                <img className='profil-img-creation' src={updateFreelancer.img == '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : updateFreelancer.img} alt='profil pic' />
-                
+
+              <img className='profil-img-creation' src={updateFreelancer.img == '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : updateFreelancer.img} alt='profil pic' />
+
               <div>
                 <form onSubmit={updateQueryDataFree}>
-                <input
-                  type="file"
-                  name="file"
-                  placeholder="Upload an image"
-                  onChange={uploadImage}
-                />
-              </form>
+                  <input
+                    type="file"
+                    name="file"
+                    placeholder="Upload an image"
+                    onChange={uploadImage}
+                  />
+                </form>
               </div>
             </div>
 
@@ -177,7 +188,7 @@ const EditHomePageFreelancer = (props) => {
                 required
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, firstname: e.target.value }) }} />
               <div className="field-group-text">Nom</div>
-             
+
               <input
                 className="input-lastname"
                 type="text" id="lastname" name="lastname"
@@ -185,16 +196,16 @@ const EditHomePageFreelancer = (props) => {
                 required
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, lastname: e.target.value }) }} />
               <div className="field-group-text">Adresse</div>
-              
+
               <input
                 className="input-address"
                 type="text" id="address" name="address"
                 value={updateFreelancer.address}
                 required
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, address: e.target.value }) }} />
-              
+
               <div className="field-group-text">Code Postal</div>
-              
+
               <input
                 className="input-cp"
                 type="text" id="cp" name="cp"
@@ -203,7 +214,7 @@ const EditHomePageFreelancer = (props) => {
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, cp: e.target.value }) }} />
 
               <div className="field-group-text">Email</div>
-              
+
               <input
                 className="input-email"
                 type="text" id="email" name="email"
@@ -211,9 +222,9 @@ const EditHomePageFreelancer = (props) => {
                 value={updateFreelancer.email}
                 required
                 onChange={(e) => { emailUpdater(e) }} />
-              
+
               <div className="field-group-text">N° de téléphone</div>
-              
+
               <input
                 className="input-tel"
                 type="text" id="tel" name="tel"
@@ -228,7 +239,7 @@ const EditHomePageFreelancer = (props) => {
                 placeholder="Mot de passe"
                 type="password"
                 id="password" name="password"
-                value={updateUser.password.length == 60 ? 'password' : updateUser.password}
+                value={updateUser.password.length === 60 ? '' : updateUser.password}
                 onChange={(e) => { passwordUpdater(e) }}
               />
             </div>
@@ -266,7 +277,7 @@ const EditHomePageFreelancer = (props) => {
           <div className="div-pref_lieu_travail">
             <div className="field-group-text">Préférence lieu de travail</div>
             <FormGroup>
-              <Input className="input-pref_lieu_de_travail"type="select"
+              <Input className="input-pref_lieu_de_travail" type="select"
                 id="pref_lieu_de_travail"
                 name="pref_lieu_de_travail"
                 value={updateFreelancer.pref_lieu_de_travail}
@@ -322,12 +333,4 @@ const EditHomePageFreelancer = (props) => {
   )
 }
 
-export default EditHomePageFreelancer;  
-
-
-
-
-
-
-
-
+export default EditHomePageFreelancer;
