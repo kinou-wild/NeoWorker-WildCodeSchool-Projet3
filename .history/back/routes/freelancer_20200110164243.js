@@ -26,7 +26,7 @@ module.exports = function(app) {
         .create(req.body)
         .then(newFree =>{
             newFree.addUsers(req.body.userId)
-            .then(x=>res.json(newFree))
+            res.json(newFree)
         })
     });
     

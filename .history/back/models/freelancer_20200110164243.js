@@ -2,9 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const freelancer = sequelize.define('freelancer', {
     img: DataTypes.STRING,
-    status: {
-      defaultValue:0,
-      type:DataTypes.INTEGER},
+    status: DataTypes.INTEGER,
     title: DataTypes.STRING,
     firstname: DataTypes.STRING,
     lastname: DataTypes.STRING,
