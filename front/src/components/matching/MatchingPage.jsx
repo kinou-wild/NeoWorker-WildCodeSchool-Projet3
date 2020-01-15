@@ -5,8 +5,7 @@ import './MatchingPage.css'
 const MatchingPage = () => {
     return ( 
         <div className="container-matching">
-            <h1>welcome to the
-                 matching page</h1>
+            <h1>welcome to the matching page</h1>
         </div>
      );
 }
