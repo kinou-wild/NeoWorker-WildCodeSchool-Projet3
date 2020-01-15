@@ -17,7 +17,7 @@ const MissionCreateAdmin = (props) => {
         note: "",
         nb_j_par_mois: 'Nombre de jour par mois',
         type_profil: "",
-        siret: 'Siret',
+        siret: '',
         budget: 'Budget',
         date_debut: '',
         date_fin: '',
@@ -241,6 +241,7 @@ const MissionCreateAdmin = (props) => {
                     <FormGroup>
                         <Input style={{ height: '150px' }} placeholder='Notes :' type="textarea" name="note" id="note"
                             value={createm.note}
+                            required
                             onChange={(e) => { setCreatem({ ...createm, note: e.target.value }) }} />
                     </FormGroup>
                     <div className='champs-mission'>
@@ -249,6 +250,7 @@ const MissionCreateAdmin = (props) => {
                             id="nom_mission"
                             name="nom_mission"
                             value={createm.nom_mission}
+                            required
                             type="text"
                             onChange={(e) => { setCreatem({ ...createm, nom_mission: e.target.value }) }} />
                     </FormGroup>
@@ -257,6 +259,7 @@ const MissionCreateAdmin = (props) => {
                                 id="nom_entreprise"
                                 name="nom_entreprise"
                                 value={createm.nom_entreprise}
+                                required
                                 type="text"
                                 onChange={(e) => { setCreatem({ ...createm, nom_entreprise: e.target.value }) }} />
                         </FormGroup>
@@ -266,6 +269,7 @@ const MissionCreateAdmin = (props) => {
                                 name="email"
                                 value={createm.email}
                                 type="email"
+                                required
                                 onChange={(e) => { setCreatem({ ...createm, email: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
@@ -273,7 +277,8 @@ const MissionCreateAdmin = (props) => {
                                 id="tel"
                                 name="tel"
                                 value={createm.tel}
-                                type="tel"
+                                required
+                                type="number"
                                 onChange={(e) => { setCreatem({ ...createm, tel: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
@@ -281,6 +286,7 @@ const MissionCreateAdmin = (props) => {
                                 id="address"
                                 name="address"
                                 value={createm.address}
+                                required
                                 type="text"
                                 onChange={(e) => { setCreatem({ ...createm, address: e.target.value }) }} />
                         </FormGroup>
@@ -289,7 +295,8 @@ const MissionCreateAdmin = (props) => {
                                 id="cp"
                                 name="cp"
                                 value={createm.cp}
-                                type="text"
+                                required
+                                type="number"
                                 maxLength={5}
                                 onChange={(e) => { setCreatem({ ...createm, cp: e.target.value }) }} />
                         </FormGroup>
@@ -299,6 +306,7 @@ const MissionCreateAdmin = (props) => {
                                 name="date_debut"
                                 value={createm.date_debut}
                                 type="date"
+                                required
                                 onChange={(e) => { setCreatem({ ...createm, date_debut: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
@@ -307,6 +315,7 @@ const MissionCreateAdmin = (props) => {
                                 name="date_fin"
                                 value={createm.date_fin}
                                 type="date"
+                                required
                                 onChange={(e) => { setCreatem({ ...createm, date_fin: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
@@ -317,6 +326,7 @@ const MissionCreateAdmin = (props) => {
                                 type="number"
                                 min="1"
                                 max="31"
+                                required
                                 onChange={(e) => { setCreatem({ ...createm, nb_j_par_mois: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
@@ -324,7 +334,7 @@ const MissionCreateAdmin = (props) => {
                                 id="siret"
                                 name="siret"
                                 value={createm.siret}
-                                type="number"
+                                type="text"
                                 onChange={(e) => { setCreatem({ ...createm, siret: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
@@ -332,6 +342,7 @@ const MissionCreateAdmin = (props) => {
                                 id="budget"
                                 name="budget"
                                 value={createm.budget}
+                                required
                                 type="number"
                                 onChange={(e) => { setCreatem({ ...createm, budget: e.target.value }) }} />
                         </FormGroup>
@@ -344,6 +355,7 @@ const MissionCreateAdmin = (props) => {
                                 id="pref_lieu_de_travail"
                                 name="pref_lieu_de_travail"
                                 value={createm.pref_lieu_de_travail}
+                                required
                                 onChange={(e) => {
                                     setCreatem({
                                         ...createm,
@@ -360,6 +372,7 @@ const MissionCreateAdmin = (props) => {
                             <Label>Profil <span className='textModif'>:</span></Label>
                             <Input type="select" name="type_profil" id='type_profil'
                                 value={createm.type_profil}
+                                required
                                 onChange={(e) => { setCreatem({ ...createm, type_profil: e.target.value === 'Regular' ? 'Regular' : 'Expert' }) }}>
                                 <option hidden="true">-</option>
                                 <option>Regular</option>
@@ -370,6 +383,7 @@ const MissionCreateAdmin = (props) => {
                             <Label>Fréquence <span className='textModif'>:</span></Label>
                             <Input type="select" name="frequence" id='frequence'
                                 value={createm.frequence}
+                                required
                                 onChange={(e) => { setCreatem({ ...createm, frequence: e.target.value === 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
                                 <option hidden="true">-</option>
                                 <option>Ponctuelle</option>
@@ -380,6 +394,7 @@ const MissionCreateAdmin = (props) => {
                             <Label> Mobilité <span className='textModif'>:</span></Label>
                             <Input type="select" name="mobilite" id='mobilite'
                                 value={createm.mobilite}
+                                required
                                 onChange={(e) => { setCreatem({ ...createm, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
                                 <option hidden="true">-</option>
                                 <option>Oui</option>

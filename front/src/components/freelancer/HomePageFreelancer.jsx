@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './HomePageFreelancer.css'
+import './MonEspacePerso.css'
 import { Button } from 'reactstrap'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
@@ -59,58 +59,65 @@ const HomePageFreelancer = () => {
                                 placeholder="Métier"
                                 value={x.freelancers[0].title}
                             />
-                            <img className="profil-img-creation" src={x.freelancers[0].img == '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : x.freelancers[0].img} />
+                            <div className="align-photoprofilwithfield-div">
 
-                            <div className="field-group-text">Prénom</div>
-                            <input
-                                className="field-firstname"
-                                placeholder="Prénom" disabled type="text"
-                                id="firstname"
-                                name="firstname"
-                                value={x.freelancers[0].firstname}
-                            />
-                            <div className="field-group-text">Nom</div>
-                            <input
-                                className="field-lastname"
-                                placeholder="Nom"
-                                disabled type="text" id="lastname" name="lastname"
-                                value={x.freelancers[0].lastname}
-                            />
-                            <div className="field-group-text">Adresse</div>
-                            <input
-                                className="field-address"
-                                placeholder="Adresse"
-                                disabled type="text" id="address" name="address"
-                                value={x.freelancers[0].address}
-                            />
-                            <div className="field-group-text">Code Postal</div>
-                            <input
-                                className="field-cp"
-                                placeholder="Code postal"
-                                disabled type="text" id="cp" name="cp"
-                                value={x.freelancers[0].cp}
-                            />
+                                <img className="profil-img-creation" src={x.freelancers[0].img == '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : x.freelancers[0].img} />
+                                <div className="align-field-text-div">
+                                    <div className="field-group-text">Prénom</div>
+                                    <input
+                                        className="field-firstname"
+                                        placeholder="Prénom" disabled type="text"
+                                        id="firstname"
+                                        name="firstname"
+                                        value={x.freelancers[0].firstname}
+                                    />
+                                    <div className="field-group-text">Nom</div>
+                                    <input
+                                        className="field-lastname"
+                                        placeholder="Nom"
+                                        disabled type="text" id="lastname" name="lastname"
+                                        value={x.freelancers[0].lastname}
+                                    />
+                                    <div className="field-group-text">Adresse</div>
+                                    <input
+                                        className="field-address"
+                                        placeholder="Adresse"
+                                        disabled type="text" id="address" name="address"
+                                        value={x.freelancers[0].address}
+                                    />
+                                    <div className="field-group-text">Code Postal</div>
+                                    <input
+                                        className="field-cp"
+                                        placeholder="Code postal"
+                                        disabled type="text" id="cp" name="cp"
+                                        value={x.freelancers[0].cp}
+                                    />
 
 
-                            <div className="field-group-text">Email</div>
-                            <input
-                                className="field-email" placeholder="Email"
-                                disabled type="text" id="email" name="email"
-                                value={x.freelancers[0].email}
-                            />
-                            <div className="field-group-text">N° de téléphone</div>
-                            <input
-                                className="field-tel" placeholder="Telephone"
-                                disabled type="text" id="tel" name="tel"
-                                value={x.freelancers[0].tel}
-                            />
-                            {/*<div className="field-group-text">Password</div>
+                                    <div className="field-group-text">Email</div>
+                                    <input
+                                        className="field-email" placeholder="Email"
+                                        disabled type="text" id="email" name="email"
+                                        value={x.freelancers[0].email}
+                                    />
+                                    <div className="field-group-text">N° de téléphone</div>
+                                    <input
+                                        className="field-tel" placeholder="Telephone"
+                                        disabled type="text" id="tel" name="tel"
+                                        value={x.freelancers[0].tel}
+                                    />
+                                    {/*<div className="field-group-text">Password</div>
                             <input
                                 className="field-password"
                                 placeholder="Mot de passe" disabled type="text"
                                 id="password" name="password"
                                 value={x.freelancers[0].password}
                             />*/}
+                                </div> </div>
+
+
+
+
 
                             <div className="field-group-text">Taux journalier minimum</div>
                             <input className="field-tj_min"

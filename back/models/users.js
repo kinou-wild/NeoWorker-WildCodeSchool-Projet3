@@ -18,10 +18,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     password: {
       type: DataTypes.STRING,
-      validate: {
-        len: [0, 60],
-      }
-
     },
   }, {
     hooks:{
