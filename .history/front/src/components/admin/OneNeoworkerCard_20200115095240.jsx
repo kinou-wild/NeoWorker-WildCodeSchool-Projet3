@@ -86,6 +86,8 @@ const OneNeoworkerCard = ({neoworker, onClick}) => {
                                 required
                                 />
                         </FormGroup>
+                        
+
                         <FormGroup>
                             <Input className="input-tj_min" placeholder='Taux journalier minimum'
                                 type="number" id="tjm_min" name="tjm_min"
