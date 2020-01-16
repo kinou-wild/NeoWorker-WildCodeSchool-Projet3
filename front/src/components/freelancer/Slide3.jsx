@@ -46,7 +46,7 @@ return value
                         <div className='mission-card'>
                             <label>
                                 Sport :
-                            <input type="text" name="text" id="sport" placeholder={data.sport} 
+                            <input className="input-CI" type="text" name="text" id="sport" placeholder={data.sport} 
                             value={updata.sport} 
                             onChange={(e)=>{setUpdate({...updata, sport:e.target.value})}}/>
                             </label>
@@ -54,7 +54,7 @@ return value
                         <div className='mission-card'>
                             <label>
                                 Passion :
-                            <input type="text" name="text" id="passion" placeholder={data.passion} 
+                            <input className="input-CI" type="text" name="text" id="passion" placeholder={data.passion} 
                             value={updata.passion}
                             onChange={(e)=>{setUpdate({...updata,passion:e.target.value})}}/>
                             </label>
@@ -62,15 +62,14 @@ return value
                         <div className='mission-card'>
                             <label>
                                 Engagement Associatif :
-                            <input type="text" name="text" id="engagement_asso" placeholder={data.engagement_asso} 
+                            <input className="input-CI" type="text" name="text" id="engagement_asso" placeholder={data.engagement_asso} 
                             value={updata.engagement_asso}
                             onChange={(e)=>{setUpdate({...updata,engagement_asso:e.target.value})}} />
                             </label>
                         </div>
                         
-                        <button type='submit'>Modifier</button>
+                        
                     </form>
-                
             </div>
         </div>
     )
