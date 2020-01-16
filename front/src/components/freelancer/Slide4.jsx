@@ -14,11 +14,8 @@ return(
         <h2 className='competences-title'>Prestations</h2>
         <div className='competences'>
             {data.map(x =>
-                <div className='cards-competences-title'>
-                    
-
+                <div className='competences-title'>
                     <div className="fifth-div-creation-neoworker competences-title">
-
 
                         <select
                             className="famille-prestation-select " type="select" name="famille-prestation" id='famille-prestation'
@@ -34,8 +31,6 @@ return(
                             <option value="Gestion Ressources Humaines / Juridique">Gestion Ressources Humaines / Juridique</option>
                             <option value="Gestion de la relation clients">Gestion de la relation clients</option>
                         </select>
-
-
 
                         <div className="prestation-checkbox-div" style={prestation === 'Gestion administrative et comptable' ? { display: "flex" } : { display: "none" }}>
                             <div className="checkbox-and-content">
@@ -58,8 +53,6 @@ return(
                                 <label className="label-prestation" for="Option 6">Référencement organismes de formations</label></div>
                         </div>
 
-
-
                         <div className="prestation-checkbox-div" style={prestation === 'Gestion opérationnelle' ? { display: "flex" } : { display: "none" }}>
                             <div className="checkbox-and-content">
                                 <input type="checkbox" className="checkbox" id="Option 7" name="Option 7" checked={x.use_business_software ? "checked" : ""} />
@@ -78,10 +71,7 @@ return(
                                 <label className="label-prestation" for="Option 13">Classement de documents</label></div>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 14" name="Option 14" checked={x.filing_documents?"checked":""}/>
                                 <label className="label-prestation" for="Option 14">Secrétariat et tenue de l'agenda </label></div>
-
                         </div>
-
-
 
                         <div className="prestation-checkbox-div" style={prestation === 'Gestion commerciale' ? { display: "flex" } : { display: "none" }}>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 15" name="Option 15" checked={x.commercial_strategy_and_sales_pitch?"checked":""} />
@@ -90,11 +80,9 @@ return(
                                 <label className="label-prestation" for="Option 16">Création de tableaux de bord, de procédure et pilotage de l'activité commerciale</label></div>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 17" name="Option 17" checked={x.prospecting_outbound_sales?"checked":""}/>
                                 <label className="label-prestation" for="Option 17">Prospection / Outbound sales</label></div>
-
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 18" name="Option 18" checked={x.gestion_achat2?"checked":""}/>
                                 <label className="label-prestation" for="Option 18">Intendance et gestion des achats</label></div> 
                                 {/* manque intendance et gestion des achats dans la bdd */}
-
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 19" name="Option 19" checked={x.response_to_pulic_and_private_tenders?"checked":""}/>
                                 <label className="label-prestation" for="Option 19">Réponse aux appels d'offres publics et privés</label></div>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 20" name="Option 20" checked={x.sales_administration?"checked":""} />
@@ -112,8 +100,6 @@ return(
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 26" name="Option 26" checked={x.claims_management?"checked":""}/>
                                 <label className="label-prestation" for="Option 26">Gestion des réclamations</label></div>
                         </div>
-
-
 
                         <div className="prestation-checkbox-div" style={prestation === "Marketing / Communication / Digital" ? { display: "flex" } : { display: "none" }}>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 27" name="Option 27" checked={x.marketing_strategy_and_operational_monitoring?"checked":""}/>
@@ -148,8 +134,6 @@ return(
                                 <label className="label-prestation" for="Option 43">Travaux de traduction</label></div>
                         </div>
 
-
-
                         <div className="prestation-checkbox-div" style={prestation === "Gestion Financière / Contrôle de Gestion" ? { display: "flex" } : { display: "none" }}>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 44" name="Option 44" checked={x.administrative_and_financial_management?"checked":""}/>
                                 <label className="label-prestation" for="Option 44">Direction administrative et financière externalisée</label></div>
@@ -165,8 +149,6 @@ return(
                                 <label className="label-prestation" for="Option 49">Aide à la cession / rachat d'activités</label></div>
                         </div>
 
-
-
                         <div className="prestation-checkbox-div" style={prestation === "DSI" ? { display: "flex" } : { display: "none" }}>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 50" name="Option 50" checked={x.outsourced_information_system_management?"checked":""}/>
                                 <label className="label-prestation" for="Option 50">Direction des Systèmes d'informations externalisée</label></div>
@@ -177,8 +159,6 @@ return(
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 53" name="Option 53" checked={x.infra_reseau?"checked":""}/>
                                 <label className="label-prestation" for="Option 53">Infra / réseau</label></div>
                         </div>
-
-
 
                         <div className="prestation-checkbox-div" style={prestation === "Gestion Ressources Humaines / Juridique" ? { display: "flex" } : { display: "none" }}>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 54" name="Option 54" checked={x.outsourced_hr_department?"checked":""}/>
@@ -207,8 +187,6 @@ return(
                                 <label className="label-prestation" for="Option 65">Recrutement et intégration</label></div>
                         </div>
 
-
-
                         <div className="prestation-checkbox-div" style={prestation === "Gestion de la relation clients" ? { display: "flex" } : { display: "none" }}>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 66" name="Option 66" checked={x.suivi_des_grands_comptes?"checked":""}/>
                                 <label className="label-prestation" for="Option 66">Suivi grands comptes</label></div>
@@ -219,8 +197,6 @@ return(
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 69" name="Option 69" checked={x.after_sales_service ? "checked" : ""}/>
                                 <label className="label-prestation" for="Option 69">Service après ventes</label></div>
                         </div>
-
-
 
                     </div>
 
