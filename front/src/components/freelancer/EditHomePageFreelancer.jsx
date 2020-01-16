@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import './MonEspacePerso.css'
-import { Form, FormGroup, Button, Input } from 'reactstrap'
+import { FormGroup, Input } from 'reactstrap'
 import axios from 'axios';
 const bcrypt = require('bcryptjs')
 
 
 /* -------- Page d'édition pour l'espace perso Neoworker ------------------ */
 const EditHomePageFreelancer = (props) => {
-
-  const [changerMDP, setChangerMDP] = useState(true)
 
   //recup des query de l'id
   const paramsIdUser = props.match.params.id;
@@ -161,7 +159,7 @@ const EditHomePageFreelancer = (props) => {
           <div className="align-photoprofilwithinput-div">
             <div className="profil-img-and-choice">
 
-              <img className='profil-img-creation' src={updateFreelancer.img == '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : updateFreelancer.img} alt='profil pic' />
+              <img className='profil-img-creation' src={updateFreelancer.img === '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : updateFreelancer.img} alt='profil pic' />
 
               <div>
                 <form onSubmit={updateQueryDataFree}>
@@ -235,7 +233,7 @@ const EditHomePageFreelancer = (props) => {
               {/* <button onClick={()=>setChangerMDP(!changerMDP)}>Changer le mot de passe</button> */}
               <div className="field-group-text">Password</div>
               <input
-                // className={changerMDP ===true ?'input-password unshow':''}
+                // className={changerMDP ====true ?'input-password unshow':''}
                 className='input-password'
                 placeholder="Mot de passe"
                 type="password"

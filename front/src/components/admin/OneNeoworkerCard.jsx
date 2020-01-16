@@ -85,15 +85,6 @@ const OneNeoworkerCard = ({neoworker}) => {
                                 />
                         </FormGroup>
                         <FormGroup>
-                            <Input
-                                className="input-password"
-                                placeholder="Mot de passe" type="text"
-                                id="password" name="password"
-                                value={neoworker.password}
-                                />
-                        </FormGroup>
-
-                        <FormGroup>
                             <Input className="input-tj_min" placeholder='Taux journalier minimum'
                                 type="number" id="tjm_min" name="tjm_min"
                                 value={neoworker.tjm_min}

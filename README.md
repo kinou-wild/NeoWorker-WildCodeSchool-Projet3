@@ -1,9 +1,6 @@
 # Marseille_0919_P3_NeoWorker
 Projet 3 NeoWorker
 
-
-
-
 cloudinary :
 neoworker@outlook.fr
 Neoworker_1
@@ -14,8 +11,6 @@ WildCodeSchool
 
 
 Free side :
-
-global : gérer les erreurs dans le terminal (débeug)
 
 sur espace perso : redimensionner la photo
 
@@ -40,7 +35,7 @@ lien sous les textes par endroit ??
 
 
 
-ADMIN SIDE : (gérer les erreurs (débeug))
+ADMIN SIDE : 
 
 créer néoworker : 
 vérifier que tout marche(push bdd) + mettre les conditions aux inputs(min,max,type number…)

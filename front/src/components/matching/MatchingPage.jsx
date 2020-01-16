@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './MatchingPage.css'
 import axios from 'axios'
 
@@ -7,7 +7,6 @@ const MatchingPage = () => {
 
     const [dataFree, setDataFree] = useState([])
     const [dataMission, setDataMission] = useState([])
-    const [points, setPoints] = useState(0)
     
 
     useEffect(() => {

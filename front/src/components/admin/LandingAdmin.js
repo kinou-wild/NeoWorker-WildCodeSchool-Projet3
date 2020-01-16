@@ -12,13 +12,7 @@ const LandingAdmin = (props) => {
     password: '',
     errors: {}
   })
-  
-  
-//fonction qui sert à rien demander aux potos surtout le nerveux qui boit beaucoup de pastis
-    function handleSubmit(event) {
-      event.preventDefault();
-    }
-    
+   
     //onSubmit pour se login
     const onSubmit = (e) => {
       e.preventDefault()
