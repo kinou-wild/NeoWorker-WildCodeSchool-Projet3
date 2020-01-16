@@ -12,9 +12,9 @@ return(
 
         <div>
         <h2 className='competences-title'>Prestations</h2>
-        <div className='competences'>
+        <div className='cards'>
             {data.map(x =>
-                <div className='competences-title'>
+                <div className='mission-card'>
                     <div className="fifth-div-creation-neoworker competences-title">
 
                         <select
