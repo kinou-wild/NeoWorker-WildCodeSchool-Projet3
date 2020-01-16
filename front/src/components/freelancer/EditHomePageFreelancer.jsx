@@ -16,7 +16,6 @@ const EditHomePageFreelancer = (props) => {
 
   const [getUser, setGetUser] = useState([])
 
-
   //hooks pour modif le updateFreelancer
   const [updateFreelancer, setUpdateFreelancer] = useState({
     img: "",
@@ -149,7 +148,7 @@ const EditHomePageFreelancer = (props) => {
         <img className='pic-card' src={updateFreelancer.img === '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : updateFreelancer.img} alt='profil pic' />
       </div>
       <form className="formulaire-creation-neoworker" onSubmit={updaterEmailPassword} >
-        <p className="main-title">Edite tes informations personnels</p>
+        <p className="main-title">Edite tes informations personnelles</p>
 
         <div className="first-div-creation-neoworker">
           <div className="field-group-text">Métier</div>
@@ -208,7 +207,9 @@ const EditHomePageFreelancer = (props) => {
 
               <input
                 className="input-cp"
-                type="text" id="cp" name="cp"
+                type="number" id="cp" name="cp"
+                min="1"
+                max="5"
                 value={updateFreelancer.cp}
                 required
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, cp: e.target.value }) }} />
@@ -271,6 +272,8 @@ const EditHomePageFreelancer = (props) => {
             <div className="field-group-text">Disponibilité (nombre jours/mois)</div>
             <input className="input-dispo" type="number"
               id="disponibilite" name="disponibilite"
+              min="1"
+              max="31"
               value={updateFreelancer.disponibilite}
               required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, disponibilite: e.target.value }) }} />
           </div>

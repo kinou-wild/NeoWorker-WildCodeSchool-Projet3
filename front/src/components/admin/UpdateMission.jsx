@@ -234,7 +234,9 @@ const UpdateMission = (props) => {
                             <Input placeholder='Code Postal'
                                 name="cp"
                                 value={updateMission.cp}
-                                type="text"
+                                type="number"
+                                min="1"
+                                max="99999"
                                 maxLength={5}
                                 onChange={(e) => { setUpdateMission({ ...updateMission, cp: e.target.value }) }} />
                         </FormGroup>
@@ -271,6 +273,7 @@ const UpdateMission = (props) => {
                         <FormGroup>
                             <Input placeholder='Budget'
                                 name="budget"
+                                min="1"
                                 value={updateMission.budget}
                                 type="number"
                                 onChange={(e) => { setUpdateMission({ ...updateMission, budget: e.target.value }) }} />
