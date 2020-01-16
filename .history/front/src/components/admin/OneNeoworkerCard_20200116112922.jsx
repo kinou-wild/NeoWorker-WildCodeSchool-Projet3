@@ -12,14 +12,14 @@ const OneNeoworkerCard = ({ neoworker, onClick }) => {
             <div className="admin-neoworker">
                 <div className='profil-card'>
                     <p className='name-card'> Anais</p>
-                    {/* <img className='pic-card' src={prof  ilPic} alt='profil picture' /> */}
+                    {/* <img className='pic-card' src={profilPic} alt='profil picture' /> */}
                 </div>
                 <h1 className='admin-h1'> NeoWorker <span className='textModif'>:</span></h1>
                 <div className='body'>
                     <Form className="formulaire-creation-neoworker"  >
                         <FormGroup>
                             <Input disabled style={{ height: '150px' }} placeholder='Notes :' type="textarea" name="note" id="note"
-                                value={neoworker.note}
+                                // value={neoworker.note}
                             />
                         </FormGroup>
                         <div className='champs-mission'>

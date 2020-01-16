@@ -12,7 +12,7 @@ const OneNeoworkerCard = ({ neoworker, onClick }) => {
             <div className="admin-neoworker">
                 <div className='profil-card'>
                     <p className='name-card'> Anais</p>
-                    {/* <img className='pic-card' src={prof  ilPic} alt='profil picture' /> */}
+                    {/* <img className='pic-card' src={profilPic} alt='profil picture' /> */}
                 </div>
                 <h1 className='admin-h1'> NeoWorker <span className='textModif'>:</span></h1>
                 <div className='body'>

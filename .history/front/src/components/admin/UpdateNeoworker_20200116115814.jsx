@@ -1,14 +1,10 @@
  import React, {useState, useEffect} from 'react';
- import {useLocation} from 'react-router-dom'
+ import {useHistory } from 'react-router'
  import axios from 'axios';
  import UpdateNeoworkerCard from './UpdateNeoworkerCard'
 
  
  const ChangeNeoworker = ({neoworker}) => {
-
-    const location = useLocation()
-    console.log(location )
-
      //hooks to update a neoworker
     const [updateNeoworker, setUpdateNeoworker] = useState({neoworker})
 
