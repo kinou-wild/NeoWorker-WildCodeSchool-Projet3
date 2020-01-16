@@ -7,7 +7,13 @@ const UpdateNeoworkerCard = ({ dataNeoworker, onClick }) => {
 
     return (
         <div>
-            
+            <Form className="formulaire-creation-neoworker"  >
+                <FormGroup>
+                    <Input style={{ height: '150px' }} placeholder='Notes :' type="textarea" name="note" id="note"
+                        value={dataNeoworker.note}
+                    />
+                </FormGroup>
+            </Form>
         </div>
     )
 }

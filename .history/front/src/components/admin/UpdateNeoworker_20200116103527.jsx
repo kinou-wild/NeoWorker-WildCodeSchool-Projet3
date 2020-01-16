@@ -20,16 +20,16 @@
         update()
     },[])
 
-    const onStarClick = (nextValue, name) => {
-        if (updateNeoworker[name] === nextValue) {
+    const onStarClick = (newtValue, name) => {
+        if (updateNeoworker[name] === newtValue) {
             setUpdateNeoworker({...updateNeoworker, [name]: null})
         } else {
-            setUpdateNeoworker({...updateNeoworker, [name]: nextValue})
+            setUpdateNeoworker({...updateNeoworker, [name]: nextvalue})
         }
     }
     return (
         <div>
-            <UpdateNeoworkerCard dataNeoworker={updateNeoworker} onClick={onStarClick}/>
+            <UpdateNeoworkerCard dataNeoworker={updateNeoworker}/>
         </div>
     ) 
  }

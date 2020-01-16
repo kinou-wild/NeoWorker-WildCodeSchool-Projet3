@@ -24,12 +24,12 @@
         if (updateNeoworker[name] === nextValue) {
             setUpdateNeoworker({...updateNeoworker, [name]: null})
         } else {
-            setUpdateNeoworker({...updateNeoworker, [name]: nextValue})
+            setUpdateNeoworker({...updateNeoworker, [name]: nextvalue})
         }
     }
     return (
         <div>
-            <UpdateNeoworkerCard dataNeoworker={updateNeoworker} onClick={onStarClick}/>
+            <UpdateNeoworkerCard dataNeoworker={updateNeoworker}/>
         </div>
     ) 
  }

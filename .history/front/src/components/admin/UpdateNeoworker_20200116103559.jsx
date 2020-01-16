@@ -29,7 +29,7 @@
     }
     return (
         <div>
-            <UpdateNeoworkerCard dataNeoworker={updateNeoworker} onClick={onStarClick}/>
+            <UpdateNeoworkerCard dataNeoworker={updateNeoworker}/>
         </div>
     ) 
  }
