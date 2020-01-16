@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './MatchingPage.css'
 import axios from 'axios'
 
@@ -7,8 +7,7 @@ const MatchingPage = () => {
 
     const [dataFree, setDataFree] = useState([])
     const [dataMission, setDataMission] = useState([])
-    const [points, setPoints] = useState(0)
-    
+
 
     useEffect(() => {
         fetchDataFree()
@@ -23,7 +22,7 @@ const MatchingPage = () => {
     }
 
     const fetchDataMiss = async () => {
-        await axios.get('http://localhost:5000/mission/2')
+        await axios.get('http://localhost:5000/mission/1')
             .then(res => setDataMission(res.data))
             .catch(err => console.log(err))
     }
@@ -41,71 +40,78 @@ const MatchingPage = () => {
         }
 
         const sumFreelancers = []
+        const sumIdFree = []
 
-        for(let w =0;w<=dataFree.length-1;w++){
-            
+        for (let w = 0; w <= dataFree.length - 1; w++) {
+
             const tabContainer = [0]
+            const idFreeContainer = []
             for (let v = 17; v <= 58; v++) {
-            
 
                 //when mission ask 3 stars
-                
-                if (tabValues[w][v] === 3 & tabValueMission[0][v+3] === 3 & tabValues[w][v] - tabValueMission[0][v+3] === 0) {
-                    // setPoints(points+100)
 
+                if (tabValues[w][v] === 3 & tabValueMission[0][v + 3] === 3 & tabValues[w][v] - tabValueMission[0][v + 3] === 0) {
                     tabContainer.push(100)
+                    idFreeContainer.push(tabValues[w][0])
 
                 }
-                else if (tabValues[w][v] === 2 & tabValueMission[0][v+3] === 3 & tabValues[w][v] - tabValueMission[0][v+3] === -1) {
-                    // setPoints(points+50)
+                else if (tabValues[w][v] === 2 & tabValueMission[0][v + 3] === 3 & tabValues[w][v] - tabValueMission[0][v + 3] === -1) {
                     tabContainer.push(50)
+                    idFreeContainer.push(tabValues[w][0])
 
                 }
-                else if (tabValues[w][v] === 1 & tabValueMission[0][v+3] === 3 & tabValues[w][v] - tabValueMission[0][v+3] === -2) {
-                    // setPoints(points+25)
+                else if (tabValues[w][v] === 1 & tabValueMission[0][v + 3] === 3 & tabValues[w][v] - tabValueMission[0][v + 3] === -2) {
                     tabContainer.push(25)
+                    idFreeContainer.push(tabValues[w][0])
 
                 }
-               
-            
-            //when mission ask 2 stars
 
-            if (tabValues[w][v] === 3 & tabValueMission[0][v + 3] === 2 & tabValues[w][v] - tabValueMission[0][v + 3] === -1) {
-                tabContainer.push(125)
+                //when mission ask 2 stars
+
+                if (tabValues[w][v] === 3 & tabValueMission[0][v + 3] === 2 & tabValues[w][v] - tabValueMission[0][v + 3] === -1) {
+                    tabContainer.push(125)
+                    idFreeContainer.push(tabValues[w][0])
+                }
+                else if (tabValues[w][v] === 2 & tabValueMission[0][v + 3] === 2 & tabValues[w][v] - tabValueMission[0][v + 3] === 0) {
+                    tabContainer.push(100)
+                    idFreeContainer.push(tabValues[w][0])
+                }
+                else if (tabValues[w][v] === 1 & tabValueMission[0][v + 3] === 2 & tabValues[w][v] - tabValueMission[0][v + 3] === -1) {
+                    tabContainer.push(50)
+                    idFreeContainer.push(tabValues[w][0])
+                }
+
+
+                //when mission ask 1 star
+
+                if (tabValues[w][v] === 3 & tabValueMission[0][v + 3] === 1 & tabValues[w][v] - tabValueMission[0][v + 3] === 2) {
+                    tabContainer.push(150)
+                    idFreeContainer.push(tabValues[w][0])
+
+
+                }
+                else if (tabValues[w][v] === 2 & tabValueMission[0][v + 3] === 1 & tabValues[w][v] - tabValueMission[0][v + 3] === 1) {
+                    tabContainer.push(125)
+                    idFreeContainer.push(tabValues[w][0])
+                }
+                else if (tabValues[w][v] === 1 & tabValueMission[0][v + 3] === 1 & tabValues[w][v] - tabValueMission[0][v + 3] === 0) {
+                    tabContainer.push(100)
+                    idFreeContainer.push(tabValues[w][0])
+                }
 
             }
-            else if (tabValues[w][v] === 2 & tabValueMission[0][v + 3] === 2 & tabValues[w][v] - tabValueMission[0][v + 3] === 0) {
-                tabContainer.push(100)
-
-            }
-            else if (tabValues[w][v] === 1 & tabValueMission[0][v + 3] === 2 & tabValues[w][v] - tabValueMission[0][v + 3] === -1) {
-                tabContainer.push(50)
-
-            }
-           
-
-            //when mission ask 1 star
-
-            if (tabValues[w][v] === 3 & tabValueMission[0][v + 3] === 1 & tabValues[w][v] - tabValueMission[0][v + 3] === 2) {
-                tabContainer.push(150)
-
-            }
-            else if (tabValues[w][v] === 2 & tabValueMission[0][v + 3] === 1 & tabValues[w][v] - tabValueMission[0][v + 3] === 1) {
-                tabContainer.push(125)
-
-            }
-            else if (tabValues[w][v] === 1 & tabValueMission[0][v + 3] === 1 & tabValues[w][v] - tabValueMission[0][v + 3] === 0) {
-                tabContainer.push(100)
-
-            }
-          
-            
-        }
             sumFreelancers.push(tabContainer.reduce((acc, current) => acc + current))
-    }
-        console.log(sumFreelancers)
+            sumIdFree.push(idFreeContainer)
+        }
 
-
+        const fusionIdSum = []
+        for (let k = 0; k <= sumFreelancers.length - 1; k++) {
+            fusionIdSum.push([sumFreelancers[k], sumIdFree[k][0]])
+        }
+        
+        fusionIdSum.sort((a,b)=>a[0]-b[0]).reverse()
+        console.log(fusionIdSum)
+        
 
     }
 
