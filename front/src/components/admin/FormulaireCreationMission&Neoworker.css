@@ -45,7 +45,6 @@ Label.label {
 
 Button.btn, Button.btn:hover {
     background: #ED6A09;
-    margin-bottom: 40px;
 }
 
 ::placeholder {
@@ -79,6 +78,7 @@ div.mission-card {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width: 65%;
 }
 
 div.selector-mission {

@@ -196,7 +196,7 @@ const UpdateMission = (props) => {
                     </FormGroup>
                     <div className='champs-mission'>
                         <FormGroup>
-                            <Input style={{ textAlign: 'center' }}
+                            <Input 
                                 name="nom_mission"
                                 value={updateMission.nom_mission}
                                 type="text"
@@ -938,7 +938,7 @@ const UpdateMission = (props) => {
                                 <label className="label-prestation" for="Option 69">Service après ventes</label></div>
                         </div>
                     </div>
-                    <Button className="btn" type="submit">Valider les modifications</Button>
+                    <Button className="bottom-btn" type="submit">Valider les modifications</Button>
             </Form>
         </div>
     </div >

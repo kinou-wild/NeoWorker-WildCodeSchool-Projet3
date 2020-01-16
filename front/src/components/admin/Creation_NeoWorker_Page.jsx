@@ -167,10 +167,10 @@ const CreationNeoWorkerPage = (props) => {
 
     /* hooks pour le rating par étoiles */
     const [rating, setRating] = useState([
-        { Excel: 0 },
-        { Powerpoint: 0 },
+        { excel: 0 },
+        { powerpoint: 0 },
         { microsoft_365: 0 },
-        { Word: 0 },
+        { word: 0 },
         { crm_hubspot: 0 },
         { crm_salesforce: 0 },
         { crm_pipedrive: 0 },
@@ -212,7 +212,7 @@ const CreationNeoWorkerPage = (props) => {
         { sport: 0 },
         { passion: 0 },
         { autres_softskill: 0 },
-        //ajout dans la bdd
+
         { francais: 0 },
         { anglais: 0 },
         { espagnol: 0 },
@@ -332,6 +332,7 @@ const CreationNeoWorkerPage = (props) => {
             italien: rating[48].italien,
             chinois: rating[49].chinois,
             arabe: rating[50].arabe,
+            
         })
         setRegisterHooks({ ...registerHooks, role: 'neoworker' })
     }
@@ -509,18 +510,18 @@ const CreationNeoWorkerPage = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={rating[0].Excel}
+                                value={rating[0].excel}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 0, 'Excel')} />
+                                onStarClick={(e) => onStarClick(e, 0, 'excel')} />
                         </div>
                         <div className='mission-card'>
                             <p>Powerpoint</p>
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={rating[1].Powerpoint}
+                                value={rating[1].powerpoint}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 1, 'Powerpoint')} />
+                                onStarClick={(e) => onStarClick(e, 1, 'powerpoint')} />
                         </div>
                         <div className='mission-card'>
                             <p>Microsoft 365</p>
@@ -536,9 +537,9 @@ const CreationNeoWorkerPage = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={rating[3].Word}
+                                value={rating[3].word}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 3, 'Word')} />
+                                onStarClick={(e) => onStarClick(e, 3, 'word')} />
                         </div>
                         <div className='mission-card'>
                             <p>CRM Hubspot</p>
@@ -1168,7 +1169,7 @@ const CreationNeoWorkerPage = (props) => {
                                 <label className="label-prestation" for="Option 69">Service après ventes</label></div>
                         </div>
                     </div>
-                    <Button className='btn' onClick={idFreeRandomFreeRole} type='submit'>Valider</Button>
+                    <Button className='bottom-btn' onClick={idFreeRandomFreeRole} type='submit'>Valider</Button>
                     <form />
                 </Form>
             </div>

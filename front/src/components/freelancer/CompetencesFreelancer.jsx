@@ -50,7 +50,7 @@ const CompetencesFreelancer = (props) => {
                     <Slide5 data={idUsers.filter(x => x.id === params).map(x => x.freelancers[0])} />
                 </Slider>
                 <Link to={`/neoworker/editer/:id`}>
-                    <Button className='btn'>Editer</Button>
+                    <Button className='bottom-btn'>Editer</Button>
                 </Link>
             </div>
 

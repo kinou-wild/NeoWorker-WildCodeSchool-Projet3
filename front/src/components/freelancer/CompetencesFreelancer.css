@@ -69,7 +69,7 @@ img.pic-profil{
     min-width: 25%;
 }
 
-Button.btn, Button.btn:hover {
+Button.bottom-btn, Button.bottom-btn:hover {
     background: #ED6A09;
     position: relative;
     left:50%;
