@@ -393,6 +393,8 @@ const CreationNeoWorkerPage = (props) => {
                                 className="input-cp"
                                 placeholder="Code postal"
                                 type="number" id="cp" name="cp"
+                                min="1"
+                                max="99999"
                                 value={freelancer.cp}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, cp: e.target.value }) }}
@@ -427,6 +429,7 @@ const CreationNeoWorkerPage = (props) => {
                         <FormGroup>
                             <Input className="input-tj_min" placeholder='Taux journalier minimum'
                                 type="number" id="tjm_min" name="tjm_min"
+                                min="1"
                                 value={freelancer.tjm_min}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, tjm_min: e.target.value }) }} />
@@ -434,6 +437,7 @@ const CreationNeoWorkerPage = (props) => {
                         <FormGroup>
                             <Input className="input-tj_max" placeholder='Taux journalier maximum'
                                 type="number"
+                                min="1"
                                 id="tjm_max" name="tjm_max"
                                 value={freelancer.tjm_max}
                                 required
@@ -442,6 +446,8 @@ const CreationNeoWorkerPage = (props) => {
                         <FormGroup>
                             <Input className="input-dispo" placeholder='Disponibilité(nb jours/mois)'
                                 type="number"
+                                min="1"
+                                max="31"
                                 id="disponibilite" name="disponibilite"
                                 value={freelancer.disponibilite}
                                 required onChange={(e) => { setFreelancer({ ...freelancer, disponibilite: e.target.value }) }} />
