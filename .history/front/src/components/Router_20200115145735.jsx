@@ -16,7 +16,6 @@ import MissionsListe from './admin/MissionsListe';
 import jwt_decode from 'jwt-decode';
 import NeoworkerList from './admin/NeoworkerList'
 import OneNeoworker from './admin/OneNeoworker';
-import UpdateNeoworker from './admin/UpdateNeoworker';
 
 /* ------------------------ Router ---------------------------------- */
 const Router = () => {
@@ -149,10 +148,6 @@ const Router = () => {
 
                 //afficher un freelancer en tant qu'admin
                 <Route exact path="/admin/neoworker/:id" component={OneNeoworker} />
-
-                //modify a neoworker profileHooks
-                <Route exact path="/admin/neoworker/modifier" component={UpdateNeoworker} />
-                
 
             </Switch>
         </>

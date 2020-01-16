@@ -6,7 +6,9 @@ import './ListeNeoworker&Mission.css'
 
 
 const OneNeoworkerCard = ({ neoworker, onClick }) => {
-    
+
+    const [ignoreNeoworker, setIgnoreNeoworker] = useState(neoworker.status)
+
     return (
         <div>
             <div className="admin-neoworker">
@@ -818,8 +820,8 @@ const OneNeoworkerCard = ({ neoworker, onClick }) => {
                         onClick={onClick}
                     >ignorer</button>
                     <Link to={{
-                        pathname: "/admin/neoworker/modifier",
-                        state: {...neoworker}
+                        pathname: "/admin/neoworker/modifier"
+                        state: {...neoworkerById}
                     }}>
                         <button className='button-card'>Modifier</button>
                     </Link>

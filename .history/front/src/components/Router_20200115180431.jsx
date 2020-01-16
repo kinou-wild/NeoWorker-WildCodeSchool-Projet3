@@ -16,7 +16,7 @@ import MissionsListe from './admin/MissionsListe';
 import jwt_decode from 'jwt-decode';
 import NeoworkerList from './admin/NeoworkerList'
 import OneNeoworker from './admin/OneNeoworker';
-import UpdateNeoworker from './admin/UpdateNeoworker';
+import UpdateOneNeoworker from './admin/UpdateNeoworker';
 
 /* ------------------------ Router ---------------------------------- */
 const Router = () => {

@@ -819,7 +819,7 @@ const OneNeoworkerCard = ({ neoworker, onClick }) => {
                     >ignorer</button>
                     <Link to={{
                         pathname: "/admin/neoworker/modifier",
-                        state: {...neoworker}
+                        state: {...neoworkerById}
                     }}>
                         <button className='button-card'>Modifier</button>
                     </Link>

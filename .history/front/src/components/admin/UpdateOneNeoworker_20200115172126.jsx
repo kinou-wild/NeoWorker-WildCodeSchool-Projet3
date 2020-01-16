@@ -1,10 +1,10 @@
- import React from 'react';
+ import React, {useState, useEffect} from 'react';
  import axios from 'axios';
- 
+
 
  const ChangeNeoworker = () => {
      //hooks to update a neoworker
-    const [updateNeoworker, setUpdateNeoworker] = useState({neoworkerById})
+    const [updateNeoworker, setUpdateNeoworker] = useState([])
 
     //function to update a freelancer
     const update = (e, id) => {
@@ -15,9 +15,9 @@
     }
 
     return (
+        <div>
 
-
-    )
+        </div>
+    ) 
  }
- 
- 
+ export default ChangeNeoworker;
