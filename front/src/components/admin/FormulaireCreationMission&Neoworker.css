@@ -90,6 +90,13 @@ div.selector-mission {
     width: 100%;
 }
 
+div.test {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
 .formi {
     color: #000099;
 }
