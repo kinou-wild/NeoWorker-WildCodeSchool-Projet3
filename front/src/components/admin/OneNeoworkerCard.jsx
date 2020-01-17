@@ -6,7 +6,6 @@ import profilPic from '../../img/anais.jpg'
 
 
 const OneNeoworkerCard = ({ neoworker }) => {
-    console.log(neoworker)
 
     return (
         <div>
@@ -558,7 +557,242 @@ const OneNeoworkerCard = ({ neoworker }) => {
                                     value={neoworker.arabe}
                                     emptyStarColor={`#C4C4C4`}
                                 />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Quadra </p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.quadra}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
                         </div>
+                        <h2 className='mission-title'>Soft Skills</h2>
+                        <div className='cards'>
+                            <div className='mission-card'>
+                                <p>Résolution de problèmes</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.reso_pb}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Confiance</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.confiance}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Empathie</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.empathie}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Intelligence émotionnelle</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.intelligence_emo}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Communication </p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.communication}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Gestion du temps </p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.gestion_temps}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Gestion du stress </p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.gestion_stress}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Créativité</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.creativite}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Esprit d'entreprise</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.esprit_entre}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Audace</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.audace}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Vision, visualisation </p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.vision_visu}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Motivation</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.motivation}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Présence</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.presence}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Sens collectif</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.sens_collectif}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Curiosité</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.curiosite}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Sens de l'effort </p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.sens_effort}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Autres skills</p>
+                                <Input type="textaera" name="text" id="autres_skills" value={neoworker.autres_softskill} />
+                            </div>
+                        </div>
+                        <h2 className='mission-title'>Langues</h2>
+                        <div className='cards'>
+                            <div className='mission-card'>
+                                <p>Français</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.francais}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Anglais</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.anglais}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Espagnol</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.espagnol}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Allemand</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.allemand}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Russe</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.russe}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Italien</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.italien}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Chinois</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.chinois}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
+                            <div className='mission-card'>
+                                <p>Arabe</p>
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={3}
+                                    value={neoworker.arabe}
+                                    emptyStarColor={`#C4C4C4`}
+                                />
+                            </div>
                         <div className='mission-card'>
                             <p style={{ width:'15rem', padding: '5px 10px' }}>Autres langues</p>
                             <Input disabled style={{ marginRight: '5px' }}
@@ -778,4 +1012,5 @@ const OneNeoworkerCard = ({ neoworker }) => {
         </div>
     )
 }
+
 export default OneNeoworkerCard
