@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
         max: 2, // only allow values <= 1000000
         min: 0,
         isInt: true, // checks for valid integers
-
-      }
+        
+      }, defaultValue: 0
 
     },
     title: {

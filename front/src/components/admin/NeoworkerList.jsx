@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import NeoworkerListCard from './NeoWorkerListCard'
+import profilPic from '../../img/anais.jpg'
 import './ListeNeoworker&Mission.css'
 
 const NeoworkerList = () => {
@@ -8,7 +9,7 @@ const NeoworkerList = () => {
     //hooks to get all freelancers
     const [data, setData] = useState([])
     const [list, setList] = useState({ 0: [], 1: [], 2: [], 3: [] })
-    
+
     //function to get list of Neoworkers
     const getNeoworker = () => {
         axios.get('http://localhost:5000/freelancers')
@@ -32,34 +33,39 @@ const NeoworkerList = () => {
         })
     }
     return (
-        <div className="neoworker-div" style={{padding: '500px'}}>
-            <h2 className="neoworker-h2">Neoworkers disponible :</h2>
-            <div className="neoworker-card-div">
-                {list[0].map(x => {
-                    return <NeoworkerListCard key={x.id} list={{ ...x }} />
-                })}
+        <div className="admin-neoworker">
+            <div className='profil-card'>
+                <p className='name-card'> Anais</p>
+                <img className='pic-card' src={profilPic} alt='profil picture' />
             </div>
-            <h2 className="neoworker-h2">Neoworkers partiellement disponible :</h2>
-            <div className="neoworker-card-div">
-                {list[1].map(x => {
-                    return <NeoworkerListCard key={x.id} list={{ ...x }} />
-                })}
-            </div>
-            <h2 className="neoworker-h2">Neoworkers Non-disponible :</h2>
-            <div className="neoworker-card-div">
-                {list[2].map(x => {
-                    return <NeoworkerListCard key={x.id} list={{ ...x }} />
-                })}
-            </div>
-            <h2 className="neoworker-h2">Neoworkers ignorer :</h2>
-            <div className="neoworker-card-div">
-                {list[3].map(x => {
-                    return <NeoworkerListCard key={x.id} list={{ ...x }} />
-                })}
+            <div className="neoworker-div" >
+                <h2 className="neoworker-h2">Neoworkers disponible :</h2>
+                <div className="neoworker-card-div">
+                    {list[0].map(x => {
+                        return <NeoworkerListCard key={x.id} list={{ ...x }} />
+                    })}
+                </div>
+                <h2 className="neoworker-h2">Neoworkers partiellement disponible :</h2>
+                <div className="neoworker-card-div">
+                    {list[1].map(x => {
+                        return <NeoworkerListCard key={x.id} list={{ ...x }} />
+                    })}
+                </div>
+                <h2 className="neoworker-h2">Neoworkers Non-disponible :</h2>
+                <div className="neoworker-card-div">
+                    {list[2].map(x => {
+                        return <NeoworkerListCard key={x.id} list={{ ...x }} />
+                    })}
+                </div>
+                <h2 className="neoworker-h2">Neoworkers ignorer :</h2>
+                <div className="neoworker-card-div">
+                    {list[3].map(x => {
+                        return <NeoworkerListCard key={x.id} list={{ ...x }} />
+                    })}
+                </div>
             </div>
         </div>
     )
-
 }
 
 export default NeoworkerList
