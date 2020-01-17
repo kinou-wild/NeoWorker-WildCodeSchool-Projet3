@@ -19,12 +19,9 @@ const NeoworkerListCard = ({ list }) => {
                 <Link to={`/admin/neoworker/${list.id}`}>
                     <button className='button-card'> voir</button>
                 </Link>
-                <Link to={`/neoworker/editer/${list.id}`}>
+                <Link to={`/admin/neoworker/editer/${list.id}`}>
                     <button className='button-card'> editer</button>
                 </Link>
-                {/* <Link to=''>
-                <button className='neoworkerCard-btn'> ignorer</button>
-            </Link> */}
             </div>
         </div>
     )

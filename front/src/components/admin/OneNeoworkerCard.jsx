@@ -6,7 +6,7 @@ import './ListeNeoworker&Mission.css'
 
 
 const OneNeoworkerCard = ({ neoworker, onClick }) => {
-    
+
     return (
         <div>
             <div className="admin-neoworker">
@@ -817,10 +817,7 @@ const OneNeoworkerCard = ({ neoworker, onClick }) => {
                         className='button-card'
                         onClick={onClick}
                     >ignorer</button>
-                    <Link to={{
-                        pathname: "/admin/neoworker/modifier",
-                        state: {...neoworker}
-                    }}>
+                    <Link to={`/admin/neoworker/editer/${neoworker.id}`}>
                         <button className='button-card'>Modifier</button>
                     </Link>
                     <Link to='/admin/neoworker/liste'>

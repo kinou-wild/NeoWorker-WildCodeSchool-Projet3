@@ -151,7 +151,7 @@ const Router = () => {
                 <Route exact path="/admin/neoworker/:id" component={OneNeoworker} />
 
                 //modify a neoworker profileHooks
-                <Route exact path="/admin/neoworker/modifier" component={UpdateNeoworker} />
+                <Route exact path="/admin/neoworker/editer/:id" component={UpdateNeoworker} />
                 
 
             </Switch>
