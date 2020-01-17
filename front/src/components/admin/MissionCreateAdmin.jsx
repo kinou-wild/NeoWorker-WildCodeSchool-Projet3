@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
+import { Button, Form, FormGroup, Input, Label, Col, Row } from 'reactstrap'
 import StarRatingComponent from 'react-star-rating-component';
 import './FormulaireCreationMission&Neoworker.css'
 import axios from 'axios'
@@ -92,7 +92,7 @@ const MissionCreateAdmin = (props) => {
         commercial_strategy_and_sales_pitch: false,
         management_of_commercial_activity: false,
         prospecting_outbound_sales: false,
-        gestion_achat2 : false,
+        gestion_achat2: false,
         response_to_pulic_and_private_tenders: false,
         sales_administration: false,
         stock_management: false,
@@ -203,7 +203,7 @@ const MissionCreateAdmin = (props) => {
         { sport: 0 },
         { passion: 0 },
         { autres_softskill: 0 },
-        
+
         { francais: 0 },
         { anglais: 0 },
         { espagnol: 0 },
@@ -247,15 +247,15 @@ const MissionCreateAdmin = (props) => {
                             onChange={(e) => { setCreatem({ ...createm, note: e.target.value }) }} />
                     </FormGroup>
                     <div className='champs-mission'>
-                    <FormGroup>
-                        <Input style={{ textAlign: 'center' }} placeholder="Nom de la mission"
-                            id="nom_mission"
-                            name="nom_mission"
-                            value={createm.nom_mission}
-                            required
-                            type="text"
-                            onChange={(e) => { setCreatem({ ...createm, nom_mission: e.target.value }) }} />
-                    </FormGroup>
+                        <FormGroup>
+                            <Input style={{ textAlign: 'center' }} placeholder="Nom de la mission"
+                                id="nom_mission"
+                                name="nom_mission"
+                                value={createm.nom_mission}
+                                required
+                                type="text"
+                                onChange={(e) => { setCreatem({ ...createm, nom_mission: e.target.value }) }} />
+                        </FormGroup>
                         <FormGroup>
                             <Input placeholder="Nom de l'entreprise"
                                 id="nom_entreprise"
@@ -302,23 +302,29 @@ const MissionCreateAdmin = (props) => {
                                 maxLength={5}
                                 onChange={(e) => { setCreatem({ ...createm, cp: e.target.value }) }} />
                         </FormGroup>
-                        <FormGroup>
-                            <Input className='date-mission'
-                                id="date_debut"
-                                name="date_debut"
-                                value={createm.date_debut}
-                                type="date"
-                                required
-                                onChange={(e) => { setCreatem({ ...createm, date_debut: e.target.value }) }} />
+                        <FormGroup row>
+                            <Label sm={4.5}>Date de début :</Label>
+                            <Col sm={7.05}>
+                                <Input className='date-mission'
+                                    id="date_debut"
+                                    name="date_debut"
+                                    value={createm.date_debut}
+                                    type="date"
+                                    required
+                                    onChange={(e) => { setCreatem({ ...createm, date_debut: e.target.value }) }} />
+                            </Col>
                         </FormGroup>
-                        <FormGroup>
-                            <Input className='date-mission'
-                                id="date_fin"
-                                name="date_fin"
-                                value={createm.date_fin}
-                                type="date"
-                                required
-                                onChange={(e) => { setCreatem({ ...createm, date_fin: e.target.value }) }} />
+                        <FormGroup row>
+                            <Label sm={4.5}>Date de fin :</Label>
+                            <Col sm={7.05}>
+                                <Input className='date-mission'
+                                    id="date_fin"
+                                    name="date_fin"
+                                    value={createm.date_fin}
+                                    type="date"
+                                    required
+                                    onChange={(e) => { setCreatem({ ...createm, date_fin: e.target.value }) }} />
+                            </Col>
                         </FormGroup>
                         <FormGroup>
                             <Input style={{ width: '250px' }} placeholder='Nombre de jour(s) par mois'
@@ -826,8 +832,8 @@ const MissionCreateAdmin = (props) => {
                                 value={createm.autres_langue}
                                 onChange={(e) => setCreatem({ ...createm, autres_langue: e.target.value })} />
                         </div>
-                     
-                    </div>  
+
+                    </div>
 
                     <h2 className='mission-title'>Famille de prestations</h2>
                     <div>
