@@ -98,14 +98,12 @@ const OneNeoworkerCard = ({ neoworker }) => {
                                     required
                                 />
                             </FormGroup>
-                            <FormGroup>
-                                <Input disabled className="input-dispo" placeholder='Disponibilité(nb jours/mois)'
-                                    type="number"
-                                    id="disponibilite" name="disponibilite"
-                                    value={neoworker.disponibilite}
-                                    required />
-                            </FormGroup>
                             <div className='selector-mission'>
+                                <FormGroup>
+                                    <Label>Disponibilité(nb jours/mois) <span className='textModif'>:</span></Label>
+                                    <Input disabled className="input-dispo"
+                                        value={neoworker.disponibilite}/>
+                                </FormGroup>
                                 <FormGroup>
                                     <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
                                     <Input disabled type="select"
@@ -488,9 +486,9 @@ const OneNeoworkerCard = ({ neoworker }) => {
                                 />
                             </div>
                             <div className='champ-libre'>
-                            <p style={{ width:'10rem', padding: '5px 10px' }}>Autres skills </p>
-                            <Input disabled style={{ marginRight: '5px' }} type="textaera" name="text" value={neoworker.autres_softskill} />
-                        </div>
+                                <p style={{ width: '10rem', padding: '5px 10px' }}>Autres skills </p>
+                                <Input disabled style={{ marginRight: '5px' }} type="textaera" name="text" value={neoworker.autres_softskill} />
+                            </div>
                         </div>
                         <h2 className='mission-title'>Langues</h2>
                         <div className='cards'>
@@ -793,13 +791,13 @@ const OneNeoworkerCard = ({ neoworker }) => {
                                     emptyStarColor={`#C4C4C4`}
                                 />
                             </div>
-                        <div className='mission-card'>
-                            <p style={{ width:'15rem', padding: '5px 10px' }}>Autres langues</p>
-                            <Input disabled style={{ marginRight: '5px' }}
-                                type="textaera"
-                                name="text"
-                                value={neoworker.autres_langue} />
-                        </div>
+                            <div className='mission-card'>
+                                <p style={{ width: '15rem', padding: '5px 10px' }}>Autres langues</p>
+                                <Input disabled style={{ marginRight: '5px' }}
+                                    type="textaera"
+                                    name="text"
+                                    value={neoworker.autres_langue} />
+                            </div>
                         </div>
 
 
