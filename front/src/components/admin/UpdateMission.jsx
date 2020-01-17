@@ -185,7 +185,7 @@ const UpdateMission = (props) => {
         <div className="admin-mission">
             <div className='profil-card'>
                 <p className='name-card'> Anais</p>
-                <img className='pic-card' src={profilPic} alt='profil picture' />
+                <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
             <h1 className='admin-h1'>Modification d'une mission NeoWorker <span className='textModif'>:</span></h1>
             <div className='body'>
@@ -196,7 +196,7 @@ const UpdateMission = (props) => {
                     </FormGroup>
                     <div className='champs-mission'>
                         <FormGroup>
-                            <Input style={{ textAlign: 'center' }}
+                            <Input 
                                 name="nom_mission"
                                 value={updateMission.nom_mission}
                                 type="text"
@@ -234,7 +234,9 @@ const UpdateMission = (props) => {
                             <Input placeholder='Code Postal'
                                 name="cp"
                                 value={updateMission.cp}
-                                type="text"
+                                type="number"
+                                min="1"
+                                max="99999"
                                 maxLength={5}
                                 onChange={(e) => { setUpdateMission({ ...updateMission, cp: e.target.value }) }} />
                         </FormGroup>
@@ -271,6 +273,7 @@ const UpdateMission = (props) => {
                         <FormGroup>
                             <Input placeholder='Budget'
                                 name="budget"
+                                min="1"
                                 value={updateMission.budget}
                                 type="number"
                                 onChange={(e) => { setUpdateMission({ ...updateMission, budget: e.target.value }) }} />
@@ -285,7 +288,7 @@ const UpdateMission = (props) => {
                                 onChange={(e) => {
                                     setUpdateMission({
                                         ...updateMission,
-                                        pref_lieu_de_travail: e.target.value == 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value == 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
+                                        pref_lieu_de_travail: e.target.value === 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value === 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
                                     })
                                 }}>
                                 <option hidden={true}>-</option>
@@ -297,7 +300,7 @@ const UpdateMission = (props) => {
                         <FormGroup>
                             <Label>Profil <span className='textModif'>:</span></Label>
                             <Input type="select" name="type_profil" value={updateMission.type_profil}
-                                onChange={(e) => { setUpdateMission({ ...updateMission, type_profil: e.target.value == 'Regular' ? 'Regular' : 'Expert' }) }}>
+                                onChange={(e) => { setUpdateMission({ ...updateMission, type_profil: e.target.value === 'Regular' ? 'Regular' : 'Expert' }) }}>
                                 <option hidden={true}>-</option>
                                 <option>Regular</option>
                                 <option>Expert</option>
@@ -306,7 +309,7 @@ const UpdateMission = (props) => {
                         <FormGroup>
                             <Label>Fréquence <span className='textModif'>:</span></Label>
                             <Input type="select" name="frequence" value={updateMission.frequence}
-                                onChange={(e) => { setUpdateMission({ ...updateMission, frequence: e.target.value == 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
+                                onChange={(e) => { setUpdateMission({ ...updateMission, frequence: e.target.value === 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
                                 <option hidden={true}>-</option>
                                 <option>Ponctuelle</option>
                                 <option>Récurrente</option>
@@ -935,7 +938,7 @@ const UpdateMission = (props) => {
                                 <label className="label-prestation" for="Option 69">Service après ventes</label></div>
                         </div>
                     </div>
-                    <Button className="btn" type="submit">Valider les modifications</Button>
+                    <Button className="bottom-btn" type="submit">Valider les modifications</Button>
             </Form>
         </div>
     </div >

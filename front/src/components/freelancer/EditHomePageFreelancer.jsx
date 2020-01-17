@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './MonEspacePerso.css'
-import { Form, FormGroup, Button, Input } from 'reactstrap'
+import { FormGroup, Input } from 'reactstrap'
 import axios from 'axios';
 const bcrypt = require('bcryptjs')
 
@@ -8,14 +8,11 @@ const bcrypt = require('bcryptjs')
 /* -------- Page d'édition pour l'espace perso Neoworker ------------------ */
 const EditHomePageFreelancer = (props) => {
 
-  const [changerMDP, setChangerMDP] = useState(true)
-
   //recup des query de l'id
   const paramsIdUser = props.match.params.id;
   const paramsNeo = props.match.params.idneo;
 
   const [getUser, setGetUser] = useState([])
-
 
   //hooks pour modif le updateFreelancer
   const [updateFreelancer, setUpdateFreelancer] = useState({
@@ -149,7 +146,7 @@ const EditHomePageFreelancer = (props) => {
         <img className='pic-card' src={updateFreelancer.img === '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : updateFreelancer.img} alt='profil pic' />
       </div>
       <form className="formulaire-creation-neoworker" onSubmit={updaterEmailPassword} >
-        <p className="main-title">Edite tes informations personnels</p>
+        <p className="main-title">Edite tes informations personnelles</p>
 
         <div className="first-div-creation-neoworker">
           <div className="field-group-text">Métier</div>
@@ -162,7 +159,7 @@ const EditHomePageFreelancer = (props) => {
           <div className="align-photoprofilwithinput-div">
             <div className="profil-img-and-choice">
 
-              <img className='profil-img-creation' src={updateFreelancer.img == '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : updateFreelancer.img} alt='profil pic' />
+              <img className='profil-img-creation' src={updateFreelancer.img === '' ? 'https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0=' : updateFreelancer.img} alt='profil pic' />
 
               <div>
                 <form onSubmit={updateQueryDataFree}>
@@ -208,7 +205,9 @@ const EditHomePageFreelancer = (props) => {
 
               <input
                 className="input-cp"
-                type="text" id="cp" name="cp"
+                type="number" id="cp" name="cp"
+                min="1"
+                max="5"
                 value={updateFreelancer.cp}
                 required
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, cp: e.target.value }) }} />
@@ -234,7 +233,7 @@ const EditHomePageFreelancer = (props) => {
               {/* <button onClick={()=>setChangerMDP(!changerMDP)}>Changer le mot de passe</button> */}
               <div className="field-group-text">Password</div>
               <input
-                // className={changerMDP ===true ?'input-password unshow':''}
+                // className={changerMDP ====true ?'input-password unshow':''}
                 className='input-password'
                 placeholder="Mot de passe"
                 type="password"
@@ -271,6 +270,8 @@ const EditHomePageFreelancer = (props) => {
             <div className="field-group-text">Disponibilité (nombre jours/mois)</div>
             <input className="input-dispo" type="number"
               id="disponibilite" name="disponibilite"
+              min="1"
+              max="31"
               value={updateFreelancer.disponibilite}
               required onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, disponibilite: e.target.value }) }} />
           </div>

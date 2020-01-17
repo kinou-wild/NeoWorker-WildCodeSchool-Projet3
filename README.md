@@ -1,9 +1,6 @@
 # Marseille_0919_P3_NeoWorker
 Projet 3 NeoWorker
 
-
-
-
 cloudinary :
 neoworker@outlook.fr
 Neoworker_1
@@ -15,17 +12,17 @@ WildCodeSchool
 
 Free side :
 
-global : gérer les erreurs dans le terminal (débeug)
-
 sur espace perso : redimensionner la photo
 
 sur EDITER : 
 redimensionner la photo/
 remettre couleur des input (dsl Kev mais cela ne marche pas avec reactstrap la vie de ma mère) et le valider de la fin/
-mettre les conditions aux inputs(min,max,type number...)/ 
-faire le bouton ‘choisir un fichier’ classe !
-/changer mdp marche plus
+<!-- mettre les conditions aux inputs(min,max,type number...)/ => OK
 
+ -->faire le bouton ‘choisir un fichier’ classe ! => assez chaud de le modif
+
+<!-- changer mdp marche plus => OK
+ -->
 MES COMPETENCES : 
 slide centres d’intérêt à faire car elle est mmmmoche !/
 slide prestation à faire aussi car moche 
@@ -38,7 +35,7 @@ lien sous les textes par endroit ??
 
 
 
-ADMIN SIDE : (gérer les erreurs (débeug))
+ADMIN SIDE : 
 
 créer néoworker : 
 vérifier que tout marche(push bdd) + mettre les conditions aux inputs(min,max,type number…)

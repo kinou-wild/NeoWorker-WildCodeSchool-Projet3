@@ -74,6 +74,7 @@ const MissionCreateAdmin = (props) => {
         sens_effort: 0,
         sport: "",
         autres_softskill: "",
+
         assistance_suivi_comptable: false,
         relation_accountant: false,
         customer_recovery: false,
@@ -202,6 +203,7 @@ const MissionCreateAdmin = (props) => {
         { sport: 0 },
         { passion: 0 },
         { autres_softskill: 0 },
+        
         { francais: 0 },
         { anglais: 0 },
         { espagnol: 0 },
@@ -1021,7 +1023,7 @@ const MissionCreateAdmin = (props) => {
                                 <label className="label-prestation" for="Option 69">Service après ventes</label></div>
                         </div>
                     </div>
-                    <Button className='btn' type='submit'
+                    <Button className='bottom-btn' type='submit'
                         onClick={() => setCreatem({
                             ...createm,
                             excel: rating[0].excel,

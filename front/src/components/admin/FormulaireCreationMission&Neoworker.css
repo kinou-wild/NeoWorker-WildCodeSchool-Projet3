@@ -1,14 +1,15 @@
-.form-control{
-    color:#000099!important;
-    margin:0 !important;
-    padding: 0!important;
+.form-control {
+    color: #000099 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-.selector{
+.selector {
     color: #000099;
 }
 
-div.admin-mission, div.admin-neoworker {
+div.admin-mission,
+div.admin-neoworker {
     color: #000099;
     width: 80%;
     height: 100%;
@@ -16,7 +17,7 @@ div.admin-mission, div.admin-neoworker {
     font-weight: 600;
 }
 
-h1.admin-h1{
+h1.admin-h1 {
     text-align: center;
     font-size: 56px;
     font-weight: bold;
@@ -29,27 +30,28 @@ div.body {
 
 div.champs-mission {
     display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: stretch;
-	align-content: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
 }
 
 Label.label {
     color: #ED6A09;
     font-size: 40px;
     display: flex;
-    justify-content: center;;
+    justify-content: center;
+    ;
 }
 
-Button.btn, Button.btn:hover {
+Button.btn,
+Button.btn:hover {
     background: #ED6A09;
-    margin-bottom: 40px;
 }
 
 ::placeholder {
-    color: #ED6A09!important;
+    color: #ED6A09 !important;
     font-weight: 600;
 }
 
@@ -79,6 +81,7 @@ div.mission-card {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width: 65%;
 }
 
 div.selector-mission {
@@ -87,11 +90,11 @@ div.selector-mission {
     width: 100%;
 }
 
-.formi{
+.formi {
     color: #000099;
 }
 
-div.cards{
+div.cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -103,8 +106,8 @@ div.cards{
 }
 
 
-.date-mission{
-    color: #ED6A09!important;
+.date-mission {
+    color: #ED6A09 !important;
 }
 
 select#pref_lieu_de_travail.form-control,
@@ -114,13 +117,14 @@ select#km_max.form-control {
 }
 
 
-input, textarea {
-    font-weight: 600!important;
+input,
+textarea {
+    font-weight: 600 !important;
 }
 
-p.made{
+p.made {
     color: #000099;
-font-weight: bold;
+    font-weight: bold;
 }
 
 .family-prestation-title {
@@ -164,8 +168,17 @@ input[type="date"]:before {
     color: #ED6A09;
     margin-right: 0.5em;
     opacity: 0.7;
-  }
-  input[type="date"]:focus:before,
-  input[type="date"]:valid:before {
+}
+
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
     content: "";
-  }
+}
+
+input#cp.input-cp {
+    min-width: 120px;
+}
+
+input#disponibilite.input-dispo {
+    min-width: 230px;
+}

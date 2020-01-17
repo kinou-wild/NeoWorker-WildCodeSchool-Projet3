@@ -69,8 +69,12 @@ img.pic-profil{
     min-width: 25%;
 }
 
-Button.btn, Button.btn:hover {
+Button.bottom-btn, Button.bottom-btn:hover {
     background: #ED6A09;
+    position: relative;
+    left:50%;
+    font-size: x-large;  
+    transform: translate(-50%, -50%)  
 }
 
 .slick-next:before, .slick-prev:before{
@@ -90,10 +94,22 @@ Button.btn, Button.btn:hover {
 
 .cards {
     width: 100%;
+    border: 2px solid #c4c4c4;
+    border-radius: .25rem;
+    box-shadow: 0px 4px 4px rgba(85, 71, 71, 0.25) !important;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border : red solid 1px;
     
 }
 
 .cards-competences-title {
     overflow-x: scroll;
+}
+
+.input-CI{
+    width: 18vw;
 }
 

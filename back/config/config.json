@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "StevieCutman",
-    "database": "neowork",
+    "password": "textex82",
+    "database": "neoworker",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "timezone": "Europe/Warsaw",
