@@ -1,5 +1,5 @@
 import React, { useState, useEffect, } from 'react';
-import { Form, FormGroup, Input, Label } from 'reactstrap'
+import { Form, FormGroup, Input, Label, Col } from 'reactstrap'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
 import profilPic from '../../img/anais.jpg'
@@ -74,17 +74,23 @@ const SeeMission = (props) => {
                                 type="text"
                                 maxLength={5} />
                         </FormGroup>
-                        <FormGroup>
-                            <Input disabled className='date-mission' placeholder='Date de début'
-                                name="date_debut"
-                                value={getMission.date_debut}
-                                type="date" />
+                        <FormGroup row style={{width:'300px'}}>
+                            <Label sm={4.5}>Date de début :</Label>
+                            <Col sm={7.05}>
+                                <Input disabled className='date-mission'
+                                    name="date_debut"
+                                    value={getMission.date_debut}
+                                    type="date"/>
+                            </Col>
                         </FormGroup>
-                        <FormGroup>
-                            <Input disabled className='date-mission' placeholder="Date de fin"
-                                name="date_fin"
-                                value={getMission.date_fin}
-                                type="date" />
+                        <FormGroup row style={{width:'300px'}}>
+                            <Label sm={4.5}>Date de fin :</Label>
+                            <Col sm={7.05}>
+                                <Input disabled className='date-mission'
+                                    name="date_fin"
+                                    value={getMission.date_fin}
+                                    type="date"/>
+                            </Col>
                         </FormGroup>
                         <FormGroup>
                             <Input disabled placeholder='Nombre de jour(s) par mois'
