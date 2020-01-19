@@ -1036,6 +1036,17 @@ module.exports = (sequelize, DataTypes) => {
       }
 
     },
+
+    espagnol:  {
+      type: DataTypes.INTEGER,
+      validate: {
+        max: 3, // only allow values <= 1000000
+        min: 0,
+        isInt: true, // checks for valid integers
+
+      }
+
+    },
     autres_langue: {
       type: DataTypes.STRING,
       validate: {

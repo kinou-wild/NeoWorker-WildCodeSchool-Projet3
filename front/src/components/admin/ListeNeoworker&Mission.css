@@ -1,4 +1,4 @@
-git checcd/*---------------------------------------------- Neoworker --------------------------------------------------- */
+/*---------------------------------------------- Neoworker --------------------------------------------------- */
 
 .neoworker-div {
   padding: 200px;
@@ -149,6 +149,8 @@ Button.button-card, Button.button-car:hover {
   border-radius: .25rem;
   width: auto!important;
   margin: 0px!important;
+  display: flex;
+  align-content: center;
 }
 
 div.firstrow-card {

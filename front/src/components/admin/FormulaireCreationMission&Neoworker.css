@@ -26,6 +26,9 @@ h1.admin-h1 {
 div.body {
     width: 80%;
     margin: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 div.champs-mission {
