@@ -25,7 +25,7 @@ const CreationNeoWorkerPage = (props) => {
         id: '',
         img: "",
         title: "",
-        note:'',
+        note: '',
         firstname: "",
         lastname: "",
         address: "",
@@ -332,7 +332,7 @@ const CreationNeoWorkerPage = (props) => {
             italien: rating[48].italien,
             chinois: rating[49].chinois,
             arabe: rating[50].arabe,
-            
+
         })
         setRegisterHooks({ ...registerHooks, role: 'neoworker' })
     }
@@ -444,16 +444,17 @@ const CreationNeoWorkerPage = (props) => {
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, tjm_max: e.target.value }) }} />
                         </FormGroup>
-                        <FormGroup>
-                            <Input className="input-dispo" placeholder='Disponibilité(nb jours/mois)'
-                                type="number"
-                                min="1"
-                                max="31"
-                                id="disponibilite" name="disponibilite"
-                                value={freelancer.disponibilite}
-                                required onChange={(e) => { setFreelancer({ ...freelancer, disponibilite: e.target.value }) }} />
-                        </FormGroup>
                         <div className='selector-mission'>
+                        <FormGroup>
+                                <Label>Disponibilité(nb jours/mois) <span className='textModif'>:</span></Label>
+                                <Input className="input-dispo"
+                                    type="number"
+                                    min="1"
+                                    max="31"
+                                    id="disponibilite" name="disponibilite"
+                                    value={freelancer.disponibilite}
+                                    required onChange={(e) => { setFreelancer({ ...freelancer, disponibilite: e.target.value }) }} />
+                            </FormGroup>
                             <FormGroup>
                                 <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
                                 <Input type="select"
@@ -473,7 +474,6 @@ const CreationNeoWorkerPage = (props) => {
                                     <option>Peu importe</option>
                                 </Input>
                             </FormGroup>
-
                             <FormGroup>
                                 <Label>Mobilité <span className='textModif'>:</span></Label>
                                 <Input type="select" name="mobilite" id='mobilite'

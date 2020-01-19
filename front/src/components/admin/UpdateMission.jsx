@@ -263,6 +263,7 @@ const UpdateMission = (props) => {
                                 max="31"
                                 onChange={(e) => { setUpdateMission({ ...updateMission, nb_j_par_mois: e.target.value }) }} />
                         </FormGroup>
+                        <div className='test'>
                         <FormGroup>
                             <Input placeholder='Siret'
                                 name="siret"
@@ -278,6 +279,7 @@ const UpdateMission = (props) => {
                                 type="number"
                                 onChange={(e) => { setUpdateMission({ ...updateMission, budget: e.target.value }) }} />
                         </FormGroup>
+                    </div>
                     </div>
                     <div className='selector-mission'>
                         <FormGroup>

@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     status: {
       type: DataTypes.INTEGER,
       validate: {
-        max: 2, // only allow values <= 1000000
+        max: 3, // only allow values <= 1000000
         min: 0,
         isInt: true, // checks for valid integers
         

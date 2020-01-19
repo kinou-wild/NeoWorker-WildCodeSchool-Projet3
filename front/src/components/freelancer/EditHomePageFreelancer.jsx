@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './MonEspacePerso.css'
-import { FormGroup, Input } from 'reactstrap'
+import { FormGroup, Input, Button } from 'reactstrap'
 import axios from 'axios';
 const bcrypt = require('bcryptjs')
 
@@ -185,7 +185,6 @@ const EditHomePageFreelancer = (props) => {
                 required
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, firstname: e.target.value }) }} />
               <div className="field-group-text">Nom</div>
-
               <input
                 className="input-lastname"
                 type="text" id="lastname" name="lastname"
@@ -193,16 +192,13 @@ const EditHomePageFreelancer = (props) => {
                 required
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, lastname: e.target.value }) }} />
               <div className="field-group-text">Adresse</div>
-
               <input
                 className="input-address"
                 type="text" id="address" name="address"
                 value={updateFreelancer.address}
                 required
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, address: e.target.value }) }} />
-
               <div className="field-group-text">Code Postal</div>
-
               <input
                 className="input-cp"
                 type="number" id="cp" name="cp"
@@ -211,9 +207,7 @@ const EditHomePageFreelancer = (props) => {
                 value={updateFreelancer.cp}
                 required
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, cp: e.target.value }) }} />
-
               <div className="field-group-text">Email</div>
-
               <input
                 className="input-email"
                 type="text" id="email" name="email"
@@ -221,9 +215,7 @@ const EditHomePageFreelancer = (props) => {
                 value={updateFreelancer.email}
                 required
                 onChange={(e) => { emailUpdater(e) }} />
-
               <div className="field-group-text">N° de téléphone</div>
-
               <input
                 className="input-tel"
                 type="text" id="tel" name="tel"
@@ -235,7 +227,6 @@ const EditHomePageFreelancer = (props) => {
               <input
                 // className={changerMDP ====true ?'input-password unshow':''}
                 className='input-password'
-                placeholder="Mot de passe"
                 type="password"
                 id="password" name="password"
                 value={updateUser.password.length === 60 ? '' : updateUser.password}
@@ -245,7 +236,6 @@ const EditHomePageFreelancer = (props) => {
           </div>
         </div>
         <div className="second-div-creation-neoworker">
-
           <div className="div-tj_min">
             <div className="field-group-text">Taux journalier minimum</div>
             <input className="input-tj_min"
@@ -254,7 +244,6 @@ const EditHomePageFreelancer = (props) => {
               required
               onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, tjm_min: e.target.value }) }} />
           </div>
-
           <div className="div-tj_max">
             <div className="field-group-text">Taux journalier maximum</div>
             <input className="input-tj_max" type="number"
@@ -264,7 +253,6 @@ const EditHomePageFreelancer = (props) => {
               onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, tjm_max: e.target.value }) }} />
           </div>
         </div>
-
         <div className="third-div-creation-neoworker">
           <div className="div-dispo">
             <div className="field-group-text">Disponibilité (nombre jours/mois)</div>
@@ -295,7 +283,6 @@ const EditHomePageFreelancer = (props) => {
             </FormGroup>
           </div>
         </div>
-
         <div className="fourth-div-creation-neoworker">
           <div className="div-mobilite">
             <div className="field-group-text">Mobilité</div>
@@ -308,9 +295,6 @@ const EditHomePageFreelancer = (props) => {
               </Input>
             </FormGroup>
           </div>
-
-
-
           <div className="div-km_max">
             <div className="field-group-text">Kilomètres max</div>
             <FormGroup >
@@ -326,7 +310,7 @@ const EditHomePageFreelancer = (props) => {
             </FormGroup>
           </div>
         </div>
-        <button className='btn' onClick={updaterEmailPassword} type='submit'>Valider les modifications</button>
+        <Button className='btn' onClick={updaterEmailPassword} type='submit'>Valider les modifications</Button>
       </form>
 
 

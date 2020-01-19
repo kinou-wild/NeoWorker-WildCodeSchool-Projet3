@@ -13,11 +13,23 @@ module.exports = function(app) {
 
     // get all freelancer
     app.get('/freelancers', (req,res)=>{
-        models
-        .freelancer
-        .findAll({include : [models.users]})
-        .then(x=>res.json(x))
-    })
+        if (req.query.status) {
+            models
+            .freelancer
+            .findAll({
+                where: {
+                    status: req.query.status
+                }
+            })
+            .then(x => res.json(x))
+        }
+        else {         
+            models
+            .freelancer
+            .findAll()
+            .then(x => res.json(x))
+        }
+        });
 
      //création freelancer
     app.post('/freelancers', (req, res) => {
@@ -42,5 +54,16 @@ module.exports = function(app) {
         })
         .then(() => res.end())
     );
+
+    //Delete missions
+    app.delete('/freelancer/:id', (req, res) => {
+        models
+            .freelancer
+            .destroy({
+                where: {
+                    id: req.params.id
+                }
+            }).then(() => console.log("Deleted") & res.end())
+    });
     
 }

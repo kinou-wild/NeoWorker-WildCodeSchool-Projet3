@@ -32,7 +32,7 @@ const MissionsListeCard = (mission) => {
                     <Button className='button-card' onClick={()=> { if (window.confirm('Voulez-vous vraiment supprimer cette mission ?')) deleteCard(mission.id)}} >Supprimer</Button>
                 </div>
                 {mission.status === 2 || mission.status === 3 ?
-                <div className='fourthrow-card'>
+                <div className='fifthrow-card'>
                     <p>Neoworker : {/* Nom du neoworker depuis la TJ */}</p>
                 </div> : ''}
                 </div>

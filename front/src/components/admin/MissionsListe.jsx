@@ -33,12 +33,13 @@ const MissionsListe = () => {
     }
 
     //permet de refresh le get mission si un truc change sur la page 
+    
     useEffect(() => {
         getMissions()
     }, [])
 
 
-    ////////////////////////////////////////////////////////////////////////////////Attention c'est pas dans le component searchBar woulah ?
+    ////////////////////////////////////////////////////////////////////////////////
     const search = [...missionsAPourvoir, ...missionsPourvues, ...missionsTerminees]
     useEffect(() => {
 

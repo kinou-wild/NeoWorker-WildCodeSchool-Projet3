@@ -154,7 +154,9 @@
 .form-control {
     margin-right: 0px !important;
 }
-;
+
+.input-firstname,
+.input-lastname,
 .input-email, 
 .input-tel,
 .input-password,
@@ -168,7 +170,7 @@
 .input-mobilite,
 .input-Km_max
 {
-    width: 40%;
+    width: 100%;
     margin-top:10px;
     margin-bottom:10px;
     text-align: center !important;
