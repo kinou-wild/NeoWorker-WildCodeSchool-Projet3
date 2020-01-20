@@ -17,8 +17,8 @@ Everyone is welcome to use it. It is the proud work of a brilliant team and thei
   - replace URL with the url you copied
   - hit enter
 - This will copy all the files from this repo down to your computer
-- In your terminal, cd into the directory you just created
-- Type ```npm install``` to install all dependencies
+- In your terminal, cd into back/ and ```nodemon index.js```
+- Then open an other Terminal and do cd into front/ and ```npm install``` to install all dependencies
 - Last, but not least, type ```npm start``` to run the app locally.
 
 ## Structure
