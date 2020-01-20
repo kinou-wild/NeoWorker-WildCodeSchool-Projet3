@@ -38,23 +38,26 @@ const NeoworkerListCard = (neoworker) => {
         <div className='neoworkerCard'>
             <div className="firstrow-card-neoworker">
                 <p className='neoworkerCard-h1'>{neoworker.firstname} {neoworker.lastname}</p>
+                <Link to={`/admin/neoworker/${neoworker.id}`}><Button className='button-card'>Voir</Button></Link>
             </div>
             <div className="secondrow-card-neoworker">
                 <p>Métier : {neoworker.title}</p>
-                <Link to={`/admin/neoworker/${neoworker.id}`}><Button className='button-card'>Voir</Button></Link>
+                <Link to={`/neoworker/editer/${neoworker.id}`}><Button className='button-card'>Modifier</Button></Link>
+                
             </div>
             <div className="thirdrow-card-neoworker">
                 <p>Téléphone : {neoworker.tel}</p>
-                <Link to={`/neoworker/editer/${neoworker.id}`}><Button className='button-card'>Modifier</Button></Link>
+                 <Button className='button-card' onClick={() => { if (window.confirm('Voulez-vous vraiment supprimer ce Neoworker ?')) deleteNeoworker(neoworker.id) }}>Supprimer</Button>
             </div>
             <div className="fourthrow-card-neoworker">
                 <p>Email : {neoworker.email}</p>
-                <Button className='button-card' onClick={() => { if (window.confirm('Voulez-vous vraiment supprimer ce Neoworker ?')) deleteNeoworker(neoworker.id) }}>Supprimer</Button>
-            </div>
-            <div className="fifthrow-card-neoworker">
-                <p></p>
                 <Button className='button-card' onClick={() => {if (window.confirm('Voulez-vous vraiment ignoré ce Neoworker ?')) updateStatus(neoworker.id)}}>Ignorer</Button>
             </div>
+            {/*<div className="fifthrow-card-neoworker">
+                <p></p>
+                
+            </div>
+             */}
 
 
 

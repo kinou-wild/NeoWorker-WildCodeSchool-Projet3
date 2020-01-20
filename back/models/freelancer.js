@@ -63,13 +63,13 @@ module.exports = (sequelize, DataTypes) => {
     tel: {
       type: DataTypes.STRING,
       validate: {
-        len: [0, 30],
+        len: [10, 10],
       }
     },
     cp: {
       type: DataTypes.STRING,
       validate: {
-        len: [0, 10],
+        len: [5, 5],
       }
     },
     pref_lieu_de_travail: {
