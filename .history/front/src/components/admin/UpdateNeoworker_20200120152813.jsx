@@ -31,7 +31,7 @@ const ChangeNeoworker = (props) => {
             )
     }
 
-    useEffect(() => { }, [])
+    useEffect(() => {  }, [])
 
     const onStarClick = (nextValue, name) => {
         if (updateNeoworker[name] === nextValue) {
@@ -46,7 +46,7 @@ const ChangeNeoworker = (props) => {
                 <p className='name-card'> Anais</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
-            <h1 className='admin-h1'>Modifier un NeoWorker<span className='textModif'>:</span></h1>
+            <h1 className='admin-h1'>Création d'un NeoWorker<span className='textModif'>:</span></h1>
             <div className='body'>
                 <Form onSubmit={(e) => updateDataNeoworker(e)} >
                     <FormGroup>
@@ -317,7 +317,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.marketing_fb}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'marketing_fb')} />
+                                onStarClick={(e) => onStarClick(e, 12, 'marketing_fb')} />
                         </div>
                         <div className='mission-card'>
                             <p>Google adwards </p>
@@ -326,7 +326,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.google_adwards}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'google_adwards')} />
+                                onStarClick={(e) => onStarClick(e, 13, 'google_adwards')} />
                         </div>
                         <div className='mission-card'>
                             <p>Instagram </p>
@@ -335,7 +335,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.insta}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'insta')} />
+                                onStarClick={(e) => onStarClick(e, 14, 'insta')} />
                         </div>
                         <div className='mission-card'>
                             <p>Reseaux sociaux </p>
@@ -344,7 +344,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.reseaux_sociaux}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'reseaux_sociaux')} />
+                                onStarClick={(e) => onStarClick(e, 15, 'reseaux_sociaux')} />
                         </div>
                         <div className='mission-card'>
                             <p>Keynote </p>
@@ -353,7 +353,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.keynote}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'keynote')} />
+                                onStarClick={(e) => onStarClick(e, 16, 'keynote')} />
                         </div>
                         <div className='mission-card'>
                             <p>Pages </p>
@@ -362,7 +362,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.pages}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'pages')} />
+                                onStarClick={(e) => onStarClick(e, 17, 'pages')} />
                         </div>
                         <div className='mission-card'>
                             <p>G Suite Google </p>
@@ -371,7 +371,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.gsuite_google}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'gsuite_google')} />
+                                onStarClick={(e) => onStarClick(e, 18, 'gsuite_google')} />
                         </div>
                         <div className='mission-card'>
                             <p>Numbers </p>
@@ -380,7 +380,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.numbers}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'numbers')} />
+                                onStarClick={(e) => onStarClick(e, 19, 'numbers')} />
                         </div>
                         <div className='mission-card'>
                             <p>Erp sap </p>
@@ -389,7 +389,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.erp_sap}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'erp_sap')} />
+                                onStarClick={(e) => onStarClick(e, 20, 'erp_sap')} />
                         </div>
                         <div className='mission-card'>
                             <p>Ciel Gestion </p>
@@ -398,7 +398,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.ciel_gestion}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'ciel_gestion')} />
+                                onStarClick={(e) => onStarClick(e, 21, 'ciel_gestion')} />
                         </div>
                         <div className='mission-card'>
                             <p>Cegid </p>
@@ -407,7 +407,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.cegid}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'cegid')} />
+                                onStarClick={(e) => onStarClick(e, 22, 'cegid')} />
                         </div>
                         <div className='mission-card'>
                             <p>Sage gestion commercial </p>
@@ -416,7 +416,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.sage_gestion_commercial}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'sage_gestion_commercial')} />
+                                onStarClick={(e) => onStarClick(e, 23, 'sage_gestion_commercial')} />
                         </div>
                         <div className='mission-card'>
                             <p>Sage comptabilité </p>
@@ -425,7 +425,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.sage_comptabilite}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'sage_comptabilite')} />
+                                onStarClick={(e) => onStarClick(e, 24, 'sage_comptabilite')} />
                         </div>
                         <div className='mission-card'>
                             <p>Quadra </p>
@@ -434,7 +434,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.quadra}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'quadra')} />
+                                onStarClick={(e) => onStarClick(e, 25, 'quadra')} />
                         </div>
                     </div>
                     <h2 className='mission-title'>Soft Skills</h2>
@@ -446,7 +446,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.reso_pb}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'reso_pb')} />
+                                onStarClick={(e) => onStarClick(e, 26, 'reso_pb')} />
                         </div>
                         <div className='mission-card'>
                             <p>Confiance</p>
@@ -455,7 +455,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.confiance}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'confiance')} />
+                                onStarClick={(e) => onStarClick(e, 27, 'confiance')} />
                         </div>
                         <div className='mission-card'>
                             <p>Empathie</p>
@@ -464,7 +464,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.empathie}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'empathie')} />
+                                onStarClick={(e) => onStarClick(e, 28, 'empathie')} />
                         </div>
                         <div className='mission-card'>
                             <p>Intelligence émotionnelle</p>
@@ -473,7 +473,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.intelligence_emo}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'intelligence_emo')} />
+                                onStarClick={(e) => onStarClick(e, 29, 'intelligence_emo')} />
                         </div>
                         <div className='mission-card'>
                             <p>Communication </p>
@@ -482,7 +482,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.communication}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'communication')} />
+                                onStarClick={(e) => onStarClick(e, 30, 'communication')} />
                         </div>
                         <div className='mission-card'>
                             <p>Gestion du temps </p>
@@ -491,7 +491,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.gestion_temps}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'gestion_temps')} />
+                                onStarClick={(e) => onStarClick(e, 31, 'gestion_temps')} />
                         </div>
                         <div className='mission-card'>
                             <p>Gestion du stress </p>
@@ -500,7 +500,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.gestion_stress}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'gestion_stress')} />
+                                onStarClick={(e) => onStarClick(e, 32, 'gestion_stress')} />
                         </div>
                         <div className='mission-card'>
                             <p>Créativité</p>
@@ -509,7 +509,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.creativite}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'creativite')} />
+                                onStarClick={(e) => onStarClick(e, 33, 'creativite')} />
                         </div>
                         <div className='mission-card'>
                             <p>Esprit d'entreprise</p>
@@ -518,7 +518,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.esprit_entre}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'esprit_entre')} />
+                                onStarClick={(e) => onStarClick(e, 34, 'esprit_entre')} />
                         </div>
                         <div className='mission-card'>
                             <p>Audace</p>
@@ -527,7 +527,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.audace}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'audace')} />
+                                onStarClick={(e) => onStarClick(e, 35, 'audace')} />
                         </div>
                         <div className='mission-card'>
                             <p>Vision, visualisation </p>
@@ -536,7 +536,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.vision_visu}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'vision_visu')} />
+                                onStarClick={(e) => onStarClick(e, 36, 'vision_visu')} />
                         </div>
                         <div className='mission-card'>
                             <p>Motivation</p>
@@ -545,7 +545,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.motivation}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'motivation')} />
+                                onStarClick={(e) => onStarClick(e, 37, 'motivation')} />
                         </div>
                         <div className='mission-card'>
                             <p>Présence</p>
@@ -554,7 +554,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.presence}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'presence')} />
+                                onStarClick={(e) => onStarClick(e, 38, 'presence')} />
                         </div>
                         <div className='mission-card'>
                             <p>Sens collectif</p>
@@ -563,7 +563,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.sens_collectif}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'sens_collectif')} />
+                                onStarClick={(e) => onStarClick(e, 39, 'sens_collectif')} />
                         </div>
                         <div className='mission-card'>
                             <p>Curiosité</p>
@@ -572,7 +572,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.curiosite}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'curiosite')} />
+                                onStarClick={(e) => onStarClick(e, 40, 'curiosite')} />
                         </div>
                         <div className='mission-card'>
                             <p>Sens de l'effort </p>
@@ -581,7 +581,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.sens_effort}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'sens_effort')} />
+                                onStarClick={(e) => onStarClick(e, 41, 'sens_effort')} />
                         </div>
                         <div className='mission-card'>
                             <p>Autres skills</p>
@@ -597,7 +597,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.francais}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'francais')} />
+                                onStarClick={(e) => onStarClick(e, 43, 'francais')} />
                         </div>
                         <div className='mission-card'>
                             <p>Anglais</p>
@@ -606,7 +606,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.anglais}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'anglais')} />
+                                onStarClick={(e) => onStarClick(e, 44, 'anglais')} />
                         </div>
                         <div className='mission-card'>
                             <p>Espagnol</p>
@@ -615,7 +615,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.espagnol}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'espagnol')} />
+                                onStarClick={(e) => onStarClick(e, 45, 'espagnol')} />
                         </div>
                         <div className='mission-card'>
                             <p>Allemand</p>
@@ -624,7 +624,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.allemand}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'allemand')} />
+                                onStarClick={(e) => onStarClick(e, 46, 'allemand')} />
                         </div>
                         <div className='mission-card'>
                             <p>Russe</p>
@@ -633,7 +633,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.russe}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'russe')} />
+                                onStarClick={(e) => onStarClick(e, 47, 'russe')} />
                         </div>
                         <div className='mission-card'>
                             <p>Italien</p>
@@ -642,7 +642,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.italien}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'italien')} />
+                                onStarClick={(e) => onStarClick(e, 48, 'italien')} />
                         </div>
                         <div className='mission-card'>
                             <p>Chinois</p>
@@ -651,7 +651,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.chinois}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'chinois')} />
+                                onStarClick={(e) => onStarClick(e, 49, 'chinois')} />
                         </div>
                         <div className='mission-card'>
                             <p>Arabe</p>
@@ -660,7 +660,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.arabe}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'arabe')} />
+                                onStarClick={(e) => onStarClick(e, 50, 'arabe')} />
                         </div>
                         <div className='mission-card'>
                             <p>Autres langues</p>
@@ -736,7 +736,7 @@ const ChangeNeoworker = (props) => {
                             <p className="family-prestation-title">Gestion commerciale</p>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 15" name="Option 15" onClick={() => setUpdateNeoworker({ ...updateNeoworker, commercial_strategy_and_sales_pitch: document.getElementById('Option 15').checked === true ? true : false })} checked={updateNeoworker.commercial_strategy_and_sales_pitch === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 15">Stratégie et argumentaire commercial</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 16" name="Option 16" onClick={() => setUpdateNeoworker({ ...updateNeoworker, management_of_commercial_activity: document.getElementById('Option 16').checked === true ? true : false })} checked={updateNeoworker.management_of_commercial_activity === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 16" name="Option 16" onClick={() => setUpdateNeoworker({ ...updateNeoworker, management_of_commercial_activity: document.getElementById('Option 16').checked === true ? true : false })} checked={updateNeoworker.amanagement_of_commercial_activity === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 16">Création de tableaux de bord, de procédure et pilotage de l'activité commerciale</label></div>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 17" name="Option 17" onClick={() => setUpdateNeoworker({ ...updateNeoworker, prospecting_outbound_sales: document.getElementById('Option 17').checked === true ? true : false })} checked={updateNeoworker.prospecting_outbound_sales === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 17">Prospection / Outbound sales</label></div>
@@ -820,7 +820,7 @@ const ChangeNeoworker = (props) => {
                                 <label className="label-prestation" for="Option 50">Direction des Systèmes d'informations externalisée</label></div>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 51" name="Option 51" onClick={() => setUpdateNeoworker({ ...updateNeoworker, schema_directeur_si: document.getElementById('Option 51').checked === true ? true : false })} checked={updateNeoworker.schema_directeur_si === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 51">Schéma directeur SI</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 52" name="Option 52" onClick={() => setUpdateNeoworker({ ...updateNeoworker, functional_architecture: document.getElementById('Option 52').checked === true ? true : false })} checked={updateNeoworker.functional_architecture === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 52" name="Option 52" onClick={() => setUpdateNeoworker({ ...updateNeoworker, functional_architecture: document.getElementById('Option 52').checked === true ? true : false })} checked={updateNeoworker.functional_architecture_comptable === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 52">Architecture fonctionnelle / applicative</label></div>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 53" name="Option 53" onClick={() => setUpdateNeoworker({ ...updateNeoworker, infra_reseau: document.getElementById('Option 53').checked === true ? true : false })} checked={updateNeoworker.infra_reseau === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 53">Infra / réseau</label></div>

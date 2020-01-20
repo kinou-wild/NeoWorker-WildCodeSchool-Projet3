@@ -41,7 +41,7 @@ const ChangeNeoworker = (props) => {
         }
     }
     return (
-        <div>
+        <div style={{margin: '300px'}}>
             <div className='profil-card'>
                 <p className='name-card'> Anais</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
@@ -118,7 +118,7 @@ const ChangeNeoworker = (props) => {
                                 required
                                 onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, tel: e.target.value }) }} />
                         </FormGroup>
-                        <FormGroup>
+                        {/* <FormGroup>
                             <Input
                                 className="input-password"
                                 placeholder="Mot de passe" type="password"
@@ -126,7 +126,7 @@ const ChangeNeoworker = (props) => {
                                 required
                                 value={updateNeoworker.password}
                                 onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, password: e.target.value }) }} />
-                        </FormGroup>
+                        </FormGroup> */}
 
                         <FormGroup>
                             <Input className="input-tj_min" placeholder='Taux journalier minimum'
@@ -736,7 +736,7 @@ const ChangeNeoworker = (props) => {
                             <p className="family-prestation-title">Gestion commerciale</p>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 15" name="Option 15" onClick={() => setUpdateNeoworker({ ...updateNeoworker, commercial_strategy_and_sales_pitch: document.getElementById('Option 15').checked === true ? true : false })} checked={updateNeoworker.commercial_strategy_and_sales_pitch === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 15">Stratégie et argumentaire commercial</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 16" name="Option 16" onClick={() => setUpdateNeoworker({ ...updateNeoworker, management_of_commercial_activity: document.getElementById('Option 16').checked === true ? true : false })} checked={updateNeoworker.management_of_commercial_activity === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 16" name="Option 16" onClick={() => setUpdateNeoworker({ ...updateNeoworker, management_of_commercial_activity: document.getElementById('Option 16').checked === true ? true : false })} checked={updateNeoworker.amanagement_of_commercial_activity === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 16">Création de tableaux de bord, de procédure et pilotage de l'activité commerciale</label></div>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 17" name="Option 17" onClick={() => setUpdateNeoworker({ ...updateNeoworker, prospecting_outbound_sales: document.getElementById('Option 17').checked === true ? true : false })} checked={updateNeoworker.prospecting_outbound_sales === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 17">Prospection / Outbound sales</label></div>
@@ -820,7 +820,7 @@ const ChangeNeoworker = (props) => {
                                 <label className="label-prestation" for="Option 50">Direction des Systèmes d'informations externalisée</label></div>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 51" name="Option 51" onClick={() => setUpdateNeoworker({ ...updateNeoworker, schema_directeur_si: document.getElementById('Option 51').checked === true ? true : false })} checked={updateNeoworker.schema_directeur_si === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 51">Schéma directeur SI</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 52" name="Option 52" onClick={() => setUpdateNeoworker({ ...updateNeoworker, functional_architecture: document.getElementById('Option 52').checked === true ? true : false })} checked={updateNeoworker.functional_architecture === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 52" name="Option 52" onClick={() => setUpdateNeoworker({ ...updateNeoworker, functional_architecture: document.getElementById('Option 52').checked === true ? true : false })} checked={updateNeoworker.functional_architecture_comptable === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 52">Architecture fonctionnelle / applicative</label></div>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 53" name="Option 53" onClick={() => setUpdateNeoworker({ ...updateNeoworker, infra_reseau: document.getElementById('Option 53').checked === true ? true : false })} checked={updateNeoworker.infra_reseau === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 53">Infra / réseau</label></div>
