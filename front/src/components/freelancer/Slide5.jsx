@@ -30,6 +30,15 @@ return(
             />
           </div>
           <div className='mission-card'>
+            <p>Espagnol</p>
+            <StarRatingComponent
+              name="rate1"
+              starCount={3}
+              value={x.espagnol}
+              emptyStarColor={`#C4C4C4`}
+            />
+          </div>
+          <div className='mission-card'>
             <p>Allemand</p>
             <StarRatingComponent
               name="rate1"

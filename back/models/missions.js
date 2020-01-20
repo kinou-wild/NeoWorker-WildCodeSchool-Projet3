@@ -4,18 +4,18 @@ module.exports = (sequelize, DataTypes) => {
      nom_mission: {
          type: DataTypes.STRING,
          validate: {
-           len: [0, 40],
+           len: [1, 40],
          }},
     nom_entreprise: {
       type: DataTypes.STRING,
       validate: {
-        len: [0, 40],
+        len: [1, 40],
       }
     },
     email: {
       type: DataTypes.STRING,
       validate: {
-        len: [0, 40],
+        len: [1, 40],
         isEmail: true,
 
       }
@@ -92,20 +92,20 @@ module.exports = (sequelize, DataTypes) => {
     siret: {
       type: DataTypes.STRING,
       validate: {
-        len: [0, 100],
+        len: [0, 14],
 
       }
     },
     tel: {
       type: DataTypes.STRING,
       validate: {
-        len: [0, 30],
+        len: [10, 10],
       }
     },
     cp: {
       type: DataTypes.STRING,
       validate: {
-        len: [0, 10],
+        len: [5, 5],
       }
     },
     pref_lieu_de_travail: {

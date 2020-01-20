@@ -32,7 +32,7 @@ const SearchBarMission = ({setSearchTerm, searchTerm}) => {
             <img className='loop' src={Search} alt='search loop'/>
             <ul>
                 {searchTerm.nom.length===0? '':
-                result.map(item => {
+                result.map(item => { 
                 })}
 
             </ul>

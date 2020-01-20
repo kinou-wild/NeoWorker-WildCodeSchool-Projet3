@@ -100,8 +100,8 @@ const UpdateMission = (props) => {
 
         excel: 0,
         powerpoint: 0,
-        word: 0,
         microsoft_365: 0,
+        word: 0,
         crm_hubspot: 0,
         crm_salesforce: 0,
         crm_pipedrive: 0,
@@ -185,7 +185,7 @@ const UpdateMission = (props) => {
         <div className="admin-mission">
             <div className='profil-card'>
                 <p className='name-card'> Anais</p>
-                <img className='pic-card' src={profilPic} alt='profil picture' />
+                <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
             <h1 className='admin-h1'>Modification d'une mission NeoWorker <span className='textModif'>:</span></h1>
             <div className='body'>
@@ -196,7 +196,7 @@ const UpdateMission = (props) => {
                     </FormGroup>
                     <div className='champs-mission'>
                         <FormGroup>
-                            <Input style={{ textAlign: 'center' }}
+                            <Input 
                                 name="nom_mission"
                                 value={updateMission.nom_mission}
                                 type="text"
@@ -234,7 +234,9 @@ const UpdateMission = (props) => {
                             <Input placeholder='Code Postal'
                                 name="cp"
                                 value={updateMission.cp}
-                                type="text"
+                                type="number"
+                                min="1"
+                                max="99999"
                                 maxLength={5}
                                 onChange={(e) => { setUpdateMission({ ...updateMission, cp: e.target.value }) }} />
                         </FormGroup>
@@ -261,6 +263,7 @@ const UpdateMission = (props) => {
                                 max="31"
                                 onChange={(e) => { setUpdateMission({ ...updateMission, nb_j_par_mois: e.target.value }) }} />
                         </FormGroup>
+                        <div className='test'>
                         <FormGroup>
                             <Input placeholder='Siret'
                                 name="siret"
@@ -271,10 +274,12 @@ const UpdateMission = (props) => {
                         <FormGroup>
                             <Input placeholder='Budget'
                                 name="budget"
+                                min="1"
                                 value={updateMission.budget}
                                 type="number"
                                 onChange={(e) => { setUpdateMission({ ...updateMission, budget: e.target.value }) }} />
                         </FormGroup>
+                    </div>
                     </div>
                     <div className='selector-mission'>
                         <FormGroup>
@@ -285,7 +290,7 @@ const UpdateMission = (props) => {
                                 onChange={(e) => {
                                     setUpdateMission({
                                         ...updateMission,
-                                        pref_lieu_de_travail: e.target.value == 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value == 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
+                                        pref_lieu_de_travail: e.target.value === 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value === 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
                                     })
                                 }}>
                                 <option hidden={true}>-</option>
@@ -297,7 +302,7 @@ const UpdateMission = (props) => {
                         <FormGroup>
                             <Label>Profil <span className='textModif'>:</span></Label>
                             <Input type="select" name="type_profil" value={updateMission.type_profil}
-                                onChange={(e) => { setUpdateMission({ ...updateMission, type_profil: e.target.value == 'Regular' ? 'Regular' : 'Expert' }) }}>
+                                onChange={(e) => { setUpdateMission({ ...updateMission, type_profil: e.target.value === 'Regular' ? 'Regular' : 'Expert' }) }}>
                                 <option hidden={true}>-</option>
                                 <option>Regular</option>
                                 <option>Expert</option>
@@ -306,7 +311,7 @@ const UpdateMission = (props) => {
                         <FormGroup>
                             <Label>Fréquence <span className='textModif'>:</span></Label>
                             <Input type="select" name="frequence" value={updateMission.frequence}
-                                onChange={(e) => { setUpdateMission({ ...updateMission, frequence: e.target.value == 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
+                                onChange={(e) => { setUpdateMission({ ...updateMission, frequence: e.target.value === 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
                                 <option hidden={true}>-</option>
                                 <option>Ponctuelle</option>
                                 <option>Récurrente</option>
@@ -805,7 +810,7 @@ const UpdateMission = (props) => {
                             <p className="family-prestation-title">Gestion commerciale</p>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 15" name="Option 15" onClick={() => setUpdateMission({ ...updateMission, commercial_strategy_and_sales_pitch: document.getElementById('Option 15').checked === true ? true : false })} checked={updateMission.commercial_strategy_and_sales_pitch === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 15">Stratégie et argumentaire commercial</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 16" name="Option 16" onClick={() => setUpdateMission({ ...updateMission, management_of_commercial_activity: document.getElementById('Option 16').checked === true ? true : false })} checked={updateMission.amanagement_of_commercial_activity === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 16" name="Option 16" onClick={() => setUpdateMission({ ...updateMission, management_of_commercial_activity: document.getElementById('Option 16').checked === true ? true : false })} checked={updateMission.management_of_commercial_activity === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 16">Création de tableaux de bord, de procédure et pilotage de l'activité commerciale</label></div>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 17" name="Option 17" onClick={() => setUpdateMission({ ...updateMission, prospecting_outbound_sales: document.getElementById('Option 17').checked === true ? true : false })} checked={updateMission.prospecting_outbound_sales === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 17">Prospection / Outbound sales</label></div>
@@ -889,7 +894,7 @@ const UpdateMission = (props) => {
                                 <label className="label-prestation" for="Option 50">Direction des Systèmes d'informations externalisée</label></div>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 51" name="Option 51" onClick={() => setUpdateMission({ ...updateMission, schema_directeur_si: document.getElementById('Option 51').checked === true ? true : false })} checked={updateMission.schema_directeur_si === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 51">Schéma directeur SI</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 52" name="Option 52" onClick={() => setUpdateMission({ ...updateMission, functional_architecture: document.getElementById('Option 52').checked === true ? true : false })} checked={updateMission.functional_architecture_comptable === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 52" name="Option 52" onClick={() => setUpdateMission({ ...updateMission, functional_architecture: document.getElementById('Option 52').checked === true ? true : false })} checked={updateMission.functional_architecture === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 52">Architecture fonctionnelle / applicative</label></div>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 53" name="Option 53" onClick={() => setUpdateMission({ ...updateMission, infra_reseau: document.getElementById('Option 53').checked === true ? true : false })} checked={updateMission.infra_reseau === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 53">Infra / réseau</label></div>
@@ -935,7 +940,7 @@ const UpdateMission = (props) => {
                                 <label className="label-prestation" for="Option 69">Service après ventes</label></div>
                         </div>
                     </div>
-                    <Button className="btn" type="submit">Valider les modifications</Button>
+                    <Button className="bottom-btn" type="submit">Valider les modifications</Button>
             </Form>
         </div>
     </div >

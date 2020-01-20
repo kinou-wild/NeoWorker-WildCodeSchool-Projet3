@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
     address: {
       type: DataTypes.STRING,
       validate: {
-        len: [5, 100],
+        len: [1, 100],
       }
     },
     mobilite: {
@@ -64,13 +64,13 @@ module.exports = (sequelize, DataTypes) => {
     tel: {
       type: DataTypes.STRING,
       validate: {
-        len: [10, 10],
+        len: [0, 30],
       }
     },
     cp: {
       type: DataTypes.STRING,
       validate: {
-        len: [5, 5],
+        len: [0, 10],
       }
     },
     pref_lieu_de_travail: {

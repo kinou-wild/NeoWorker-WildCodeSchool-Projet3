@@ -1,13 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import StarRatingComponent from 'react-star-rating-component';
 
 
 const Slide2 = (props) => {
-    //hooks de la data freelancer pour get un id
-    const [idFree, setIdFree] = useState([])
 
-    //hooks de la data user pour le get de l'id
-    const [idUser, setIdUser] = useState([])
 
     const data = props.data
 

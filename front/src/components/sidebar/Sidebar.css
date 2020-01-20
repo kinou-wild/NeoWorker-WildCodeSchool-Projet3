@@ -17,9 +17,11 @@
     justify-content: space-between;
 }
 
+/*
 .sidebar-hidden {
     display: none;
 }
+*/
 
 .sidebar-field-group {
     width: 100%;
@@ -33,11 +35,8 @@
     padding-top: 16px;
     width: 100%;
     text-decoration: none !important;
-}
-
-.sidebar-field:hover:not(.active) {
-    background-color: #ED6A09;
-    color: white;
+    font-weight: bold;
+    
 }
 
 .sidebar-little-field {
@@ -46,15 +45,18 @@
     padding-bottom: 16px;
     padding-top: 16px;
     width: 100%;
-    text-decoration: none;
+    text-decoration: none !important;
     font-size: 16px;
     font-weight: normal;
 }
 
+
 .sidebar-little-field:hover:not(.active) {
     background-color: #ED6A09;
-    color: white;
+    color: #000099;
+    border-radius: 50px;
 }
+
 
 .div-logo {
     display: flex;

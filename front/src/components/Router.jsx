@@ -16,6 +16,7 @@ import MissionsListe from './admin/MissionsListe';
 import jwt_decode from 'jwt-decode';
 import NeoworkerList from './admin/NeoworkerList'
 import OneNeoworker from './admin/OneNeoworker';
+import MatchingPage from './matching/MatchingPage'
 import UpdateNeoworker from './admin/UpdateNeoworker';
 
 /* ------------------------ Router ---------------------------------- */
@@ -46,7 +47,7 @@ const Router = () => {
             <Switch>
                 <Route exact path="/"
                     component={
-                        profileHooks.role === '' 
+                        profileHooks.role === ''
                             ? AdminFreelancerChoose : localStorage.usertoken
                                 && profileHooks.role === 'admin'
                                 ? HomePageAdmin : localStorage.usertoken
@@ -143,6 +144,14 @@ const Router = () => {
                             ? HomePageAdmin : localStorage.usertoken
                                 && profileHooks.role === 'neoworker'
                                 ? CompetencesFreelancer : ''} />
+    
+                <Route exact path="/admin/matching"
+                    component={profileHooks.role === ''
+                        ? LandingFreelancer : localStorage.usertoken
+                            && profileHooks.role === 'admin'
+                            ? MatchingPage : localStorage.usertoken
+                                && profileHooks.role === 'neoworker'
+                                ? HomePageFreelancer : ''} />
 
                 {/* show neoworker list */}
                 <Route exact path="/admin/neoworker/liste" component={NeoworkerList} />

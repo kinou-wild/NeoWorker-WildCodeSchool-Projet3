@@ -25,7 +25,7 @@ const CreationNeoWorkerPage = (props) => {
         id: '',
         img: "",
         title: "",
-        note:'',
+        note: '',
         firstname: "",
         lastname: "",
         address: "",
@@ -167,10 +167,10 @@ const CreationNeoWorkerPage = (props) => {
 
     /* hooks pour le rating par étoiles */
     const [rating, setRating] = useState([
-        { Excel: 0 },
-        { Powerpoint: 0 },
+        { excel: 0 },
+        { powerpoint: 0 },
         { microsoft_365: 0 },
-        { Word: 0 },
+        { word: 0 },
         { crm_hubspot: 0 },
         { crm_salesforce: 0 },
         { crm_pipedrive: 0 },
@@ -212,7 +212,7 @@ const CreationNeoWorkerPage = (props) => {
         { sport: 0 },
         { passion: 0 },
         { autres_softskill: 0 },
-        //ajout dans la bdd
+
         { francais: 0 },
         { anglais: 0 },
         { espagnol: 0 },
@@ -282,10 +282,10 @@ const CreationNeoWorkerPage = (props) => {
             email: registerHooks.email,
             password: registerHooks.password,
             id: randomIdFree(),
-            excel: rating[0].Excel,
-            powerpoint: rating[1].Powerpoint,
+            excel: rating[0].excel,
+            powerpoint: rating[1].powerpoint,
             microsoft_365: rating[2].microsoft_365,
-            word: rating[3].Word,
+            word: rating[3].word,
             crm_hubspot: rating[4].crm_hubspot,
             crm_salesforce: rating[5].crm_salesforce,
             crm_pipedrive: rating[6].crm_pipedrive,
@@ -332,6 +332,7 @@ const CreationNeoWorkerPage = (props) => {
             italien: rating[48].italien,
             chinois: rating[49].chinois,
             arabe: rating[50].arabe,
+
         })
         setRegisterHooks({ ...registerHooks, role: 'neoworker' })
     }
@@ -393,6 +394,8 @@ const CreationNeoWorkerPage = (props) => {
                                 className="input-cp"
                                 placeholder="Code postal"
                                 type="number" id="cp" name="cp"
+                                min="1"
+                                max="99999"
                                 value={freelancer.cp}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, cp: e.target.value }) }}
@@ -427,6 +430,7 @@ const CreationNeoWorkerPage = (props) => {
                         <FormGroup>
                             <Input className="input-tj_min" placeholder='Taux journalier minimum'
                                 type="number" id="tjm_min" name="tjm_min"
+                                min="1"
                                 value={freelancer.tjm_min}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, tjm_min: e.target.value }) }} />
@@ -434,19 +438,23 @@ const CreationNeoWorkerPage = (props) => {
                         <FormGroup>
                             <Input className="input-tj_max" placeholder='Taux journalier maximum'
                                 type="number"
+                                min="1"
                                 id="tjm_max" name="tjm_max"
                                 value={freelancer.tjm_max}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, tjm_max: e.target.value }) }} />
                         </FormGroup>
-                        <FormGroup>
-                            <Input className="input-dispo" placeholder='Disponibilité(nb jours/mois)'
-                                type="number"
-                                id="disponibilite" name="disponibilite"
-                                value={freelancer.disponibilite}
-                                required onChange={(e) => { setFreelancer({ ...freelancer, disponibilite: e.target.value }) }} />
-                        </FormGroup>
                         <div className='selector-mission'>
+                        <FormGroup>
+                                <Label>Disponibilité(nb jours/mois) <span className='textModif'>:</span></Label>
+                                <Input className="input-dispo"
+                                    type="number"
+                                    min="1"
+                                    max="31"
+                                    id="disponibilite" name="disponibilite"
+                                    value={freelancer.disponibilite}
+                                    required onChange={(e) => { setFreelancer({ ...freelancer, disponibilite: e.target.value }) }} />
+                            </FormGroup>
                             <FormGroup>
                                 <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
                                 <Input type="select"
@@ -466,7 +474,6 @@ const CreationNeoWorkerPage = (props) => {
                                     <option>Peu importe</option>
                                 </Input>
                             </FormGroup>
-
                             <FormGroup>
                                 <Label>Mobilité <span className='textModif'>:</span></Label>
                                 <Input type="select" name="mobilite" id='mobilite'
@@ -503,18 +510,18 @@ const CreationNeoWorkerPage = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={rating[0].Excel}
+                                value={rating[0].excel}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 0, 'Excel')} />
+                                onStarClick={(e) => onStarClick(e, 0, 'excel')} />
                         </div>
                         <div className='mission-card'>
                             <p>Powerpoint</p>
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={rating[1].Powerpoint}
+                                value={rating[1].powerpoint}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 1, 'Powerpoint')} />
+                                onStarClick={(e) => onStarClick(e, 1, 'powerpoint')} />
                         </div>
                         <div className='mission-card'>
                             <p>Microsoft 365</p>
@@ -530,9 +537,9 @@ const CreationNeoWorkerPage = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={rating[3].Word}
+                                value={rating[3].word}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 3, 'Word')} />
+                                onStarClick={(e) => onStarClick(e, 3, 'word')} />
                         </div>
                         <div className='mission-card'>
                             <p>CRM Hubspot</p>
@@ -1162,7 +1169,7 @@ const CreationNeoWorkerPage = (props) => {
                                 <label className="label-prestation" for="Option 69">Service après ventes</label></div>
                         </div>
                     </div>
-                    <Button className='btn' onClick={idFreeRandomFreeRole} type='submit'>Valider</Button>
+                    <Button className='bottom-btn' onClick={idFreeRandomFreeRole} type='submit'>Valider</Button>
                     <form />
                 </Form>
             </div>

@@ -1,4 +1,4 @@
-git checcd/*---------------------------------------------- Neoworker --------------------------------------------------- */
+/*---------------------------------------------- Neoworker --------------------------------------------------- */
 
 .neoworker-div {
   padding: 200px;
@@ -19,26 +19,11 @@ git checcd/*---------------------------------------------- Neoworker -----------
 .neoworker-card-div {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.neoworkerCard {
-  display: flex;
-  align-items: center;
-  background: white;
-  padding: 8px 16px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  color: black;
-  text-align: center;
-  font-size: 24px;
-  margin: 10px;
-  justify-content: space-between;
-  border-radius: .25rem;
-  width: 476px;
-  height: 200px;
-  left: 364px;
-  top: 222px;
+  flex-flow: wrap;
+  justify-content: flex-start;
+  margin: 0px 3%;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .neoworkerCard-content {
@@ -54,28 +39,23 @@ git checcd/*---------------------------------------------- Neoworker -----------
 }
 
 .neoworkerCard {
-  align-items: center;
-  background: white;
-  padding: 8px 16px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   padding: 10px;
   color: black;
   text-align: center;
   font-size: 24px;
   margin: 10px;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  width: 45%;
+  border: #c4c4c4 2px solid;
   border-radius: .25rem;
-  width: 476px;
-  height: 200px;
-  left: 364px;
-  top: 222px;
+  height: auto;
 }
 
 .neoworkerCard-h1 {
-  display: flex;
-  flex-direction: row;
-  font-size: 30px;
   font-weight: bold;
+  margin: 0px !important;
 }
 
 
@@ -95,15 +75,17 @@ git checcd/*---------------------------------------------- Neoworker -----------
   margin-bottom: 10px;
 }
 
-.firstrow-card {
+div.firstrow-card-neoworker {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 
-.secondrow-card, div.thirdrow-card, div.fourthrow-card {
+div.secondrow-card-neoworker, div.thirdrow-card-neoworker, div.fourthrow-card-neoworker, div.fifthrow-card-neoworker {
   display: flex;
   justify-content: space-between;
   font-size: 16px;
+  margin-bottom: 10px;
 }
 
 
@@ -125,7 +107,10 @@ div.missions {
   display: flex;
   flex-direction: row;
   flex-flow: wrap;
-  justify-content: center;
+  justify-content: flex-start;
+  margin: 0px 3%;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 div.missions-cards {
@@ -149,6 +134,8 @@ Button.button-card, Button.button-car:hover {
   border-radius: .25rem;
   width: auto!important;
   margin: 0px!important;
+  display: flex;
+  align-content: center;
 }
 
 div.firstrow-card {
@@ -156,7 +143,7 @@ div.firstrow-card {
   justify-content: space-between;
 }
 
-div.secondrow-card, div.thirdrow-card, div.fourthrow-card {
+div.secondrow-card, div.thirdrow-card, div.fourthrow-card, div.fifthrow-card {
   display: flex;
   justify-content: space-between;
   font-size: 16px;

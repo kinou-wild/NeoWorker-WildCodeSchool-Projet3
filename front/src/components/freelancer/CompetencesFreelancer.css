@@ -6,9 +6,9 @@ div.freelancer-competences {
 }
 
 div.profil-card {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     align-items: flex-end;
 }
 
@@ -21,7 +21,7 @@ img.pic-card {
     border-radius: 50%;
 }
 
-img.pic-profil{
+img.pic-profil {
     width: 15%;
     border-radius: 50%;
 }
@@ -41,7 +41,7 @@ img.pic-profil{
     justify-content: space-between;
 }
 
-.competences-title { 
+.competences-title {
     color: #ED6A09;
     font-size: 40px;
     width: 80%;
@@ -73,15 +73,13 @@ Button.btn, Button.btn:hover {
     background: #ED6A09;
 }
 
-.slick-next:before, .slick-prev:before{
-    color:#ED6A09;
+.slick-next:before, .slick-prev:before {
+    color: #ED6A09;
     font-size: 50px;
-
 }
 
 .slick-next, .slick-prev {
     width: 120px;
-
 }
 
 .slick-prev, .slick-prev:before {
@@ -90,10 +88,27 @@ Button.btn, Button.btn:hover {
 
 .cards {
     width: 100%;
-    
+    border: 2px solid #c4c4c4;
+    border-radius: .25rem;
+    box-shadow: 0px 4px 4px rgba(85, 71, 71, 0.25) !important;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.cards-competences-title {
-    overflow-x: scroll;
+#prestation-scroll{
+    overflow-y: scroll;
+    height: 60vh;
 }
 
+.fifth-div-creation-neoworker {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+}
+
+.input-CI{
+    width: 18vw;
+}

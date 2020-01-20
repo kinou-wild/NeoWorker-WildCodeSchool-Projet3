@@ -1,5 +1,5 @@
 import React, { useState, useEffect, } from 'react';
-import { Form, FormGroup, Input, Label } from 'reactstrap'
+import { Form, FormGroup, Input, Label, Col } from 'reactstrap'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
 import profilPic from '../../img/anais.jpg'
@@ -12,154 +12,6 @@ const SeeMission = (props) => {
     //hooks pour get mission comme son nom l'indique 
     const [getMission, setGetMission] = useState([])
 
-    //hooks pour update une mission
-    const [updateMission, setUpdateMission] = useState({
-
-        nom_mission: "",
-        nom_entreprise: "",
-        email: "",
-        note: "",
-        nb_j_par_mois: "",
-        budget: 0,
-        date_debut: '2019-01-01',
-        date_fin: '2019-01-01',
-        frequence: '',
-        status: 0,
-        address: "",
-        mobilite: 0,
-        km_max: 0,
-        siret: 0,
-        tel: '',
-        cp: '',
-        pref_lieu_de_travail: 0,
-        disponibilite: 0,
-
-        assistance_suivi_comptable: false,
-        relation_accountant: false,
-        customer_recovery: false,
-        payroll_preparation: false,
-        assembly_approval_file: false,
-        referencing_training_organization: false,
-        use_business_software: false,
-        internal_procedure: false,
-        database: false,
-        gestion_achat: false,
-        administrative_file_management: false,
-        management_assistantship: false,
-        secretariat_and_maintenance_agenda: false,
-        filing_documents: false,
-        commercial_strategy_and_sales_pitch: false,
-        management_of_commercial_activity: false,
-        prospecting_outbound_sales: false,
-        gestion_achat2: false,
-        response_to_pulic_and_private_tenders: false,
-        sales_administration: false,
-        stock_management: false,
-        business_data_crm: false,
-        order_data_entry: false,
-        quote_management: false,
-        billing: false,
-        claims_management: false,
-        marketing_strategy_and_operational_monitoring: false,
-        marketing_study: false,
-        implementation_of_inbound_marketing_strategy: false,
-        outbound_marketing: false,
-        communication_strategy: false,
-        outsourced_project_manager: false,
-        creation_and_graphics: false,
-        ux_design: false,
-        ui_design_computer_graphics: false,
-        redaction_design: false,
-        seo_optimization: false,
-        website_creation: false,
-        community_management: false,
-        press_relation: false,
-        event: false,
-        partnership_distribution_network_and_business_contribution: false,
-        translation_work: false,
-        administrative_and_financial_management: false,
-        financing_grant_application: false,
-        management_control: false,
-        dashboard_and_financial_management: false,
-        business_pland_and_provisional_budget: false,
-        transfer_aid_and_buyout_of_business: false,
-        outsourced_information_system_management: false,
-        schema_directeur_si: false,
-        functional_architecture: false,
-        infra_reseau: false,
-        outsourced_hr_department: false,
-        plannings_management: false,
-        payroll_tracking: false,
-        establishment_of_contracts_end_of_contracts: false,
-        suivi_mutuelle_medecine_du_travail: false,
-        conflict_management: false,
-        assembly_and_monitoring_litigation_files: false,
-        harmonization_of_contracts: false,
-        RGPD_compliation: false,
-        harmonization_salary_scales: false,
-        provisional_management_of_jobs_and_skill: false,
-        recruitment_and_integration: false,
-        suivi_des_grands_comptes: false,
-        additional_sales: false,
-        measure_of_customers_satisfaction: false,
-        after_sales_service: false,
-
-
-        excel: 0,
-        powerpoint: 0,
-        word: 0,
-        microsoft_365: 0,
-        crm_hubspot: 0,
-        crm_salesforce: 0,
-        crm_pipedrive: 0,
-        crm: 0,
-        suite_adobe: 0,
-        illustrator: 0,
-        in_design: 0,
-        photoshop: 0,
-        marketing_fb: 0,
-        google_adwards: 0,
-        insta: 0,
-        reseaux_sociaux: 0,
-        keynote: 0,
-        pages: 0,
-        gsuite_google: 0,
-        numbers: 0,
-        erp_sap: 0,
-        ciel_gestion: 0,
-        cegid: 0,
-        sage_gestion_commercial: 0,
-        sage_comptabilite: 0,
-        quadra: 0,
-        reso_pb: 0,
-        confiance: 0,
-        empathie: 0,
-        intelligence_emo: 0,
-        communication: 0,
-        gestion_temps: 0,
-        gestion_stress: 0,
-        creativite: 0,
-        esprit_entre: 0,
-        audace: 0,
-        vision_visu: 0,
-        motivation: 0,
-        presence: 0,
-        sens_collectif: 0,
-        curiosite: 0,
-        sens_effort: 0,
-        sport: "",
-        autres_softskill: "",
-
-        francais: 0,
-        anglais: 0,
-        italien: 0,
-        chinois: 0,
-        russe: 0,
-        arabe: 0,
-        allemand: 0,
-        espagnol: 0,
-        autres_langue: ""
-    })
 
     //hooks pour refresh le getDataMission si
     useEffect(() => { getDataMission() }, [])
@@ -181,90 +33,83 @@ const SeeMission = (props) => {
                 <Form onSubmit={getDataMission}>
                     <FormGroup>
                         <Input disabled style={{ height: '150px' }} type="textarea" name="note"
-                            value={getMission.note}
-                            onChange={(e) => { setUpdateMission({ ...updateMission, note: e.target.value }) }} />
+                            value={getMission.note} />
                     </FormGroup>
                     <div className='champs-mission'>
                         <FormGroup>
                             <Input disabled style={{ textAlign: 'center' }}
-
                                 name="nom_mission"
                                 value={getMission.nom_mission}
-                                type="text"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, nom_mission: e.target.value }) }} />
+                                type="text" />
                         </FormGroup>
                         <FormGroup>
                             <Input disabled placeholder="Nom de l'entreprise"
 
                                 name="nom_entreprise"
                                 value={getMission.nom_entreprise}
-                                type="text"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, nom_entreprise: e.target.value }) }} />
+                                type="text" />
                         </FormGroup>
                         <FormGroup>
                             <Input disabled placeholder="Email"
                                 name="email"
                                 value={getMission.email}
-                                type="email"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, email: e.target.value }) }} />
+                                type="email" />
                         </FormGroup>
                         <FormGroup>
                             <Input disabled placeholder="Téléphone"
                                 name="tel"
                                 value={getMission.tel}
-                                type="tel"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, tel: e.target.value }) }} />
+                                type="tel" />
                         </FormGroup>
                         <FormGroup>
                             <Input disabled placeholder="Adresse"
                                 name="address"
                                 value={getMission.address}
-                                type="text"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, address: e.target.value }) }} />
+                                type="text" />
                         </FormGroup>
                         <FormGroup>
                             <Input disabled placeholder='Code Postal'
                                 name="cp"
                                 value={getMission.cp}
                                 type="text"
-                                maxLength={5}
-                                onChange={(e) => { setUpdateMission({ ...updateMission, cp: e.target.value }) }} />
+                                maxLength={5} />
                         </FormGroup>
-                        <FormGroup>
-                            <Input disabled className='date-mission' placeholder='Date de début'
-                                name="date_debut"
-                                value={getMission.date_debut}
-                                type="date"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, date_debut: e.target.value }) }} />
+                        <FormGroup row style={{width:'300px'}}>
+                            <Label sm={4.5}>Date de début :</Label>
+                            <Col sm={7.05}>
+                                <Input disabled className='date-mission'
+                                    name="date_debut"
+                                    value={getMission.date_debut}
+                                    type="date"/>
+                            </Col>
                         </FormGroup>
-                        <FormGroup>
-                            <Input disabled className='date-mission' placeholder="Date de fin"
-                                name="date_fin"
-                                value={getMission.date_fin}
-                                type="date"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, date_fin: e.target.value }) }} />
+                        <FormGroup row style={{width:'300px'}}>
+                            <Label sm={4.5}>Date de fin :</Label>
+                            <Col sm={7.05}>
+                                <Input disabled className='date-mission'
+                                    name="date_fin"
+                                    value={getMission.date_fin}
+                                    type="date"/>
+                            </Col>
                         </FormGroup>
                         <FormGroup>
                             <Input disabled placeholder='Nombre de jour(s) par mois'
                                 name="nb_j_par_mois"
                                 value={getMission.nb_j_par_mois}
                                 type="number"
-                                max="31"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, nb_j_par_mois: e.target.value }) }} />
+                                max="31" />
                         </FormGroup>
                         <FormGroup>
                             <Input disabled placeholder='Siret'
                                 name="siret"
                                 value={getMission.siret}
-                                type="number"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, siret: e.target.value }) }} />
+                                type="number" />
                         </FormGroup>
                         <FormGroup>
                             <Input disabled placeholder='Budget'
                                 name="budget"
                                 value={getMission.budget}
-                                type="number"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, budget: e.target.value }) }} />
+                                type="number" />
                         </FormGroup>
                     </div>
 
@@ -272,15 +117,8 @@ const SeeMission = (props) => {
                         <FormGroup>
                             <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
                             <Input disabled type="select"
-
                                 name="pref_lieu_de_travail"
-                                value={getMission.pref_lieu_de_travail}
-                                onChange={(e) => {
-                                    setUpdateMission({
-                                        ...updateMission,
-                                        pref_lieu_de_travail: e.target.value === 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value === 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
-                                    })
-                                }}>
+                                value={getMission.pref_lieu_de_travail}>
                                 <option hidden="true">-</option>
                                 <option>Présence en entreprise</option>
                                 <option>Travail à distance</option>
@@ -290,8 +128,7 @@ const SeeMission = (props) => {
                         <FormGroup>
                             <Label>Profil <span className='textModif'>:</span></Label>
                             <Input disabled type="select" name="type_profil"
-                                value={getMission.type_profil}
-                                onChange={(e) => { setUpdateMission({ ...updateMission, type_profil: e.target.value === 'Regular' ? 'Regular' : 'Expert' }) }}>
+                                value={getMission.type_profil}>
                                 <option hidden="true">-</option>
                                 <option>Regular</option>
                                 <option>Expert</option>
@@ -300,8 +137,7 @@ const SeeMission = (props) => {
                         <FormGroup>
                             <Label>Fréquence <span className='textModif'>:</span></Label>
                             <Input disabled type="select" name="frequence"
-                                value={getMission.frequence}
-                                onChange={(e) => { setUpdateMission({ ...updateMission, frequence: e.target.value === 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
+                                value={getMission.frequence}>
                                 <option hidden="true">-</option>
                                 <option>Ponctuelle</option>
                                 <option>Récurrente</option>
@@ -310,8 +146,7 @@ const SeeMission = (props) => {
                         <FormGroup>
                             <Label>Mobilité <span className='textModif'>:</span></Label>
                             <Input disabled type="select" name="mobilite"
-                                value={getMission.mobilite}
-                                onChange={(e) => { setUpdateMission({ ...updateMission, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
+                                value={getMission.mobilite}>
                                 <option hidden="true">-</option>
                                 <option>Oui</option>
                                 <option>Non</option>
@@ -661,8 +496,8 @@ const SeeMission = (props) => {
                             />
                         </div>
                         <div className='champ-libre'>
-                            <p style={{ minWidth: '110px', padding: '5px 10px' }}>Autres skills </p>
-                            <Input disabled style={{ marginRight: '5px' }} type="textaera" name="text" value={getMission.autres_softskill} onChange={(e) => setUpdateMission({ ...updateMission, autres_softskill: e.target.value })} />
+                            <p style={{ width:'10rem', padding: '5px 10px' }}>Autres skills </p>
+                            <Input disabled style={{ marginRight: '5px' }} type="textaera" name="text" value={getMission.autres_softskill} />
                         </div>
                     </div>
                     <h2 className='mission-title'>Langues</h2>
@@ -732,12 +567,11 @@ const SeeMission = (props) => {
                             />
                         </div>
                         <div className='mission-card'>
-                            <p>Autres langues</p>
+                            <p style={{ width:'15rem', padding: '5px 10px' }}>Autres langues</p>
                             <Input disabled style={{ marginRight: '5px' }}
                                 type="textaera"
                                 name="text"
-                                value={getMission.autres_langue}
-                                onChange={(e) => setUpdateMission({ ...updateMission, autres_langue: e.target.value })} />
+                                value={getMission.autres_langue} />
                         </div>
                     </div>
 
@@ -766,19 +600,19 @@ const SeeMission = (props) => {
                                 <input type="checkbox" className="checkbox" id="Option 1" name="Option 1" checked={getMission.assistance_suivi_comptable === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 1">Assistance et suivi comptable (note de frais, suivi des règlements et de la trésorerie, ...)</label></div>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 2" name="Option 2" checked={getMission.relation_accountant === true ? "checked" : ""}/>
+                                <input type="checkbox" className="checkbox" id="Option 2" name="Option 2" checked={getMission.relation_accountant === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 2">Relation avec le cabinet d'expertise comptable</label></div>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 3" name="Option 3" checked={getMission.customer_recovery === true ? "checked" : ""}/>
+                                <input type="checkbox" className="checkbox" id="Option 3" name="Option 3" checked={getMission.customer_recovery === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 3">Relances clients</label></div>
                             <div className="checkbox-and-content">
                                 <input type="checkbox" className="checkbox" id="Option 4" name="Option 4" checked={getMission.payroll_preparation === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 4">Préparation des éléments de paie (Pointages, congés payés, arrêts maladie, primes, etc…)</label></div>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 5" name="Option 5" checked={getMission.assembly_approval_file === true ? "checked" : ""}/>
+                                <input type="checkbox" className="checkbox" id="Option 5" name="Option 5" checked={getMission.assembly_approval_file === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 5">Montage de dossier d'agrément</label></div>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 6" name="Option 6" checked={getMission.referencing_training_organization === true ? "checked" : ""}/>
+                                <input type="checkbox" className="checkbox" id="Option 6" name="Option 6" checked={getMission.referencing_training_organization === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 6">Référencement organismes de formations</label></div>
                         </div>
 
@@ -804,7 +638,7 @@ const SeeMission = (props) => {
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion commerciale</p>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 15" name="Option 15" checked={getMission.commercial_strategy_and_sales_pitch === true ? "checked" : ""}/>
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 15" name="Option 15" checked={getMission.commercial_strategy_and_sales_pitch === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 15">Stratégie et argumentaire commercial</label></div>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 16" name="Option 16" checked={getMission.management_of_commercial_activity === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 16">Création de tableaux de bord, de procédure et pilotage de l'activité commerciale</label></div>
@@ -926,7 +760,7 @@ const SeeMission = (props) => {
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion de la relation clients</p>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 66" name="Option 66" checked={getMission.suivi_des_grands_comptes === true ? "checked" : ""}/>
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 66" name="Option 66" checked={getMission.suivi_des_grands_comptes === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 66">Suivi grands comptes</label></div>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 67" name="Option 67" checked={getMission.additional_sales === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 67">Ventes additionnelles</label></div>
