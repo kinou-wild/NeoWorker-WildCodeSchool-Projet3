@@ -18,24 +18,6 @@ const Sidebar = (props) => {
     // const {hook, hook2} = useContext(SidebarContext)
     // const [roleSidebar, setRoleSidebar] = hook2
 
-    /* Hook n°1 qui correspond au champ Neoworker, et ses sous champs */
-    const [hiddenfield, setHiddenfield] = useState(false)
-
-    /* Méthode qui permet de faire apparaitre les sous champs de Neoworker, et de faire disparaitre les sous champs de toutes les autres catégories */
-    const changeFieldBoolean = () => {
-        setHiddenfield(!hiddenfield)
-        setHiddenfield2(false)
-    }
-
-    /* Hook n°2 qui correspond au champ Missions, et ses sous champs */
-    const [hiddenfield2, setHiddenfield2] = useState(false)
-
-    /* Méthode qui permet de faire apparaitre les sous champs de Missions, et de faire disparaitre les sous champs de toutes les autres catégories */
-    const changeFieldBoolean2 = () => {
-        setHiddenfield2(!hiddenfield2)
-        setHiddenfield(false)
-    }
-
     //se déconnecter
     const logOut = (e) => {
         e.preventDefault()
@@ -66,8 +48,8 @@ const Sidebar = (props) => {
 
                 <Link to='/neoworker/homepage' className="sidebar-field"><p >Mon Espace Perso</p></Link>
                 <Link to={`/neoworker/competences/${profileHooks.id}`} className="sidebar-field"><p>Mes Compétences</p></Link>
-                <Link to='/' className="sidebar-field"><p>Mes Missions</p></Link>
-                <Link to='/' className="sidebar-field"><p>Mes Documents</p></Link>
+                <p>Mes Missions (en construction ...)</p>
+                <p>Mes Documents (en construction ...)</p>
 
             </div>
 
@@ -86,22 +68,22 @@ const Sidebar = (props) => {
             <Link to='/admin' className="div-logo"><img className="sidebar-logo" src={NeoWorkerLogo} alt="neo worker logo"></img></Link>
             <div className="sidebar-field-group">
 
-                <p className="sidebar-field" onClick={changeFieldBoolean}>NeoWorker</p>
+                <p className="sidebar-field">Tes NeoWorkers</p>
 
-                <Link to='/admin/neoworker/creer'>
-                    <p className={hiddenfield === true ? "sidebar-little-field" : "sidebar-hidden-little-field"}>Créer</p>
+                <Link to='/admin/neoworker/creer' className="sidebar-little-field">
+                    <p>Créer un nouveau NeoWorker</p>
                 </Link>
-                <Link to='/admin/neoworker/liste'>
-                    <p className={hiddenfield === true ? "sidebar-little-field" : "sidebar-hidden-little-field"}>Liste</p>
+                <Link to='/admin/neoworker/liste' className="sidebar-little-field">
+                    <p>Liste des NeoWorkers</p>
                 </Link>
 
-                <p className="sidebar-field" onClick={changeFieldBoolean2}>Missions</p>
+                <p className="sidebar-field">Tes Missions</p>
 
-                <Link to='/admin/mission/creer'>
-                    <p className={hiddenfield2 === true ? "sidebar-little-field" : "sidebar-hidden-little-field"}>Créer</p>
+                <Link to='/admin/mission/creer' className="sidebar-little-field">
+                    <p>Créer une mission</p>
                 </Link>
-                <Link to='/admin/missions'>
-                    <p className={hiddenfield2 === true ? "sidebar-little-field" : "sidebar-hidden-little-field"}>Liste</p>
+                <Link to='/admin/missions' className="sidebar-little-field">
+                    <p>Liste des missions</p>
                 </Link>
 
                 <Link to='/admin/matching' className="sidebar-field"><p>Matching</p></Link>

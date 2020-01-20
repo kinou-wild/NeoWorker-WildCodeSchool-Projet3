@@ -5,13 +5,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     status: {
+      defaultValue: 0,
       type: DataTypes.INTEGER,
       validate: {
         max: 3, // only allow values <= 1000000
         min: 0,
         isInt: true, // checks for valid integers
-        
-      }, defaultValue: 0
+      }
 
     },
     title: {
@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
     address: {
       type: DataTypes.STRING,
       validate: {
-        len: [1, 100],
+        len: [5, 100],
       }
     },
     mobilite: {
