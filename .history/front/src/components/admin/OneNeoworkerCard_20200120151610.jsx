@@ -14,7 +14,7 @@ const OneNeoworkerCard = ({ neoworker, onClick }) => {
                     <p className='name-card'> Anais</p>
                     {/* <img className='pic-card' src={prof  ilPic} alt='profil picture' /> */}
                 </div>
-                <h1 className='admin-h1'>Voir le NeoWorker <span className='textModif'>:</span></h1>
+                <h1 className='admin-h1'> NeoWorker <span className='textModif'>:</span></h1>
                 <div className='body'>
                     <Form className="formulaire-creation-neoworker"  >
                         <FormGroup>
