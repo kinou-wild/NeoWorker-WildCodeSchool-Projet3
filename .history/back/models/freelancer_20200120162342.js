@@ -11,8 +11,12 @@ module.exports = (sequelize, DataTypes) => {
         max: 3, // only allow values <= 1000000
         min: 0,
         isInt: true, // checks for valid integers
+<<<<<<< HEAD
         
-      }, 
+      }, defaultValue: 0
+=======
+      }
+>>>>>>> update_neoworkers_stevie
 
     },
     title: {
