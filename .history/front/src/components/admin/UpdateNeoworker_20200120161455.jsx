@@ -41,7 +41,7 @@ const ChangeNeoworker = (props) => {
         }
     }
     return (
-        <div>
+        <div style={{margin: '300px'}}>
             <div className='profil-card'>
                 <p className='name-card'> Anais</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
