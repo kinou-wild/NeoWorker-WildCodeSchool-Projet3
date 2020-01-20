@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom'
 import profilPic from '../../img/anais.jpg'
 
 
+<<<<<<< HEAD
+const OneNeoworkerCard = ({ neoworker }) => {
+=======
 const OneNeoworkerCard = ({ neoworker, onClick }) => {
+>>>>>>> update_neoworkers_stevie
 
     return (
         <div>

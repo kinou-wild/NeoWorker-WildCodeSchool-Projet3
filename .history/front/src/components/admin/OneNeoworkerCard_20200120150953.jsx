@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom'
 import profilPic from '../../img/anais.jpg'
 
 
+<<<<<<< HEAD
+const OneNeoworkerCard = ({ neoworker }) => {
+=======
 const OneNeoworkerCard = ({ neoworker, onClick }) => {
+>>>>>>> update_neoworkers_stevie
 
     return (
         <div>
@@ -989,6 +993,13 @@ const OneNeoworkerCard = ({ neoworker, onClick }) => {
                         </div>
                         <div ><Button className='button-card'type='submit'>Modifier</Button></div>
                     </Form>
+<<<<<<< HEAD
+                    <div >
+                        <Link to='/admin/neoworker/liste'>
+                            <Button className='button-card'>Retourner à la liste</Button>
+                        </Link>
+                    </div>
+=======
                 </div>
                 <div className='oneNeoworkerCard-div-btn'>
                     <button
@@ -1001,6 +1012,7 @@ const OneNeoworkerCard = ({ neoworker, onClick }) => {
                     <Link to='/admin/neoworker/liste'>
                         <button className='button-card'>back to list</button>
                     </Link>
+>>>>>>> update_neoworkers_stevie
                 </div>
             </div>
 
