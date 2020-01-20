@@ -11,13 +11,7 @@ module.exports = (sequelize, DataTypes) => {
         max: 3, // only allow values <= 1000000
         min: 0,
         isInt: true, // checks for valid integers
-<<<<<<< HEAD
-        
-      }, defaultValue: 0
-=======
       }
->>>>>>> update_neoworkers_stevie
-
     },
     title: {
       type: DataTypes.STRING,
@@ -46,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     address: {
       type: DataTypes.STRING,
       validate: {
-        len: [1, 100],
+        len: [5, 100],
       }
     },
     mobilite: {
@@ -68,13 +62,13 @@ module.exports = (sequelize, DataTypes) => {
     tel: {
       type: DataTypes.STRING,
       validate: {
-        len: [0, 30],
+        len: [10, 10],
       }
     },
     cp: {
       type: DataTypes.STRING,
       validate: {
-        len: [0, 10],
+        len: [5, 5],
       }
     },
     pref_lieu_de_travail: {
