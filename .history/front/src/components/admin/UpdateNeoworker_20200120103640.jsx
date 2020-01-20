@@ -13,17 +13,15 @@ const ChangeNeoworker = (props) => {
     const [updateNeoworker, setUpdateNeoworker] = useState([])
 
     const getData = async (id) => {
-        await axios.get(`http://localhost:5000/freelancer/${params.id}`)
+        await axios.get(`http://localhost:5000/updateNeoworker/${params.id}`)
             .then(res => setUpdateNeoworker(res.data))
             .catch((err) => console.log(err))
     }
 
-    useEffect(() => { getData() }, [])
-
-    //function to update a neoworker
+    //function to update a updateNeoworker
     const updateDataNeoworker = async (e) => {
-        e.preventDefault()
-        await axios.put(`http://localhost:5000/freelancer/${params.id}`, updateNeoworker)
+        // e.preventDefault()
+        await axios.put(`http://localhost:5000/freelancers/${params.id}`, updateNeoworker)
             .catch((err) => console.log(err))
             .then(x => {
                 props.history.push('/admin/neoworker/liste')
@@ -31,7 +29,9 @@ const ChangeNeoworker = (props) => {
             )
     }
 
-    useEffect(() => {  }, [])
+    useEffect(() => {
+        updateDataNeoworker()
+    }, [])
 
     const onStarClick = (nextValue, name) => {
         if (updateNeoworker[name] === nextValue) {
@@ -48,12 +48,12 @@ const ChangeNeoworker = (props) => {
             </div>
             <h1 className='admin-h1'>Création d'un NeoWorker<span className='textModif'>:</span></h1>
             <div className='body'>
-                <Form onSubmit={(e) => updateDataNeoworker(e)} >
+                <Form onSubmit={onSubmit} >
                     <FormGroup>
                         <Input style={{ height: '150px' }} placeholder='Notes :' type="textarea" name="note" id="note"
                             value={updateNeoworker.note}
                             required
-                            onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, note: e.target.value }) }} />
+                            onChange={(e) => { setFreelancer({ ...updateNeoworker, note: e.target.value }) }} />
                     </FormGroup>
                     <div className='champs-mission'>
                         <FormGroup>
@@ -62,7 +62,7 @@ const ChangeNeoworker = (props) => {
                                 placeholder="Métier"
                                 value={updateNeoworker.title}
                                 required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, title: e.target.value }) }} />
+                                onChange={(e) => { setFreelancer({ ...updateNeoworker, title: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
                             <Input
@@ -72,7 +72,7 @@ const ChangeNeoworker = (props) => {
                                 name="firstname"
                                 value={updateNeoworker.firstname}
                                 required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, firstname: e.target.value }) }} />
+                                onChange={(e) => { setFreelancer({ ...updateNeoworker, firstname: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
                             <Input
@@ -81,7 +81,7 @@ const ChangeNeoworker = (props) => {
                                 type="text" id="lastname" name="lastname"
                                 value={updateNeoworker.lastname}
                                 required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, lastname: e.target.value }) }} />
+                                onChange={(e) => { setFreelancer({ ...updateNeoworker, lastname: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
                             <Input
@@ -90,7 +90,7 @@ const ChangeNeoworker = (props) => {
                                 type="text" id="address" name="address"
                                 value={updateNeoworker.address}
                                 required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, address: e.target.value }) }} />
+                                onChange={(e) => { setFreelancer({ ...updateNeoworker, address: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
                             <Input
@@ -99,16 +99,16 @@ const ChangeNeoworker = (props) => {
                                 type="number" id="cp" name="cp"
                                 value={updateNeoworker.cp}
                                 required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, cp: e.target.value }) }}
+                                onChange={(e) => { setFreelancer({ ...updateNeoworker, cp: e.target.value }) }}
                                 maxlength="5" />
                         </FormGroup>
                         <FormGroup>
                             <Input
                                 className="input-email" placeholder="Email"
                                 type="email" id="email" name="email"
-                                value={updateNeoworker.email}
+                                value={registerHooks.email}
                                 required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, email: e.target.value }) }} />
+                                onChange={(e) => { setRegisterHooks({ ...registerHooks, email: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
                             <Input
@@ -116,7 +116,7 @@ const ChangeNeoworker = (props) => {
                                 type="number" id="tel" name="tel"
                                 value={updateNeoworker.tel}
                                 required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, tel: e.target.value }) }} />
+                                onChange={(e) => { setFreelancer({ ...updateNeoworker, tel: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
                             <Input
@@ -124,8 +124,8 @@ const ChangeNeoworker = (props) => {
                                 placeholder="Mot de passe" type="password"
                                 id="password" name="password"
                                 required
-                                value={updateNeoworker.password}
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, password: e.target.value }) }} />
+                                value={registerHooks.password}
+                                onChange={(e) => { setRegisterHooks({ ...registerHooks, password: e.target.value }) }} />
                         </FormGroup>
 
                         <FormGroup>
@@ -133,7 +133,7 @@ const ChangeNeoworker = (props) => {
                                 type="number" id="tjm_min" name="tjm_min"
                                 value={updateNeoworker.tjm_min}
                                 required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, tjm_min: e.target.value }) }} />
+                                onChange={(e) => { setFreelancer({ ...updateNeoworker, tjm_min: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
                             <Input className="input-tj_max" placeholder='Taux journalier maximum'
@@ -141,14 +141,14 @@ const ChangeNeoworker = (props) => {
                                 id="tjm_max" name="tjm_max"
                                 value={updateNeoworker.tjm_max}
                                 required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, tjm_max: e.target.value }) }} />
+                                onChange={(e) => { setFreelancer({ ...updateNeoworker, tjm_max: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
                             <Input className="input-dispo" placeholder='Disponibilité(nb jours/mois)'
                                 type="number"
                                 id="disponibilite" name="disponibilite"
                                 value={updateNeoworker.disponibilite}
-                                required onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, disponibilite: e.target.value }) }} />
+                                required onChange={(e) => { setFreelancer({ ...updateNeoworker, disponibilite: e.target.value }) }} />
                         </FormGroup>
                         <div className='selector-mission'>
                             <FormGroup>
@@ -159,7 +159,7 @@ const ChangeNeoworker = (props) => {
                                     value={updateNeoworker.pref_lieu_de_travail}
                                     required
                                     onChange={(e) => {
-                                        setUpdateNeoworker({
+                                        setFreelancer({
                                             ...updateNeoworker,
                                             pref_lieu_de_travail: e.target.value === 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value === 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
                                         })
@@ -176,7 +176,7 @@ const ChangeNeoworker = (props) => {
                                 <Input type="select" name="mobilite" id='mobilite'
                                     value={updateNeoworker.mobilite}
                                     required
-                                    onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
+                                    onChange={(e) => { setFreelancer({ ...updateNeoworker, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
                                     <option hidden="true">-</option>
                                     <option>Oui</option>
                                     <option>Non</option>
@@ -188,7 +188,7 @@ const ChangeNeoworker = (props) => {
                                 <Input type="select" name="km_max" id='km_max'
                                     value={updateNeoworker.km_max}
                                     required
-                                    onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, km_max: e.target.value === '10 km' ? '10 km' : e.target.value === '20 km' ? '20 km' : e.target.value === '30 km' ? '30 km' : e.target.value === '40 km' ? '40 km' : e.target.value === '50 km' ? '50 km' : '10 km' }) }}>
+                                    onChange={(e) => { setFreelancer({ ...updateNeoworker, km_max: e.target.value === '10 km' ? '10 km' : e.target.value === '20 km' ? '20 km' : e.target.value === '30 km' ? '30 km' : e.target.value === '40 km' ? '40 km' : e.target.value === '50 km' ? '50 km' : '10 km' }) }}>
                                     <option hidden="true">-</option>
                                     <option>10 km</option>
                                     <option>20 km</option>
@@ -207,7 +207,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.Excel}
+                                value={rating[0].Excel}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 0, 'Excel')} />
                         </div>
@@ -216,7 +216,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.Powerpoint}
+                                value={rating[1].Powerpoint}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 1, 'Powerpoint')} />
                         </div>
@@ -225,7 +225,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.microsoft_365}
+                                value={rating[2].microsoft_365}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 2, 'microsoft_365')} />
                         </div>
@@ -234,7 +234,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.Word}
+                                value={rating[3].Word}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 3, 'Word')} />
                         </div>
@@ -243,7 +243,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.crm_hubspot}
+                                value={rating[4].crm_hubspot}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 4, 'crm_hubspot')} />
                         </div>
@@ -252,7 +252,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.crm_salesforce}
+                                value={rating[5].crm_salesforce}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 5, 'crm_salesforce')} />
                         </div>
@@ -261,7 +261,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.crm_pipedrive}
+                                value={rating[6].crm_pipedrive}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 6, 'crm_pipedrive')} />
                         </div>
@@ -270,7 +270,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.crm}
+                                value={rating[7].crm}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 7, 'crm')} />
                         </div>
@@ -279,7 +279,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.suite_adobe}
+                                value={rating[8].suite_adobe}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 8, 'suite_adobe')} />
                         </div>
@@ -288,7 +288,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.illustrator}
+                                value={rating[9].illustrator}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 9, 'illustrator')} />
                         </div>
@@ -297,7 +297,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.in_design}
+                                value={rating[10].in_design}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 10, 'in_design')} />
                         </div>
@@ -306,7 +306,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.photoshop}
+                                value={rating[11].photoshop}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 11, 'photoshop')} />
                         </div>
@@ -315,7 +315,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.marketing_fb}
+                                value={rating[12].marketing_fb}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 12, 'marketing_fb')} />
                         </div>
@@ -324,7 +324,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.google_adwards}
+                                value={rating[13].google_adwards}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 13, 'google_adwards')} />
                         </div>
@@ -333,7 +333,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.insta}
+                                value={rating[14].insta}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 14, 'insta')} />
                         </div>
@@ -342,7 +342,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.reseaux_sociaux}
+                                value={rating[15].reseaux_sociaux}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 15, 'reseaux_sociaux')} />
                         </div>
@@ -351,7 +351,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.keynote}
+                                value={rating[16].keynote}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 16, 'keynote')} />
                         </div>
@@ -360,7 +360,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.pages}
+                                value={rating[17].pages}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 17, 'pages')} />
                         </div>
@@ -369,7 +369,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.gsuite_google}
+                                value={rating[18].gsuite_google}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 18, 'gsuite_google')} />
                         </div>
@@ -378,7 +378,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.numbers}
+                                value={rating[19].numbers}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 19, 'numbers')} />
                         </div>
@@ -387,7 +387,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.erp_sap}
+                                value={rating[20].erp_sap}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 20, 'erp_sap')} />
                         </div>
@@ -396,7 +396,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.ciel_gestion}
+                                value={rating[21].ciel_gestion}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 21, 'ciel_gestion')} />
                         </div>
@@ -405,7 +405,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.cegid}
+                                value={rating[22].cegid}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 22, 'cegid')} />
                         </div>
@@ -414,7 +414,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.sage_gestion_commercial}
+                                value={rating[23].sage_gestion_commercial}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 23, 'sage_gestion_commercial')} />
                         </div>
@@ -423,7 +423,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.sage_comptabilite}
+                                value={rating[24].sage_comptabilite}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 24, 'sage_comptabilite')} />
                         </div>
@@ -432,7 +432,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.quadra}
+                                value={rating[25].quadra}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 25, 'quadra')} />
                         </div>
@@ -444,7 +444,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.reso_pb}
+                                value={rating[26].reso_pb}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 26, 'reso_pb')} />
                         </div>
@@ -453,7 +453,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.confiance}
+                                value={rating[27].confiance}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 27, 'confiance')} />
                         </div>
@@ -462,7 +462,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.empathie}
+                                value={rating[28].empathie}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 28, 'empathie')} />
                         </div>
@@ -471,7 +471,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.intelligence_emo}
+                                value={rating[29].intelligence_emo}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 29, 'intelligence_emo')} />
                         </div>
@@ -480,7 +480,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.communication}
+                                value={rating[30].communication}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 30, 'communication')} />
                         </div>
@@ -489,7 +489,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.gestion_temps}
+                                value={rating[31].gestion_temps}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 31, 'gestion_temps')} />
                         </div>
@@ -498,7 +498,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.gestion_stress}
+                                value={rating[32].gestion_stress}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 32, 'gestion_stress')} />
                         </div>
@@ -507,7 +507,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.creativite}
+                                value={rating[33].creativite}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 33, 'creativite')} />
                         </div>
@@ -516,7 +516,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.esprit_entre}
+                                value={rating[34].esprit_entre}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 34, 'esprit_entre')} />
                         </div>
@@ -525,7 +525,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.audace}
+                                value={rating[35].audace}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 35, 'audace')} />
                         </div>
@@ -534,7 +534,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.vision_visu}
+                                value={rating[36].vision_visu}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 36, 'vision_visu')} />
                         </div>
@@ -543,7 +543,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.motivation}
+                                value={rating[37].motivation}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 37, 'motivation')} />
                         </div>
@@ -552,7 +552,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.presence}
+                                value={rating[38].presence}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 38, 'presence')} />
                         </div>
@@ -561,7 +561,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.sens_collectif}
+                                value={rating[39].sens_collectif}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 39, 'sens_collectif')} />
                         </div>
@@ -570,7 +570,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.curiosite}
+                                value={rating[40].curiosite}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 40, 'curiosite')} />
                         </div>
@@ -579,13 +579,13 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.sens_effort}
+                                value={rating[41].sens_effort}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 41, 'sens_effort')} />
                         </div>
                         <div className='mission-card'>
                             <p>Autres skills</p>
-                            <Input type="textaera" name="text" id="autres_skills" value={updateNeoworker.autres_softskill} onChange={(e) => setUpdateNeoworker({ ...updateNeoworker, autres_softskill: e.target.value })} />
+                            <Input type="textaera" name="text" id="autres_skills" value={updateNeoworker.autres_softskill} onChange={(e) => setFreelancer({ ...updateNeoworker, autres_softskill: e.target.value })} />
                         </div>
                     </div>
                     <h2 className='mission-title'>Langues</h2>
@@ -595,7 +595,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.francais}
+                                value={rating[43].francais}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 43, 'francais')} />
                         </div>
@@ -604,7 +604,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.anglais}
+                                value={rating[44].anglais}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 44, 'anglais')} />
                         </div>
@@ -613,7 +613,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.espagnol}
+                                value={rating[45].espagnol}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 45, 'espagnol')} />
                         </div>
@@ -622,7 +622,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.allemand}
+                                value={rating[46].allemand}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 46, 'allemand')} />
                         </div>
@@ -631,7 +631,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.russe}
+                                value={rating[47].russe}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 47, 'russe')} />
                         </div>
@@ -640,7 +640,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.italien}
+                                value={rating[48].italien}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 48, 'italien')} />
                         </div>
@@ -649,7 +649,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.chinois}
+                                value={rating[49].chinois}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 49, 'chinois')} />
                         </div>
@@ -658,13 +658,13 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.arabe}
+                                value={rating[50].arabe}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 50, 'arabe')} />
                         </div>
                         <div className='mission-card'>
                             <p>Autres langues</p>
-                            <Input type="textaera" name="text" id="langues" value={updateNeoworker.autres_langue} onChange={(e) => setUpdateNeoworker({ ...updateNeoworker, autres_langue: e.target.value })} />
+                            <Input type="textaera" name="text" id="langues" value={updateNeoworker.autres_langue} onChange={(e) => setFreelancer({ ...updateNeoworker, autres_langue: e.target.value })} />
                         </div>
                     </div>
 
@@ -693,180 +693,180 @@ const ChangeNeoworker = (props) => {
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion administrative et comptable</p>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 1" name="Option 1" onClick={() => setUpdateNeoworker({ ...updateNeoworker, assistance_suivi_comptable: document.getElementById('Option 1').checked === true ? true : false })} checked={updateNeoworker.assistance_suivi_comptable === true ? "checked" : ""} />
+                                <input type="checkbox" className="checkbox" id="Option 1" name="Option 1" onClick={() => setFreelancer({ ...updateNeoworker, assistance_suivi_comptable: document.getElementById('Option 1').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 1">Assistance et suivi comptable (note de frais, suivi des règlements et de la trésorerie, ...)</label></div>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 2" name="Option 2" onClick={() => setUpdateNeoworker({ ...updateNeoworker, relation_accountant: document.getElementById('Option 2').checked === true ? true : false })} checked={updateNeoworker.relation_accountant === true ? "checked" : ""} />
+                                <input type="checkbox" className="checkbox" id="Option 2" name="Option 2" onClick={() => setFreelancer({ ...updateNeoworker, relation_accountant: document.getElementById('Option 2').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 2">Relation avec le cabinet d'expertise comptable</label></div>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 3" name="Option 3" onClick={() => setUpdateNeoworker({ ...updateNeoworker, customer_recovery: document.getElementById('Option 3').checked === true ? true : false })} checked={updateNeoworker.customer_recovery === true ? "checked" : ""} />
+                                <input type="checkbox" className="checkbox" id="Option 3" name="Option 3" onClick={() => setFreelancer({ ...updateNeoworker, customer_recovery: document.getElementById('Option 3').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 3">Relances clients</label></div>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 4" name="Option 4" onClick={() => setUpdateNeoworker({ ...updateNeoworker, payroll_preparation: document.getElementById('Option 4').checked === true ? true : false })} checked={updateNeoworker.payroll_preparation === true ? "checked" : ""} />
+                                <input type="checkbox" className="checkbox" id="Option 4" name="Option 4" onClick={() => setFreelancer({ ...updateNeoworker, payroll_preparation: document.getElementById('Option 4').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 4">Préparation des éléments de paie (Pointages, congés payés, arrêts maladie, primes, etc…)</label></div>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 5" name="Option 5" onClick={() => setUpdateNeoworker({ ...updateNeoworker, assembly_approval_file: document.getElementById('Option 5').checked === true ? true : false })} checked={updateNeoworker.assembly_approval_file === true ? "checked" : ""} />
+                                <input type="checkbox" className="checkbox" id="Option 5" name="Option 5" onClick={() => setFreelancer({ ...updateNeoworker, assembly_approval_file: document.getElementById('Option 5').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 5">Montage de dossier d'agrément</label></div>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 6" name="Option 6" onClick={() => setUpdateNeoworker({ ...updateNeoworker, referencing_training_organization: document.getElementById('Option 6').checked === true ? true : false })} checked={updateNeoworker.referencing_training_organization === true ? "checked" : ""} />
+                                <input type="checkbox" className="checkbox" id="Option 6" name="Option 6" onClick={() => setFreelancer({ ...updateNeoworker, referencing_training_organization: document.getElementById('Option 6').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 6">Référencement organismes de formations</label></div>
                         </div>
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion opérationnelle</p>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 7" name="Option 7" onClick={() => setUpdateNeoworker({ ...updateNeoworker, use_business_software: document.getElementById('Option 7').checked === true ? true : false })} checked={updateNeoworker.use_business_software === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 7" name="Option 7" onClick={() => setFreelancer({ ...updateNeoworker, use_business_software: document.getElementById('Option 7').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 7">Mise en place, optimisation et formation à l'utilisation de logiciels métiers</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 8" name="Option 8" onClick={() => setUpdateNeoworker({ ...updateNeoworker, internal_procedure: document.getElementById('Option 8').checked === true ? true : false })} checked={updateNeoworker.internal_procedure === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 8" name="Option 8" onClick={() => setFreelancer({ ...updateNeoworker, internal_procedure: document.getElementById('Option 8').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 8">Création et mise en place de procédures internes</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 9" name="Option 9" onClick={() => setUpdateNeoworker({ ...updateNeoworker, database: document.getElementById('Option 9').checked === true ? true : false })} checked={updateNeoworker.database === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 9" name="Option 9" onClick={() => setFreelancer({ ...updateNeoworker, database: document.getElementById('Option 9').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 9">Création et traitement de base de données</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 10" name="Option 10" onClick={() => setUpdateNeoworker({ ...updateNeoworker, gestion_achat: document.getElementById('Option 10').checked === true ? true : false })} checked={updateNeoworker.gestion_achat === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 10" name="Option 10" onClick={() => setFreelancer({ ...updateNeoworker, gestion_achat: document.getElementById('Option 10').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 10">Intendance et gestion des achats</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 11" name="Option 11" onClick={() => setUpdateNeoworker({ ...updateNeoworker, administrative_file_management: document.getElementById('Option 11').checked === true ? true : false })} checked={updateNeoworker.administrative_file_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 11" name="Option 11" onClick={() => setFreelancer({ ...updateNeoworker, administrative_file_management: document.getElementById('Option 11').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 11">Suivi des dossiers administratifs</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 12" name="Option 12" onClick={() => setUpdateNeoworker({ ...updateNeoworker, management_assistantship: document.getElementById('Option 12').checked === true ? true : false })} checked={updateNeoworker.management_assistantship === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 12" name="Option 12" onClick={() => setFreelancer({ ...updateNeoworker, management_assistantship: document.getElementById('Option 12').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 12">Assistanat de direction</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 13" name="Option 13" onClick={() => setUpdateNeoworker({ ...updateNeoworker, filing_documents: document.getElementById('Option 13').checked === true ? true : false })} checked={updateNeoworker.filing_documents === true ? "checked" : ""} />
-                                <label className="label-prestation" for="Option 13">Classement de documents</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 14" name="Option 14" onClick={() => setUpdateNeoworker({ ...updateNeoworker, secretariat_and_maintenance_agenda: document.getElementById('Option 14').checked === true ? true : false })} checked={updateNeoworker.secretariat_and_maintenance_agenda === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 13" name="Option 13" onClick={() => setFreelancer({ ...updateNeoworker, filing_documents: document.getElementById('Option 13').checked === true ? true : false })} />
+                                <label className="label-prestationGestion administrative et comptable" for="Option 13">Classement de documents</label></div>
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 14" name="Option 14" onClick={() => setFreelancer({ ...updateNeoworker, secretariat_and_maintenance_agenda: document.getElementById('Option 14').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 14">Secrétariat et tenue de l'agenda </label></div>
                         </div>
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion commerciale</p>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 15" name="Option 15" onClick={() => setUpdateNeoworker({ ...updateNeoworker, commercial_strategy_and_sales_pitch: document.getElementById('Option 15').checked === true ? true : false })} checked={updateNeoworker.commercial_strategy_and_sales_pitch === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 15" name="Option 15" onClick={() => setFreelancer({ ...updateNeoworker, commercial_strategy_and_sales_pitch: document.getElementById('Option 15').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 15">Stratégie et argumentaire commercial</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 16" name="Option 16" onClick={() => setUpdateNeoworker({ ...updateNeoworker, management_of_commercial_activity: document.getElementById('Option 16').checked === true ? true : false })} checked={updateNeoworker.amanagement_of_commercial_activity === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 16" name="Option 16" onClick={() => setFreelancer({ ...updateNeoworker, management_of_commercial_activity: document.getElementById('Option 16').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 16">Création de tableaux de bord, de procédure et pilotage de l'activité commerciale</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 17" name="Option 17" onClick={() => setUpdateNeoworker({ ...updateNeoworker, prospecting_outbound_sales: document.getElementById('Option 17').checked === true ? true : false })} checked={updateNeoworker.prospecting_outbound_sales === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 17" name="Option 17" onClick={() => setFreelancer({ ...updateNeoworker, prospecting_outbound_sales: document.getElementById('Option 17').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 17">Prospection / Outbound sales</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 18" name="Option 18" onClick={() => setUpdateNeoworker({ ...updateNeoworker, gestion_achat2: document.getElementById('Option 18').checked === true ? true : false })} checked={updateNeoworker.gestion_achat2 === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 18" name="Option 18" onClick={() => setFreelancer({ ...updateNeoworker, gestion_achat2: document.getElementById('Option 18').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 18">Intendance et gestion des achats</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 19" name="Option 19" onClick={() => setUpdateNeoworker({ ...updateNeoworker, response_to_pulic_and_private_tenders: document.getElementById('Option 19').checked === true ? true : false })} checked={updateNeoworker.response_to_pulic_and_private_tenders === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 19" name="Option 19" onClick={() => setFreelancer({ ...updateNeoworker, response_to_pulic_and_private_tenders: document.getElementById('Option 19').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 19">Réponse aux appels d'offres publics et privés</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 20" name="Option 20" onClick={() => setUpdateNeoworker({ ...updateNeoworker, sales_administration: document.getElementById('Option 20').checked === true ? true : false })} checked={updateNeoworker.sales_administration === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 20" name="Option 20" onClick={() => setFreelancer({ ...updateNeoworker, sales_administration: document.getElementById('Option 20').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 20">Administration des ventes</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 21" name="Option 21" onClick={() => setUpdateNeoworker({ ...updateNeoworker, stock_management: document.getElementById('Option 21').checked === true ? true : false })} checked={updateNeoworker.stock_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 21" name="Option 21" onClick={() => setFreelancer({ ...updateNeoworker, stock_management: document.getElementById('Option 21').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 21">Gestion des stocks</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 22" name="Option 22" onClick={() => setUpdateNeoworker({ ...updateNeoworker, business_data_crm: document.getElementById('Option 22').checked === true ? true : false })} checked={updateNeoworker.business_data_crm === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 22" name="Option 22" onClick={() => setFreelancer({ ...updateNeoworker, business_data_crm: document.getElementById('Option 22').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 22">Saisie des données commerciales dans un CRM</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 23" name="Option 23" onClick={() => setUpdateNeoworker({ ...updateNeoworker, order_data_entry: document.getElementById('Option 23').checked === true ? true : false })} checked={updateNeoworker.order_data_entry === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 23" name="Option 23" onClick={() => setFreelancer({ ...updateNeoworker, order_data_entry: document.getElementById('Option 23').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 23">Saisie des commandes</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 24" name="Option 24" onClick={() => setUpdateNeoworker({ ...updateNeoworker, quote_management: document.getElementById('Option 24').checked === true ? true : false })} checked={updateNeoworker.quote_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 24" name="Option 24" onClick={() => setFreelancer({ ...updateNeoworker, quote_management: document.getElementById('Option 24').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 24">Gestion des devis</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 25" name="Option 25" onClick={() => setUpdateNeoworker({ ...updateNeoworker, billing: document.getElementById('Option 25').checked === true ? true : false })} checked={updateNeoworker.billing === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 25" name="Option 25" onClick={() => setFreelancer({ ...updateNeoworker, billing: document.getElementById('Option 25').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 25">Facturation</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 26" name="Option 26" onClick={() => setUpdateNeoworker({ ...updateNeoworker, claims_management: document.getElementById('Option 26').checked === true ? true : false })} checked={updateNeoworker.claims_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 26" name="Option 26" onClick={() => setFreelancer({ ...updateNeoworker, claims_management: document.getElementById('Option 26').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 26">Gestion des réclamations</label></div>
                         </div>
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Marketing / Communication / Digital</p>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 27" name="Option 27" onClick={() => setUpdateNeoworker({ ...updateNeoworker, marketing_strategy_and_operational_monitoring: document.getElementById('Option 27').checked === true ? true : false })} checked={updateNeoworker.marketing_strategy_and_operational_monitoring === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 27" name="Option 27" onClick={() => setFreelancer({ ...updateNeoworker, marketing_strategy_and_operational_monitoring: document.getElementById('Option 27').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 27">Stratégie marketing et suivi opérationnel</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 28" name="Option 28" onClick={() => setUpdateNeoworker({ ...updateNeoworker, marketing_study: document.getElementById('Option 28').checked === true ? true : false })} checked={updateNeoworker.marketing_study === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 28" name="Option 28" onClick={() => setFreelancer({ ...updateNeoworker, marketing_study: document.getElementById('Option 28').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 28">Réalisation d'études de marché </label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 29" name="Option 29" onClick={() => setUpdateNeoworker({ ...updateNeoworker, implementation_of_inbound_marketing_strategy: document.getElementById('Option 29').checked === true ? true : false })} checked={updateNeoworker.implementation_of_inbound_marketing_strategy === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 29" name="Option 29" onClick={() => setFreelancer({ ...updateNeoworker, implementation_of_inbound_marketing_strategy: document.getElementById('Option 29').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 29">Mise en œuvre d'une stratégie d'inbound marketing</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 30" name="Option 30" onClick={() => setUpdateNeoworker({ ...updateNeoworker, outbound_marketing: document.getElementById('Option 30').checked === true ? true : false })} checked={updateNeoworker.outbound_marketing === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 30" name="Option 30" onClick={() => setFreelancer({ ...updateNeoworker, outbound_marketing: document.getElementById('Option 30').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 30">Outbound marketing</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 31" name="Option 31" onClick={() => setUpdateNeoworker({ ...updateNeoworker, communication_strategy: document.getElementById('Option 31').checked === true ? true : false })} checked={updateNeoworker.communication_strategy === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 31" name="Option 31" onClick={() => setFreelancer({ ...updateNeoworker, communication_strategy: document.getElementById('Option 31').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 31">Stratégie de communication</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 32" name="Option 32" onClick={() => setUpdateNeoworker({ ...updateNeoworker, outsourced_project_manager: document.getElementById('Option 32').checked === true ? true : false })} checked={updateNeoworker.outsourced_project_manager === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 32" name="Option 32" onClick={() => setFreelancer({ ...updateNeoworker, outsourced_project_manager: document.getElementById('Option 32').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 32">Chef de projet externalisé</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 33" name="Option 33" onClick={() => setUpdateNeoworker({ ...updateNeoworker, creation_and_graphics: document.getElementById('Option 33').checked === true ? true : false })} checked={updateNeoworker.creation_and_graphics === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 33" name="Option 33" onClick={() => setFreelancer({ ...updateNeoworker, creation_and_graphics: document.getElementById('Option 33').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 33">Création et graphisme</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 34" name="Option 34" onClick={() => setUpdateNeoworker({ ...updateNeoworker, ux_design: document.getElementById('Option 34').checked === true ? true : false })} checked={updateNeoworker.ux_design === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 34" name="Option 34" onClick={() => setFreelancer({ ...updateNeoworker, ux_design: document.getElementById('Option 34').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 34">UX Design</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 35" name="Option 35" onClick={() => setUpdateNeoworker({ ...updateNeoworker, ui_design_computer_graphics: document.getElementById('Option 35').checked === true ? true : false })} checked={updateNeoworker.ui_design_computer_graphics === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 35" name="Option 35" onClick={() => setFreelancer({ ...updateNeoworker, ui_design_computer_graphics: document.getElementById('Option 35').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 35">UI Design - infographisme</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 36" name="Option 36" onClick={() => setUpdateNeoworker({ ...updateNeoworker, redaction_design: document.getElementById('Option 36').checked === true ? true : false })} checked={updateNeoworker.redaction_design === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 36" name="Option 36" onClick={() => setFreelancer({ ...updateNeoworker, redaction_design: document.getElementById('Option 36').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 36">Conception rédaction</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 37" name="Option 37" onClick={() => setUpdateNeoworker({ ...updateNeoworker, community_management: document.getElementById('Option 37').checked === true ? true : false })} checked={updateNeoworker.community_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 37" name="Option 37" onClick={() => setFreelancer({ ...updateNeoworker, community_management: document.getElementById('Option 37').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 37">Community management</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 38" name="Option 38" onClick={() => setUpdateNeoworker({ ...updateNeoworker, seo_optimization: document.getElementById('Option 38').checked === true ? true : false })} checked={updateNeoworker.seo_optimization === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 38" name="Option 38" onClick={() => setFreelancer({ ...updateNeoworker, seo_optimization: document.getElementById('Option 38').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 38">Optimisation SEO</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 39" name="Option 39" onClick={() => setUpdateNeoworker({ ...updateNeoworker, website_creation: document.getElementById('Option 39').checked === true ? true : false })} checked={updateNeoworker.website_creation === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 39" name="Option 39" onClick={() => setFreelancer({ ...updateNeoworker, website_creation: document.getElementById('Option 39').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 39">Création de site web</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 40" name="Option 40" onClick={() => setUpdateNeoworker({ ...updateNeoworker, press_relation: document.getElementById('Option 40').checked === true ? true : false })} checked={updateNeoworker.press_relation === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 40" name="Option 40" onClick={() => setFreelancer({ ...updateNeoworker, press_relation: document.getElementById('Option 40').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 40">Relation presse</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 41" name="Option 41" onClick={() => setUpdateNeoworker({ ...updateNeoworker, event: document.getElementById('Option 41').checked === true ? true : false })} checked={updateNeoworker.event === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 41" name="Option 41" onClick={() => setFreelancer({ ...updateNeoworker, event: document.getElementById('Option 41').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 41">Evènementiel</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 42" name="Option 42" onClick={() => setUpdateNeoworker({ ...updateNeoworker, partnership_distribution_network_and_business_contribution: document.getElementById('Option 42').checked === true ? true : false })} checked={updateNeoworker.partnership_distribution_network_and_business_contribution === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 42" name="Option 42" onClick={() => setFreelancer({ ...updateNeoworker, partnership_distribution_network_and_business_contribution: document.getElementById('Option 42').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 42">Partenariats, montage de réseaux de distribution, apporteurs d'affaire</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 43" name="Option 43" onClick={() => setUpdateNeoworker({ ...updateNeoworker, translation_work: document.getElementById('Option 43').checked === true ? true : false })} checked={updateNeoworker.translation_work === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 43" name="Option 43" onClick={() => setFreelancer({ ...updateNeoworker, translation_work: document.getElementById('Option 43').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 43">Travaux de traduction</label></div>
                         </div>
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion Financière / Contrôle de Gestion</p>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 44" name="Option 44" onClick={() => setUpdateNeoworker({ ...updateNeoworker, administrative_and_financial_management: document.getElementById('Option 44').checked === true ? true : false })} checked={updateNeoworker.administrative_and_financial_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 44" name="Option 44" onClick={() => setFreelancer({ ...updateNeoworker, administrative_and_financial_management: document.getElementById('Option 44').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 44">Direction administrative et financière externalisée</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 45" name="Option 45" onClick={() => setUpdateNeoworker({ ...updateNeoworker, financing_grant_application: document.getElementById('Option 45').checked === true ? true : false })} checked={updateNeoworker.financing_grant_application === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 45" name="Option 45" onClick={() => setFreelancer({ ...updateNeoworker, financing_grant_application: document.getElementById('Option 45').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 45">Montage de dossier de financement / subvention</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 46" name="Option 46" onClick={() => setUpdateNeoworker({ ...updateNeoworker, management_control: document.getElementById('Option 46').checked === true ? true : false })} checked={updateNeoworker.management_control === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 46" name="Option 46" onClick={() => setFreelancer({ ...updateNeoworker, management_control: document.getElementById('Option 46').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 46">Contrôle de gestion</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 47" name="Option 47" onClick={() => setUpdateNeoworker({ ...updateNeoworker, dashboard_and_financial_management: document.getElementById('Option 47').checked === true ? true : false })} checked={updateNeoworker.dashboard_and_financial_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 47" name="Option 47" onClick={() => setFreelancer({ ...updateNeoworker, dashboard_and_financial_management: document.getElementById('Option 47').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 47">Tableau de bord et pilotage financier</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 48" name="Option 48" onClick={() => setUpdateNeoworker({ ...updateNeoworker, business_pland_and_provisional_budget: document.getElementById('Option 48').checked === true ? true : false })} checked={updateNeoworker.business_pland_and_provisional_budget === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 48" name="Option 48" onClick={() => setFreelancer({ ...updateNeoworker, business_pland_and_provisional_budget: document.getElementById('Option 48').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 48">Création de business plan et budget prévisionnel</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 49" name="Option 49" onClick={() => setUpdateNeoworker({ ...updateNeoworker, transfer_aid_and_buyout_of_business: document.getElementById('Option 49').checked === true ? true : false })} checked={updateNeoworker.transfer_aid_and_buyout_of_business === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 49" name="Option 49" onClick={() => setFreelancer({ ...updateNeoworker, transfer_aid_and_buyout_of_business: document.getElementById('Option 49').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 49">Aide à la cession / rachat d'activités</label></div>
                         </div>
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">DSI</p>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 50" name="Option 50" onClick={() => setUpdateNeoworker({ ...updateNeoworker, outsourced_information_system_management: document.getElementById('Option 50').checked === true ? true : false })} checked={updateNeoworker.outsourced_information_system_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 50" name="Option 50" onClick={() => setFreelancer({ ...updateNeoworker, outsourced_information_system_management: document.getElementById('Option 50').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 50">Direction des Systèmes d'informations externalisée</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 51" name="Option 51" onClick={() => setUpdateNeoworker({ ...updateNeoworker, schema_directeur_si: document.getElementById('Option 51').checked === true ? true : false })} checked={updateNeoworker.schema_directeur_si === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 51" name="Option 51" onClick={() => setFreelancer({ ...updateNeoworker, schema_directeur_si: document.getElementById('Option 51').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 51">Schéma directeur SI</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 52" name="Option 52" onClick={() => setUpdateNeoworker({ ...updateNeoworker, functional_architecture: document.getElementById('Option 52').checked === true ? true : false })} checked={updateNeoworker.functional_architecture_comptable === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 52" name="Option 52" onClick={() => setFreelancer({ ...updateNeoworker, functional_architecture: document.getElementById('Option 52').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 52">Architecture fonctionnelle / applicative</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 53" name="Option 53" onClick={() => setUpdateNeoworker({ ...updateNeoworker, infra_reseau: document.getElementById('Option 53').checked === true ? true : false })} checked={updateNeoworker.infra_reseau === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 53" name="Option 53" onClick={() => setFreelancer({ ...updateNeoworker, infra_reseau: document.getElementById('Option 53').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 53">Infra / réseau</label></div>
                         </div>
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion Ressources Humaines / Juridique</p>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 54" name="Option 54" onClick={() => setUpdateNeoworker({ ...updateNeoworker, outsourced_hr_department: document.getElementById('Option 54').checked === true ? true : false })} checked={updateNeoworker.outsourced_hr_department === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 54" name="Option 54" onClick={() => setFreelancer({ ...updateNeoworker, outsourced_hr_department: document.getElementById('Option 54').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 54">Direction des Ressources Humaines externalisée</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 55" name="Option 55" onClick={() => setUpdateNeoworker({ ...updateNeoworker, plannings_management: document.getElementById('Option 55').checked === true ? true : false })} checked={updateNeoworker.plannings_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 55" name="Option 55" onClick={() => setFreelancer({ ...updateNeoworker, plannings_management: document.getElementById('Option 55').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 55">Gestion des plannings</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 56" name="Option 56" onClick={() => setUpdateNeoworker({ ...updateNeoworker, payroll_tracking: document.getElementById('Option 56').checked === true ? true : false })} checked={updateNeoworker.payroll_tracking === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 56" name="Option 56" onClick={() => setFreelancer({ ...updateNeoworker, payroll_tracking: document.getElementById('Option 56').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 56">Suivi des éléments de paie (absences, CP, RTT..)</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 57" name="Option 57" onClick={() => setUpdateNeoworker({ ...updateNeoworker, establishment_of_contracts_end_of_contracts: document.getElementById('Option 57').checked === true ? true : false })} checked={updateNeoworker.establishment_of_contracts_end_of_contracts === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 57" name="Option 57" onClick={() => setFreelancer({ ...updateNeoworker, establishment_of_contracts_end_of_contracts: document.getElementById('Option 57').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 57">Etablissement des contrats / éléments de fin de contrats</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 58" name="Option 58" onClick={() => setUpdateNeoworker({ ...updateNeoworker, suivi_mutuelle_medecine_du_travail: document.getElementById('Option 58').checked === true ? true : false })} checked={updateNeoworker.suivi_mutuelle_medecine_du_travail === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 58" name="Option 58" onClick={() => setFreelancer({ ...updateNeoworker, suivi_mutuelle_medecine_du_travail: document.getElementById('Option 58').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 58">Suivi mutuelle et medecine du travail</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 59" name="Option 59" onClick={() => setUpdateNeoworker({ ...updateNeoworker, conflict_management: document.getElementById('Option 59').checked === true ? true : false })} checked={updateNeoworker.conflict_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 59" name="Option 59" onClick={() => setFreelancer({ ...updateNeoworker, conflict_management: document.getElementById('Option 59').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 59">Gestion des conflits</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 60" name="Option 60" onClick={() => setUpdateNeoworker({ ...updateNeoworker, assembly_and_monitoring_litigation_files: document.getElementById('Option 60').checked === true ? true : false })} checked={updateNeoworker.assembly_and_monitoring_litigation_files === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 60" name="Option 60" onClick={() => setFreelancer({ ...updateNeoworker, assembly_and_monitoring_litigation_files: document.getElementById('Option 60').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 60">Montage et suivi des dossiers de contentieux</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 61" name="Option 61" onClick={() => setUpdateNeoworker({ ...updateNeoworker, harmonization_of_contracts: document.getElementById('Option 61').checked === true ? true : false })} checked={updateNeoworker.harmonization_of_contracts === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 61" name="Option 61" onClick={() => setFreelancer({ ...updateNeoworker, harmonization_of_contracts: document.getElementById('Option 61').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 61">Harmonisation des contrats</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 62" name="Option 62" onClick={() => setUpdateNeoworker({ ...updateNeoworker, RGPD_compliation: document.getElementById('Option 62').checked === true ? true : false })} checked={updateNeoworker.RGPD_compliation === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 62" name="Option 62" onClick={() => setFreelancer({ ...updateNeoworker, RGPD_compliation: document.getElementById('Option 62').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 62">Mise en conformité RGPD</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 63" name="Option 63" onClick={() => setUpdateNeoworker({ ...updateNeoworker, harmonization_salary_scales: document.getElementById('Option 63').checked === true ? true : false })} checked={updateNeoworker.harmonization_salary_scales === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 63" name="Option 63" onClick={() => setFreelancer({ ...updateNeoworker, harmonization_salary_scales: document.getElementById('Option 63').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 63">Harmonisation des grilles salaires</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 64" name="Option 64" onClick={() => setUpdateNeoworker({ ...updateNeoworker, provisional_management_of_jobs_and_skill: document.getElementById('Option 64').checked === true ? true : false })} checked={updateNeoworker.provisional_management_of_jobs_and_skill === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 64" name="Option 64" onClick={() => setFreelancer({ ...updateNeoworker, provisional_management_of_jobs_and_skill: document.getElementById('Option 64').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 64">Gestion prévisionnelle des emplois et des compétences</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 65" name="Option 65" onClick={() => setUpdateNeoworker({ ...updateNeoworker, recruitment_and_integration: document.getElementById('Option 65').checked === true ? true : false })} checked={updateNeoworker.recruitment_and_integration === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 65" name="Option 65" onClick={() => setFreelancer({ ...updateNeoworker, recruitment_and_integration: document.getElementById('Option 65').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 65">Recrutement et intégration</label></div>
                         </div>
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion de la relation clients</p>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 66" name="Option 66" onClick={() => setUpdateNeoworker({ ...updateNeoworker, suivi_des_grands_comptes: document.getElementById('Option 66').checked === true ? true : false })} checked={updateNeoworker.suivi_des_grands_comptes === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 66" name="Option 66" onClick={() => setFreelancer({ ...updateNeoworker, suivi_des_grands_comptes: document.getElementById('Option 66').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 66">Suivi grands comptes</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 67" name="Option 67" onClick={() => setUpdateNeoworker({ ...updateNeoworker, additional_sales: document.getElementById('Option 67').checked === true ? true : false })} checked={updateNeoworker.additional_sales === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 67" name="Option 67" onClick={() => setFreelancer({ ...updateNeoworker, additional_sales: document.getElementById('Option 67').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 67">Ventes additionnelles</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 68" name="Option 68" onClick={() => setUpdateNeoworker({ ...updateNeoworker, measure_of_customers_satisfaction: document.getElementById('Option 68').checked === true ? true : false })} checked={updateNeoworker.measure_of_customers_satisfaction === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 68" name="Option 68" onClick={() => setFreelancer({ ...updateNeoworker, measure_of_customers_satisfaction: document.getElementById('Option 68').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 68">Mesure de la satisfaction clients</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 69" name="Option 69" onClick={() => setUpdateNeoworker({ ...updateNeoworker, after_sales_service: document.getElementById('Option 69').checked === true ? true : false })} checked={updateNeoworker.after_sales_service === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 69" name="Option 69" onClick={() => setFreelancer({ ...updateNeoworker, after_sales_service: document.getElementById('Option 69').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 69">Service après ventes</label></div>
                         </div>
                     </div>
-                    <Button className="btn" type="submit">Valider les modifications</Button>
+                    <Button className='btn' onClick={idFreeRandomFreeRole} type='submit'>Valider</Button>
                     <form />
                 </Form>
             </div>

@@ -31,7 +31,7 @@ const ChangeNeoworker = (props) => {
             )
     }
 
-    useEffect(() => {  }, [])
+    useEffect(() => { updateDataNeoworker() }, [])
 
     const onStarClick = (nextValue, name) => {
         if (updateNeoworker[name] === nextValue) {

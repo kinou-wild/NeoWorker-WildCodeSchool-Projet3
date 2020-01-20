@@ -31,7 +31,7 @@ const ChangeNeoworker = (props) => {
             )
     }
 
-    useEffect(() => {  }, [])
+    useEffect(() => { updateDataNeoworker() }, [])
 
     const onStarClick = (nextValue, name) => {
         if (updateNeoworker[name] === nextValue) {
@@ -48,7 +48,7 @@ const ChangeNeoworker = (props) => {
             </div>
             <h1 className='admin-h1'>Création d'un NeoWorker<span className='textModif'>:</span></h1>
             <div className='body'>
-                <Form onSubmit={(e) => updateDataNeoworker(e)} >
+                <Form onSubmit={updateDataNeoworker()} >
                     <FormGroup>
                         <Input style={{ height: '150px' }} placeholder='Notes :' type="textarea" name="note" id="note"
                             value={updateNeoworker.note}

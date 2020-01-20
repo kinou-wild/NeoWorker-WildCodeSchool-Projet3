@@ -18,11 +18,9 @@ const ChangeNeoworker = (props) => {
             .catch((err) => console.log(err))
     }
 
-    useEffect(() => { getData() }, [])
-
     //function to update a neoworker
     const updateDataNeoworker = async (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         await axios.put(`http://localhost:5000/freelancer/${params.id}`, updateNeoworker)
             .catch((err) => console.log(err))
             .then(x => {
@@ -31,7 +29,9 @@ const ChangeNeoworker = (props) => {
             )
     }
 
-    useEffect(() => {  }, [])
+    useEffect(() => {
+        updateDataNeoworker()
+    }, [])
 
     const onStarClick = (nextValue, name) => {
         if (updateNeoworker[name] === nextValue) {
@@ -48,7 +48,7 @@ const ChangeNeoworker = (props) => {
             </div>
             <h1 className='admin-h1'>Création d'un NeoWorker<span className='textModif'>:</span></h1>
             <div className='body'>
-                <Form onSubmit={(e) => updateDataNeoworker(e)} >
+                <Form onSubmit={onSubmit} >
                     <FormGroup>
                         <Input style={{ height: '150px' }} placeholder='Notes :' type="textarea" name="note" id="note"
                             value={updateNeoworker.note}
@@ -207,7 +207,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.Excel}
+                                value={updateNeoworkerExcel}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 0, 'Excel')} />
                         </div>
@@ -216,7 +216,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.Powerpoint}
+                                value={updateNeoworkerPowerpoint}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 1, 'Powerpoint')} />
                         </div>
@@ -225,7 +225,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.microsoft_365}
+                                value={updateNeoworkermicrosoft_365}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 2, 'microsoft_365')} />
                         </div>
@@ -234,7 +234,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.Word}
+                                value={updateNeoworkerWord}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 3, 'Word')} />
                         </div>
@@ -243,7 +243,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.crm_hubspot}
+                                value={updateNeoworkercrm_hubspot}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 4, 'crm_hubspot')} />
                         </div>
@@ -252,7 +252,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.crm_salesforce}
+                                value={updateNeoworkercrm_salesforce}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 5, 'crm_salesforce')} />
                         </div>
@@ -261,7 +261,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.crm_pipedrive}
+                                value={updateNeoworkercrm_pipedrive}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 6, 'crm_pipedrive')} />
                         </div>
@@ -270,7 +270,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.crm}
+                                value={updateNeoworkercrm}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 7, 'crm')} />
                         </div>
@@ -279,7 +279,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.suite_adobe}
+                                value={updateNeoworkersuite_adobe}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 8, 'suite_adobe')} />
                         </div>
@@ -288,7 +288,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.illustrator}
+                                value={updateNeoworkerillustrator}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 9, 'illustrator')} />
                         </div>
@@ -693,180 +693,180 @@ const ChangeNeoworker = (props) => {
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion administrative et comptable</p>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 1" name="Option 1" onClick={() => setUpdateNeoworker({ ...updateNeoworker, assistance_suivi_comptable: document.getElementById('Option 1').checked === true ? true : false })} checked={updateNeoworker.assistance_suivi_comptable === true ? "checked" : ""} />
+                                <input type="checkbox" className="checkbox" id="Option 1" name="Option 1" onClick={() => setUpdateNeoworker({ ...updateNeoworker, assistance_suivi_comptable: document.getElementById('Option 1').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 1">Assistance et suivi comptable (note de frais, suivi des règlements et de la trésorerie, ...)</label></div>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 2" name="Option 2" onClick={() => setUpdateNeoworker({ ...updateNeoworker, relation_accountant: document.getElementById('Option 2').checked === true ? true : false })} checked={updateNeoworker.relation_accountant === true ? "checked" : ""} />
+                                <input type="checkbox" className="checkbox" id="Option 2" name="Option 2" onClick={() => setUpdateNeoworker({ ...updateNeoworker, relation_accountant: document.getElementById('Option 2').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 2">Relation avec le cabinet d'expertise comptable</label></div>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 3" name="Option 3" onClick={() => setUpdateNeoworker({ ...updateNeoworker, customer_recovery: document.getElementById('Option 3').checked === true ? true : false })} checked={updateNeoworker.customer_recovery === true ? "checked" : ""} />
+                                <input type="checkbox" className="checkbox" id="Option 3" name="Option 3" onClick={() => setUpdateNeoworker({ ...updateNeoworker, customer_recovery: document.getElementById('Option 3').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 3">Relances clients</label></div>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 4" name="Option 4" onClick={() => setUpdateNeoworker({ ...updateNeoworker, payroll_preparation: document.getElementById('Option 4').checked === true ? true : false })} checked={updateNeoworker.payroll_preparation === true ? "checked" : ""} />
+                                <input type="checkbox" className="checkbox" id="Option 4" name="Option 4" onClick={() => setUpdateNeoworker({ ...updateNeoworker, payroll_preparation: document.getElementById('Option 4').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 4">Préparation des éléments de paie (Pointages, congés payés, arrêts maladie, primes, etc…)</label></div>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 5" name="Option 5" onClick={() => setUpdateNeoworker({ ...updateNeoworker, assembly_approval_file: document.getElementById('Option 5').checked === true ? true : false })} checked={updateNeoworker.assembly_approval_file === true ? "checked" : ""} />
+                                <input type="checkbox" className="checkbox" id="Option 5" name="Option 5" onClick={() => setUpdateNeoworker({ ...updateNeoworker, assembly_approval_file: document.getElementById('Option 5').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 5">Montage de dossier d'agrément</label></div>
                             <div className="checkbox-and-content">
-                                <input type="checkbox" className="checkbox" id="Option 6" name="Option 6" onClick={() => setUpdateNeoworker({ ...updateNeoworker, referencing_training_organization: document.getElementById('Option 6').checked === true ? true : false })} checked={updateNeoworker.referencing_training_organization === true ? "checked" : ""} />
+                                <input type="checkbox" className="checkbox" id="Option 6" name="Option 6" onClick={() => setUpdateNeoworker({ ...updateNeoworker, referencing_training_organization: document.getElementById('Option 6').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 6">Référencement organismes de formations</label></div>
                         </div>
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion opérationnelle</p>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 7" name="Option 7" onClick={() => setUpdateNeoworker({ ...updateNeoworker, use_business_software: document.getElementById('Option 7').checked === true ? true : false })} checked={updateNeoworker.use_business_software === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 7" name="Option 7" onClick={() => setUpdateNeoworker({ ...updateNeoworker, use_business_software: document.getElementById('Option 7').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 7">Mise en place, optimisation et formation à l'utilisation de logiciels métiers</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 8" name="Option 8" onClick={() => setUpdateNeoworker({ ...updateNeoworker, internal_procedure: document.getElementById('Option 8').checked === true ? true : false })} checked={updateNeoworker.internal_procedure === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 8" name="Option 8" onClick={() => setUpdateNeoworker({ ...updateNeoworker, internal_procedure: document.getElementById('Option 8').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 8">Création et mise en place de procédures internes</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 9" name="Option 9" onClick={() => setUpdateNeoworker({ ...updateNeoworker, database: document.getElementById('Option 9').checked === true ? true : false })} checked={updateNeoworker.database === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 9" name="Option 9" onClick={() => setUpdateNeoworker({ ...updateNeoworker, database: document.getElementById('Option 9').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 9">Création et traitement de base de données</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 10" name="Option 10" onClick={() => setUpdateNeoworker({ ...updateNeoworker, gestion_achat: document.getElementById('Option 10').checked === true ? true : false })} checked={updateNeoworker.gestion_achat === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 10" name="Option 10" onClick={() => setUpdateNeoworker({ ...updateNeoworker, gestion_achat: document.getElementById('Option 10').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 10">Intendance et gestion des achats</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 11" name="Option 11" onClick={() => setUpdateNeoworker({ ...updateNeoworker, administrative_file_management: document.getElementById('Option 11').checked === true ? true : false })} checked={updateNeoworker.administrative_file_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 11" name="Option 11" onClick={() => setUpdateNeoworker({ ...updateNeoworker, administrative_file_management: document.getElementById('Option 11').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 11">Suivi des dossiers administratifs</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 12" name="Option 12" onClick={() => setUpdateNeoworker({ ...updateNeoworker, management_assistantship: document.getElementById('Option 12').checked === true ? true : false })} checked={updateNeoworker.management_assistantship === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 12" name="Option 12" onClick={() => setUpdateNeoworker({ ...updateNeoworker, management_assistantship: document.getElementById('Option 12').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 12">Assistanat de direction</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 13" name="Option 13" onClick={() => setUpdateNeoworker({ ...updateNeoworker, filing_documents: document.getElementById('Option 13').checked === true ? true : false })} checked={updateNeoworker.filing_documents === true ? "checked" : ""} />
-                                <label className="label-prestation" for="Option 13">Classement de documents</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 14" name="Option 14" onClick={() => setUpdateNeoworker({ ...updateNeoworker, secretariat_and_maintenance_agenda: document.getElementById('Option 14').checked === true ? true : false })} checked={updateNeoworker.secretariat_and_maintenance_agenda === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 13" name="Option 13" onClick={() => setUpdateNeoworker({ ...updateNeoworker, filing_documents: document.getElementById('Option 13').checked === true ? true : false })} />
+                                <label className="label-prestationGestion administrative et comptable" for="Option 13">Classement de documents</label></div>
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 14" name="Option 14" onClick={() => setUpdateNeoworker({ ...updateNeoworker, secretariat_and_maintenance_agenda: document.getElementById('Option 14').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 14">Secrétariat et tenue de l'agenda </label></div>
                         </div>
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion commerciale</p>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 15" name="Option 15" onClick={() => setUpdateNeoworker({ ...updateNeoworker, commercial_strategy_and_sales_pitch: document.getElementById('Option 15').checked === true ? true : false })} checked={updateNeoworker.commercial_strategy_and_sales_pitch === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 15" name="Option 15" onClick={() => setUpdateNeoworker({ ...updateNeoworker, commercial_strategy_and_sales_pitch: document.getElementById('Option 15').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 15">Stratégie et argumentaire commercial</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 16" name="Option 16" onClick={() => setUpdateNeoworker({ ...updateNeoworker, management_of_commercial_activity: document.getElementById('Option 16').checked === true ? true : false })} checked={updateNeoworker.amanagement_of_commercial_activity === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 16" name="Option 16" onClick={() => setUpdateNeoworker({ ...updateNeoworker, management_of_commercial_activity: document.getElementById('Option 16').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 16">Création de tableaux de bord, de procédure et pilotage de l'activité commerciale</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 17" name="Option 17" onClick={() => setUpdateNeoworker({ ...updateNeoworker, prospecting_outbound_sales: document.getElementById('Option 17').checked === true ? true : false })} checked={updateNeoworker.prospecting_outbound_sales === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 17" name="Option 17" onClick={() => setUpdateNeoworker({ ...updateNeoworker, prospecting_outbound_sales: document.getElementById('Option 17').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 17">Prospection / Outbound sales</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 18" name="Option 18" onClick={() => setUpdateNeoworker({ ...updateNeoworker, gestion_achat2: document.getElementById('Option 18').checked === true ? true : false })} checked={updateNeoworker.gestion_achat2 === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 18" name="Option 18" onClick={() => setUpdateNeoworker({ ...updateNeoworker, gestion_achat2: document.getElementById('Option 18').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 18">Intendance et gestion des achats</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 19" name="Option 19" onClick={() => setUpdateNeoworker({ ...updateNeoworker, response_to_pulic_and_private_tenders: document.getElementById('Option 19').checked === true ? true : false })} checked={updateNeoworker.response_to_pulic_and_private_tenders === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 19" name="Option 19" onClick={() => setUpdateNeoworker({ ...updateNeoworker, response_to_pulic_and_private_tenders: document.getElementById('Option 19').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 19">Réponse aux appels d'offres publics et privés</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 20" name="Option 20" onClick={() => setUpdateNeoworker({ ...updateNeoworker, sales_administration: document.getElementById('Option 20').checked === true ? true : false })} checked={updateNeoworker.sales_administration === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 20" name="Option 20" onClick={() => setUpdateNeoworker({ ...updateNeoworker, sales_administration: document.getElementById('Option 20').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 20">Administration des ventes</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 21" name="Option 21" onClick={() => setUpdateNeoworker({ ...updateNeoworker, stock_management: document.getElementById('Option 21').checked === true ? true : false })} checked={updateNeoworker.stock_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 21" name="Option 21" onClick={() => setUpdateNeoworker({ ...updateNeoworker, stock_management: document.getElementById('Option 21').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 21">Gestion des stocks</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 22" name="Option 22" onClick={() => setUpdateNeoworker({ ...updateNeoworker, business_data_crm: document.getElementById('Option 22').checked === true ? true : false })} checked={updateNeoworker.business_data_crm === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 22" name="Option 22" onClick={() => setUpdateNeoworker({ ...updateNeoworker, business_data_crm: document.getElementById('Option 22').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 22">Saisie des données commerciales dans un CRM</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 23" name="Option 23" onClick={() => setUpdateNeoworker({ ...updateNeoworker, order_data_entry: document.getElementById('Option 23').checked === true ? true : false })} checked={updateNeoworker.order_data_entry === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 23" name="Option 23" onClick={() => setUpdateNeoworker({ ...updateNeoworker, order_data_entry: document.getElementById('Option 23').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 23">Saisie des commandes</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 24" name="Option 24" onClick={() => setUpdateNeoworker({ ...updateNeoworker, quote_management: document.getElementById('Option 24').checked === true ? true : false })} checked={updateNeoworker.quote_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 24" name="Option 24" onClick={() => setUpdateNeoworker({ ...updateNeoworker, quote_management: document.getElementById('Option 24').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 24">Gestion des devis</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 25" name="Option 25" onClick={() => setUpdateNeoworker({ ...updateNeoworker, billing: document.getElementById('Option 25').checked === true ? true : false })} checked={updateNeoworker.billing === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 25" name="Option 25" onClick={() => setUpdateNeoworker({ ...updateNeoworker, billing: document.getElementById('Option 25').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 25">Facturation</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 26" name="Option 26" onClick={() => setUpdateNeoworker({ ...updateNeoworker, claims_management: document.getElementById('Option 26').checked === true ? true : false })} checked={updateNeoworker.claims_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 26" name="Option 26" onClick={() => setUpdateNeoworker({ ...updateNeoworker, claims_management: document.getElementById('Option 26').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 26">Gestion des réclamations</label></div>
                         </div>
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Marketing / Communication / Digital</p>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 27" name="Option 27" onClick={() => setUpdateNeoworker({ ...updateNeoworker, marketing_strategy_and_operational_monitoring: document.getElementById('Option 27').checked === true ? true : false })} checked={updateNeoworker.marketing_strategy_and_operational_monitoring === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 27" name="Option 27" onClick={() => setUpdateNeoworker({ ...updateNeoworker, marketing_strategy_and_operational_monitoring: document.getElementById('Option 27').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 27">Stratégie marketing et suivi opérationnel</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 28" name="Option 28" onClick={() => setUpdateNeoworker({ ...updateNeoworker, marketing_study: document.getElementById('Option 28').checked === true ? true : false })} checked={updateNeoworker.marketing_study === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 28" name="Option 28" onClick={() => setUpdateNeoworker({ ...updateNeoworker, marketing_study: document.getElementById('Option 28').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 28">Réalisation d'études de marché </label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 29" name="Option 29" onClick={() => setUpdateNeoworker({ ...updateNeoworker, implementation_of_inbound_marketing_strategy: document.getElementById('Option 29').checked === true ? true : false })} checked={updateNeoworker.implementation_of_inbound_marketing_strategy === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 29" name="Option 29" onClick={() => setUpdateNeoworker({ ...updateNeoworker, implementation_of_inbound_marketing_strategy: document.getElementById('Option 29').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 29">Mise en œuvre d'une stratégie d'inbound marketing</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 30" name="Option 30" onClick={() => setUpdateNeoworker({ ...updateNeoworker, outbound_marketing: document.getElementById('Option 30').checked === true ? true : false })} checked={updateNeoworker.outbound_marketing === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 30" name="Option 30" onClick={() => setUpdateNeoworker({ ...updateNeoworker, outbound_marketing: document.getElementById('Option 30').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 30">Outbound marketing</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 31" name="Option 31" onClick={() => setUpdateNeoworker({ ...updateNeoworker, communication_strategy: document.getElementById('Option 31').checked === true ? true : false })} checked={updateNeoworker.communication_strategy === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 31" name="Option 31" onClick={() => setUpdateNeoworker({ ...updateNeoworker, communication_strategy: document.getElementById('Option 31').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 31">Stratégie de communication</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 32" name="Option 32" onClick={() => setUpdateNeoworker({ ...updateNeoworker, outsourced_project_manager: document.getElementById('Option 32').checked === true ? true : false })} checked={updateNeoworker.outsourced_project_manager === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 32" name="Option 32" onClick={() => setUpdateNeoworker({ ...updateNeoworker, outsourced_project_manager: document.getElementById('Option 32').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 32">Chef de projet externalisé</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 33" name="Option 33" onClick={() => setUpdateNeoworker({ ...updateNeoworker, creation_and_graphics: document.getElementById('Option 33').checked === true ? true : false })} checked={updateNeoworker.creation_and_graphics === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 33" name="Option 33" onClick={() => setUpdateNeoworker({ ...updateNeoworker, creation_and_graphics: document.getElementById('Option 33').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 33">Création et graphisme</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 34" name="Option 34" onClick={() => setUpdateNeoworker({ ...updateNeoworker, ux_design: document.getElementById('Option 34').checked === true ? true : false })} checked={updateNeoworker.ux_design === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 34" name="Option 34" onClick={() => setUpdateNeoworker({ ...updateNeoworker, ux_design: document.getElementById('Option 34').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 34">UX Design</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 35" name="Option 35" onClick={() => setUpdateNeoworker({ ...updateNeoworker, ui_design_computer_graphics: document.getElementById('Option 35').checked === true ? true : false })} checked={updateNeoworker.ui_design_computer_graphics === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 35" name="Option 35" onClick={() => setUpdateNeoworker({ ...updateNeoworker, ui_design_computer_graphics: document.getElementById('Option 35').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 35">UI Design - infographisme</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 36" name="Option 36" onClick={() => setUpdateNeoworker({ ...updateNeoworker, redaction_design: document.getElementById('Option 36').checked === true ? true : false })} checked={updateNeoworker.redaction_design === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 36" name="Option 36" onClick={() => setUpdateNeoworker({ ...updateNeoworker, redaction_design: document.getElementById('Option 36').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 36">Conception rédaction</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 37" name="Option 37" onClick={() => setUpdateNeoworker({ ...updateNeoworker, community_management: document.getElementById('Option 37').checked === true ? true : false })} checked={updateNeoworker.community_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 37" name="Option 37" onClick={() => setUpdateNeoworker({ ...updateNeoworker, community_management: document.getElementById('Option 37').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 37">Community management</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 38" name="Option 38" onClick={() => setUpdateNeoworker({ ...updateNeoworker, seo_optimization: document.getElementById('Option 38').checked === true ? true : false })} checked={updateNeoworker.seo_optimization === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 38" name="Option 38" onClick={() => setUpdateNeoworker({ ...updateNeoworker, seo_optimization: document.getElementById('Option 38').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 38">Optimisation SEO</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 39" name="Option 39" onClick={() => setUpdateNeoworker({ ...updateNeoworker, website_creation: document.getElementById('Option 39').checked === true ? true : false })} checked={updateNeoworker.website_creation === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 39" name="Option 39" onClick={() => setUpdateNeoworker({ ...updateNeoworker, website_creation: document.getElementById('Option 39').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 39">Création de site web</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 40" name="Option 40" onClick={() => setUpdateNeoworker({ ...updateNeoworker, press_relation: document.getElementById('Option 40').checked === true ? true : false })} checked={updateNeoworker.press_relation === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 40" name="Option 40" onClick={() => setUpdateNeoworker({ ...updateNeoworker, press_relation: document.getElementById('Option 40').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 40">Relation presse</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 41" name="Option 41" onClick={() => setUpdateNeoworker({ ...updateNeoworker, event: document.getElementById('Option 41').checked === true ? true : false })} checked={updateNeoworker.event === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 41" name="Option 41" onClick={() => setUpdateNeoworker({ ...updateNeoworker, event: document.getElementById('Option 41').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 41">Evènementiel</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 42" name="Option 42" onClick={() => setUpdateNeoworker({ ...updateNeoworker, partnership_distribution_network_and_business_contribution: document.getElementById('Option 42').checked === true ? true : false })} checked={updateNeoworker.partnership_distribution_network_and_business_contribution === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 42" name="Option 42" onClick={() => setUpdateNeoworker({ ...updateNeoworker, partnership_distribution_network_and_business_contribution: document.getElementById('Option 42').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 42">Partenariats, montage de réseaux de distribution, apporteurs d'affaire</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 43" name="Option 43" onClick={() => setUpdateNeoworker({ ...updateNeoworker, translation_work: document.getElementById('Option 43').checked === true ? true : false })} checked={updateNeoworker.translation_work === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 43" name="Option 43" onClick={() => setUpdateNeoworker({ ...updateNeoworker, translation_work: document.getElementById('Option 43').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 43">Travaux de traduction</label></div>
                         </div>
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion Financière / Contrôle de Gestion</p>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 44" name="Option 44" onClick={() => setUpdateNeoworker({ ...updateNeoworker, administrative_and_financial_management: document.getElementById('Option 44').checked === true ? true : false })} checked={updateNeoworker.administrative_and_financial_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 44" name="Option 44" onClick={() => setUpdateNeoworker({ ...updateNeoworker, administrative_and_financial_management: document.getElementById('Option 44').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 44">Direction administrative et financière externalisée</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 45" name="Option 45" onClick={() => setUpdateNeoworker({ ...updateNeoworker, financing_grant_application: document.getElementById('Option 45').checked === true ? true : false })} checked={updateNeoworker.financing_grant_application === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 45" name="Option 45" onClick={() => setUpdateNeoworker({ ...updateNeoworker, financing_grant_application: document.getElementById('Option 45').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 45">Montage de dossier de financement / subvention</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 46" name="Option 46" onClick={() => setUpdateNeoworker({ ...updateNeoworker, management_control: document.getElementById('Option 46').checked === true ? true : false })} checked={updateNeoworker.management_control === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 46" name="Option 46" onClick={() => setUpdateNeoworker({ ...updateNeoworker, management_control: document.getElementById('Option 46').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 46">Contrôle de gestion</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 47" name="Option 47" onClick={() => setUpdateNeoworker({ ...updateNeoworker, dashboard_and_financial_management: document.getElementById('Option 47').checked === true ? true : false })} checked={updateNeoworker.dashboard_and_financial_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 47" name="Option 47" onClick={() => setUpdateNeoworker({ ...updateNeoworker, dashboard_and_financial_management: document.getElementById('Option 47').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 47">Tableau de bord et pilotage financier</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 48" name="Option 48" onClick={() => setUpdateNeoworker({ ...updateNeoworker, business_pland_and_provisional_budget: document.getElementById('Option 48').checked === true ? true : false })} checked={updateNeoworker.business_pland_and_provisional_budget === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 48" name="Option 48" onClick={() => setUpdateNeoworker({ ...updateNeoworker, business_pland_and_provisional_budget: document.getElementById('Option 48').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 48">Création de business plan et budget prévisionnel</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 49" name="Option 49" onClick={() => setUpdateNeoworker({ ...updateNeoworker, transfer_aid_and_buyout_of_business: document.getElementById('Option 49').checked === true ? true : false })} checked={updateNeoworker.transfer_aid_and_buyout_of_business === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 49" name="Option 49" onClick={() => setUpdateNeoworker({ ...updateNeoworker, transfer_aid_and_buyout_of_business: document.getElementById('Option 49').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 49">Aide à la cession / rachat d'activités</label></div>
                         </div>
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">DSI</p>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 50" name="Option 50" onClick={() => setUpdateNeoworker({ ...updateNeoworker, outsourced_information_system_management: document.getElementById('Option 50').checked === true ? true : false })} checked={updateNeoworker.outsourced_information_system_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 50" name="Option 50" onClick={() => setUpdateNeoworker({ ...updateNeoworker, outsourced_information_system_management: document.getElementById('Option 50').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 50">Direction des Systèmes d'informations externalisée</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 51" name="Option 51" onClick={() => setUpdateNeoworker({ ...updateNeoworker, schema_directeur_si: document.getElementById('Option 51').checked === true ? true : false })} checked={updateNeoworker.schema_directeur_si === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 51" name="Option 51" onClick={() => setUpdateNeoworker({ ...updateNeoworker, schema_directeur_si: document.getElementById('Option 51').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 51">Schéma directeur SI</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 52" name="Option 52" onClick={() => setUpdateNeoworker({ ...updateNeoworker, functional_architecture: document.getElementById('Option 52').checked === true ? true : false })} checked={updateNeoworker.functional_architecture_comptable === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 52" name="Option 52" onClick={() => setUpdateNeoworker({ ...updateNeoworker, functional_architecture: document.getElementById('Option 52').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 52">Architecture fonctionnelle / applicative</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 53" name="Option 53" onClick={() => setUpdateNeoworker({ ...updateNeoworker, infra_reseau: document.getElementById('Option 53').checked === true ? true : false })} checked={updateNeoworker.infra_reseau === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 53" name="Option 53" onClick={() => setUpdateNeoworker({ ...updateNeoworker, infra_reseau: document.getElementById('Option 53').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 53">Infra / réseau</label></div>
                         </div>
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion Ressources Humaines / Juridique</p>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 54" name="Option 54" onClick={() => setUpdateNeoworker({ ...updateNeoworker, outsourced_hr_department: document.getElementById('Option 54').checked === true ? true : false })} checked={updateNeoworker.outsourced_hr_department === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 54" name="Option 54" onClick={() => setUpdateNeoworker({ ...updateNeoworker, outsourced_hr_department: document.getElementById('Option 54').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 54">Direction des Ressources Humaines externalisée</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 55" name="Option 55" onClick={() => setUpdateNeoworker({ ...updateNeoworker, plannings_management: document.getElementById('Option 55').checked === true ? true : false })} checked={updateNeoworker.plannings_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 55" name="Option 55" onClick={() => setUpdateNeoworker({ ...updateNeoworker, plannings_management: document.getElementById('Option 55').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 55">Gestion des plannings</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 56" name="Option 56" onClick={() => setUpdateNeoworker({ ...updateNeoworker, payroll_tracking: document.getElementById('Option 56').checked === true ? true : false })} checked={updateNeoworker.payroll_tracking === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 56" name="Option 56" onClick={() => setUpdateNeoworker({ ...updateNeoworker, payroll_tracking: document.getElementById('Option 56').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 56">Suivi des éléments de paie (absences, CP, RTT..)</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 57" name="Option 57" onClick={() => setUpdateNeoworker({ ...updateNeoworker, establishment_of_contracts_end_of_contracts: document.getElementById('Option 57').checked === true ? true : false })} checked={updateNeoworker.establishment_of_contracts_end_of_contracts === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 57" name="Option 57" onClick={() => setUpdateNeoworker({ ...updateNeoworker, establishment_of_contracts_end_of_contracts: document.getElementById('Option 57').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 57">Etablissement des contrats / éléments de fin de contrats</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 58" name="Option 58" onClick={() => setUpdateNeoworker({ ...updateNeoworker, suivi_mutuelle_medecine_du_travail: document.getElementById('Option 58').checked === true ? true : false })} checked={updateNeoworker.suivi_mutuelle_medecine_du_travail === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 58" name="Option 58" onClick={() => setUpdateNeoworker({ ...updateNeoworker, suivi_mutuelle_medecine_du_travail: document.getElementById('Option 58').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 58">Suivi mutuelle et medecine du travail</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 59" name="Option 59" onClick={() => setUpdateNeoworker({ ...updateNeoworker, conflict_management: document.getElementById('Option 59').checked === true ? true : false })} checked={updateNeoworker.conflict_management === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 59" name="Option 59" onClick={() => setUpdateNeoworker({ ...updateNeoworker, conflict_management: document.getElementById('Option 59').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 59">Gestion des conflits</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 60" name="Option 60" onClick={() => setUpdateNeoworker({ ...updateNeoworker, assembly_and_monitoring_litigation_files: document.getElementById('Option 60').checked === true ? true : false })} checked={updateNeoworker.assembly_and_monitoring_litigation_files === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 60" name="Option 60" onClick={() => setUpdateNeoworker({ ...updateNeoworker, assembly_and_monitoring_litigation_files: document.getElementById('Option 60').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 60">Montage et suivi des dossiers de contentieux</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 61" name="Option 61" onClick={() => setUpdateNeoworker({ ...updateNeoworker, harmonization_of_contracts: document.getElementById('Option 61').checked === true ? true : false })} checked={updateNeoworker.harmonization_of_contracts === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 61" name="Option 61" onClick={() => setUpdateNeoworker({ ...updateNeoworker, harmonization_of_contracts: document.getElementById('Option 61').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 61">Harmonisation des contrats</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 62" name="Option 62" onClick={() => setUpdateNeoworker({ ...updateNeoworker, RGPD_compliation: document.getElementById('Option 62').checked === true ? true : false })} checked={updateNeoworker.RGPD_compliation === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 62" name="Option 62" onClick={() => setUpdateNeoworker({ ...updateNeoworker, RGPD_compliation: document.getElementById('Option 62').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 62">Mise en conformité RGPD</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 63" name="Option 63" onClick={() => setUpdateNeoworker({ ...updateNeoworker, harmonization_salary_scales: document.getElementById('Option 63').checked === true ? true : false })} checked={updateNeoworker.harmonization_salary_scales === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 63" name="Option 63" onClick={() => setUpdateNeoworker({ ...updateNeoworker, harmonization_salary_scales: document.getElementById('Option 63').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 63">Harmonisation des grilles salaires</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 64" name="Option 64" onClick={() => setUpdateNeoworker({ ...updateNeoworker, provisional_management_of_jobs_and_skill: document.getElementById('Option 64').checked === true ? true : false })} checked={updateNeoworker.provisional_management_of_jobs_and_skill === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 64" name="Option 64" onClick={() => setUpdateNeoworker({ ...updateNeoworker, provisional_management_of_jobs_and_skill: document.getElementById('Option 64').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 64">Gestion prévisionnelle des emplois et des compétences</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 65" name="Option 65" onClick={() => setUpdateNeoworker({ ...updateNeoworker, recruitment_and_integration: document.getElementById('Option 65').checked === true ? true : false })} checked={updateNeoworker.recruitment_and_integration === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 65" name="Option 65" onClick={() => setUpdateNeoworker({ ...updateNeoworker, recruitment_and_integration: document.getElementById('Option 65').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 65">Recrutement et intégration</label></div>
                         </div>
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion de la relation clients</p>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 66" name="Option 66" onClick={() => setUpdateNeoworker({ ...updateNeoworker, suivi_des_grands_comptes: document.getElementById('Option 66').checked === true ? true : false })} checked={updateNeoworker.suivi_des_grands_comptes === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 66" name="Option 66" onClick={() => setUpdateNeoworker({ ...updateNeoworker, suivi_des_grands_comptes: document.getElementById('Option 66').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 66">Suivi grands comptes</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 67" name="Option 67" onClick={() => setUpdateNeoworker({ ...updateNeoworker, additional_sales: document.getElementById('Option 67').checked === true ? true : false })} checked={updateNeoworker.additional_sales === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 67" name="Option 67" onClick={() => setUpdateNeoworker({ ...updateNeoworker, additional_sales: document.getElementById('Option 67').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 67">Ventes additionnelles</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 68" name="Option 68" onClick={() => setUpdateNeoworker({ ...updateNeoworker, measure_of_customers_satisfaction: document.getElementById('Option 68').checked === true ? true : false })} checked={updateNeoworker.measure_of_customers_satisfaction === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 68" name="Option 68" onClick={() => setUpdateNeoworker({ ...updateNeoworker, measure_of_customers_satisfaction: document.getElementById('Option 68').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 68">Mesure de la satisfaction clients</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 69" name="Option 69" onClick={() => setUpdateNeoworker({ ...updateNeoworker, after_sales_service: document.getElementById('Option 69').checked === true ? true : false })} checked={updateNeoworker.after_sales_service === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 69" name="Option 69" onClick={() => setUpdateNeoworker({ ...updateNeoworker, after_sales_service: document.getElementById('Option 69').checked === true ? true : false })} />
                                 <label className="label-prestation" for="Option 69">Service après ventes</label></div>
                         </div>
                     </div>
-                    <Button className="btn" type="submit">Valider les modifications</Button>
+                    <Button className='btn' onClick={idFreeRandomFreeRole} type='submit'>Valider</Button>
                     <form />
                 </Form>
             </div>

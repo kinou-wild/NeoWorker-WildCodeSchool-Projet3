@@ -23,7 +23,7 @@ const ChangeNeoworker = (props) => {
     //function to update a neoworker
     const updateDataNeoworker = async (e) => {
         e.preventDefault()
-        await axios.put(`http://localhost:5000/freelancer/${params.id}`, updateNeoworker)
+        await axios.put(`http://localhost:5000/freelancer/${params.id}`,)
             .catch((err) => console.log(err))
             .then(x => {
                 props.history.push('/admin/neoworker/liste')
@@ -31,7 +31,7 @@ const ChangeNeoworker = (props) => {
             )
     }
 
-    useEffect(() => {  }, [])
+    useEffect(() => { updateDataNeoworker() }, [])
 
     const onStarClick = (nextValue, name) => {
         if (updateNeoworker[name] === nextValue) {

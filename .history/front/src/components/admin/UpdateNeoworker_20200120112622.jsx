@@ -18,8 +18,6 @@ const ChangeNeoworker = (props) => {
             .catch((err) => console.log(err))
     }
 
-    useEffect(() => { getData() }, [])
-
     //function to update a neoworker
     const updateDataNeoworker = async (e) => {
         e.preventDefault()
@@ -31,7 +29,9 @@ const ChangeNeoworker = (props) => {
             )
     }
 
-    useEffect(() => {  }, [])
+    useEffect(() => {
+        updateDataNeoworker()
+    }, [])
 
     const onStarClick = (nextValue, name) => {
         if (updateNeoworker[name] === nextValue) {

@@ -18,11 +18,9 @@ const ChangeNeoworker = (props) => {
             .catch((err) => console.log(err))
     }
 
-    useEffect(() => { getData() }, [])
-
     //function to update a neoworker
     const updateDataNeoworker = async (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         await axios.put(`http://localhost:5000/freelancer/${params.id}`, updateNeoworker)
             .catch((err) => console.log(err))
             .then(x => {
@@ -31,7 +29,9 @@ const ChangeNeoworker = (props) => {
             )
     }
 
-    useEffect(() => {  }, [])
+    useEffect(() => {
+        updateDataNeoworker()
+    }, [])
 
     const onStarClick = (nextValue, name) => {
         if (updateNeoworker[name] === nextValue) {
