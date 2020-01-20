@@ -40,9 +40,9 @@ const CompetencesFreelancer = (props) => {
                     <Slide4 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])} />
                     <Slide5 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])} />
                 </Slider>
-                <Link to={`/neoworker/editer/:id`}>
+                {/*<Link to={`/neoworker/editer/:id`}>
                     <Button className='btn'>Editer</Button>
-                </Link>
+                </Link>*/}
             </div>
         </div>
     )
