@@ -4,6 +4,7 @@ import StarRatingComponent from 'react-star-rating-component';
 
 const Slide2 = (props) => {
 
+
     const data = props.data
 
     return (
