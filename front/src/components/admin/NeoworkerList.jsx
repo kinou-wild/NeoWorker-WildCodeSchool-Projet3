@@ -2,13 +2,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import NeoworkerListCard from './NeoWorkerListCard'
 import profilPic from '../../img/anais.jpg'
-<<<<<<< HEAD
 import './CommonDesign.css'
 /* import SearchBarNeo from '../searchbar/SearchBarNeo' */
-=======
-import './ListeNeoworker&Mission.css'
-import SearchBarNeo from '../searchbar/SearchBarNeo'
->>>>>>> 0f5a70f0be5285c9bc2fa908f716464cedea18cd
 
 const NeoworkerList = () => {
 
@@ -57,18 +52,10 @@ const NeoworkerList = () => {
     }
 
     return (
-<<<<<<< HEAD
         <div className="admin-div">
             <div className='profil-card'>
                 {/* <SearchBarNeo setSearchTerm={setSearchTerm} searchTerm={searchTerm} />*/}
                 <p className='name-card'>Anais</p>
-=======
-
-        <div className="admin-neoworker">
-            <div className='profil-card'>
-                <SearchBarNeo setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
-                <p className='name-card'> Anais</p>
->>>>>>> 0f5a70f0be5285c9bc2fa908f716464cedea18cd
                 <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
             {displayFreelancerByStatus(0, "Disponibles")}

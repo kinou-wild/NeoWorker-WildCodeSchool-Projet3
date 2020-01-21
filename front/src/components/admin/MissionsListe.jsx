@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-import MissionDisplayer from "./MissionsListeCard"
 import SearchBarMission from '../searchbar/SearchBarMissions'
 import profilPic from '../../img/anais.jpg'
-<<<<<<< HEAD
 import './CommonDesign.css'
-=======
-import './ListeNeoworker&Mission.css'
-import MissionsListeCard from './MissionsListeCard';
->>>>>>> 0f5a70f0be5285c9bc2fa908f716464cedea18cd
+import MissionsListeCard from './MissionsListeCard'
 
 const MissionsListe = () => {
 
