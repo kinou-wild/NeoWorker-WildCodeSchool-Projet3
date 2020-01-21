@@ -3,81 +3,63 @@ import axios from 'axios'
 import MissionDisplayer from "./MissionsListeCard"
 import SearchBarMission from '../searchbar/SearchBarMissions'
 import profilPic from '../../img/anais.jpg'
+<<<<<<< HEAD
 import './CommonDesign.css'
+=======
+import './ListeNeoworker&Mission.css'
+import MissionsListeCard from './MissionsListeCard';
+>>>>>>> 0f5a70f0be5285c9bc2fa908f716464cedea18cd
 
 const MissionsListe = () => {
 
-
-    // 3hooks pour classer les missions : à pourvoir, pourvue, terminée
-    const [missionsAPourvoir, setMissionsAPourvoir] = useState([])
-    const [missionsPourvues, setMissionsPourvues] = useState([])
-    const [missionsTerminees, setMissionsTerminees] = useState([])
-
     //hooks searchbar
-    const [result, setResult] = useState() 
+    const [missionResult, setMissionResult] = useState([])
     const [searchTerm, setSearchTerm] = useState({
         nom: ''
     });
 
     // get  dans la bdd all misions 
     const getMissions = async () => {
-        await axios.get('http://localhost:5000/missions?status=0')
-            .then(response => setMissionsAPourvoir(response.data))
-            .catch((err) => console.log(err))
-        await axios.get('http://localhost:5000/missions?status=1')
-            .then(response => setMissionsPourvues(response.data))
-            .catch((err) => console.log(err))
-        await axios.get('http://localhost:5000/missions?status=2')
-            .then(response => setMissionsTerminees(response.data))
+        await axios.get('http://localhost:5000/missions')
+            .then(res => setMissionResult(res.data))
             .catch((err) => console.log(err))
     }
 
     //permet de refresh le get mission si un truc change sur la page 
-    
     useEffect(() => {
         getMissions()
     }, [])
 
+    //fonction pour maj status et search bar
+    const displayMissionByStatus = (status, missionStatus) => {
+        return (
+            <>
+                <h2 className='missions-h2'>{missionStatus}<span className='textModif'>:</span></h2>
+                <div className='missions'>
+                    {missionResult
+                        .filter(x => x.status === status
+                            && (x.nom_mission.toLowerCase().includes(searchTerm.nom.toLowerCase())))
+                        .map(x =>
+                            <MissionsListeCard {...x} />
+                        )}
+                </div>
+            </>
+        )
+    }
 
-    ////////////////////////////////////////////////////////////////////////////////
-    const search = [...missionsAPourvoir, ...missionsPourvues, ...missionsTerminees]
-    useEffect(() => {
-
-    const results = search.filter(x =>
-        x.nom_mission.toLowerCase().includes(searchTerm.nom));
-        setResult(results);
-    }, [searchTerm.nom]);
 
     return (
 
         <div className="admin-div">
             <div className='profil-card'>
-            <SearchBarMission setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
+                <SearchBarMission setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
                 <p className='name-card'> Anais</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
-            <h2 className='missions-h2'>Missions à pourvoir <span className='textModif'>:</span></h2>
-            <div className='missions'>
-                {missionsAPourvoir
-                    .filter(x=>x.nom_mission.includes(searchTerm.nom) )
-                    .map(mission => {
-                    return <MissionDisplayer {...mission} />
-                })}
-            </div>
-            <h2 className='missions-h2'>Missions pourvues <span className='textModif'>:</span></h2>
-            <div className='missions'>
-                {missionsPourvues.map(mission => {
-                    return <MissionDisplayer {...mission} />
-                })
-                }
-            </div>
-            <h2 className='missions-h2'>Missions terminées <span className='textModif'>:</span></h2>
-            <div className='missions'>
-                {missionsTerminees.map(mission => {
-                    return <MissionDisplayer {...mission} />
-                })
-                }
-            </div>
+                {displayMissionByStatus(0, "A pourvoir")}
+                {displayMissionByStatus(1, "Pourvues")}
+                {displayMissionByStatus(2, "Terminées")}
+
         </div>
     )
 }

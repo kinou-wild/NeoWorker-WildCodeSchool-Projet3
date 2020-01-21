@@ -8,8 +8,8 @@ const SearchBarMission = ({setSearchTerm, searchTerm}) => {
     const [search, setSearch] = useState([]);
     const[result,setResult]= useState([]);
 
-    const fetchData = () => {
-        axios.get('http://localhost:5000/missions')
+    const fetchData = async () => {
+       await axios.get('http://localhost:5000/missions')
             .then(res => setSearch(res.data))
             .catch(err => console.log(err))
     }
