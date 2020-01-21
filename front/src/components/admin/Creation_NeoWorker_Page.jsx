@@ -261,7 +261,7 @@ const CreationNeoWorkerPage = (props) => {
 
         register(newUser)
             .then(res => {
-                props.history.push(`/admin/homepage`)
+                props.history.push(`/admin/neoworker/liste`)
             })
     }
 

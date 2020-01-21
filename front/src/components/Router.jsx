@@ -159,7 +159,7 @@ const Router = () => {
                 {/* afficher un freelancer en tant qu'admin */}
                 <Route exact path="/admin/neoworker/:id" component={OneNeoworker} />
 
-                //modify a neoworker profileHooks
+                {/*modify a neoworker profileHooks */}
                 <Route exact path="/admin/neoworker/editer/:id" component={UpdateNeoworker} />
                 
 
