@@ -673,22 +673,6 @@ const ChangeNeoworker = (props) => {
 
                     <h2 className='mission-title'>Famille de prestations</h2>
                     <div>
-
-                        {/*<select
-                        className="famille-prestation-select" type="select" name="famille-prestation" id='famille-prestation'
-                        onChange={(e) => setPrestation(e.target.value)}>
-                        <option>--Choisir une option--</option>
-                        <option value="Gestion administrative et comptable">Gestion administrative et comptable</option>
-                        <option value="Gestion opérationnelle">Gestion opérationnelle</option>
-                        <option value="Gestion commerciale">Gestion commerciale</option>
-                        <option value="Marketing / Communication / Digital">Marketing / Communication / Digital</option>
-                        <option value="Gestion Financière / Contrôle de Gestion">Gestion Financière / Contrôle de Gestion</option>
-                        <option value="DSI">DSI</option>
-                        <option value="Gestion Ressources Humaines / Juridique">Gestion Ressources Humaines / Juridique</option>
-                        <option value="Gestion de la relation clients">Gestion de la relation clients</option>
-                    </select>
-                    */}
-
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion administrative et comptable</p>
                             <div className="checkbox-and-content">
