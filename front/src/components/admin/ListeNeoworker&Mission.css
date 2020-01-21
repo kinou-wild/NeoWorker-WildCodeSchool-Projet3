@@ -55,6 +55,7 @@
 
 .neoworkerCard-h1 {
   font-weight: bold;
+  margin: 0px !important;
 }
 
 
@@ -77,12 +78,14 @@
 div.firstrow-card-neoworker {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 div.secondrow-card-neoworker, div.thirdrow-card-neoworker, div.fourthrow-card-neoworker, div.fifthrow-card-neoworker {
   display: flex;
   justify-content: space-between;
   font-size: 16px;
+  margin-bottom: 10px;
 }
 
 

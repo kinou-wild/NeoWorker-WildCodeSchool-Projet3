@@ -25,7 +25,6 @@ const OneNeoworker = (props) => {
     console.log(neoworkerById)
     return (
         <>
-
             <OneNeoworkerCard neoworker={neoworkerById} onClick={handleClick} />
         </>
     )

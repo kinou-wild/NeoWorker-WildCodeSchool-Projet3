@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "Ines@260610",
+=======
+    "password": "password",
+>>>>>>> 8ce8081794ef503e6f73b345fb42c2819010d99f
     "database": "neoworker",
     "host": "127.0.0.1",
     "dialect": "mysql",

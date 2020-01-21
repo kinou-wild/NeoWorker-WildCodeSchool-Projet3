@@ -52,9 +52,9 @@ const MissionsListe = () => {
                 <p className='name-card'> Anais</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
-            {displayMissionByStatus(0, "A pourvoir")}
-            {displayMissionByStatus(1, "Pourvues")}
-            {displayMissionByStatus(2, "Terminées")}
+                {displayMissionByStatus(0, "A pourvoir")}
+                {displayMissionByStatus(1, "Pourvues")}
+                {displayMissionByStatus(2, "Terminées")}
 
         </div>
     )
