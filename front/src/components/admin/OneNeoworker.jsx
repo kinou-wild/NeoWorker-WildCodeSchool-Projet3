@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import OneNeoworkerCard from './OneNeoworkerCard'
+import SeeNeoworker from './SeeNeoworker'
+import './CommonDesign.css'
 
 const OneNeoworker = (props) => {
     //hook to get NeoWorkers by id
@@ -25,8 +26,7 @@ const OneNeoworker = (props) => {
     console.log(neoworkerById)
     return (
         <>
-
-            <OneNeoworkerCard neoworker={neoworkerById} onClick={handleClick} />
+            <SeeNeoworker neoworker={neoworkerById} onClick={handleClick} />
         </>
     )
 }

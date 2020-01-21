@@ -3,6 +3,7 @@ import { Form, FormGroup, Input, Label, Col } from 'reactstrap'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
 import profilPic from '../../img/anais.jpg'
+import './CommonDesign.css'
 
 const SeeMission = (props) => {
 
@@ -23,7 +24,7 @@ const SeeMission = (props) => {
     }
 
     return (
-        <div className="admin-mission">
+        <div className="admin-div">
             <div className='profil-card'>
                 <p className='name-card'> Anais</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
@@ -32,82 +33,102 @@ const SeeMission = (props) => {
             <div className='body'>
                 <Form onSubmit={getDataMission}>
                     <FormGroup>
+                    <Label> Notes <span className='textModif'>:</span></Label>
                         <Input disabled style={{ height: '150px' }} type="textarea" name="note"
-                            value={getMission.note} />
+                            value={getMission.note}
+                            className="admin-input-note" />
                     </FormGroup>
                     <div className='champs-mission'>
                         <FormGroup>
-                            <Input disabled style={{ textAlign: 'center' }}
+                        <Label> Intitulé de la mission <span className='textModif'>:</span></Label>
+                            <Input disabled
+                            className="admin-input-nom_mission"
                                 name="nom_mission"
                                 value={getMission.nom_mission}
                                 type="text" />
                         </FormGroup>
                         <FormGroup>
-                            <Input disabled placeholder="Nom de l'entreprise"
-
+                        <Label> Nom de l'entreprise <span className='textModif'>:</span></Label>
+                            <Input disabled 
+                                className="admin-input-nom_entreprise"
                                 name="nom_entreprise"
                                 value={getMission.nom_entreprise}
                                 type="text" />
                         </FormGroup>
                         <FormGroup>
-                            <Input disabled placeholder="Email"
+                        <Label> Email <span className='textModif'>:</span></Label>
+                            <Input disabled
+                            className="admin-input-email"
                                 name="email"
                                 value={getMission.email}
                                 type="email" />
                         </FormGroup>
                         <FormGroup>
-                            <Input disabled placeholder="Téléphone"
+                        <Label> Telephone <span className='textModif'>:</span></Label>
+                            <Input disabled 
+                            className="admin-input-tel"
                                 name="tel"
                                 value={getMission.tel}
                                 type="tel" />
                         </FormGroup>
                         <FormGroup>
-                            <Input disabled placeholder="Adresse"
+                        <Label> Adresse <span className='textModif'>:</span></Label>
+                            <Input disabled 
+                            className="admin-input-address"
                                 name="address"
                                 value={getMission.address}
                                 type="text" />
                         </FormGroup>
                         <FormGroup>
-                            <Input disabled placeholder='Code Postal'
+                        <Label> Code postal <span className='textModif'>:</span></Label>
+                            <Input disabled 
+                            className="admin-input-cp"
                                 name="cp"
                                 value={getMission.cp}
                                 type="text"
                                 maxLength={5} />
                         </FormGroup>
-                        <FormGroup row style={{width:'300px'}}>
-                            <Label sm={4.5}>Date de début :</Label>
-                            <Col sm={7.05}>
-                                <Input disabled className='date-mission'
+                        <FormGroup>
+                        <Label> Date de début de mission <span className='textModif'>:</span></Label>
+                                <Input disabled
+                                    className="admin-input-date_debut"
                                     name="date_debut"
                                     value={getMission.date_debut}
                                     type="date"/>
-                            </Col>
+                            
                         </FormGroup>
-                        <FormGroup row style={{width:'300px'}}>
-                            <Label sm={4.5}>Date de fin :</Label>
-                            <Col sm={7.05}>
-                                <Input disabled className='date-mission'
+                        <FormGroup>
+                        <Label> Date de fin de mission <span className='textModif'>:</span></Label>
+                        
+                                <Input disabled
+                                    className="admin-input-email"
                                     name="date_fin"
                                     value={getMission.date_fin}
                                     type="date"/>
-                            </Col>
+                            
                         </FormGroup>
                         <FormGroup>
-                            <Input disabled placeholder='Nombre de jour(s) par mois'
+                        <Label> Nombre de jours (par mois) <span className='textModif'>:</span></Label>
+                            <Input disabled 
+                                className="admin-input-nb_j_par_mois"
                                 name="nb_j_par_mois"
                                 value={getMission.nb_j_par_mois}
                                 type="number"
                                 max="31" />
                         </FormGroup>
                         <FormGroup>
-                            <Input disabled placeholder='Siret'
-                                name="siret"
+                        <Label> N° de SIRET <span className='textModif'>:</span></Label>
+                            <Input disabled 
+                               className="admin-input-siret"
+                               name="siret"
                                 value={getMission.siret}
                                 type="number" />
                         </FormGroup>
                         <FormGroup>
-                            <Input disabled placeholder='Budget'
-                                name="budget"
+                        <Label> Budget <span className='textModif'>:</span></Label>
+                            <Input disabled 
+                               className="admin-input-budget"
+                               name="budget"
                                 value={getMission.budget}
                                 type="number" />
                         </FormGroup>
@@ -117,6 +138,7 @@ const SeeMission = (props) => {
                         <FormGroup>
                             <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
                             <Input disabled type="select"
+                                className="admin-input-pref_lieu_travail"
                                 name="pref_lieu_de_travail"
                                 value={getMission.pref_lieu_de_travail}>
                                 <option hidden="true">-</option>
@@ -128,6 +150,7 @@ const SeeMission = (props) => {
                         <FormGroup>
                             <Label>Profil <span className='textModif'>:</span></Label>
                             <Input disabled type="select" name="type_profil"
+                                className="admin-input-profil"
                                 value={getMission.type_profil}>
                                 <option hidden="true">-</option>
                                 <option>Regular</option>
@@ -137,6 +160,7 @@ const SeeMission = (props) => {
                         <FormGroup>
                             <Label>Fréquence <span className='textModif'>:</span></Label>
                             <Input disabled type="select" name="frequence"
+                                className="admin-input-frequence"
                                 value={getMission.frequence}>
                                 <option hidden="true">-</option>
                                 <option>Ponctuelle</option>
@@ -146,6 +170,7 @@ const SeeMission = (props) => {
                         <FormGroup>
                             <Label>Mobilité <span className='textModif'>:</span></Label>
                             <Input disabled type="select" name="mobilite"
+                                className="admin-input-mobilite"
                                 value={getMission.mobilite}>
                                 <option hidden="true">-</option>
                                 <option>Oui</option>

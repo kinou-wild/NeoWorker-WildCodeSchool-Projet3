@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import NeoworkerListCard from './NeoWorkerListCard'
 import profilPic from '../../img/anais.jpg'
-import './ListeNeoworker&Mission.css'
+import './CommonDesign.css'
 /* import SearchBarNeo from '../searchbar/SearchBarNeo' */
 
 const NeoworkerList = () => {
@@ -62,10 +62,10 @@ const NeoworkerList = () => {
 
 
     return (
-        <div className="admin-neoworker">
+        <div className="admin-div">
             <div className='profil-card'>
                 {/* <SearchBarNeo setSearchTerm={setSearchTerm} searchTerm={searchTerm} />*/}
-                <p className='name-card'> Anais</p>
+                <p className='name-card'>Anais</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
             <h2 className="neoworker-h2">Disponible :</h2>

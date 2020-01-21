@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Form, FormGroup, Input, Label, Col } from 'reactstrap'
 import StarRatingComponent from 'react-star-rating-component';
-import './FormulaireCreationMission&Neoworker.css'
+import './CommonDesign.css'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom';
 import profilPic from '../../img/anais.jpg'
@@ -232,7 +232,7 @@ const MissionCreateAdmin = (props) => {
     }
 
     return (
-        <div className="admin-mission">
+        <div className="admin-div">
             <div className='profil-card'>
                 <p className='name-card'> Anais</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
@@ -241,14 +241,18 @@ const MissionCreateAdmin = (props) => {
             <div className='body'>
                 <Form onSubmit={createMissions}>
                     <FormGroup>
-                        <Input style={{ height: '150px' }} placeholder='Notes :' type="textarea" name="note" id="note"
+                        <Label> Notes <span className='textModif'>:</span></Label>
+                        <Input style={{ height: '150px' }} type="textarea" name="note" id="note"
+                            className="admin-input-note"
                             value={createm.note}
                             required
                             onChange={(e) => { setCreatem({ ...createm, note: e.target.value }) }} />
                     </FormGroup>
                     <div className='champs-mission'>
                         <FormGroup>
-                            <Input style={{ textAlign: 'center' }} placeholder="Nom de la mission"
+                            <Label> Intitulé de la mission <span className='textModif'>:</span></Label>
+                            <Input
+                                className="admin-input-nom_mission"
                                 id="nom_mission"
                                 name="nom_mission"
                                 value={createm.nom_mission}
@@ -257,7 +261,9 @@ const MissionCreateAdmin = (props) => {
                                 onChange={(e) => { setCreatem({ ...createm, nom_mission: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
-                            <Input placeholder="Nom de l'entreprise"
+                            <Label> Nom de l'entreprise <span className='textModif'>:</span></Label>
+                            <Input
+                                className="admin-input-nom_entreprise"
                                 id="nom_entreprise"
                                 name="nom_entreprise"
                                 value={createm.nom_entreprise}
@@ -266,7 +272,9 @@ const MissionCreateAdmin = (props) => {
                                 onChange={(e) => { setCreatem({ ...createm, nom_entreprise: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
-                            <Input placeholder="Email"
+                            <Label> Email <span className='textModif'>:</span></Label>
+                            <Input
+                                className="admin-input-email"
                                 id="email"
                                 name="email"
                                 value={createm.email}
@@ -275,7 +283,9 @@ const MissionCreateAdmin = (props) => {
                                 onChange={(e) => { setCreatem({ ...createm, email: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
-                            <Input placeholder="Téléphone"
+                            <Label> N° de telephone <span className='textModif'>:</span></Label>
+                            <Input
+                                className="admin-input-tel"
                                 id="tel"
                                 name="tel"
                                 value={createm.tel}
@@ -284,7 +294,9 @@ const MissionCreateAdmin = (props) => {
                                 onChange={(e) => { setCreatem({ ...createm, tel: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
-                            <Input placeholder="Adresse"
+                            <Label> Adresse <span className='textModif'>:</span></Label>
+                            <Input
+                                className="admin-input-address"
                                 id="address"
                                 name="address"
                                 value={createm.address}
@@ -293,7 +305,9 @@ const MissionCreateAdmin = (props) => {
                                 onChange={(e) => { setCreatem({ ...createm, address: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
-                            <Input placeholder="Code Postal"
+                            <Label> Code postal <span className='textModif'>:</span></Label>
+                            <Input
+                                className="admin-input-cp"
                                 id="cp"
                                 name="cp"
                                 value={createm.cp}
@@ -303,31 +317,33 @@ const MissionCreateAdmin = (props) => {
                                 onChange={(e) => { setCreatem({ ...createm, cp: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup row>
-                            <Label sm={4.5}>Date de début :</Label>
-                            <Col sm={7.05}>
-                                <Input className='date-mission'
-                                    id="date_debut"
-                                    name="date_debut"
-                                    value={createm.date_debut}
-                                    type="date"
-                                    required
-                                    onChange={(e) => { setCreatem({ ...createm, date_debut: e.target.value }) }} />
-                            </Col>
+                            <Label> Date de début de mission<span className='textModif'>:</span></Label>
+                            <Input
+                                className="admin-input-date_debut"
+                                id="date_debut"
+                                name="date_debut"
+                                value={createm.date_debut}
+                                type="date"
+                                required
+                                onChange={(e) => { setCreatem({ ...createm, date_debut: e.target.value }) }} />
+
                         </FormGroup>
                         <FormGroup row>
-                            <Label sm={4.5}>Date de fin :</Label>
-                            <Col sm={7.05}>
-                                <Input className='date-mission'
-                                    id="date_fin"
-                                    name="date_fin"
-                                    value={createm.date_fin}
-                                    type="date"
-                                    required
-                                    onChange={(e) => { setCreatem({ ...createm, date_fin: e.target.value }) }} />
-                            </Col>
+                            <Label> Date de fin de mission<span className='textModif'>:</span></Label>
+                            <Input
+                                className="admin-input-date_fin"
+                                id="date_fin"
+                                name="date_fin"
+                                value={createm.date_fin}
+                                type="date"
+                                required
+                                onChange={(e) => { setCreatem({ ...createm, date_fin: e.target.value }) }} />
+
                         </FormGroup>
                         <FormGroup>
-                            <Input style={{ width: '250px' }} placeholder='Nombre de jour(s) par mois'
+                            <Label> Nombre de jours (par mois) de travail<span className='textModif'>:</span></Label>
+                            <Input
+                                className="admin-input-nb_j_par_mois"
                                 id="nb_j_par_mois"
                                 name="nb_j_par_mois"
                                 value={createm.nb_j_par_mois}
@@ -338,7 +354,9 @@ const MissionCreateAdmin = (props) => {
                                 onChange={(e) => { setCreatem({ ...createm, nb_j_par_mois: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
-                            <Input placeholder='Siret'
+                            <Label> N° de SIRET<span className='textModif'>:</span></Label>
+                            <Input
+                                className="admin-input-siret"
                                 id="siret"
                                 name="siret"
                                 value={createm.siret}
@@ -346,7 +364,9 @@ const MissionCreateAdmin = (props) => {
                                 onChange={(e) => { setCreatem({ ...createm, siret: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
-                            <Input placeholder='Budget'
+                            <Label> Budget <span className='textModif'>:</span></Label>
+                            <Input
+                                className="admin-input-budget"
                                 id="budget"
                                 name="budget"
                                 value={createm.budget}
@@ -360,6 +380,7 @@ const MissionCreateAdmin = (props) => {
                         <FormGroup>
                             <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
                             <Input type="select"
+                                className="admin-input-pref_lieu_travail"
                                 id="pref_lieu_de_travail"
                                 name="pref_lieu_de_travail"
                                 value={createm.pref_lieu_de_travail}
@@ -379,6 +400,7 @@ const MissionCreateAdmin = (props) => {
                         <FormGroup>
                             <Label>Profil <span className='textModif'>:</span></Label>
                             <Input type="select" name="type_profil" id='type_profil'
+                                className="admin-input-profil"
                                 value={createm.type_profil}
                                 required
                                 onChange={(e) => { setCreatem({ ...createm, type_profil: e.target.value === 'Regular' ? 'Regular' : 'Expert' }) }}>
@@ -390,6 +412,7 @@ const MissionCreateAdmin = (props) => {
                         <FormGroup>
                             <Label>Fréquence <span className='textModif'>:</span></Label>
                             <Input type="select" name="frequence" id='frequence'
+                                className="admin-input-frequence"
                                 value={createm.frequence}
                                 required
                                 onChange={(e) => { setCreatem({ ...createm, frequence: e.target.value === 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
@@ -401,6 +424,7 @@ const MissionCreateAdmin = (props) => {
                         <FormGroup>
                             <Label> Mobilité <span className='textModif'>:</span></Label>
                             <Input type="select" name="mobilite" id='mobilite'
+                                className="admin-input-mobilite"
                                 value={createm.mobilite}
                                 required
                                 onChange={(e) => { setCreatem({ ...createm, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>

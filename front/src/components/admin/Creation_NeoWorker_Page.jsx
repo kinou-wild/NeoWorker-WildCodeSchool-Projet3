@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Form, FormGroup, Input, Button, Label } from 'reactstrap';
-import './FormulaireCreationMission&Neoworker.css'
+import './CommonDesign.css'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
 import { register } from '../UserFunctions'
@@ -338,33 +338,34 @@ const CreationNeoWorkerPage = (props) => {
     }
 
     return (
-        <div className="admin-neoworker">
+        <div className="admin-div">
             <div className='profil-card'>
                 <p className='name-card'> Anais</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
-            <h1 className='admin-h1'>Création d'un NeoWorker<span className='textModif'>:</span></h1>
+            <h1 className='admin-h1'>Création d'un Neoworker <span className='textModif'>:</span></h1>
             <div className='body'>
                 <Form onSubmit={onSubmit} >
                     <FormGroup>
-                        <Input style={{ height: '150px' }} placeholder='Notes :' type="textarea" name="note" id="note"
+                        <Label> Notes <span className='textModif'>:</span></Label>
+                        <Input style={{ height: '150px' }} className ="admin-input-note" type="textarea" name="note" id="note"
                             value={freelancer.note}
                             required
                             onChange={(e) => { setFreelancer({ ...freelancer, note: e.target.value }) }} />
                     </FormGroup>
                     <div className='champs-mission'>
                         <FormGroup>
-                            <Input className="input-metier"
+                        <Label> Intitulé du métier <span className='textModif'>:</span></Label>
+                            <Input className="admin-input-metier"
                                 type="text" id="title" name="Métier"
-                                placeholder="Métier"
                                 value={freelancer.title}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, title: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
+                        <Label> Prénom <span className='textModif'>:</span></Label>
                             <Input
-                                className="input-firstname"
-                                placeholder="Prénom" type="text"
+                                className="admin-input-firstname"
                                 id="firstname"
                                 name="firstname"
                                 value={freelancer.firstname}
@@ -372,27 +373,28 @@ const CreationNeoWorkerPage = (props) => {
                                 onChange={(e) => { setFreelancer({ ...freelancer, firstname: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
+                        <Label> Nom <span className='textModif'>:</span></Label>
                             <Input
-                                className="input-lastname"
-                                placeholder="Nom"
+                                className="admin-input-lastname"
+
                                 type="text" id="lastname" name="lastname"
                                 value={freelancer.lastname}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, lastname: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
+                        <Label> Adresse <span className='textModif'>:</span></Label>
                             <Input
-                                className="input-address"
-                                placeholder="Adresse"
+                                className="admin-input-address"
                                 type="text" id="address" name="address"
                                 value={freelancer.address}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, address: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
+                        <Label> Code postal <span className='textModif'>:</span></Label>
                             <Input
-                                className="input-cp"
-                                placeholder="Code postal"
+                                className="admin-input-cp"
                                 type="number" id="cp" name="cp"
                                 min="1"
                                 max="99999"
@@ -402,25 +404,28 @@ const CreationNeoWorkerPage = (props) => {
                                 maxlength="5" />
                         </FormGroup>
                         <FormGroup>
+                        <Label> Email <span className='textModif'>:</span></Label>
                             <Input
-                                className="input-email" placeholder="Email"
+                                className="admin-input-email"
                                 type="email" id="email" name="email"
                                 value={registerHooks.email}
                                 required
                                 onChange={(e) => { setRegisterHooks({ ...registerHooks, email: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
+                        <Label> N° de téléphone <span className='textModif'>:</span></Label>
                             <Input
-                                className="input-tel" placeholder="Telephone"
+                                className="admin-input-tel"
                                 type="number" id="tel" name="tel"
                                 value={freelancer.tel}
                                 required
                                 onChange={(e) => { setFreelancer({ ...freelancer, tel: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
+                        <Label> Mot de passe <span className='textModif'>:</span></Label>
                             <Input
-                                className="input-password"
-                                placeholder="Mot de passe" type="password"
+                                className="admin-input-password"
+                                type="password"
                                 id="password" name="password"
                                 required
                                 value={registerHooks.password}
@@ -428,7 +433,8 @@ const CreationNeoWorkerPage = (props) => {
                         </FormGroup>
 
                         <FormGroup>
-                            <Input className="input-tj_min" placeholder='Taux journalier minimum'
+                        <Label> Taux journalier minimum <span className='textModif'>:</span></Label>
+                            <Input className="admin-input-tj_min"
                                 type="number" id="tjm_min" name="tjm_min"
                                 min="1"
                                 value={freelancer.tjm_min}
@@ -436,7 +442,8 @@ const CreationNeoWorkerPage = (props) => {
                                 onChange={(e) => { setFreelancer({ ...freelancer, tjm_min: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
-                            <Input className="input-tj_max" placeholder='Taux journalier maximum'
+                        <Label> Taux journalier maximum <span className='textModif'>:</span></Label>
+                            <Input className="admin-input-tj_max"
                                 type="number"
                                 min="1"
                                 id="tjm_max" name="tjm_max"
@@ -445,9 +452,9 @@ const CreationNeoWorkerPage = (props) => {
                                 onChange={(e) => { setFreelancer({ ...freelancer, tjm_max: e.target.value }) }} />
                         </FormGroup>
                         <div className='selector-mission'>
-                        <FormGroup>
+                            <FormGroup>
                                 <Label>Disponibilité(nb jours/mois) <span className='textModif'>:</span></Label>
-                                <Input className="input-dispo"
+                                <Input className="admin-input-dispo"
                                     type="number"
                                     min="1"
                                     max="31"
@@ -458,6 +465,7 @@ const CreationNeoWorkerPage = (props) => {
                             <FormGroup>
                                 <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
                                 <Input type="select"
+                                    className="admin-input-pref_lieu_travail"
                                     id="pref_lieu_de_travail"
                                     name="pref_lieu_de_travail"
                                     value={freelancer.pref_lieu_de_travail}
@@ -477,6 +485,7 @@ const CreationNeoWorkerPage = (props) => {
                             <FormGroup>
                                 <Label>Mobilité <span className='textModif'>:</span></Label>
                                 <Input type="select" name="mobilite" id='mobilite'
+                                    className="admin-input-mobilite"
                                     value={freelancer.mobilite}
                                     required
                                     onChange={(e) => { setFreelancer({ ...freelancer, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
@@ -489,6 +498,7 @@ const CreationNeoWorkerPage = (props) => {
                             <FormGroup>
                                 <Label>Km maximum <span className='textModif'>:</span></Label>
                                 <Input type="select" name="km_max" id='km_max'
+                                    className="admin-input-km_max"
                                     value={freelancer.km_max}
                                     required
                                     onChange={(e) => { setFreelancer({ ...freelancer, km_max: e.target.value === '10 km' ? '10 km' : e.target.value === '20 km' ? '20 km' : e.target.value === '30 km' ? '30 km' : e.target.value === '40 km' ? '40 km' : e.target.value === '50 km' ? '50 km' : '10 km' }) }}>

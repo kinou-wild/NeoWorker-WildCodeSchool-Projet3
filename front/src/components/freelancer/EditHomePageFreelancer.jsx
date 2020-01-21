@@ -150,7 +150,7 @@ const EditHomePageFreelancer = (props) => {
 
         <div className="first-div-creation-neoworker">
           <div className="field-group-text">Métier</div>
-          <input className="input-metier"
+          <input className="neoworker-input-metier"
             type="text" id="title" name="Métier"
             value={updateFreelancer.title}
             required
@@ -177,7 +177,7 @@ const EditHomePageFreelancer = (props) => {
             <div className="align-field-text-div">
               <div className="field-group-text">Prénom</div>
               <input
-                className="input-firstname"
+                className="neoworker-input-firstname"
                 type="text"
                 id="firstname"
                 name="firstname"
@@ -186,21 +186,21 @@ const EditHomePageFreelancer = (props) => {
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, firstname: e.target.value }) }} />
               <div className="field-group-text">Nom</div>
               <input
-                className="input-lastname"
+                className="neoworker-input-lastname"
                 type="text" id="lastname" name="lastname"
                 value={updateFreelancer.lastname}
                 required
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, lastname: e.target.value }) }} />
               <div className="field-group-text">Adresse</div>
               <input
-                className="input-address"
+                className="neoworker-input-address"
                 type="text" id="address" name="address"
                 value={updateFreelancer.address}
                 required
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, address: e.target.value }) }} />
               <div className="field-group-text">Code Postal</div>
               <input
-                className="input-cp"
+                className="neoworker-input-cp"
                 type="number" id="cp" name="cp"
                 min="1"
                 max="5"
@@ -209,7 +209,7 @@ const EditHomePageFreelancer = (props) => {
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, cp: e.target.value }) }} />
               <div className="field-group-text">Email</div>
               <input
-                className="input-email"
+                className="neoworker-input-email"
                 type="text" id="email" name="email"
                 value={updateUser.email}
                 value={updateFreelancer.email}
@@ -217,7 +217,7 @@ const EditHomePageFreelancer = (props) => {
                 onChange={(e) => { emailUpdater(e) }} />
               <div className="field-group-text">N° de téléphone</div>
               <input
-                className="input-tel"
+                className="neoworker-input-tel"
                 type="text" id="tel" name="tel"
                 value={updateFreelancer.tel}
                 required
@@ -238,7 +238,7 @@ const EditHomePageFreelancer = (props) => {
         <div className="second-div-creation-neoworker">
           <div className="div-tj_min">
             <div className="field-group-text">Taux journalier minimum</div>
-            <input className="input-tj_min"
+            <input className="neoworker-input-tj_min"
               type="number" id="tj_min" name="tj_min"
               value={updateFreelancer.tjm_min}
               required
@@ -246,7 +246,7 @@ const EditHomePageFreelancer = (props) => {
           </div>
           <div className="div-tj_max">
             <div className="field-group-text">Taux journalier maximum</div>
-            <input className="input-tj_max" type="number"
+            <input className="neoworker-input-tj_max" type="number"
               id="tj_max" name="tj_max"
               value={updateFreelancer.tjm_max}
               required
@@ -256,7 +256,7 @@ const EditHomePageFreelancer = (props) => {
         <div className="third-div-creation-neoworker">
           <div className="div-dispo">
             <div className="field-group-text">Disponibilité (nombre jours/mois)</div>
-            <input className="input-dispo" type="number"
+            <input className="neoworker-input-dispo" type="number"
               id="disponibilite" name="disponibilite"
               min="1"
               max="31"
@@ -266,7 +266,7 @@ const EditHomePageFreelancer = (props) => {
           <div className="div-pref_lieu_travail">
             <div className="field-group-text">Préférence lieu de travail</div>
             <FormGroup>
-              <Input className="input-pref_lieu_de_travail" type="select"
+              <Input className="neoworker-input-pref_lieu_de_travail" type="select"
                 id="pref_lieu_de_travail"
                 name="pref_lieu_de_travail"
                 value={updateFreelancer.pref_lieu_de_travail}
@@ -287,7 +287,7 @@ const EditHomePageFreelancer = (props) => {
           <div className="div-mobilite">
             <div className="field-group-text">Mobilité</div>
             <FormGroup >
-              <Input className="input-mobilite" type="select" name="mobilite" id='mobilite'
+              <Input className="neoworker-input-mobilite" type="select" name="mobilite" id='mobilite'
                 value={updateFreelancer.mobilite}
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
                 <option>Oui</option>
@@ -298,7 +298,7 @@ const EditHomePageFreelancer = (props) => {
           <div className="div-km_max">
             <div className="field-group-text">Kilomètres max</div>
             <FormGroup >
-              <Input className="input-Km_max" type="select" name="km_max" id='km_max'
+              <Input className="neoworker-input-Km_max" type="select" name="km_max" id='km_max'
                 value={updateFreelancer.km_max}
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, km_max: e.target.value === '10 km' ? '10 km' : e.target.value === '20 km' ? '20 km' : e.target.value === '30 km' ? '30 km' : e.target.value === '40 km' ? '40 km' : e.target.value === '50 km' ? '50 km' : '10 km' }) }}>
                 <option>10 km</option>

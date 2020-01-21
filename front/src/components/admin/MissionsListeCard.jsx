@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap'
-import './ListeNeoworker&Mission.css'
+import './CommonDesign.css'
 
 const MissionsListeCard = (mission) => {
 
@@ -33,7 +33,7 @@ const MissionsListeCard = (mission) => {
                 </div>
                 {mission.status === 2 || mission.status === 3 ?
                 <div className='fifthrow-card'>
-                    <p>Neoworker : {/* Nom du neoworker depuis la TJ */}</p>
+                    <p>Neoworker associé : {/* Nom du neoworker depuis la TJ */}</p>
                 </div> : ''}
                 </div>
     )

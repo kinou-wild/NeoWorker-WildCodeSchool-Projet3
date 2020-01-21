@@ -155,20 +155,20 @@
     margin-right: 0px !important;
 }
 
-.input-firstname,
-.input-lastname,
-.input-email, 
-.input-tel,
-.input-password,
-.input-address,
-.input-cp,
-.input-metier,
-.input-tj_min,
-.input-tj_max,
-.input-dispo,
-.input-pref_lieu_travail,
-.input-mobilite,
-.input-Km_max
+.neoworker-input-firstname,
+.neoworker-input-lastname,
+.neoworker-input-email, 
+.neoworker-input-tel,
+.neoworker-input-password,
+.neoworker-input-address,
+.neoworker-input-cp,
+.neoworker-input-metier,
+.neoworker-input-tj_min,
+.neoworker-input-tj_max,
+.neoworker-input-dispo,
+.neoworker-input-pref_lieu_travail,
+.neoworker-input-mobilite,
+.neoworker-input-Km_max
 {
     width: 100%;
     margin-top:10px;
@@ -182,7 +182,7 @@
     font-weight: 500! important;
 }
 
-.input-metier {
+.neoworker-input-metier {
     width: 80%;
 }
 

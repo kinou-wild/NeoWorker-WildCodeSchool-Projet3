@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
 import profilPic from '../../img/anais.jpg'
+import './CommonDesign.css'
 
 const ChangeNeoworker = (props) => {
 
@@ -40,33 +41,36 @@ const ChangeNeoworker = (props) => {
         }
     }
     return (
-        <div className='admin-mission'>
+        <div className='admin-div'>
             <div className='profil-card'>
                 <p className='name-card'> Anais</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
-            <h1 className='admin-h1'>Modifier un NeoWorker<span className='textModif'>:</span></h1>
+            <h1 className='admin-h1'>Modifier un Neoworker <span className='textModif'>:</span></h1>
             <div className='body'>
                 <Form onSubmit={(e) => updateDataNeoworker(e)} >
                     <FormGroup>
-                        <Input style={{ height: '150px' }} placeholder='Notes :' type="textarea" name="note" id="note"
+                        <Label> Notes <span className='textModif'>:</span></Label>
+                        <Input style={{ height: '150px' }} type="textarea" name="note" id="note"
                             value={updateNeoworker.note}
+                            className="admin-input-note"
                             required
                             onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, note: e.target.value }) }} />
                     </FormGroup>
                     <div className='champs-mission'>
                         <FormGroup>
-                            <Input className="input-metier"
+                            <Label> Métier <span className='textModif'>:</span></Label>
+                            <Input className="admin-input-metier"
                                 type="text" id="title" name="Métier"
-                                placeholder="Métier"
                                 value={updateNeoworker.title}
                                 required
                                 onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, title: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
+                            <Label> Prénom <span className='textModif'>:</span></Label>
                             <Input
-                                className="input-firstname"
-                                placeholder="Prénom" type="text"
+                                className="admin-input-firstname"
+                                 type="text"
                                 id="firstname"
                                 name="firstname"
                                 value={updateNeoworker.firstname}
@@ -74,27 +78,30 @@ const ChangeNeoworker = (props) => {
                                 onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, firstname: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
+                            <Label> Nom <span className='textModif'>:</span></Label>
                             <Input
-                                className="input-lastname"
-                                placeholder="Nom"
+                                className="admin-input-lastname"
+                                
                                 type="text" id="lastname" name="lastname"
                                 value={updateNeoworker.lastname}
                                 required
                                 onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, lastname: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
+                            <Label> Adresse <span className='textModif'>:</span></Label>
                             <Input
-                                className="input-address"
-                                placeholder="Adresse"
+                                className="admin-input-address"
+                                
                                 type="text" id="address" name="address"
                                 value={updateNeoworker.address}
                                 required
                                 onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, address: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
+                            <Label> Code Postal <span className='textModif'>:</span></Label>
                             <Input
-                                className="input-cp"
-                                placeholder="Code postal"
+                                className="admin-input-cp"
+                                
                                 type="number" id="cp" name="cp"
                                 value={updateNeoworker.cp}
                                 required
@@ -102,40 +109,46 @@ const ChangeNeoworker = (props) => {
                                 maxlength="5" />
                         </FormGroup>
                         <FormGroup>
+                        <Label> Email <span className='textModif'>:</span></Label>
                             <Input
-                                className="input-email" placeholder="Email"
+                                className="admin-input-email"
                                 type="email" id="email" name="email"
                                 value={updateNeoworker.email}
                                 required
                                 onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, email: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
+                        <Label> Téléphone <span className='textModif'>:</span></Label>
                             <Input
-                                className="input-tel" placeholder="Telephone"
+                                className="admin-input-tel"
                                 type="number" id="tel" name="tel"
                                 value={updateNeoworker.tel}
                                 required
                                 onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, tel: e.target.value }) }} />
                         </FormGroup>
-                        <FormGroup>
+
+                        {/*<FormGroup>
                             <Input
-                                className="input-password"
+                                className="admin-input-password"
                                 placeholder="Mot de passe" type="password"
                                 id="password" name="password"
                                 required
                                 value={updateNeoworker.password}
                                 onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, password: e.target.value }) }} />
                         </FormGroup>
+                        */}
 
                         <FormGroup>
-                            <Input className="input-tj_min" placeholder='Taux journalier minimum'
+                        <Label> Taux journalier minimum <span className='textModif'>:</span></Label>
+                            <Input className="admin-input-tj_min"
                                 type="number" id="tjm_min" name="tjm_min"
                                 value={updateNeoworker.tjm_min}
                                 required
                                 onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, tjm_min: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
-                            <Input className="input-tj_max" placeholder='Taux journalier maximum'
+                        <Label> Taux journalier maximum <span className='textModif'>:</span></Label>
+                            <Input className="admin-input-tj_max"
                                 type="number"
                                 id="tjm_max" name="tjm_max"
                                 value={updateNeoworker.tjm_max}
@@ -143,7 +156,8 @@ const ChangeNeoworker = (props) => {
                                 onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, tjm_max: e.target.value }) }} />
                         </FormGroup>
                         <FormGroup>
-                            <Input className="input-dispo" placeholder='Disponibilité(nb jours/mois)'
+                        <Label> Disponibilité (nombre jours/mois) <span className='textModif'>:</span></Label>
+                            <Input className="admin-input-dispo"
                                 type="number"
                                 id="disponibilite" name="disponibilite"
                                 value={updateNeoworker.disponibilite}
@@ -152,7 +166,7 @@ const ChangeNeoworker = (props) => {
                         <div className='selector-mission'>
                             <FormGroup>
                                 <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
-                                <Input type="select"
+                                <Input className="admin-input-pref_lieu_travail" type="select"
                                     id="pref_lieu_de_travail"
                                     name="pref_lieu_de_travail"
                                     value={updateNeoworker.pref_lieu_de_travail}
@@ -173,6 +187,7 @@ const ChangeNeoworker = (props) => {
                             <FormGroup>
                                 <Label>Mobilité <span className='textModif'>:</span></Label>
                                 <Input type="select" name="mobilite" id='mobilite'
+                                className="admin-input-mobilite"
                                     value={updateNeoworker.mobilite}
                                     required
                                     onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
@@ -185,6 +200,7 @@ const ChangeNeoworker = (props) => {
                             <FormGroup>
                                 <Label>Km maximum <span className='textModif'>:</span></Label>
                                 <Input type="select" name="km_max" id='km_max'
+                                    className="admin-input-km_max"
                                     value={updateNeoworker.km_max}
                                     required
                                     onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, km_max: e.target.value === '10 km' ? '10 km' : e.target.value === '20 km' ? '20 km' : e.target.value === '30 km' ? '30 km' : e.target.value === '40 km' ? '40 km' : e.target.value === '50 km' ? '50 km' : '10 km' }) }}>
@@ -673,22 +689,6 @@ const ChangeNeoworker = (props) => {
 
                     <h2 className='mission-title'>Famille de prestations</h2>
                     <div>
-
-                        {/*<select
-                        className="famille-prestation-select" type="select" name="famille-prestation" id='famille-prestation'
-                        onChange={(e) => setPrestation(e.target.value)}>
-                        <option>--Choisir une option--</option>
-                        <option value="Gestion administrative et comptable">Gestion administrative et comptable</option>
-                        <option value="Gestion opérationnelle">Gestion opérationnelle</option>
-                        <option value="Gestion commerciale">Gestion commerciale</option>
-                        <option value="Marketing / Communication / Digital">Marketing / Communication / Digital</option>
-                        <option value="Gestion Financière / Contrôle de Gestion">Gestion Financière / Contrôle de Gestion</option>
-                        <option value="DSI">DSI</option>
-                        <option value="Gestion Ressources Humaines / Juridique">Gestion Ressources Humaines / Juridique</option>
-                        <option value="Gestion de la relation clients">Gestion de la relation clients</option>
-                    </select>
-                    */}
-
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion administrative et comptable</p>
                             <div className="checkbox-and-content">

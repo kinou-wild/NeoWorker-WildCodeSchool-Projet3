@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from 'reactstrap'
-import './ListeNeoworker&Mission.css'
+import './CommonDesign.css'
 import axios from 'axios'
 import { useState } from 'react'
 
@@ -42,7 +42,7 @@ const NeoworkerListCard = (neoworker) => {
             </div>
             <div className="secondrow-card-neoworker">
                 <p>Métier : {neoworker.title}</p>
-                <Link to={`/neoworker/editer/${neoworker.id}`}><Button className='button-card'>Modifier</Button></Link>
+                <Link to={`/admin/neoworker/editer/${neoworker.id}`}><Button className='button-card'>Modifier</Button></Link>
                 
             </div>
             <div className="thirdrow-card-neoworker">

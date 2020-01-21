@@ -3,7 +3,7 @@ import axios from 'axios'
 import MissionDisplayer from "./MissionsListeCard"
 import SearchBarMission from '../searchbar/SearchBarMissions'
 import profilPic from '../../img/anais.jpg'
-import './ListeNeoworker&Mission.css'
+import './CommonDesign.css'
 
 const MissionsListe = () => {
 
@@ -50,7 +50,7 @@ const MissionsListe = () => {
 
     return (
 
-        <div className="admin-mission">
+        <div className="admin-div">
             <div className='profil-card'>
             <SearchBarMission setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
                 <p className='name-card'> Anais</p>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './MatchingPage.css'
 import axios from 'axios'
+import '../admin/CommonDesign.css'
 
 
 const MatchingPage = () => {
@@ -50,12 +51,7 @@ const MatchingPage = () => {
 
         
         for (let w = 0; w <= dataFree.length-1; w++) {
-            
-            // console.log(tabKeyMission[0].indexOf('assistance_suivi_comptable'))
-            // console.log(tabKey[0].indexOf('assistance_suivi_comptable'))
-
-            // console.log(tabKeyMission[0].indexOf('assistance_suivi_comptable'))
-            
+                        
             
             if (tabValues[w][8] === tabValueMission[0][13] && tabValues[w][12] === tabValueMission[0][18]) {
                 const tabContainer = [0]
@@ -63,6 +59,8 @@ const MatchingPage = () => {
 
                 for (let v = tabKey[0].indexOf('excel'); v <= tabKey[0].indexOf('sens_effort'); v++) {
                     //when mission ask 3 stars
+                    
+                    //excel : ok. Points : non ok.
                     
                     if (tabValues[w][v] === 3 & tabValueMission[0][v + 3] === 3 & tabValues[w][v] - tabValueMission[0][v + 3] === 0) {
                         tabContainer.push(100)
@@ -83,7 +81,7 @@ const MatchingPage = () => {
 
                         //when mission ask 2 stars
 
-                        if (tabValues[w][v] === 3 & tabValueMission[0][v + 3] === 2 & tabValues[w][v] - tabValueMission[0][v + 3] === -1) {
+                        if (tabValues[w][v] === 3 & tabValueMission[0][v + 3] === 2 & tabValues[w][v] - tabValueMission[0][v + 3] === 1) {
                             tabContainer.push(125)
                             idFreeContainer.push(tabValues[w][0])
                             
@@ -178,11 +176,10 @@ const MatchingPage = () => {
                     }
                     
                     
-                    
                     for (let prest = tabKey[0].indexOf('assistance_suivi_comptable'); prest <= tabKey[0].indexOf('after_sales_service'); prest++) {
                         if(sumIdFree.includes(idFreeContainer)){
-                            console.log("already exist")
-                        }else if(tabValues[w][prest] === true & tabValueMission[0][prest + 2] === true) { 
+                            //console.log("already exist")
+                        }else if(tabValues[w][prest] === true && tabValueMission[0][prest + 2] === true) { 
                             // if (sumIdFree.includes(sumIdFree[])){}
                             sumFreelancers.push(tabContainer.reduce((acc, current) => acc + current))
                             sumIdFree.push(idFreeContainer)
