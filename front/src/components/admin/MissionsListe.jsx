@@ -16,7 +16,7 @@ const MissionsListe = () => {
 
     // get  dans la bdd all misions 
     const getMissions = async () => {
-        await axios.get('http://localhost:5000/missions?status=0')
+        await axios.get('http://localhost:5000/missions')
             .then(res => setMissionResult(res.data))
             .catch((err) => console.log(err))
     }
