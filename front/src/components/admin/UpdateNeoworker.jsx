@@ -4,7 +4,6 @@ import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
 import profilPic from '../../img/anais.jpg'
 
-
 const ChangeNeoworker = (props) => {
 
     const params = props.match.params
@@ -41,7 +40,7 @@ const ChangeNeoworker = (props) => {
         }
     }
     return (
-        <div>
+        <div className='admin-mission'>
             <div className='profil-card'>
                 <p className='name-card'> Anais</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
@@ -207,7 +206,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.Excel}
+                                value={updateNeoworker.excel}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 'Excel')} />
                         </div>
@@ -216,7 +215,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.Powerpoint}
+                                value={updateNeoworker.powerpoint}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 'Powerpoint')} />
                         </div>
@@ -234,7 +233,7 @@ const ChangeNeoworker = (props) => {
                             <StarRatingComponent
                                 name="rate1"
                                 starCount={3}
-                                value={updateNeoworker.Word}
+                                value={updateNeoworker.word}
                                 emptyStarColor={`#C4C4C4`}
                                 onStarClick={(e) => onStarClick(e, 'Word')} />
                         </div>

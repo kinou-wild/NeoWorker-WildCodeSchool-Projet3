@@ -17,5 +17,5 @@ require('./routes/mission.js')(app)
 
 models
     .sequelize
-    .sync({force: false})
+    .sync({force: true})
     .then(() => app.listen(5000, () => console.log('server is listenning')))
