@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "StevieCutman",
+    "password": "stevieCutman",
     "database": "neowork",
     "host": "127.0.0.1",
     "dialect": "mysql",
