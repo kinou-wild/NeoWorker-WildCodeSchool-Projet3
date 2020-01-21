@@ -14,7 +14,7 @@ const MissionsListe = () => {
     const [missionsTerminees, setMissionsTerminees] = useState([])
 
     //hooks searchbar
-    const [result, setResult] = useState() 
+    const [result, setResult] = useState()
     const [searchTerm, setSearchTerm] = useState({
         nom: ''
     });
@@ -22,18 +22,17 @@ const MissionsListe = () => {
     // get  dans la bdd all misions 
     const getMissions = async () => {
         await axios.get('http://localhost:5000/missions?status=0')
-            .then(response => setMissionsAPourvoir(response.data))
+            .then(res => setMissionsAPourvoir(res.data))
             .catch((err) => console.log(err))
         await axios.get('http://localhost:5000/missions?status=1')
-            .then(response => setMissionsPourvues(response.data))
+            .then(res => setMissionsPourvues(res.data))
             .catch((err) => console.log(err))
         await axios.get('http://localhost:5000/missions?status=2')
-            .then(response => setMissionsTerminees(response.data))
+            .then(res => setMissionsTerminees(res.data))
             .catch((err) => console.log(err))
     }
 
     //permet de refresh le get mission si un truc change sur la page 
-    
     useEffect(() => {
         getMissions()
     }, [])
@@ -43,8 +42,8 @@ const MissionsListe = () => {
     const search = [...missionsAPourvoir, ...missionsPourvues, ...missionsTerminees]
     useEffect(() => {
 
-    const results = search.filter(x =>
-        x.nom_mission.toLowerCase().includes(searchTerm.nom));
+        const results = search.filter(x =>
+            x.nom_mission.toLowerCase().includes(searchTerm.nom));
         setResult(results);
     }, [searchTerm.nom]);
 
@@ -52,17 +51,17 @@ const MissionsListe = () => {
 
         <div className="admin-mission">
             <div className='profil-card'>
-            <SearchBarMission setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
+                <SearchBarMission setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
                 <p className='name-card'> Anais</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
             <h2 className='missions-h2'>Missions à pourvoir <span className='textModif'>:</span></h2>
             <div className='missions'>
                 {missionsAPourvoir
-                    .filter(x=>x.nom_mission.includes(searchTerm.nom) )
+                    .filter(x => x.nom_mission.includes(searchTerm.nom))
                     .map(mission => {
-                    return <MissionDisplayer {...mission} />
-                })}
+                        return <MissionDisplayer {...mission} />
+                    })}
             </div>
             <h2 className='missions-h2'>Missions pourvues <span className='textModif'>:</span></h2>
             <div className='missions'>
