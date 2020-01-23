@@ -239,7 +239,7 @@ const MissionCreateAdmin = (props) => {
             </div>
             <h1 className='admin-h1'>Création d'une mission NeoWorker <span className='textModif'>:</span></h1>
             <div className='body'>
-                <Form onSubmit={createMissions}>
+                <Form onSubmit={createMissions} classNa>
                     <FormGroup>
                         <Label> Notes <span className='textModif'>:</span></Label>
                         <Input style={{ height: '150px' }} type="textarea" name="note" id="note"

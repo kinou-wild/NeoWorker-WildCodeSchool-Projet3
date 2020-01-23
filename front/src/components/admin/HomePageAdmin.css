@@ -7,24 +7,6 @@
     flex-direction: column;
 }
 
-.profil-card {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 20px;
-}
-
-.name-card {
-    margin: 0px;
-    padding-right: 15px;
-}
-
-.pic-card {
-    height: 50px;
-    border-radius: 50%;
-}
-
 .home-pic {
     width: 600px;
     height: auto;

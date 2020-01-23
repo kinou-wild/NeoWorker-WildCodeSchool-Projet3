@@ -3,7 +3,7 @@ import axios from 'axios'
 import NeoworkerListCard from './NeoWorkerListCard'
 import profilPic from '../../img/anais.jpg'
 import './CommonDesign.css'
-/* import SearchBarNeo from '../searchbar/SearchBarNeo' */
+import SearchBarNeo from '../searchbar/SearchBarNeo'
 
 const NeoworkerList = () => {
 
@@ -12,7 +12,6 @@ const NeoworkerList = () => {
 
 
     //hooks searchbar
-    const [result, setResult] = useState()
     const [searchTerm, setSearchTerm] = useState({
         nom: ''
     });
@@ -35,8 +34,8 @@ const NeoworkerList = () => {
     const displayFreelancerByStatus = (status, stringStatus) => {
         return (
             <>
-                <h2 className="neoworker-h2">{stringStatus}</h2>
-                <div className="neoworker-card-div">
+                <h2 className="liste-h2">{stringStatus}</h2>
+                <div className="liste-card-div">
                     {freelancerList
                         .filter(freelancer => freelancer.status === status
                             && (freelancer.firstname && freelancer.lastname)
@@ -54,7 +53,7 @@ const NeoworkerList = () => {
     return (
         <div className="admin-div">
             <div className='profil-card'>
-                {/* <SearchBarNeo setSearchTerm={setSearchTerm} searchTerm={searchTerm} />*/}
+                <SearchBarNeo setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
                 <p className='name-card'>Anais</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>

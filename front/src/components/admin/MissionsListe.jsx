@@ -29,8 +29,8 @@ const MissionsListe = () => {
     const displayMissionByStatus = (status, missionStatus) => {
         return (
             <>
-                <h2 className='missions-h2'>{missionStatus}<span className='textModif'>:</span></h2>
-                <div className='missions'>
+                <h2 className='liste-h2'>{missionStatus}<span className='textModif'>:</span></h2>
+                <div className='liste-card-div'>
                     {missionResult
                         .filter(x => x.status === status
                             && (x.nom_mission.toLowerCase().includes(searchTerm.nom.toLowerCase())))

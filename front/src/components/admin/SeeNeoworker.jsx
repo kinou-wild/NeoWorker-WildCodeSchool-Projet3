@@ -1,866 +1,877 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, FormGroup, Input, Button, Label } from 'reactstrap';
 import StarRatingComponent from 'react-star-rating-component';
-import { Link } from 'react-router-dom'
 import profilPic from '../../img/anais.jpg'
 import './CommonDesign.css'
+import axios from 'axios'
 
+const SeeNeoworker = (props) => {
 
-const SeeNeoworker = ({ neoworker, onClick }) => {
+    //recup les props du parent 
+    const params = props.match.params
+
+    //hooks pour get mission comme son nom l'indique 
+    const [neoworker, setNeoworker] = useState([])
+
+    //hooks pour refresh le getDataMission si
+    useEffect(() => { getNeoworker() }, [])
+
+    const getNeoworker = () => {
+        axios.get(`http://localhost:5000/freelancer/${params.id}`)
+            .then(res => setNeoworker(res.data))
+            .catch((err) => console.log(err))
+    }
 
     return (
-        <div>
-            <div className="admin-div">
-                <div className='profil-card'>
-                    <p className='name-card'> Anais</p>
-                    <img className='pic-card' src={profilPic} alt='profil picture' />
-                </div>
-                <h1 className='admin-h1'> Voir le profil Neoworker <span className='textModif'>:</span></h1>
-                <div className='body'>
-                    <Form >
-                        <FormGroup>
+
+        <div className="admin-div">
+            <div className='profil-card'>
+                <p className='name-card'> Anais</p>
+                <img className='pic-card' src={profilPic} alt='profil picture' />
+            </div>
+            <h1 className='admin-h1'> Voir le profil Neoworker <span className='textModif'>:</span></h1>
+            <div className='body'>
+                <Form className="form-flex">
+                    <FormGroup>
                         <Label> Notes <span className='textModif'>:</span></Label>
-                            <Input disabled style={{ height: '150px' }} type="textarea" name="note" id="note"
-                                value={neoworker.note}
-                                className="admin-input-note"
+                        <Input disabled style={{ height: '150px' }} type="textarea" name="note" id="note"
+                            value={neoworker.note}
+                            className="admin-input-note"
+                        />
+                    </FormGroup>
+                    <div className='champs-mission'>
+                        <FormGroup>
+                            <Label> Intitulé du métier <span className='textModif'>:</span></Label>
+                            <Input disabled
+                                className="admin-input-metier"
+                                type="text" id="title" name="Métier"
+                                value={neoworker.title}
+                                required
                             />
                         </FormGroup>
-                        <div className='champs-mission'>
-                            <FormGroup>
-                            <Label> Intitulé du métier <span className='textModif'>:</span></Label>
-                                <Input disabled
-                                    className="admin-input-metier"
-                                    type="text" id="title" name="Métier"
-                                    value={neoworker.title}
-                                    required
-                                />
-                            </FormGroup>
-                            <FormGroup>
+                        <FormGroup>
                             <Label> Prénom <span className='textModif'>:</span></Label>
-                                <Input disabled
-                                    className="admin-input-firstname"
-                                     type="text"
-                                    id="firstname"
-                                    name="firstname"
-                                    value={neoworker.firstname}
-                                    required
-                                />
-                            </FormGroup>
-                            <FormGroup>
+                            <Input disabled
+                                className="admin-input-firstname"
+                                type="text"
+                                id="firstname"
+                                name="firstname"
+                                value={neoworker.firstname}
+                                required
+                            />
+                        </FormGroup>
+                        <FormGroup>
                             <Label> Nom <span className='textModif'>:</span></Label>
-                                <Input disabled
-                                    className="admin-input-lastname"
-                                    type="text" id="lastname" name="lastname"
-                                    value={neoworker.lastname}
-                                    required
-                                />
-                            </FormGroup>
-                            <FormGroup>
+                            <Input disabled
+                                className="admin-input-lastname"
+                                type="text" id="lastname" name="lastname"
+                                value={neoworker.lastname}
+                                required
+                            />
+                        </FormGroup>
+                        <FormGroup>
                             <Label> Email <span className='textModif'>:</span></Label>
-                                <Input disabled
-                                    className="admin-input-email" 
-                                    type="text" id="email" name="email"
-                                    value={neoworker.email}
-                                    required
-                                />
-                            </FormGroup>
-                            <FormGroup>
+                            <Input disabled
+                                className="admin-input-email"
+                                type="text" id="email" name="email"
+                                value={neoworker.email}
+                                required
+                            />
+                        </FormGroup>
+                        <FormGroup>
                             <Label> Téléphone <span className='textModif'>:</span></Label>
-                                <Input disabled
-                                    className="admin-input-tel" 
-                                    type="text" id="tel" name="tel"
-                                    value={neoworker.tel}
-                                    required
-                                />
-                            </FormGroup>
-                            <FormGroup>
+                            <Input disabled
+                                className="admin-input-tel"
+                                type="text" id="tel" name="tel"
+                                value={neoworker.tel}
+                                required
+                            />
+                        </FormGroup>
+                        <FormGroup>
                             <Label> Adresse <span className='textModif'>:</span></Label>
-                                <Input disabled
-                                    className="admin-input-address"
-                                    
-                                    type="text" id="address" name="address"
-                                    value={neoworker.address}
-                                    required
-                                />
-                            </FormGroup>
-                            <FormGroup>
+                            <Input disabled
+                                className="admin-input-address"
+
+                                type="text" id="address" name="address"
+                                value={neoworker.address}
+                                required
+                            />
+                        </FormGroup>
+                        <FormGroup>
                             <Label> Code postal <span className='textModif'>:</span></Label>
-                                <Input disabled
-                                    className="admin-input-cp"
-                                    
-                                    type="text" id="cp" name="cp"
-                                    value={neoworker.cp}
-                                    required
-                                />
-                            </FormGroup>
-                            <FormGroup>
+                            <Input disabled
+                                className="admin-input-cp"
+
+                                type="text" id="cp" name="cp"
+                                value={neoworker.cp}
+                                required
+                            />
+                        </FormGroup>
+                        <FormGroup>
                             <Label> Taux journalier minimum <span className='textModif'>:</span></Label>
-                                <Input disabled className="admin-input-tj_min" 
-                                    type="number" id="tjm_min" name="tjm_min"
-                                    value={neoworker.tjm_min}
-                                    required
-                                />
+                            <Input disabled className="admin-input-tj_min"
+                                type="number" id="tjm_min" name="tjm_min"
+                                value={neoworker.tjm_min}
+                                required
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label> Taux journalier maximum <span className='textModif'>:</span></Label>
+                            <Input disabled className="admin-input-tj_max"
+                                type="number"
+                                id="tjm_max" name="tjm_max"
+                                value={neoworker.tjm_max}
+                                required
+                            />
+                        </FormGroup>
+                        <div className='selector-mission'>
+                            <FormGroup>
+                                <Label>Disponibilité (nb jours/mois) <span className='textModif'>:</span></Label>
+                                <Input disabled className="admin-input-dispo"
+                                    value={neoworker.disponibilite} />
                             </FormGroup>
                             <FormGroup>
-                            <Label> Taux journalier maximum <span className='textModif'>:</span></Label>
-                                <Input disabled className="admin-input-tj_max" 
-                                    type="number"
-                                    id="tjm_max" name="tjm_max"
-                                    value={neoworker.tjm_max}
-                                    required
-                                />
-                            </FormGroup>
-                            <div className='selector-mission'>
-                                <FormGroup>
-                                    <Label>Disponibilité (nb jours/mois) <span className='textModif'>:</span></Label>
-                                    <Input disabled className="admin-input-dispo"
-                                        value={neoworker.disponibilite}/>
-                                </FormGroup>
-                                <FormGroup>
-                               
-                                    <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
-                                    <Input disabled type="select"
+
+                                <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
+                                <Input disabled type="select"
                                     className="admin-input-pref_lieu_travail"
-                                        id="pref_lieu_de_travail"
-                                        name="pref_lieu_de_travail"
-                                        value={neoworker.pref_lieu_de_travail}
-                                    >
-                                        <option hidden="true">-</option>
-                                        <option>Présence en entreprise</option>
-                                        <option>Travail à distance</option>
-                                        <option>Peu importe</option>
-                                    </Input>
-                                </FormGroup>
+                                    id="pref_lieu_de_travail"
+                                    name="pref_lieu_de_travail"
+                                    value={neoworker.pref_lieu_de_travail}
+                                >
+                                    <option hidden="true">-</option>
+                                    <option>Présence en entreprise</option>
+                                    <option>Travail à distance</option>
+                                    <option>Peu importe</option>
+                                </Input>
+                            </FormGroup>
 
-                                <FormGroup>
-                                    <Label>Mobilité <span className='textModif'>:</span></Label>
-                                    <Input disabled type="select" name="mobilite" id='mobilite'
+                            <FormGroup>
+                                <Label>Mobilité <span className='textModif'>:</span></Label>
+                                <Input disabled type="select" name="mobilite" id='mobilite'
                                     className="admin-input-mobilite"
-                                        value={neoworker.mobilite}>
-                                        <option hidden="true">-</option>
-                                        <option>Oui</option>
-                                        <option>Non</option>
-                                    </Input>
-                                </FormGroup>
+                                    value={neoworker.mobilite}>
+                                    <option hidden="true">-</option>
+                                    <option>Oui</option>
+                                    <option>Non</option>
+                                </Input>
+                            </FormGroup>
 
-                                <FormGroup>
-                                    <Label>Km maximum <span className='textModif'>:</span></Label>
-                                    <Input disabled type="select" name="km_max" id='km_max'
-                                        value={neoworker.km_max}
-                                        className="admin-input-km_max"
-                                    >
-                                        <option hidden="true">-</option>
-                                        <option>10 km</option>
-                                        <option>20 km</option>
-                                        <option>30 km</option>
-                                        <option>40 km</option>
-                                        <option>50 km</option>
-                                    </Input>
-                                </FormGroup>
-                            </div>
+                            <FormGroup>
+                                <Label>Km maximum <span className='textModif'>:</span></Label>
+                                <Input disabled type="select" name="km_max" id='km_max'
+                                    value={neoworker.km_max}
+                                    className="admin-input-km_max"
+                                >
+                                    <option hidden="true">-</option>
+                                    <option>10 km</option>
+                                    <option>20 km</option>
+                                    <option>30 km</option>
+                                    <option>40 km</option>
+                                    <option>50 km</option>
+                                </Input>
+                            </FormGroup>
+                        </div>
+                    </div>
+
+                    <h2 className='mission-title'>Outils</h2>
+                    <div className='cards'>
+                        <div className='mission-card'>
+                            <p>Excel</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.excel}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Powerpoint</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.powerpoint}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Microsoft 365</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.microsoft_365}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Word</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.word}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>CRM Hubspot</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.crm_hubspot}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>CRM Salesforce</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.crm_salesforce}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>CRM Pipedrive</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.crm_pipedrive}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>CRM </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.crm}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Suite Adobe </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.suite_adobe}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Illustrator </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.illustrator}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>In Design </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.in_design}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Photoshop </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.photoshop}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Marketing FB </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.marketing_fb}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Google adwards </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.google_adwards}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Instagram </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.insta}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Reseaux sociaux </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.reseaux_sociaux}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Keynote </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.keynote}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Pages </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.pages}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>G Suite Google </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.gsuite_google}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Numbers </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.numbers}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Erp sap </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.erp_sap}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Ciel Gestion </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.ciel_gestion}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Cegid </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.cegid}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Sage gestion commercial </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.sage_gestion_commercial}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Sage comptabilité </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.sage_comptabilite}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Quadra </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.quadra}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                    </div>
+                    <h2 className='mission-title'>Soft Skills</h2>
+                    <div className='cards'>
+                        <div className='mission-card'>
+                            <p>Résolution de problèmes</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.reso_pb}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Confiance</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.confiance}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Empathie</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.empathie}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Intelligence émotionnelle</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.intelligence_emo}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Communication </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.communication}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Gestion du temps </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.gestion_temps}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Gestion du stress </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.gestion_stress}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Créativité</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.creativite}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Esprit d'entreprise</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.esprit_entre}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Audace</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.audace}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Vision, visualisation </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.vision_visu}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Motivation</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.motivation}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Présence</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.presence}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Sens collectif</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.sens_collectif}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Curiosité</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.curiosite}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Sens de l'effort </p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.sens_effort}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='champ-libre'>
+                            <p style={{ width: '10rem', padding: '5px 10px' }}>Autres skills </p>
+                            <Input disabled style={{ marginRight: '5px' }} type="textaera" name="text" value={neoworker.autres_softskill} />
+                        </div>
+                    </div>
+                    <h2 className='mission-title'>Langues</h2>
+                    <div className='cards'>
+                        <div className='mission-card'>
+                            <p>Français</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.francais}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Anglais</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.anglais}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Espagnol</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.espagnol}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Allemand</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.allemand}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Russe</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.russe}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Italien</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.italien}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Chinois</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.chinois}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Arabe</p>
+                            <StarRatingComponent
+                                starCount={3}
+                                value={neoworker.arabe}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Quadra </p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.quadra}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                    </div>
+                    <h2 className='mission-title'>Soft Skills</h2>
+                    <div className='cards'>
+                        <div className='mission-card'>
+                            <p>Résolution de problèmes</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.reso_pb}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Confiance</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.confiance}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Empathie</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.empathie}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Intelligence émotionnelle</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.intelligence_emo}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Communication </p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.communication}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Gestion du temps </p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.gestion_temps}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Gestion du stress </p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.gestion_stress}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Créativité</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.creativite}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Esprit d'entreprise</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.esprit_entre}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Audace</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.audace}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Vision, visualisation </p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.vision_visu}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Motivation</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.motivation}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Présence</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.presence}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Sens collectif</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.sens_collectif}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Curiosité</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.curiosite}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Sens de l'effort </p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.sens_effort}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Autres skills</p>
+                            <Input disabled type="textaera" name="text" id="autres_skills" value={neoworker.autres_softskill} />
+                        </div>
+                    </div>
+                    <h2 className='mission-title'>Langues</h2>
+                    <div className='cards'>
+                        <div className='mission-card'>
+                            <p>Français</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.francais}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Anglais</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.anglais}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Espagnol</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.espagnol}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Allemand</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.allemand}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Russe</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.russe}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Italien</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.italien}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Chinois</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.chinois}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p>Arabe</p>
+                            <StarRatingComponent
+                                name="rate1"
+                                starCount={3}
+                                value={neoworker.arabe}
+                                emptyStarColor={`#C4C4C4`}
+                            />
+                        </div>
+                        <div className='mission-card'>
+                            <p style={{ width: '15rem', padding: '5px 10px' }}>Autres langues</p>
+                            <Input disabled style={{ marginRight: '5px' }}
+                                type="textaera"
+                                name="text"
+                                value={neoworker.autres_langue} />
+                        </div>
+                    </div>
+
+
+                    <h2 className='mission-title'>Famille de prestations</h2>
+                    <div>
+                        <div className="prestation-checkbox-div">
+                            <p className="family-prestation-title">Gestion administrative et comptable</p>
+                            <div className="checkbox-and-content">
+                                <input disabled type="checkbox" className="checkbox" id="Option 1" name="Option 1" value={neoworker.assistance_suivi_comptable} checked={neoworker.assistance_suivi_comptable === true ? "checked" : ""} />
+                                <label className="label-prestation" for="Option 1">Assistance et suivi comptable (note de frais, suivi des règlements et de la trésorerie, ...)</label></div>
+                            <div className="checkbox-and-content">
+                                <input disabled type="checkbox" className="checkbox" id="Option 2" name="Option 2" value={neoworker.relation_accountant} checked={neoworker.relation_accountant === true ? "checked" : ""} />
+                                <label className="label-prestation" for="Option 2">Relation avec le cabinet d'expertise comptable</label></div>
+                            <div className="checkbox-and-content">
+                                <input disabled type="checkbox" className="checkbox" id="Option 3" name="Option 3" value={neoworker.customer_recovery} checked={neoworker.customer_recovery === true ? "checked" : ""} />
+                                <label className="label-prestation" for="Option 3">Relances clients</label></div>
+                            <div className="checkbox-and-content">
+                                <input disabled type="checkbox" className="checkbox" id="Option 4" name="Option 4" value={neoworker.payroll_preparation} checked={neoworker.payroll_preparation === true ? "checked" : ""} />
+                                <label className="label-prestation" for="Option 4">Préparation des éléments de paie (Pointages, congés payés, arrêts maladie, primes, etc…)</label></div>
+                            <div className="checkbox-and-content">
+                                <input disabled type="checkbox" className="checkbox" id="Option 5" name="Option 5" value={neoworker.assembly_approval_file} checked={neoworker.assembly_approval_file === true ? "checked" : ""} />
+                                <label className="label-prestation" for="Option 5">Montage de dossier d'agrément</label></div>
+                            <div className="checkbox-and-content">
+                                <input disabled type="checkbox" className="checkbox" id="Option 6" name="Option 6" value={neoworker.referencing_training_organization} checked={neoworker.referencing_training_organization === true ? "checked" : ""} />
+                                <label className="label-prestation" for="Option 6">Référencement organismes de formations</label></div>
                         </div>
 
-                        <h2 className='mission-title'>Outils</h2>
-                        <div className='cards'>
-                            <div className='mission-card'>
-                                <p>Excel</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.excel}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Powerpoint</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.powerpoint}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Microsoft 365</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.microsoft_365}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Word</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.word}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>CRM Hubspot</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.crm_hubspot}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>CRM Salesforce</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.crm_salesforce}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>CRM Pipedrive</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.crm_pipedrive}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>CRM </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.crm}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Suite Adobe </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.suite_adobe}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Illustrator </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.illustrator}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>In Design </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.in_design}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Photoshop </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.photoshop}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Marketing FB </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.marketing_fb}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Google adwards </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.google_adwards}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Instagram </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.insta}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Reseaux sociaux </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.reseaux_sociaux}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Keynote </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.keynote}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Pages </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.pages}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>G Suite Google </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.gsuite_google}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Numbers </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.numbers}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Erp sap </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.erp_sap}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Ciel Gestion </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.ciel_gestion}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Cegid </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.cegid}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Sage gestion commercial </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.sage_gestion_commercial}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Sage comptabilité </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.sage_comptabilite}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Quadra </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.quadra}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                        </div>
-                        <h2 className='mission-title'>Soft Skills</h2>
-                        <div className='cards'>
-                            <div className='mission-card'>
-                                <p>Résolution de problèmes</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.reso_pb}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Confiance</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.confiance}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Empathie</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.empathie}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Intelligence émotionnelle</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.intelligence_emo}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Communication </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.communication}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Gestion du temps </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.gestion_temps}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Gestion du stress </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.gestion_stress}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Créativité</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.creativite}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Esprit d'entreprise</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.esprit_entre}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Audace</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.audace}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Vision, visualisation </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.vision_visu}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Motivation</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.motivation}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Présence</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.presence}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Sens collectif</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.sens_collectif}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Curiosité</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.curiosite}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Sens de l'effort </p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.sens_effort}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='champ-libre'>
-                                <p style={{ width: '10rem', padding: '5px 10px' }}>Autres skills </p>
-                                <Input disabled style={{ marginRight: '5px' }} type="textaera" name="text" value={neoworker.autres_softskill} />
-                            </div>
-                        </div>
-                        <h2 className='mission-title'>Langues</h2>
-                        <div className='cards'>
-                            <div className='mission-card'>
-                                <p>Français</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.francais}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Anglais</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.anglais}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Espagnol</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.espagnol}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Allemand</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.allemand}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Russe</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.russe}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Italien</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.italien}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Chinois</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.chinois}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Arabe</p>
-                                <StarRatingComponent
-                                    starCount={3}
-                                    value={neoworker.arabe}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Quadra </p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.quadra}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                        </div>
-                        <h2 className='mission-title'>Soft Skills</h2>
-                        <div className='cards'>
-                            <div className='mission-card'>
-                                <p>Résolution de problèmes</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.reso_pb}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Confiance</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.confiance}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Empathie</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.empathie}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Intelligence émotionnelle</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.intelligence_emo}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Communication </p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.communication}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Gestion du temps </p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.gestion_temps}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Gestion du stress </p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.gestion_stress}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Créativité</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.creativite}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Esprit d'entreprise</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.esprit_entre}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Audace</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.audace}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Vision, visualisation </p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.vision_visu}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Motivation</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.motivation}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Présence</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.presence}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Sens collectif</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.sens_collectif}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Curiosité</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.curiosite}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Sens de l'effort </p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.sens_effort}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Autres skills</p>
-                                <Input disabled type="textaera" name="text" id="autres_skills" value={neoworker.autres_softskill} />
-                            </div>
-                        </div>
-                        <h2 className='mission-title'>Langues</h2>
-                        <div className='cards'>
-                            <div className='mission-card'>
-                                <p>Français</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.francais}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Anglais</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.anglais}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Espagnol</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.espagnol}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Allemand</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.allemand}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Russe</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.russe}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Italien</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.italien}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Chinois</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.chinois}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p>Arabe</p>
-                                <StarRatingComponent
-                                    name="rate1"
-                                    starCount={3}
-                                    value={neoworker.arabe}
-                                    emptyStarColor={`#C4C4C4`}
-                                />
-                            </div>
-                            <div className='mission-card'>
-                                <p style={{ width: '15rem', padding: '5px 10px' }}>Autres langues</p>
-                                <Input disabled style={{ marginRight: '5px' }}
-                                    type="textaera"
-                                    name="text"
-                                    value={neoworker.autres_langue} />
-                            </div>
-                        </div>
-
-
-
-
-
-                        <h2 className='mission-title'>Famille de prestations</h2>
-                        <div>
-                            <div className="prestation-checkbox-div">
-                                <p className="family-prestation-title">Gestion administrative et comptable</p>
-                                <div className="checkbox-and-content">
-                                    <input disabled type="checkbox" className="checkbox" id="Option 1" name="Option 1" value={neoworker.assistance_suivi_comptable} checked={neoworker.assistance_suivi_comptable === true ? "checked" : ""}/>
-                                    <label className="label-prestation" for="Option 1">Assistance et suivi comptable (note de frais, suivi des règlements et de la trésorerie, ...)</label></div>
-                                <div className="checkbox-and-content">
-                                    <input disabled type="checkbox" className="checkbox" id="Option 2" name="Option 2" value={neoworker.relation_accountant} checked={neoworker.relation_accountant === true ? "checked" : ""}/>
-                                    <label className="label-prestation" for="Option 2">Relation avec le cabinet d'expertise comptable</label></div>
-                                <div className="checkbox-and-content">
-                                    <input disabled type="checkbox" className="checkbox" id="Option 3" name="Option 3" value={neoworker.customer_recovery} checked={neoworker.customer_recovery === true ? "checked" : ""}/>
-                                    <label className="label-prestation" for="Option 3">Relances clients</label></div>
-                                <div className="checkbox-and-content">
-                                    <input disabled type="checkbox" className="checkbox" id="Option 4" name="Option 4" value={neoworker.payroll_preparation} checked={neoworker.payroll_preparation === true ? "checked" : ""}/>
-                                    <label className="label-prestation" for="Option 4">Préparation des éléments de paie (Pointages, congés payés, arrêts maladie, primes, etc…)</label></div>
-                                <div className="checkbox-and-content">
-                                    <input disabled type="checkbox" className="checkbox" id="Option 5" name="Option 5" value={neoworker.assembly_approval_file} checked={neoworker.assembly_approval_file === true ? "checked" : ""}/>
-                                    <label className="label-prestation" for="Option 5">Montage de dossier d'agrément</label></div>
-                                <div className="checkbox-and-content">
-                                    <input disabled type="checkbox" className="checkbox" id="Option 6" name="Option 6" value={neoworker.referencing_training_organization} checked={neoworker.referencing_training_organization === true ? "checked" : ""}/>
-                                    <label className="label-prestation" for="Option 6">Référencement organismes de formations</label></div>
-                            </div>
-
-                            <div className="prestation-checkbox-div">
+                        <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion opérationnelle</p>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 7" name="Option 7" value={neoworker.use_business_software} checked={neoworker.use_business_software === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 7">Mise en place, optimisation et formation à l'utilisation de logiciels métiers</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 8" name="Option 8"   value={neoworker.internal_procedure} checked={neoworker.internal_procedure === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 8" name="Option 8" value={neoworker.internal_procedure} checked={neoworker.internal_procedure === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 8">Création et mise en place de procédures internes</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 9" name="Option 9"  value={neoworker.database} checked={neoworker.database === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 9" name="Option 9" value={neoworker.database} checked={neoworker.database === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 9">Création et traitement de base de données</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 10" name="Option 10"  value={neoworker.gestion_achat} checked={neoworker.gestion_achat === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 10" name="Option 10" value={neoworker.gestion_achat} checked={neoworker.gestion_achat === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 10">Intendance et gestion des achats</label></div>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 11" name="Option 11" value={neoworker.administrative_file_management} checked={neoworker.administrative_file_management === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 11">Suivi des dossiers administratifs</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 12" name="Option 12"   value={neoworker.management_assistantship} checked={neoworker.management_assistantship === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 12" name="Option 12" value={neoworker.management_assistantship} checked={neoworker.management_assistantship === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 12">Assistanat de direction</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 13" name="Option 13"  value={neoworker.filing_documents} checked={neoworker.filing_documents === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 13" name="Option 13" value={neoworker.filing_documents} checked={neoworker.filing_documents === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 13">Classement de documents</label></div>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 14" name="Option 14"  value={neoworker.secretariat_and_maintenance_agenda} checked={neoworker.secretariat_and_maintenance_agenda === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 14" name="Option 14" value={neoworker.secretariat_and_maintenance_agenda} checked={neoworker.secretariat_and_maintenance_agenda === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 14">Secrétariat et tenue de l'agenda </label></div>
                         </div>
 
@@ -894,7 +905,7 @@ const SeeNeoworker = ({ neoworker, onClick }) => {
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Marketing / Communication / Digital</p>
-                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 27" name="Option 27"  value={neoworker.marketing_strategy_and_operational_monitoring} checked={neoworker.marketing_strategy_and_operational_monitoring === true ? "checked" : ""} />
+                            <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 27" name="Option 27" value={neoworker.marketing_strategy_and_operational_monitoring} checked={neoworker.marketing_strategy_and_operational_monitoring === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 27">Stratégie marketing et suivi opérationnel</label></div>
                             <div className="checkbox-and-content"><input type="checkbox" className="checkbox" id="Option 28" name="Option 28" value={neoworker.marketing_study} checked={neoworker.marketing_study === true ? "checked" : ""} />
                                 <label className="label-prestation" for="Option 28">Réalisation d'études de marché </label></div>
@@ -998,26 +1009,11 @@ const SeeNeoworker = ({ neoworker, onClick }) => {
                                 <label className="label-prestation" for="Option 69">Service après ventes</label></div>
                         </div>
                     </div>
-                    <Button className="btn" type="submit">Valider les modifications</Button>
-                    <form />
+
                 </Form>
             </div>
-                <div className='oneNeoworkerCard-div-btn'>
-                    <button
-                        className='button-card'
-                        onClick={onClick}
-                    >ignorer</button>
-                    <Link to={`/admin/neoworker/editer/${neoworker.id}`}>
-                        <button className='button-card'>Modifier</button>
-                    </Link>
-                    <Link to='/admin/neoworker/liste'>
-                        <button className='button-card'>back to list</button>
-                    </Link>
-                </div>
-            </div>
-
-
         </div>
+
     )
 }
 

@@ -15,7 +15,7 @@ import Creation_NeoWorker_Page from './admin/Creation_NeoWorker_Page'
 import MissionsListe from './admin/MissionsListe';
 import jwt_decode from 'jwt-decode';
 import NeoworkerList from './admin/NeoworkerList'
-import OneNeoworker from './admin/OneNeoworker';
+import SeeNeoworker from './admin/SeeNeoworker'
 import MatchingPage from './matching/MatchingPage'
 import UpdateNeoworker from './admin/UpdateNeoworker';
 
@@ -157,7 +157,7 @@ const Router = () => {
                 <Route exact path="/admin/neoworker/liste" component={NeoworkerList} />
 
                 {/* afficher un freelancer en tant qu'admin */}
-                <Route exact path="/admin/neoworker/:id" component={OneNeoworker} />
+                <Route exact path="/admin/neoworker/:id" component={SeeNeoworker} />
 
                 {/*modify a neoworker profileHooks */}
                 <Route exact path="/admin/neoworker/editer/:id" component={UpdateNeoworker} />

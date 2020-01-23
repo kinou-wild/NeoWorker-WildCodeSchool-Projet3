@@ -37,7 +37,7 @@ const NeoworkerListCard = (neoworker) => {
     return (
         <div className='neoworkerCard'>
             <div className="firstrow-card-neoworker">
-                <p className='neoworkerCard-h1'>{neoworker.firstname} {neoworker.lastname}</p>
+                <p className='neoworkerCard-p'>{neoworker.firstname} {neoworker.lastname}</p>
                 <Link to={`/admin/neoworker/${neoworker.id}`}><Button className='button-card'>Voir</Button></Link>
             </div>
             <div className="secondrow-card-neoworker">
@@ -58,11 +58,6 @@ const NeoworkerListCard = (neoworker) => {
                 
             </div>
              */}
-
-
-
-            {/* INCLURE ICI : Bouton ignoré et affichage de la mission associé sur test du Statut du Neoworker */}
-
 
         </div>
     )

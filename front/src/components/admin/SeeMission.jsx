@@ -1,5 +1,5 @@
 import React, { useState, useEffect, } from 'react';
-import { Form, FormGroup, Input, Label, Col } from 'reactstrap'
+import { Form, FormGroup, Input, Label} from 'reactstrap'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
 import profilPic from '../../img/anais.jpg'
@@ -31,7 +31,7 @@ const SeeMission = (props) => {
             </div>
             <h1 className='admin-h1'>Voir la mission NeoWorker <span className='textModif'>:</span></h1>
             <div className='body'>
-                <Form onSubmit={getDataMission}>
+                <Form>
                     <FormGroup>
                     <Label> Notes <span className='textModif'>:</span></Label>
                         <Input disabled style={{ height: '150px' }} type="textarea" name="note"
