@@ -191,165 +191,166 @@ const UpdateMission = (props) => {
             <h1 className='admin-h1'>Modification d'une mission <span className='textModif'>:</span></h1>
             <div className='body'>
                 <Form onSubmit={(e) => updateDataMission(e)}>
-                    <FormGroup>
-                    <Label> Notes <span className='textModif'>:</span></Label>
-                        <Input style={{ height: '150px' }} type="textarea" name="note" value={updateMission.note}
-                        className="admin-input-note"
-                            onChange={(e) => { setUpdateMission({ ...updateMission, note: e.target.value }) }} />
-                    </FormGroup>
                     <div className='champs-mission'>
-                        <FormGroup>
-                        <Label> Intitulé de la mission <span className='textModif'>:</span></Label>
-                            <Input 
-                            className="admin-input-nom_mission"
-                                name="nom_mission"
-                                value={updateMission.nom_mission}
-                                type="text"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, nom_mission: e.target.value }) }} />
-                        </FormGroup>
+                        <div className="champs-mission-leftside">
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Intitulé de la mission <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-nom_mission"
+                                    name="nom_mission"
+                                    value={updateMission.nom_mission}
+                                    type="text"
+                                    onChange={(e) => { setUpdateMission({ ...updateMission, nom_mission: e.target.value }) }} />
+                            </FormGroup>
 
-                        <FormGroup>
-                        <Label> Nom de l'entreprise <span className='textModif'>:</span></Label>
-                            <Input 
-                            className="admin-input-nom_entreprise"
-                                name="nom_entreprise"
-                                value={updateMission.nom_entreprise}
-                                type="text"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, nom_entreprise: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Email <span className='textModif'>:</span></Label>
-                            <Input  name="email"
-                            className="admin-input-email"
-                                value={updateMission.email}
-                                type="email"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, email: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Téléphone <span className='textModif'>:</span></Label>
-                            <Input 
-                            className="admin-input-tel"
-                                name="tel"
-                                value={updateMission.tel}
-                                type="tel"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, tel: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Adresse <span className='textModif'>:</span></Label>
-                            <Input 
-                            className="admin-input-address"
-                                name="address"
-                                value={updateMission.address}
-                                type="text"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, address: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Code postal <span className='textModif'>:</span></Label>
-                            <Input 
-                            className="admin-input-cp"
-                                name="cp"
-                                value={updateMission.cp}
-                                type="number"
-                                min="1"
-                                max="99999"
-                                maxLength={5}
-                                onChange={(e) => { setUpdateMission({ ...updateMission, cp: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Date de début de la mission<span className='textModif'>:</span></Label>
-                            <Input className="admin-input-date_debut"
-                                name="date_debut"
-                                value={updateMission.date_debut}
-                                type="date"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, date_debut: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Date de fin de la mission <span className='textModif'>:</span></Label>
-                            <Input className="admin-input-date_fin"
-                                name="date_fin"
-                                value={updateMission.date_fin}
-                                type="date"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, date_fin: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Nombre de jours (par mois) de travail<span className='textModif'>:</span></Label>
-                            <Input 
-                            className="admin-input-nb_j_par_mois"
-                                name="nb_j_par_mois"
-                                value={updateMission.nb_j_par_mois}
-                                type="number"
-                                min="1"
-                                max="31"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, nb_j_par_mois: e.target.value }) }} />
-                        </FormGroup>
-                        <div className='test'>
-                        <FormGroup>
-                        <Label> N° SIRET <span className='textModif'>:</span></Label>
-                            <Input
-                            className="admin-input-siret"
-                                name="siret"
-                                value={updateMission.siret}
-                                type="number"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, siret: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Budjet alloué<span className='textModif'>:</span></Label>
-                            <Input 
-                            className="admin-input-budget"
-                                name="budget"
-                                min="1"
-                                value={updateMission.budget}
-                                type="number"
-                                onChange={(e) => { setUpdateMission({ ...updateMission, budget: e.target.value }) }} />
-                        </FormGroup>
-                    </div>
-                    </div>
-                    <div className='selector-mission'>
-                        <FormGroup>
-                            <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
-                            <Input type="select"
-                            className="admin-input-pref_lieu_travail"
-                                name="pref_lieu_de_travail"
-                                value={updateMission.pref_lieu_de_travail}
-                                onChange={(e) => {
-                                    setUpdateMission({
-                                        ...updateMission,
-                                        pref_lieu_de_travail: e.target.value === 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value === 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
-                                    })
-                                }}>
-                                <option hidden={true}>-</option>
-                                <option>Présence en entreprise</option>
-                                <option>Travail à distance</option>
-                                <option>Peu importe</option>
-                            </Input>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>Profil <span className='textModif'>:</span></Label>
-                            <Input className="admin-input-profil" type="select" name="type_profil" value={updateMission.type_profil}
-                                onChange={(e) => { setUpdateMission({ ...updateMission, type_profil: e.target.value === 'Regular' ? 'Regular' : 'Expert' }) }}>
-                                <option hidden={true}>-</option>
-                                <option>Regular</option>
-                                <option>Expert</option>
-                            </Input>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>Fréquence <span className='textModif'>:</span></Label>
-                            <Input className="admin-input-frequence"type="select" name="frequence" value={updateMission.frequence}
-                                onChange={(e) => { setUpdateMission({ ...updateMission, frequence: e.target.value === 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
-                                <option hidden={true}>-</option>
-                                <option>Ponctuelle</option>
-                                <option>Récurrente</option>
-                            </Input>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>Mobilité <span className='textModif'>:</span></Label>
-                            <Input className="admin-input-mobilite" type="select" name="mobilite" value={updateMission.mobilite}
-                                onChange={(e) => { setUpdateMission({ ...updateMission, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
-                                <option hidden={true} >-</option>
-                                <option>Oui</option>
-                                <option>Non</option>
-                            </Input>
-                        </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Nom de l'entreprise <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-nom_entreprise"
+                                    name="nom_entreprise"
+                                    value={updateMission.nom_entreprise}
+                                    type="text"
+                                    onChange={(e) => { setUpdateMission({ ...updateMission, nom_entreprise: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Email <span className='textModif'>:</span></Label>
+                                <Input name="email"
+                                    className="admin-input-email"
+                                    value={updateMission.email}
+                                    type="email"
+                                    onChange={(e) => { setUpdateMission({ ...updateMission, email: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Téléphone <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-tel"
+                                    name="tel"
+                                    value={updateMission.tel}
+                                    type="tel"
+                                    onChange={(e) => { setUpdateMission({ ...updateMission, tel: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Adresse <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-address"
+                                    name="address"
+                                    value={updateMission.address}
+                                    type="text"
+                                    onChange={(e) => { setUpdateMission({ ...updateMission, address: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Code postal <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-cp"
+                                    name="cp"
+                                    value={updateMission.cp}
+                                    type="number"
+                                    min="1"
+                                    max="99999"
+                                    maxLength={5}
+                                    onChange={(e) => { setUpdateMission({ ...updateMission, cp: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Date de début de la mission<span className='textModif'>:</span></Label>
+                                <Input className="admin-input-date_debut"
+                                    name="date_debut"
+                                    value={updateMission.date_debut}
+                                    type="date"
+                                    onChange={(e) => { setUpdateMission({ ...updateMission, date_debut: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Date de fin de la mission <span className='textModif'>:</span></Label>
+                                <Input className="admin-input-date_fin"
+                                    name="date_fin"
+                                    value={updateMission.date_fin}
+                                    type="date"
+                                    onChange={(e) => { setUpdateMission({ ...updateMission, date_fin: e.target.value }) }} />
+                            </FormGroup>
+                        </div>
+                        <div className="champs-mission-rightside">
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Nombre de jours (par mois) de travail<span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-nb_j_par_mois"
+                                    name="nb_j_par_mois"
+                                    value={updateMission.nb_j_par_mois}
+                                    type="number"
+                                    min="1"
+                                    max="31"
+                                    onChange={(e) => { setUpdateMission({ ...updateMission, nb_j_par_mois: e.target.value }) }} />
+                            </FormGroup>
+
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> N° SIRET <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-siret"
+                                    name="siret"
+                                    value={updateMission.siret}
+                                    type="number"
+                                    onChange={(e) => { setUpdateMission({ ...updateMission, siret: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Budjet alloué<span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-budget"
+                                    name="budget"
+                                    min="1"
+                                    value={updateMission.budget}
+                                    type="number"
+                                    onChange={(e) => { setUpdateMission({ ...updateMission, budget: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex">Préférence lieu de travail <span className='textModif'>:</span></Label>
+                                <Input type="select"
+                                    className="admin-input-pref_lieu_travail"
+                                    name="pref_lieu_de_travail"
+                                    value={updateMission.pref_lieu_de_travail}
+                                    onChange={(e) => {
+                                        setUpdateMission({
+                                            ...updateMission,
+                                            pref_lieu_de_travail: e.target.value === 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value === 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
+                                        })
+                                    }}>
+                                    <option hidden={true}>-</option>
+                                    <option>Présence en entreprise</option>
+                                    <option>Travail à distance</option>
+                                    <option>Peu importe</option>
+                                </Input>
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex">Profil <span className='textModif'>:</span></Label>
+                                <Input className="admin-input-profil" type="select" name="type_profil" value={updateMission.type_profil}
+                                    onChange={(e) => { setUpdateMission({ ...updateMission, type_profil: e.target.value === 'Regular' ? 'Regular' : 'Expert' }) }}>
+                                    <option hidden={true}>-</option>
+                                    <option>Regular</option>
+                                    <option>Expert</option>
+                                </Input>
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex">Fréquence <span className='textModif'>:</span></Label>
+                                <Input className="admin-input-frequence" type="select" name="frequence" value={updateMission.frequence}
+                                    onChange={(e) => { setUpdateMission({ ...updateMission, frequence: e.target.value === 'Ponctuelle' ? 'Ponctuelle' : 'Récurrente' }) }}>
+                                    <option hidden={true}>-</option>
+                                    <option>Ponctuelle</option>
+                                    <option>Récurrente</option>
+                                </Input>
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex">Mobilité <span className='textModif'>:</span></Label>
+                                <Input className="admin-input-mobilite" type="select" name="mobilite" value={updateMission.mobilite}
+                                    onChange={(e) => { setUpdateMission({ ...updateMission, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
+                                    <option hidden={true} >-</option>
+                                    <option>Oui</option>
+                                    <option>Non</option>
+                                </Input>
+                            </FormGroup>
+                            <FormGroup className="form-group-flex-note">
+                                <Label className="label-flex"> Notes <span className='textModif'>:</span></Label>
+                                <Input type="textarea" name="note" value={updateMission.note}
+                                    className="admin-input-note"
+                                    onChange={(e) => { setUpdateMission({ ...updateMission, note: e.target.value }) }} />
+                            </FormGroup>
+                        </div>
                     </div>
                     <h2 className='mission-title'>Outils</h2>
                     <div className='cards'>
@@ -769,25 +770,8 @@ const UpdateMission = (props) => {
                         </div>
                     </div>
 
-
                     <h2 className='mission-title'>Famille de prestations</h2>
                     <div>
-
-                        {/*<select
-                        className="famille-prestation-select" type="select" name="famille-prestation" id='famille-prestation'
-                        onChange={(e) => setPrestation(e.target.value)}>
-                        <option>--Choisir une option--</option>
-                        <option value="Gestion administrative et comptable">Gestion administrative et comptable</option>
-                        <option value="Gestion opérationnelle">Gestion opérationnelle</option>
-                        <option value="Gestion commerciale">Gestion commerciale</option>
-                        <option value="Marketing / Communication / Digital">Marketing / Communication / Digital</option>
-                        <option value="Gestion Financière / Contrôle de Gestion">Gestion Financière / Contrôle de Gestion</option>
-                        <option value="DSI">DSI</option>
-                        <option value="Gestion Ressources Humaines / Juridique">Gestion Ressources Humaines / Juridique</option>
-                        <option value="Gestion de la relation clients">Gestion de la relation clients</option>
-                    </select>
-                    */}
-
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion administrative et comptable</p>
                             <div className="checkbox-and-content">
@@ -965,10 +949,10 @@ const UpdateMission = (props) => {
                         </div>
                     </div>
                     <Button className="bottom-btn" type="submit">Valider les modifications</Button>
-            </Form>
-        </div>
-    </div >
-            )
-        }
+                </Form>
+            </div>
+        </div >
+    )
+}
 
 export default UpdateMission;

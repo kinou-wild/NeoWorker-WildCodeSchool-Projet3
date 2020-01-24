@@ -48,86 +48,78 @@ const ChangeNeoworker = (props) => {
             </div>
             <h1 className='admin-h1'>Modifier un Neoworker <span className='textModif'>:</span></h1>
             <div className='body'>
-                <Form onSubmit={(e) => updateDataNeoworker(e)} >
-                    <FormGroup>
-                        <Label> Notes <span className='textModif'>:</span></Label>
-                        <Input style={{ height: '150px' }} type="textarea" name="note" id="note"
-                            value={updateNeoworker.note}
-                            className="admin-input-note"
-                            required
-                            onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, note: e.target.value }) }} />
-                    </FormGroup>
+                <Form onSubmit={(e) => updateDataNeoworker(e)} className="form-flex">
                     <div className='champs-mission'>
-                        <FormGroup>
-                            <Label> Métier <span className='textModif'>:</span></Label>
-                            <Input className="admin-input-metier"
-                                type="text" id="title" name="Métier"
-                                value={updateNeoworker.title}
-                                required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, title: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label> Prénom <span className='textModif'>:</span></Label>
-                            <Input
-                                className="admin-input-firstname"
-                                 type="text"
-                                id="firstname"
-                                name="firstname"
-                                value={updateNeoworker.firstname}
-                                required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, firstname: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label> Nom <span className='textModif'>:</span></Label>
-                            <Input
-                                className="admin-input-lastname"
-                                
-                                type="text" id="lastname" name="lastname"
-                                value={updateNeoworker.lastname}
-                                required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, lastname: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label> Adresse <span className='textModif'>:</span></Label>
-                            <Input
-                                className="admin-input-address"
-                                
-                                type="text" id="address" name="address"
-                                value={updateNeoworker.address}
-                                required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, address: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label> Code Postal <span className='textModif'>:</span></Label>
-                            <Input
-                                className="admin-input-cp"
-                                
-                                type="number" id="cp" name="cp"
-                                value={updateNeoworker.cp}
-                                required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, cp: e.target.value }) }}
-                                maxlength="5" />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Email <span className='textModif'>:</span></Label>
-                            <Input
-                                className="admin-input-email"
-                                type="email" id="email" name="email"
-                                value={updateNeoworker.email}
-                                required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, email: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Téléphone <span className='textModif'>:</span></Label>
-                            <Input
-                                className="admin-input-tel"
-                                type="number" id="tel" name="tel"
-                                value={updateNeoworker.tel}
-                                required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, tel: e.target.value }) }} />
-                        </FormGroup>
+                        <div className="champs-mission-leftside">
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Métier <span className='textModif'>:</span></Label>
+                                <Input className="admin-input-metier"
+                                    type="text" id="title" name="Métier"
+                                    value={updateNeoworker.title}
+                                    required
+                                    onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, title: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Prénom <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-firstname"
+                                    type="text"
+                                    id="firstname"
+                                    name="firstname"
+                                    value={updateNeoworker.firstname}
+                                    required
+                                    onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, firstname: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Nom <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-lastname"
 
-                        {/*<FormGroup>
+                                    type="text" id="lastname" name="lastname"
+                                    value={updateNeoworker.lastname}
+                                    required
+                                    onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, lastname: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Adresse <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-address"
+
+                                    type="text" id="address" name="address"
+                                    value={updateNeoworker.address}
+                                    required
+                                    onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, address: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Code Postal <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-cp"
+
+                                    type="number" id="cp" name="cp"
+                                    value={updateNeoworker.cp}
+                                    required
+                                    onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, cp: e.target.value }) }}
+                                    maxlength="5" />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Email <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-email"
+                                    type="email" id="email" name="email"
+                                    value={updateNeoworker.email}
+                                    required
+                                    onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, email: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Téléphone <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-tel"
+                                    type="number" id="tel" name="tel"
+                                    value={updateNeoworker.tel}
+                                    required
+                                    onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, tel: e.target.value }) }} />
+                            </FormGroup>
+                            {/*<FormGroup className="form-group-flex">
                             <Input
                                 className="admin-input-password"
                                 placeholder="Mot de passe" type="password"
@@ -137,35 +129,36 @@ const ChangeNeoworker = (props) => {
                                 onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, password: e.target.value }) }} />
                         </FormGroup>
                         */}
+                        </div>
+                        <div className="champs-mission-rightside">
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Taux journalier minimum <span className='textModif'>:</span></Label>
+                                <Input className="admin-input-tj_min"
+                                    type="number" id="tjm_min" name="tjm_min"
+                                    value={updateNeoworker.tjm_min}
+                                    required
+                                    onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, tjm_min: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Taux journalier maximum <span className='textModif'>:</span></Label>
+                                <Input className="admin-input-tj_max"
+                                    type="number"
+                                    id="tjm_max" name="tjm_max"
+                                    value={updateNeoworker.tjm_max}
+                                    required
+                                    onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, tjm_max: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Disponibilité (nombre jours/mois) <span className='textModif'>:</span></Label>
+                                <Input className="admin-input-dispo"
+                                    type="number"
+                                    id="disponibilite" name="disponibilite"
+                                    value={updateNeoworker.disponibilite}
+                                    required onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, disponibilite: e.target.value }) }} />
+                            </FormGroup>
 
-                        <FormGroup>
-                        <Label> Taux journalier minimum <span className='textModif'>:</span></Label>
-                            <Input className="admin-input-tj_min"
-                                type="number" id="tjm_min" name="tjm_min"
-                                value={updateNeoworker.tjm_min}
-                                required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, tjm_min: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Taux journalier maximum <span className='textModif'>:</span></Label>
-                            <Input className="admin-input-tj_max"
-                                type="number"
-                                id="tjm_max" name="tjm_max"
-                                value={updateNeoworker.tjm_max}
-                                required
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, tjm_max: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Disponibilité (nombre jours/mois) <span className='textModif'>:</span></Label>
-                            <Input className="admin-input-dispo"
-                                type="number"
-                                id="disponibilite" name="disponibilite"
-                                value={updateNeoworker.disponibilite}
-                                required onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, disponibilite: e.target.value }) }} />
-                        </FormGroup>
-                        <div className='selector-mission'>
-                            <FormGroup>
-                                <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex">Préférence lieu de travail <span className='textModif'>:</span></Label>
                                 <Input className="admin-input-pref_lieu_travail" type="select"
                                     id="pref_lieu_de_travail"
                                     name="pref_lieu_de_travail"
@@ -184,10 +177,10 @@ const ChangeNeoworker = (props) => {
                                 </Input>
                             </FormGroup>
 
-                            <FormGroup>
-                                <Label>Mobilité <span className='textModif'>:</span></Label>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex">Mobilité <span className='textModif'>:</span></Label>
                                 <Input type="select" name="mobilite" id='mobilite'
-                                className="admin-input-mobilite"
+                                    className="admin-input-mobilite"
                                     value={updateNeoworker.mobilite}
                                     required
                                     onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
@@ -197,8 +190,8 @@ const ChangeNeoworker = (props) => {
                                 </Input>
                             </FormGroup>
 
-                            <FormGroup>
-                                <Label>Km maximum <span className='textModif'>:</span></Label>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex">Km maximum <span className='textModif'>:</span></Label>
                                 <Input type="select" name="km_max" id='km_max'
                                     className="admin-input-km_max"
                                     value={updateNeoworker.km_max}
@@ -212,6 +205,14 @@ const ChangeNeoworker = (props) => {
                                     <option>50 km</option>
                                 </Input>
                             </FormGroup>
+                            <FormGroup className="form-group-flex-note">
+                                <Label className="label-flex"> Notes <span className='textModif'>:</span></Label>
+                                <Input type="textarea" name="note" id="note"
+                                    value={updateNeoworker.note}
+                                    className="admin-input-note"
+                                    required
+                                    onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, note: e.target.value }) }} />
+                            </FormGroup>
                         </div>
                     </div>
 
@@ -224,7 +225,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.excel}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'Excel')} />
+                                onStarClick={(e) => onStarClick(e, 'excel')} />
                         </div>
                         <div className='mission-card'>
                             <p>Powerpoint</p>
@@ -233,7 +234,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.powerpoint}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'Powerpoint')} />
+                                onStarClick={(e) => onStarClick(e, 'powerpoint')} />
                         </div>
                         <div className='mission-card'>
                             <p>Microsoft 365</p>
@@ -251,7 +252,7 @@ const ChangeNeoworker = (props) => {
                                 starCount={3}
                                 value={updateNeoworker.word}
                                 emptyStarColor={`#C4C4C4`}
-                                onStarClick={(e) => onStarClick(e, 'Word')} />
+                                onStarClick={(e) => onStarClick(e, 'word')} />
                         </div>
                         <div className='mission-card'>
                             <p>CRM Hubspot</p>

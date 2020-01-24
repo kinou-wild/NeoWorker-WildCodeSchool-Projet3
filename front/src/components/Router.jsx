@@ -145,7 +145,7 @@ const Router = () => {
                                 && profileHooks.role === 'neoworker'
                                 ? CompetencesFreelancer : ''} />
     
-                <Route exact path="/admin/matching"
+                <Route exact path="/admin/matching/:id"
                     component={profileHooks.role === ''
                         ? LandingFreelancer : localStorage.usertoken
                             && profileHooks.role === 'admin'

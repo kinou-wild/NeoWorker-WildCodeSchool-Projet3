@@ -1,5 +1,5 @@
 import React, { useState, useEffect, } from 'react';
-import { Form, FormGroup, Input, Label} from 'reactstrap'
+import { Form, FormGroup, Input, Label } from 'reactstrap'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
 import profilPic from '../../img/anais.jpg'
@@ -31,152 +31,156 @@ const SeeMission = (props) => {
             </div>
             <h1 className='admin-h1'>Voir la mission NeoWorker <span className='textModif'>:</span></h1>
             <div className='body'>
-                <Form>
-                    <FormGroup>
-                    <Label> Notes <span className='textModif'>:</span></Label>
-                        <Input disabled style={{ height: '150px' }} type="textarea" name="note"
-                            value={getMission.note}
-                            className="admin-input-note" />
-                    </FormGroup>
-                    <div className='champs-mission'>
-                        <FormGroup>
-                        <Label> Intitulé de la mission <span className='textModif'>:</span></Label>
-                            <Input disabled
-                            className="admin-input-nom_mission"
-                                name="nom_mission"
-                                value={getMission.nom_mission}
-                                type="text" />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Nom de l'entreprise <span className='textModif'>:</span></Label>
-                            <Input disabled 
-                                className="admin-input-nom_entreprise"
-                                name="nom_entreprise"
-                                value={getMission.nom_entreprise}
-                                type="text" />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Email <span className='textModif'>:</span></Label>
-                            <Input disabled
-                            className="admin-input-email"
-                                name="email"
-                                value={getMission.email}
-                                type="email" />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Telephone <span className='textModif'>:</span></Label>
-                            <Input disabled 
-                            className="admin-input-tel"
-                                name="tel"
-                                value={getMission.tel}
-                                type="tel" />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Adresse <span className='textModif'>:</span></Label>
-                            <Input disabled 
-                            className="admin-input-address"
-                                name="address"
-                                value={getMission.address}
-                                type="text" />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Code postal <span className='textModif'>:</span></Label>
-                            <Input disabled 
-                            className="admin-input-cp"
-                                name="cp"
-                                value={getMission.cp}
-                                type="text"
-                                maxLength={5} />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Date de début de mission <span className='textModif'>:</span></Label>
+                <Form className="form-flex">
+                    <div className="champs-mission">
+                        <div className="champs-mission-leftside">
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Intitulé de la mission <span className='textModif'>:</span></Label>
+                                <Input disabled
+                                    className="admin-input-nom_mission"
+                                    name="nom_mission"
+                                    value={getMission.nom_mission}
+                                    type="text" />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Nom de l'entreprise <span className='textModif'>:</span></Label>
+                                <Input disabled
+                                    className="admin-input-nom_entreprise"
+                                    name="nom_entreprise"
+                                    value={getMission.nom_entreprise}
+                                    type="text" />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Email <span className='textModif'>:</span></Label>
+                                <Input disabled
+                                    className="admin-input-email"
+                                    name="email"
+                                    value={getMission.email}
+                                    type="email" />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Telephone <span className='textModif'>:</span></Label>
+                                <Input disabled
+                                    className="admin-input-tel"
+                                    name="tel"
+                                    value={getMission.tel}
+                                    type="tel" />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Adresse <span className='textModif'>:</span></Label>
+                                <Input disabled
+                                    className="admin-input-address"
+                                    name="address"
+                                    value={getMission.address}
+                                    type="text" />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Code postal <span className='textModif'>:</span></Label>
+                                <Input disabled
+                                    className="admin-input-cp"
+                                    name="cp"
+                                    value={getMission.cp}
+                                    type="text"
+                                    maxLength={5} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Date de début de mission <span className='textModif'>:</span></Label>
                                 <Input disabled
                                     className="admin-input-date_debut"
                                     name="date_debut"
                                     value={getMission.date_debut}
-                                    type="date"/>
-                            
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Date de fin de mission <span className='textModif'>:</span></Label>
-                        
+                                    type="date" />
+
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Date de fin de mission <span className='textModif'>:</span></Label>
+
                                 <Input disabled
                                     className="admin-input-email"
                                     name="date_fin"
                                     value={getMission.date_fin}
-                                    type="date"/>
-                            
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Nombre de jours (par mois) <span className='textModif'>:</span></Label>
-                            <Input disabled 
-                                className="admin-input-nb_j_par_mois"
-                                name="nb_j_par_mois"
-                                value={getMission.nb_j_par_mois}
-                                type="number"
-                                max="31" />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> N° de SIRET <span className='textModif'>:</span></Label>
-                            <Input disabled 
-                               className="admin-input-siret"
-                               name="siret"
-                                value={getMission.siret}
-                                type="number" />
-                        </FormGroup>
-                        <FormGroup>
-                        <Label> Budget <span className='textModif'>:</span></Label>
-                            <Input disabled 
-                               className="admin-input-budget"
-                               name="budget"
-                                value={getMission.budget}
-                                type="number" />
-                        </FormGroup>
-                    </div>
+                                    type="date" />
 
-                    <div className='selector-mission'>
-                        <FormGroup>
-                            <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
-                            <Input disabled type="select"
-                                className="admin-input-pref_lieu_travail"
-                                name="pref_lieu_de_travail"
-                                value={getMission.pref_lieu_de_travail}>
-                                <option hidden="true">-</option>
-                                <option>Présence en entreprise</option>
-                                <option>Travail à distance</option>
-                                <option>Peu importe</option>
-                            </Input>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>Profil <span className='textModif'>:</span></Label>
-                            <Input disabled type="select" name="type_profil"
-                                className="admin-input-profil"
-                                value={getMission.type_profil}>
-                                <option hidden="true">-</option>
-                                <option>Regular</option>
-                                <option>Expert</option>
-                            </Input>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>Fréquence <span className='textModif'>:</span></Label>
-                            <Input disabled type="select" name="frequence"
-                                className="admin-input-frequence"
-                                value={getMission.frequence}>
-                                <option hidden="true">-</option>
-                                <option>Ponctuelle</option>
-                                <option>Récurrente</option>
-                            </Input>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>Mobilité <span className='textModif'>:</span></Label>
-                            <Input disabled type="select" name="mobilite"
-                                className="admin-input-mobilite"
-                                value={getMission.mobilite}>
-                                <option hidden="true">-</option>
-                                <option>Oui</option>
-                                <option>Non</option>
-                            </Input>
-                        </FormGroup>
+                            </FormGroup>
+                        </div>
+
+                        <div className="champs-mission-rightside">
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Nombre de jours (par mois) <span className='textModif'>:</span></Label>
+                                <Input disabled
+                                    className="admin-input-nb_j_par_mois"
+                                    name="nb_j_par_mois"
+                                    value={getMission.nb_j_par_mois}
+                                    type="number"
+                                    max="31" />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> N° de SIRET <span className='textModif'>:</span></Label>
+                                <Input disabled
+                                    className="admin-input-siret"
+                                    name="siret"
+                                    value={getMission.siret}
+                                    type="number" />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Budget <span className='textModif'>:</span></Label>
+                                <Input disabled
+                                    className="admin-input-budget"
+                                    name="budget"
+                                    value={getMission.budget}
+                                    type="number" />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex">Préférence lieu de travail <span className='textModif'>:</span></Label>
+                                <Input disabled type="select"
+                                    className="admin-input-pref_lieu_travail"
+                                    name="pref_lieu_de_travail"
+                                    value={getMission.pref_lieu_de_travail}>
+                                    <option hidden="true">-</option>
+                                    <option>Présence en entreprise</option>
+                                    <option>Travail à distance</option>
+                                    <option>Peu importe</option>
+                                </Input>
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex">Profil <span className='textModif'>:</span></Label>
+                                <Input disabled type="select" name="type_profil"
+                                    className="admin-input-profil"
+                                    value={getMission.type_profil}>
+                                    <option hidden="true">-</option>
+                                    <option>Regular</option>
+                                    <option>Expert</option>
+                                </Input>
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex">Fréquence <span className='textModif'>:</span></Label>
+                                <Input disabled type="select" name="frequence"
+                                    className="admin-input-frequence"
+                                    value={getMission.frequence}>
+                                    <option hidden="true">-</option>
+                                    <option>Ponctuelle</option>
+                                    <option>Récurrente</option>
+                                </Input>
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex">Mobilité <span className='textModif'>:</span></Label>
+                                <Input disabled type="select" name="mobilite"
+                                    className="admin-input-mobilite"
+                                    value={getMission.mobilite}>
+                                    <option hidden="true">-</option>
+                                    <option>Oui</option>
+                                    <option>Non</option>
+                                </Input>
+                            </FormGroup>
+                            <FormGroup className="form-group-flex-note">
+                                <Label className="label-flex"> Notes <span className='textModif'>:</span></Label>
+                                <Input disabled type="textarea" name="note"
+                                    value={getMission.note}
+                                    className="admin-input-note" />
+                            </FormGroup>
+                        </div>
+
+
                     </div>
 
                     <h2 className='mission-title'>Outils</h2>
@@ -521,7 +525,7 @@ const SeeMission = (props) => {
                             />
                         </div>
                         <div className='champ-libre'>
-                            <p style={{ width:'10rem', padding: '5px 10px' }}>Autres skills </p>
+                            <p style={{ width: '10rem', padding: '5px 10px' }}>Autres skills </p>
                             <Input disabled style={{ marginRight: '5px' }} type="textaera" name="text" value={getMission.autres_softskill} />
                         </div>
                     </div>
@@ -592,7 +596,7 @@ const SeeMission = (props) => {
                             />
                         </div>
                         <div className='mission-card'>
-                            <p style={{ width:'15rem', padding: '5px 10px' }}>Autres langues</p>
+                            <p style={{ width: '15rem', padding: '5px 10px' }}>Autres langues</p>
                             <Input disabled style={{ marginRight: '5px' }}
                                 type="textaera"
                                 name="text"
@@ -602,22 +606,7 @@ const SeeMission = (props) => {
 
 
                     <h2 className='mission-title'>Famille de prestations</h2>
-                    <div>
-
-                        {/*<select
-                        className="famille-prestation-select" type="select" name="famille-prestation" id='famille-prestation'
-                        onChange={(e) => setPrestation(e.target.value)}>
-                        <option>--Choisir une option--</option>
-                        <option value="Gestion administrative et comptable">Gestion administrative et comptable</option>
-                        <option value="Gestion opérationnelle">Gestion opérationnelle</option>
-                        <option value="Gestion commerciale">Gestion commerciale</option>
-                        <option value="Marketing / Communication / Digital">Marketing / Communication / Digital</option>
-                        <option value="Gestion Financière / Contrôle de Gestion">Gestion Financière / Contrôle de Gestion</option>
-                        <option value="DSI">DSI</option>
-                        <option value="Gestion Ressources Humaines / Juridique">Gestion Ressources Humaines / Juridique</option>
-                        <option value="Gestion de la relation clients">Gestion de la relation clients</option>
-                    </select>
-                    */}
+                    <div>   
 
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion administrative et comptable</p>

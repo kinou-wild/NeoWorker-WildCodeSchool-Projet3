@@ -1,9 +1,8 @@
 /* ----------   CSS des formulaires (Create, Get, Update) -------- */
 
-/*.selector {
+*.selector {
     color: #000099;
 }
-*/
 
 h1.admin-h1 {
     text-align: center;
@@ -11,6 +10,7 @@ h1.admin-h1 {
     font-weight: bold;
     margin-bottom: 100px;
     margin-top: 50px;
+    font-style: italic;
 }
 
 .form-flex {
@@ -33,7 +33,6 @@ h1.admin-h1 {
 .label-flex {
   display: flex !important;
   align-items: center !important;
-  text-align: center !important;
 
 }
 
@@ -79,7 +78,6 @@ Button.btn:hover {
     margin-top: 50px;
     margin-bottom: 50px;
     align-self: center;
-    width: 20%;
 }
 
 .admin-input-firstname,
@@ -121,6 +119,7 @@ Button.btn:hover {
 
 .admin-input-note {
   height: 15vh !important;
+  text-align: unset !important;
 }
 
 h2.mission-title {
@@ -290,7 +289,6 @@ div.mission-card {
     font-weight: bold;  
     display: flex;
     align-self: start;
-    padding-top: 16px;
     font-weight: bold; 
 }
 
@@ -304,15 +302,10 @@ div.mission-card {
     display: flex;
     justify-content: space-between;
     font-size: 16px;
+    flex-direction: row;
+    margin-bottom: 5px;
   }
   
-  div.thirdrow-card {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-size: 16px;
-  }
-
   
   
 /* -------------------- Nom de profil et image de profil admin -------------------- */

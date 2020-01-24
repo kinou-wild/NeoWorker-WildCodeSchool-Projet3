@@ -4,12 +4,12 @@ import axios from 'axios'
 import '../admin/CommonDesign.css'
 
 
-const MatchingPage = () => {
+const MatchingPage = (props) => {
 
     const [dataFree, setDataFree] = useState([])
     const [dataMission, setDataMission] = useState([])
 
-
+    const params = props.match.params
 
     useEffect(() => {
         fetchDataFree()
@@ -24,7 +24,7 @@ const MatchingPage = () => {
     }
 
     const fetchDataMiss = async () => {
-        await axios.get('http://localhost:5000/mission/1')
+        await axios.get(`http://localhost:5000/mission/${params.id}`)
             .then(res => setDataMission(res.data))
             .catch(err => console.log(err))
     }

@@ -31,10 +31,12 @@ const MissionsListeCard = (mission) => {
                     <p>Email : {mission.email}</p>
                     <Button className='button-card' onClick={()=> { if (window.confirm('Voulez-vous vraiment supprimer cette mission ?')) deleteCard(mission.id)}} >Supprimer</Button>
                 </div>
-                {mission.status === 2 || mission.status === 3 ?
-                <div className='fifthrow-card'>
-                    <p>Neoworker associé : {/* Nom du neoworker depuis la TJ */}</p>
-                </div> : ''}
+                
+                <div className='fifthrow-card'>   
+                    {mission.status === 2 || mission.status === 3 ?
+                    <p>Neoworker associé : {/* Nom du neoworker depuis la TJ */}</p>: <p> </p>}
+                    <Link to={`/admin/matching/${mission.id}`}><Button className='button-card'>Matcher !</Button></Link>
+                </div> 
                 </div>
     )
 } 

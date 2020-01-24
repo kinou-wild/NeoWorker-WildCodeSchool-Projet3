@@ -18,6 +18,7 @@
 .name-card {
     margin: 0px;
     padding-right: 15px;
+    font-weight: bold;
 }
 
 .pic-card {
@@ -32,6 +33,7 @@
     text-align: center;
     font-size: 50px;
     font-weight: bold;
+    font-style: italic;
 
     
 }
@@ -66,8 +68,9 @@
 
 .profil-img-creation {
     border-radius: 50%;
-    width: 30%;
+    width: 50%;
     align-self: center;
+    margin-bottom: 50px;
 }
 
 .align-field-text-div {
@@ -189,6 +192,10 @@
 .profil-img-and-choice {
     display:flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
+    justify-content: center;
+}
+
+.unshow{
+    display: none;
 }

@@ -13,11 +13,7 @@ const Sidebar = (props) => {
         role: '',
         errors: {}
     })
-
-    /* Hook qui vient de notre sidebar context, qui contient le state boolean pour afficher, ou non, la sidebar selon sur quelle page on se trouve*/
-    // const {hook, hook2} = useContext(SidebarContext)
-    // const [roleSidebar, setRoleSidebar] = hook2
-
+    
     //se déconnecter
     const logOut = (e) => {
         e.preventDefault()
@@ -46,10 +42,10 @@ const Sidebar = (props) => {
             <Link to='/neoworker/homepage' className="div-logo"><img className="sidebar-logo" src={NeoWorkerLogo} alt="neo worker logo"></img></Link>
             <div className="sidebar-field-group">
 
-                <Link to='/neoworker/homepage' className="sidebar-field"><p >Mon Espace Perso</p></Link>
-                <Link to={`/neoworker/competences/${profileHooks.id}`} className="sidebar-field"><p>Mes Compétences</p></Link>
-                <p>Mes Missions (en construction ...)</p>
-                <p>Mes Documents (en construction ...)</p>
+                <Link to='/neoworker/homepage' className="sidebar-little-field"><p >Mon Espace Perso</p></Link>
+                <Link to={`/neoworker/competences/${profileHooks.id}`} className="sidebar-little-field"><p>Mes Compétences</p></Link>
+                <p className="sidebar-little-field">Mes Missions (en construction ...)</p>
+                <p className="sidebar-little-field">Mes Documents (en construction ...)</p>
 
             </div>
 
@@ -68,13 +64,13 @@ const Sidebar = (props) => {
             <Link to='/admin' className="div-logo"><img className="sidebar-logo" src={NeoWorkerLogo} alt="neo worker logo"></img></Link>
             <div className="sidebar-field-group">
 
-                <p className="sidebar-field">Tes NeoWorkers</p>
+                <p className="sidebar-field">Tes Neoworkers</p>
 
                 <Link to='/admin/neoworker/creer' className="sidebar-little-field">
-                    <p>Créer un nouveau NeoWorker</p>
+                    <p>Créer un nouveau Neoworker</p>
                 </Link>
                 <Link to='/admin/neoworker/liste' className="sidebar-little-field">
-                    <p>Liste des NeoWorkers</p>
+                    <p>Liste des Neoworkers</p>
                 </Link>
 
                 <p className="sidebar-field">Tes Missions</p>
@@ -85,9 +81,6 @@ const Sidebar = (props) => {
                 <Link to='/admin/missions' className="sidebar-little-field">
                     <p>Liste des missions</p>
                 </Link>
-
-                <Link to='/admin/matching' className="sidebar-field"><p>Matching</p></Link>
-
             </div>
 
             <Link to='/admin'>

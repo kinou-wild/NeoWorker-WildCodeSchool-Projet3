@@ -32,147 +32,153 @@ const SeeNeoworker = (props) => {
             <h1 className='admin-h1'> Voir le profil Neoworker <span className='textModif'>:</span></h1>
             <div className='body'>
                 <Form className="form-flex">
-                    <FormGroup>
-                        <Label> Notes <span className='textModif'>:</span></Label>
-                        <Input disabled style={{ height: '150px' }} type="textarea" name="note" id="note"
-                            value={neoworker.note}
-                            className="admin-input-note"
-                        />
-                    </FormGroup>
                     <div className='champs-mission'>
-                        <FormGroup>
-                            <Label> Intitulé du métier <span className='textModif'>:</span></Label>
-                            <Input disabled
-                                className="admin-input-metier"
-                                type="text" id="title" name="Métier"
-                                value={neoworker.title}
-                                required
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label> Prénom <span className='textModif'>:</span></Label>
-                            <Input disabled
-                                className="admin-input-firstname"
-                                type="text"
-                                id="firstname"
-                                name="firstname"
-                                value={neoworker.firstname}
-                                required
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label> Nom <span className='textModif'>:</span></Label>
-                            <Input disabled
-                                className="admin-input-lastname"
-                                type="text" id="lastname" name="lastname"
-                                value={neoworker.lastname}
-                                required
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label> Email <span className='textModif'>:</span></Label>
-                            <Input disabled
-                                className="admin-input-email"
-                                type="text" id="email" name="email"
-                                value={neoworker.email}
-                                required
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label> Téléphone <span className='textModif'>:</span></Label>
-                            <Input disabled
-                                className="admin-input-tel"
-                                type="text" id="tel" name="tel"
-                                value={neoworker.tel}
-                                required
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label> Adresse <span className='textModif'>:</span></Label>
-                            <Input disabled
-                                className="admin-input-address"
+                        <div className="champs-mission-leftside">
+                           
+                                <FormGroup className="form-group-flex">
+                                    <Label className="label-flex"> Intitulé du métier <span className='textModif'>:</span></Label>
+                                    <Input disabled
+                                        className="admin-input-metier"
+                                        type="text" id="title" name="Métier"
+                                        value={neoworker.title}
+                                        required
+                                    />
+                                </FormGroup>
+                                <FormGroup className="form-group-flex">
+                                    <Label className="label-flex"> Prénom <span className='textModif'>:</span></Label>
+                                    <Input disabled
+                                        className="admin-input-firstname"
+                                        type="text"
+                                        id="firstname"
+                                        name="firstname"
+                                        value={neoworker.firstname}
+                                        required
+                                    />
+                                </FormGroup>
+                                <FormGroup className="form-group-flex">
+                                    <Label className="label-flex"> Nom <span className='textModif'>:</span></Label>
+                                    <Input disabled
+                                        className="admin-input-lastname"
+                                        type="text" id="lastname" name="lastname"
+                                        value={neoworker.lastname}
+                                        required
+                                    />
+                                </FormGroup>
+                                <FormGroup className="form-group-flex">
+                                    <Label className="label-flex"> Email <span className='textModif'>:</span></Label>
+                                    <Input disabled
+                                        className="admin-input-email"
+                                        type="text" id="email" name="email"
+                                        value={neoworker.email}
+                                        required
+                                    />
+                                </FormGroup>
+                                <FormGroup className="form-group-flex">
+                                    <Label className="label-flex"> Téléphone <span className='textModif'>:</span></Label>
+                                    <Input disabled
+                                        className="admin-input-tel"
+                                        type="text" id="tel" name="tel"
+                                        value={neoworker.tel}
+                                        required
+                                    />
+                                </FormGroup>
+                                <FormGroup className="form-group-flex">
+                                    <Label className="label-flex"> Adresse <span className='textModif'>:</span></Label>
+                                    <Input disabled
+                                        className="admin-input-address"
 
-                                type="text" id="address" name="address"
-                                value={neoworker.address}
-                                required
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label> Code postal <span className='textModif'>:</span></Label>
-                            <Input disabled
-                                className="admin-input-cp"
+                                        type="text" id="address" name="address"
+                                        value={neoworker.address}
+                                        required
+                                    />
+                                </FormGroup>
+                                <FormGroup className="form-group-flex">
+                                    <Label className="label-flex"> Code postal <span className='textModif'>:</span></Label>
+                                    <Input disabled
+                                        className="admin-input-cp"
 
-                                type="text" id="cp" name="cp"
-                                value={neoworker.cp}
-                                required
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label> Taux journalier minimum <span className='textModif'>:</span></Label>
-                            <Input disabled className="admin-input-tj_min"
-                                type="number" id="tjm_min" name="tjm_min"
-                                value={neoworker.tjm_min}
-                                required
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label> Taux journalier maximum <span className='textModif'>:</span></Label>
-                            <Input disabled className="admin-input-tj_max"
-                                type="number"
-                                id="tjm_max" name="tjm_max"
-                                value={neoworker.tjm_max}
-                                required
-                            />
-                        </FormGroup>
-                        <div className='selector-mission'>
-                            <FormGroup>
-                                <Label>Disponibilité (nb jours/mois) <span className='textModif'>:</span></Label>
-                                <Input disabled className="admin-input-dispo"
-                                    value={neoworker.disponibilite} />
-                            </FormGroup>
-                            <FormGroup>
+                                        type="text" id="cp" name="cp"
+                                        value={neoworker.cp}
+                                        required
+                                    />
+                                </FormGroup>
+                            </div>
 
-                                <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
-                                <Input disabled type="select"
-                                    className="admin-input-pref_lieu_travail"
-                                    id="pref_lieu_de_travail"
-                                    name="pref_lieu_de_travail"
-                                    value={neoworker.pref_lieu_de_travail}
-                                >
-                                    <option hidden="true">-</option>
-                                    <option>Présence en entreprise</option>
-                                    <option>Travail à distance</option>
-                                    <option>Peu importe</option>
-                                </Input>
-                            </FormGroup>
+                            <div className="champs-mission-rightside">
+                                <FormGroup className="form-group-flex">
+                                    <Label className="label-flex"> Taux journalier minimum <span className='textModif'>:</span></Label>
+                                    <Input disabled className="admin-input-tj_min"
+                                        type="number" id="tjm_min" name="tjm_min"
+                                        value={neoworker.tjm_min}
+                                        required
+                                    />
+                                </FormGroup>
+                                <FormGroup className="form-group-flex">
+                                    <Label className="label-flex"> Taux journalier maximum <span className='textModif'>:</span></Label>
+                                    <Input disabled className="admin-input-tj_max"
+                                        type="number"
+                                        id="tjm_max" name="tjm_max"
+                                        value={neoworker.tjm_max}
+                                        required
+                                    />
+                                </FormGroup>
+                                <div className='selector-mission'>
+                                    <FormGroup className="form-group-flex">
+                                        <Label className="label-flex">Disponibilité (nb jours/mois) <span className='textModif'>:</span></Label>
+                                        <Input disabled className="admin-input-dispo"
+                                            value={neoworker.disponibilite} />
+                                    </FormGroup>
+                                    <FormGroup className="form-group-flex">
 
-                            <FormGroup>
-                                <Label>Mobilité <span className='textModif'>:</span></Label>
-                                <Input disabled type="select" name="mobilite" id='mobilite'
-                                    className="admin-input-mobilite"
-                                    value={neoworker.mobilite}>
-                                    <option hidden="true">-</option>
-                                    <option>Oui</option>
-                                    <option>Non</option>
-                                </Input>
-                            </FormGroup>
+                                        <Label className="label-flex">Préférence lieu de travail <span className='textModif'>:</span></Label>
+                                        <Input disabled type="select"
+                                            className="admin-input-pref_lieu_travail"
+                                            id="pref_lieu_de_travail"
+                                            name="pref_lieu_de_travail"
+                                            value={neoworker.pref_lieu_de_travail}
+                                        >
+                                            <option hidden="true">-</option>
+                                            <option>Présence en entreprise</option>
+                                            <option>Travail à distance</option>
+                                            <option>Peu importe</option>
+                                        </Input>
+                                    </FormGroup>
 
-                            <FormGroup>
-                                <Label>Km maximum <span className='textModif'>:</span></Label>
-                                <Input disabled type="select" name="km_max" id='km_max'
-                                    value={neoworker.km_max}
-                                    className="admin-input-km_max"
-                                >
-                                    <option hidden="true">-</option>
-                                    <option>10 km</option>
-                                    <option>20 km</option>
-                                    <option>30 km</option>
-                                    <option>40 km</option>
-                                    <option>50 km</option>
-                                </Input>
-                            </FormGroup>
+                                    <FormGroup className="form-group-flex">
+                                        <Label className="label-flex">Mobilité <span className='textModif'>:</span></Label>
+                                        <Input disabled type="select" name="mobilite" id='mobilite'
+                                            className="admin-input-mobilite"
+                                            value={neoworker.mobilite}>
+                                            <option hidden="true">-</option>
+                                            <option>Oui</option>
+                                            <option>Non</option>
+                                        </Input>
+                                    </FormGroup>
+
+                                    <FormGroup className="form-group-flex">
+                                        <Label className="label-flex">Km maximum <span className='textModif'>:</span></Label>
+                                        <Input disabled type="select" name="km_max" id='km_max'
+                                            value={neoworker.km_max}
+                                            className="admin-input-km_max"
+                                        >
+                                            <option hidden="true">-</option>
+                                            <option>10 km</option>
+                                            <option>20 km</option>
+                                            <option>30 km</option>
+                                            <option>40 km</option>
+                                            <option>50 km</option>
+                                        </Input>
+                                    </FormGroup>
+                                    <FormGroup className="form-group-flex-note">
+                                        <Label className="label-flex"> Notes <span className='textModif'>:</span></Label>
+                                        <Input disabled type="textarea" name="note" id="note"
+                                            value={neoworker.note}
+                                            className="admin-input-note"
+                                        />
+                                    </FormGroup>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
                     <h2 className='mission-title'>Outils</h2>
                     <div className='cards'>

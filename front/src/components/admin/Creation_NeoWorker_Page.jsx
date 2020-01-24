@@ -346,10 +346,8 @@ const CreationNeoWorkerPage = (props) => {
             <h1 className='admin-h1'>Création d'un Neoworker <span className='textModif'>:</span></h1>
             <div className='body'>
                 <Form onSubmit={onSubmit} className="form-flex">
-
                     <div className='champs-mission'>
                         <div className="champs-mission-leftside">
-                            <div className="label-leftside"></div>
                             <FormGroup className="form-group-flex">
                                 <Label className="label-flex"> Intitulé du métier <span className='textModif'>:</span></Label>
                                 <Input className="admin-input-metier"
@@ -992,28 +990,9 @@ const CreationNeoWorkerPage = (props) => {
                         </div>
                     </div>
 
-
-
-
-
                     <h2 className='mission-title'>Famille de prestations</h2>
+                   
                     <div>
-
-                        {/*<select
-                        className="famille-prestation-select" type="select" name="famille-prestation" id='famille-prestation'
-                        onChange={(e) => setPrestation(e.target.value)}>
-                        <option>--Choisir une option--</option>
-                        <option value="Gestion administrative et comptable">Gestion administrative et comptable</option>
-                        <option value="Gestion opérationnelle">Gestion opérationnelle</option>
-                        <option value="Gestion commerciale">Gestion commerciale</option>
-                        <option value="Marketing / Communication / Digital">Marketing / Communication / Digital</option>
-                        <option value="Gestion Financière / Contrôle de Gestion">Gestion Financière / Contrôle de Gestion</option>
-                        <option value="DSI">DSI</option>
-                        <option value="Gestion Ressources Humaines / Juridique">Gestion Ressources Humaines / Juridique</option>
-                        <option value="Gestion de la relation clients">Gestion de la relation clients</option>
-                    </select>
-                    */}
-
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion administrative et comptable</p>
                             <div className="checkbox-and-content">
@@ -1191,7 +1170,6 @@ const CreationNeoWorkerPage = (props) => {
                         </div>
                     </div>
                     <Button className='btn' onClick={idFreeRandomFreeRole} type='submit'>Valider</Button>
-                    <form />
                 </Form>
             </div>
         </div>
