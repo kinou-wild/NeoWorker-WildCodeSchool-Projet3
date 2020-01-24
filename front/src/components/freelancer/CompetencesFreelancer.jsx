@@ -1,14 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Button } from 'reactstrap'
+import React, {useEffect, useState } from 'react'
 import axios from 'axios'
 import Slider from "react-slick";
-import { Link } from 'react-router-dom'
 import Slide1 from './Slide1'
 import Slide2 from './Slide2'
 import Slide3 from './Slide3'
 import Slide4 from './Slide4'
 import Slide5 from './Slide5'
 import './CompetencesFreelancer.css'
+
 const CompetencesFreelancer = (props) => {
     //hooks de la data user pour le get de l'id
     const [idUsers, setIdUsers] = useState([])

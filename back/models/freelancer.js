@@ -1054,7 +1054,14 @@ module.exports = (sequelize, DataTypes) => {
         len: [0, 50],
       }
     },
-  }, {});
+  }, {
+    hooks:{
+      beforeCreate: (user) => {
+        console.log(user)
+       
+      },
+    }
+  });
 
   //table de jointure
   freelancer.associate = function(models) {

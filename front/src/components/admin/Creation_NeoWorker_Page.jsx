@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Form, FormGroup, Input, Button, Label } from 'reactstrap';
-import './FormulaireCreationMission&Neoworker.css'
+import './CommonDesign.css'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
 import { register } from '../UserFunctions'
@@ -338,126 +338,136 @@ const CreationNeoWorkerPage = (props) => {
     }
 
     return (
-        <div className="admin-neoworker">
+        <div className="admin-div">
             <div className='profil-card'>
                 <p className='name-card'> Anais</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
-            <h1 className='admin-h1'>Création d'un NeoWorker<span className='textModif'>:</span></h1>
+            <h1 className='admin-h1'>Création d'un Neoworker <span className='textModif'>:</span></h1>
             <div className='body'>
-                <Form onSubmit={onSubmit} >
-                    <FormGroup>
-                        <Input style={{ height: '150px' }} placeholder='Notes :' type="textarea" name="note" id="note"
-                            value={freelancer.note}
-                            required
-                            onChange={(e) => { setFreelancer({ ...freelancer, note: e.target.value }) }} />
-                    </FormGroup>
+                <Form onSubmit={onSubmit} className="form-flex">
                     <div className='champs-mission'>
-                        <FormGroup>
-                            <Input className="input-metier"
-                                type="text" id="title" name="Métier"
-                                placeholder="Métier"
-                                value={freelancer.title}
-                                required
-                                onChange={(e) => { setFreelancer({ ...freelancer, title: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                            <Input
-                                className="input-firstname"
-                                placeholder="Prénom" type="text"
-                                id="firstname"
-                                name="firstname"
-                                value={freelancer.firstname}
-                                required
-                                onChange={(e) => { setFreelancer({ ...freelancer, firstname: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                            <Input
-                                className="input-lastname"
-                                placeholder="Nom"
-                                type="text" id="lastname" name="lastname"
-                                value={freelancer.lastname}
-                                required
-                                onChange={(e) => { setFreelancer({ ...freelancer, lastname: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                            <Input
-                                className="input-address"
-                                placeholder="Adresse"
-                                type="text" id="address" name="address"
-                                value={freelancer.address}
-                                required
-                                onChange={(e) => { setFreelancer({ ...freelancer, address: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                            <Input
-                                className="input-cp"
-                                placeholder="Code postal"
-                                type="number" id="cp" name="cp"
-                                min="1"
-                                max="99999"
-                                value={freelancer.cp}
-                                required
-                                onChange={(e) => { setFreelancer({ ...freelancer, cp: e.target.value }) }}
-                                maxlength="5" />
-                        </FormGroup>
-                        <FormGroup>
-                            <Input
-                                className="input-email" placeholder="Email"
-                                type="email" id="email" name="email"
-                                value={registerHooks.email}
-                                required
-                                onChange={(e) => { setRegisterHooks({ ...registerHooks, email: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                            <Input
-                                className="input-tel" placeholder="Telephone"
-                                type="number" id="tel" name="tel"
-                                value={freelancer.tel}
-                                required
-                                onChange={(e) => { setFreelancer({ ...freelancer, tel: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                            <Input
-                                className="input-password"
-                                placeholder="Mot de passe" type="password"
-                                id="password" name="password"
-                                required
-                                value={registerHooks.password}
-                                onChange={(e) => { setRegisterHooks({ ...registerHooks, password: e.target.value }) }} />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <Input className="input-tj_min" placeholder='Taux journalier minimum'
-                                type="number" id="tjm_min" name="tjm_min"
-                                min="1"
-                                value={freelancer.tjm_min}
-                                required
-                                onChange={(e) => { setFreelancer({ ...freelancer, tjm_min: e.target.value }) }} />
-                        </FormGroup>
-                        <FormGroup>
-                            <Input className="input-tj_max" placeholder='Taux journalier maximum'
-                                type="number"
-                                min="1"
-                                id="tjm_max" name="tjm_max"
-                                value={freelancer.tjm_max}
-                                required
-                                onChange={(e) => { setFreelancer({ ...freelancer, tjm_max: e.target.value }) }} />
-                        </FormGroup>
-                        <div className='selector-mission'>
-                        <FormGroup>
-                                <Label>Disponibilité(nb jours/mois) <span className='textModif'>:</span></Label>
-                                <Input className="input-dispo"
+                        <div className="champs-mission-leftside">
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Intitulé du métier <span className='textModif'>:</span></Label>
+                                <Input className="admin-input-metier"
+                                    type="text" id="title" name="Métier"
+                                    value={freelancer.title}
+                                    maxLength="40"
+                                    required
+                                    onChange={(e) => { setFreelancer({ ...freelancer, title: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Prénom <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-firstname"
+                                    id="firstname"
+                                    name="firstname"
+                                    maxLength="40"
+                                    value={freelancer.firstname}
+                                    required
+                                    onChange={(e) => { setFreelancer({ ...freelancer, firstname: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Nom <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-lastname"
+                                    maxLength="40"
+                                    type="text" id="lastname" name="lastname"
+                                    value={freelancer.lastname}
+                                    required
+                                    onChange={(e) => { setFreelancer({ ...freelancer, lastname: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Adresse <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-address"
+                                    type="text" id="address" name="address"
+                                    value={freelancer.address}
+                                    required
+                                    onChange={(e) => { setFreelancer({ ...freelancer, address: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Code postal <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-cp"
+                                    type="number" id="cp" name="cp"
+                                    min="10000"
+                                    max="99999"
+                                    value={freelancer.cp}
+                                    required
+                                    onChange={(e) => { setFreelancer({ ...freelancer, cp: e.target.value }) }}
+                                    maxlength="5" />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Email <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-email"
+                                    type="email" id="email" name="email"
+                                    value={registerHooks.email}
+                                    maxLength="40"
+                                    required
+                                    onChange={(e) => { setRegisterHooks({ ...registerHooks, email: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> N° de téléphone <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-tel"
+                                    type="number" id="tel" name="tel"
+                                    value={freelancer.tel}
+                                    required
+                                    min="0600000000"
+                                    max="0799999999"
+                                    onChange={(e) => { setFreelancer({ ...freelancer, tel: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Mot de passe <span className='textModif'>:</span></Label>
+                                <Input
+                                    className="admin-input-password"
+                                    type="password"
+                                    id="password" name="password"
+                                    required
+                                    value={registerHooks.password}
+                                    onChange={(e) => { setRegisterHooks({ ...registerHooks, password: e.target.value }) }} />
+                            </FormGroup>
+                        </div>
+                        <div className="champs-mission-rightside">
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Taux journalier minimum <span className='textModif'>:</span></Label>
+                                <Input className="admin-input-tj_min"
+                                    type="number" id="tjm_min" name="tjm_min"
+                                    min="1"
+                                    max="10000"
+                                    value={freelancer.tjm_min}
+                                    required
+                                    onChange={(e) => { setFreelancer({ ...freelancer, tjm_min: e.target.value }) }} />
+                            </FormGroup>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex"> Taux journalier maximum <span className='textModif'>:</span></Label>
+                                <Input className="admin-input-tj_max"
                                     type="number"
                                     min="1"
+                                    max="10000"
+                                    id="tjm_max" name="tjm_max"
+                                    value={freelancer.tjm_max}
+                                    required
+                                    onChange={(e) => { setFreelancer({ ...freelancer, tjm_max: e.target.value }) }} />
+                            </FormGroup>
+
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex">Disponibilité(nb jours/mois) <span className='textModif'>:</span></Label>
+                                <Input className="admin-input-dispo"
+                                    type="number"
+                                    min="0"
                                     max="31"
                                     id="disponibilite" name="disponibilite"
                                     value={freelancer.disponibilite}
                                     required onChange={(e) => { setFreelancer({ ...freelancer, disponibilite: e.target.value }) }} />
                             </FormGroup>
-                            <FormGroup>
-                                <Label>Préférence lieu de travail <span className='textModif'>:</span></Label>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex">Préférence lieu de travail <span className='textModif'>:</span></Label>
                                 <Input type="select"
+                                    className="admin-input-pref_lieu_travail"
                                     id="pref_lieu_de_travail"
                                     name="pref_lieu_de_travail"
                                     value={freelancer.pref_lieu_de_travail}
@@ -474,9 +484,10 @@ const CreationNeoWorkerPage = (props) => {
                                     <option>Peu importe</option>
                                 </Input>
                             </FormGroup>
-                            <FormGroup>
-                                <Label>Mobilité <span className='textModif'>:</span></Label>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex">Mobilité <span className='textModif'>:</span></Label>
                                 <Input type="select" name="mobilite" id='mobilite'
+                                    className="admin-input-mobilite"
                                     value={freelancer.mobilite}
                                     required
                                     onChange={(e) => { setFreelancer({ ...freelancer, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
@@ -486,9 +497,10 @@ const CreationNeoWorkerPage = (props) => {
                                 </Input>
                             </FormGroup>
 
-                            <FormGroup>
-                                <Label>Km maximum <span className='textModif'>:</span></Label>
+                            <FormGroup className="form-group-flex">
+                                <Label className="label-flex">Km maximum <span className='textModif'>:</span></Label>
                                 <Input type="select" name="km_max" id='km_max'
+                                    className="admin-input-km_max"
                                     value={freelancer.km_max}
                                     required
                                     onChange={(e) => { setFreelancer({ ...freelancer, km_max: e.target.value === '10 km' ? '10 km' : e.target.value === '20 km' ? '20 km' : e.target.value === '30 km' ? '30 km' : e.target.value === '40 km' ? '40 km' : e.target.value === '50 km' ? '50 km' : '10 km' }) }}>
@@ -499,6 +511,13 @@ const CreationNeoWorkerPage = (props) => {
                                     <option>40 km</option>
                                     <option>50 km</option>
                                 </Input>
+                            </FormGroup>
+                            <FormGroup className="form-group-flex-note">
+                                <Label className="label-flex"> Notes <span className='textModif'>:</span></Label>
+                                <Input className="admin-input-note" type="textarea" name="note" id="note"
+                                    value={freelancer.note}
+                                    required
+                                    onChange={(e) => { setFreelancer({ ...freelancer, note: e.target.value }) }} />
                             </FormGroup>
                         </div>
                     </div>
@@ -971,28 +990,9 @@ const CreationNeoWorkerPage = (props) => {
                         </div>
                     </div>
 
-
-
-
-
                     <h2 className='mission-title'>Famille de prestations</h2>
+                   
                     <div>
-
-                        {/*<select
-                        className="famille-prestation-select" type="select" name="famille-prestation" id='famille-prestation'
-                        onChange={(e) => setPrestation(e.target.value)}>
-                        <option>--Choisir une option--</option>
-                        <option value="Gestion administrative et comptable">Gestion administrative et comptable</option>
-                        <option value="Gestion opérationnelle">Gestion opérationnelle</option>
-                        <option value="Gestion commerciale">Gestion commerciale</option>
-                        <option value="Marketing / Communication / Digital">Marketing / Communication / Digital</option>
-                        <option value="Gestion Financière / Contrôle de Gestion">Gestion Financière / Contrôle de Gestion</option>
-                        <option value="DSI">DSI</option>
-                        <option value="Gestion Ressources Humaines / Juridique">Gestion Ressources Humaines / Juridique</option>
-                        <option value="Gestion de la relation clients">Gestion de la relation clients</option>
-                    </select>
-                    */}
-
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion administrative et comptable</p>
                             <div className="checkbox-and-content">
@@ -1169,8 +1169,7 @@ const CreationNeoWorkerPage = (props) => {
                                 <label className="label-prestation" for="Option 69">Service après ventes</label></div>
                         </div>
                     </div>
-                    <Button className='bottom-btn' onClick={idFreeRandomFreeRole} type='submit'>Valider</Button>
-                    <form />
+                    <Button className='btn' onClick={idFreeRandomFreeRole} type='submit'>Valider</Button>
                 </Form>
             </div>
         </div>

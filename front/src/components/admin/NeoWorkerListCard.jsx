@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from 'reactstrap'
-import './ListeNeoworker&Mission.css'
+import './CommonDesign.css'
 import axios from 'axios'
 import { useState } from 'react'
 
@@ -37,12 +37,12 @@ const NeoworkerListCard = (neoworker) => {
     return (
         <div className='neoworkerCard'>
             <div className="firstrow-card-neoworker">
-                <p className='neoworkerCard-h1'>{neoworker.firstname} {neoworker.lastname}</p>
+                <p className='neoworkerCard-p'>{neoworker.firstname} {neoworker.lastname}</p>
                 <Link to={`/admin/neoworker/${neoworker.id}`}><Button className='button-card'>Voir</Button></Link>
             </div>
             <div className="secondrow-card-neoworker">
                 <p>Métier : {neoworker.title}</p>
-                <Link to={`/neoworker/editer/${neoworker.id}`}><Button className='button-card'>Modifier</Button></Link>
+                <Link to={`/admin/neoworker/editer/${neoworker.id}`}><Button className='button-card'>Modifier</Button></Link>
                 
             </div>
             <div className="thirdrow-card-neoworker">
@@ -58,11 +58,6 @@ const NeoworkerListCard = (neoworker) => {
                 
             </div>
              */}
-
-
-
-            {/* INCLURE ICI : Bouton ignoré et affichage de la mission associé sur test du Statut du Neoworker */}
-
 
         </div>
     )

@@ -18,6 +18,7 @@
 .name-card {
     margin: 0px;
     padding-right: 15px;
+    font-weight: bold;
 }
 
 .pic-card {
@@ -32,6 +33,7 @@
     text-align: center;
     font-size: 50px;
     font-weight: bold;
+    font-style: italic;
 
     
 }
@@ -66,8 +68,9 @@
 
 .profil-img-creation {
     border-radius: 50%;
-    width: 30%;
+    width: 50%;
     align-self: center;
+    margin-bottom: 50px;
 }
 
 .align-field-text-div {
@@ -155,20 +158,20 @@
     margin-right: 0px !important;
 }
 
-.input-firstname,
-.input-lastname,
-.input-email, 
-.input-tel,
-.input-password,
-.input-address,
-.input-cp,
-.input-metier,
-.input-tj_min,
-.input-tj_max,
-.input-dispo,
-.input-pref_lieu_travail,
-.input-mobilite,
-.input-Km_max
+.neoworker-input-firstname,
+.neoworker-input-lastname,
+.neoworker-input-email, 
+.neoworker-input-tel,
+.neoworker-input-password,
+.neoworker-input-address,
+.neoworker-input-cp,
+.neoworker-input-metier,
+.neoworker-input-tj_min,
+.neoworker-input-tj_max,
+.neoworker-input-dispo,
+.neoworker-input-pref_lieu_travail,
+.neoworker-input-mobilite,
+.neoworker-input-Km_max
 {
     width: 100%;
     margin-top:10px;
@@ -182,13 +185,17 @@
     font-weight: 500! important;
 }
 
-.input-metier {
+.neoworker-input-metier {
     width: 80%;
 }
 
 .profil-img-and-choice {
     display:flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
+    justify-content: center;
+}
+
+.unshow{
+    display: none;
 }

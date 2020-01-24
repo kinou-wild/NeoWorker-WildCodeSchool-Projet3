@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode'
 
 
-
 /* -------- Page d'accueil de la page x.freelancers[0], après connexion ------------------ */
 const HomePageFreelancer = () => {
 
@@ -53,7 +52,7 @@ const HomePageFreelancer = () => {
                         <p className="main-title">Bienvenue sur ton espace personnel</p>
 
                         <div className="first-div-creation-neoworker">
-                            <div className="field-group-text">Métier</div>
+                            <div className="field-group-text">Intitulé du métier</div>
                             <input className="field-metier"
                                 disabled type="text" id="title" name="Métier"
                                 placeholder="Métier"
@@ -116,9 +115,6 @@ const HomePageFreelancer = () => {
                                 </div> </div>
 
 
-
-
-
                             <div className="field-group-text">Taux journalier minimum</div>
                             <input className="field-tj_min"
                                 disabled type="number" id="tjm_min" name="tjm_min"
@@ -163,10 +159,7 @@ const HomePageFreelancer = () => {
                             >
 
                             </input>
-
                         </div>
-
-
                         <div>
                             <Link to={`/neoworker/editer/${profileHooks.id}/${x.freelancers[0].id}`}>
                                 <Button className='btn'>Editer</Button>
