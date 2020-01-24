@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './MatchingPage.css'
 import axios from 'axios'
-import '../admin/CommonDesign.css'
 
 
-const MatchingPage = (props) => {
+const MatchingPage = () => {
 
     const [dataFree, setDataFree] = useState([])
     const [dataMission, setDataMission] = useState([])
 
-    const params = props.match.params
+
 
     useEffect(() => {
         fetchDataFree()
@@ -24,7 +23,7 @@ const MatchingPage = (props) => {
     }
 
     const fetchDataMiss = async () => {
-        await axios.get(`http://localhost:5000/mission/${params.id}`)
+        await axios.get('http://localhost:5000/mission/1')
             .then(res => setDataMission(res.data))
             .catch(err => console.log(err))
     }
@@ -125,116 +124,6 @@ const MatchingPage = (props) => {
                     if (tabValues[w][a] === 3 & tabValueMission[0][a + 2] === 3 & tabValues[w][a] - tabValueMission[0][a + 2] === 0) {
                         tabContainer.push(100)
                         idFreeContainer.push(tabValues[w][0])
-<<<<<<< HEAD
-                        }
-                        
-                        else if (tabValues[w][v] === 2 & tabValueMission[0][v + 3] === 3 & tabValues[w][v] - tabValueMission[0][v + 3] === -1) {
-                            tabContainer.push(50)
-                            idFreeContainer.push(tabValues[w][0])
-                        }
-
-                        else if (tabValues[w][v] === 1 & tabValueMission[0][v + 3] === 3 & tabValues[w][v] - tabValueMission[0][v + 3] === -2) {
-                            tabContainer.push(25)
-                            idFreeContainer.push(tabValues[w][0])
-                            
-                            
-                        }
-
-                        //when mission ask 2 stars
-
-                        if (tabValues[w][v] === 3 & tabValueMission[0][v + 3] === 2 & tabValues[w][v] - tabValueMission[0][v + 3] === 1) {
-                            tabContainer.push(125)
-                            idFreeContainer.push(tabValues[w][0])
-                            
-                        }
-                        else if (tabValues[w][v] === 2 & tabValueMission[0][v + 3] === 2 & tabValues[w][v] - tabValueMission[0][v + 3] === 0) {
-                            tabContainer.push(100)
-                            idFreeContainer.push(tabValues[w][0])
-                            
-                        }
-                        else if (tabValues[w][v] === 1 & tabValueMission[0][v + 3] === 2 & tabValues[w][v] - tabValueMission[0][v + 3] === -1) {
-                            tabContainer.push(50)
-                            idFreeContainer.push(tabValues[w][0])
-                            
-                        }
-                        
-
-                        //when mission ask 1 star
-                        
-                        if (tabValues[w][v] === 3 & tabValueMission[0][v + 3] === 1 & tabValues[w][v] - tabValueMission[0][v + 3] === 2) {
-                            tabContainer.push(150)
-                            idFreeContainer.push(tabValues[w][0])
-                            
-                            
-                            
-                        }
-                        else if (tabValues[w][v] === 2 & tabValueMission[0][v + 3] === 1 & tabValues[w][v] - tabValueMission[0][v + 3] === 1) {
-                            tabContainer.push(125)
-                            idFreeContainer.push(tabValues[w][0])
-
-                        }
-                        else if (tabValues[w][v] === 1 & tabValueMission[0][v + 3] === 1 & tabValues[w][v] - tabValueMission[0][v + 3] === 0) {
-                            tabContainer.push(100)
-                            idFreeContainer.push(tabValues[w][0])
-                            
-                        }
-                        
-                        for (let a = tabKey[0].indexOf('francais'); a <= tabKey[0].indexOf('allemand'); a++) {
-                            //when mission ask 3 stars
-
-                            if (tabValues[w][a] === 3 & tabValueMission[0][a + 3] === 3 & tabValues[w][a] - tabValueMission[0][a + 3] === 0) {
-                                tabContainer.push(100)
-                                idFreeContainer.push(tabValues[w][0])
-                                
-                            }
-                            else if (tabValues[w][a] === 2 & tabValueMission[0][a + 3] === 3 & tabValues[w][a] - tabValueMission[0][a + 3] === -1) {
-                                tabContainer.push(50)
-                                idFreeContainer.push(tabValues[w][0])
-
-                            }
-                            else if (tabValues[w][a] === 1 & tabValueMission[0][a + 3] === 3 & tabValues[w][a] - tabValueMission[0][a + 3] === -2) {
-                                tabContainer.push(25)
-                                idFreeContainer.push(tabValues[w][0])
-                                
-                            }
-                            
-                            //when mission ask 2 stars
-
-                            if (tabValues[w][a] === 3 & tabValueMission[0][a + 3] === 2 & tabValues[w][a] - tabValueMission[0][a + 3] === 1) {
-                                tabContainer.push(125)
-                                idFreeContainer.push(tabValues[w][0])
-                            }
-                            else if (tabValues[w][a] === 2 & tabValueMission[0][a + 3] === 2 & tabValues[w][a] - tabValueMission[0][a + 3] === 0) {
-                                tabContainer.push(100)
-                                idFreeContainer.push(tabValues[w][0])
-                            }
-                            else if (tabValues[w][a] === 1 & tabValueMission[0][a + 3] === 2 & tabValues[w][a] - tabValueMission[0][a + 3] === -1) {
-                                tabContainer.push(50)
-                                idFreeContainer.push(tabValues[w][0])
-                            }
-                            
-                            
-                            //when mission ask 1 star
-                            
-                            if (tabValues[w][a] === 3 & tabValueMission[0][a + 3] === 1 & tabValues[w][a] - tabValueMission[0][a + 3] === 2) {
-                                tabContainer.push(150)
-                                idFreeContainer.push(tabValues[w][0])
-                                
-                                
-                            }
-                            else if (tabValues[w][a] === 2 & tabValueMission[0][a + 3] === 1 & tabValues[w][a] - tabValueMission[0][a + 3] === 1) {
-                                tabContainer.push(125)
-                                idFreeContainer.push(tabValues[w][0])
-                            }
-                            else if (tabValues[w][a] === 1 & tabValueMission[0][a + 3] === 1 & tabValues[w][a] - tabValueMission[0][a + 3] === 0) {
-                                tabContainer.push(100)
-                                idFreeContainer.push(tabValues[w][0])
-                            }
-                            
-                            
-                        }
-=======
->>>>>>> e63c4c8a519019848deba3262e2372913f02709f
 
                     }
                     else if (tabValues[w][a] === 2 & tabValueMission[0][a + 2] === 3 & tabValues[w][a] - tabValueMission[0][a + 2] === -1) {
@@ -326,10 +215,10 @@ const MatchingPage = (props) => {
 
     return (
         <div className="container-matching">
-            {allFree.map((arrayInObject,y) =>
+            {allFree.map((arrayInObject, y) =>
                 typeof arrayInObject[0] === "undefined" ? console.log("array vide") :
                     <div key={arrayInObject[0].id}>
-                        <li>{y+1}</li>
+                        <li>{y + 1}</li>
                         <li>{arrayInObject[0].id}</li>
                         <li>{arrayInObject[0].lastname}</li>
                         <li>{arrayInObject[0].firstname}</li>
