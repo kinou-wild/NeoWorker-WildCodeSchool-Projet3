@@ -83,7 +83,7 @@ const MatchingPage = () => {
 
                         //when mission ask 2 stars
 
-                        if (tabValues[w][v] === 3 & tabValueMission[0][v + 3] === 2 & tabValues[w][v] - tabValueMission[0][v + 3] === -1) {
+                        if (tabValues[w][v] === 3 & tabValueMission[0][v + 3] === 2 & tabValues[w][v] - tabValueMission[0][v + 3] === 1) {
                             tabContainer.push(125)
                             idFreeContainer.push(tabValues[w][0])
                             
@@ -141,7 +141,7 @@ const MatchingPage = () => {
                             
                             //when mission ask 2 stars
 
-                            if (tabValues[w][a] === 3 & tabValueMission[0][a + 3] === 2 & tabValues[w][a] - tabValueMission[0][a + 3] === -1) {
+                            if (tabValues[w][a] === 3 & tabValueMission[0][a + 3] === 2 & tabValues[w][a] - tabValueMission[0][a + 3] === 1) {
                                 tabContainer.push(125)
                                 idFreeContainer.push(tabValues[w][0])
                             }
