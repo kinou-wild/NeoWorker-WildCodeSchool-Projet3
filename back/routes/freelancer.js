@@ -19,14 +19,17 @@ module.exports = function(app) {
             .findAll({
                 where: {
                     status: req.query.status
-                }
+                },
+                include: [models.missions]
             })
             .then(x => res.json(x))
         }
         else {         
             models
             .freelancer
-            .findAll()
+            .findAll({
+                include: [models.missions]
+            })
             .then(x => res.json(x))
         }
         });
@@ -50,7 +53,8 @@ module.exports = function(app) {
         .update(req.body, {
             where: {
                 id: req.params.id
-            }
+            },
+            include: [models.missions]
         })
         .then(() => res.end())
     );

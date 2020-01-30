@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
+import { Button, Form, FormGroup, Input, Label, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
 import profilPic from '../../img/anais.jpg'
 import './CommonDesign.css'
 
 const UpdateMission = (props) => {
+
+    const [modalNote, setModalNote] = useState(false);
+
+    const toggleNote = () => setModalNote(!modalNote)
 
     const params = props.match.params
     const [updateMission, setUpdateMission] = useState({
@@ -245,8 +249,6 @@ const UpdateMission = (props) => {
                                     name="cp"
                                     value={updateMission.cp}
                                     type="number"
-                                    min="1"
-                                    max="99999"
                                     maxLength={5}
                                     onChange={(e) => { setUpdateMission({ ...updateMission, cp: e.target.value }) }} />
                             </FormGroup>
@@ -275,8 +277,6 @@ const UpdateMission = (props) => {
                                     name="nb_j_par_mois"
                                     value={updateMission.nb_j_par_mois}
                                     type="number"
-                                    min="1"
-                                    max="31"
                                     onChange={(e) => { setUpdateMission({ ...updateMission, nb_j_par_mois: e.target.value }) }} />
                             </FormGroup>
 
@@ -290,11 +290,10 @@ const UpdateMission = (props) => {
                                     onChange={(e) => { setUpdateMission({ ...updateMission, siret: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup className="form-group-flex">
-                                <Label className="label-flex"> Budjet alloué<span className='textModif'>:</span></Label>
+                                <Label className="label-flex"> Budget alloué (par mois)<span className='textModif'>:</span></Label>
                                 <Input
                                     className="admin-input-budget"
                                     name="budget"
-                                    min="1"
                                     value={updateMission.budget}
                                     type="number"
                                     onChange={(e) => { setUpdateMission({ ...updateMission, budget: e.target.value }) }} />
@@ -343,12 +342,6 @@ const UpdateMission = (props) => {
                                     <option>Oui</option>
                                     <option>Non</option>
                                 </Input>
-                            </FormGroup>
-                            <FormGroup className="form-group-flex-note">
-                                <Label className="label-flex"> Notes <span className='textModif'>:</span></Label>
-                                <Input type="textarea" name="note" value={updateMission.note}
-                                    className="admin-input-note"
-                                    onChange={(e) => { setUpdateMission({ ...updateMission, note: e.target.value }) }} />
                             </FormGroup>
                         </div>
                     </div>
@@ -949,7 +942,25 @@ const UpdateMission = (props) => {
                         </div>
                     </div>
                     <Button className="bottom-btn" type="submit">Valider les modifications</Button>
+                
+                    
+                    <Modal isOpen={modalNote} toggle={toggleNote}>
+                        <ModalHeader toggle={toggleNote}>Notes</ModalHeader>
+                        <ModalBody>
+                            <FormGroup>
+                                <Input className="admin-input-note" type="textarea" name="note" id="note"
+                                   value={updateMission.note}
+                                   onChange={(e) => { setUpdateMission({ ...updateMission, note: e.target.value }) }} />
+                            </FormGroup>
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button className="cancel-modal-button" onClick={toggleNote}>Cancel</Button>
+                        </ModalFooter>
+                    </Modal>
+                
                 </Form>
+                
+                <Button className="note-button" onClick={toggleNote}> Modifier des notes </Button>
             </div>
         </div >
     )

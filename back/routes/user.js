@@ -12,7 +12,7 @@ module.exports = app => {
         models
             .users
             .findAll({
-                include: [models.freelancer, models.missions]
+                include: [models.freelancer]
             })
             .then(x => {
                 res.json(x)

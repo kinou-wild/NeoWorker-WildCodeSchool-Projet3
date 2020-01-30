@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Form, FormGroup, Input, Button, Label } from 'reactstrap';
+import { Form, FormGroup, Input, Button, Label, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './CommonDesign.css'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
@@ -19,6 +19,19 @@ const CreationNeoWorkerPage = (props) => {
 
     //hooks de la data freelancer pour get
     const [idFree, setIdFree] = useState([])
+
+    const [modalNote, setModalNote] = useState(false);
+
+    const toggleNote = () => setModalNote(!modalNote)
+
+    const showPassword = () => {
+        const x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
 
     //hooks du post de la data freelancer
     const [freelancer, setFreelancer] = useState({
@@ -353,8 +366,6 @@ const CreationNeoWorkerPage = (props) => {
                                 <Input className="admin-input-metier"
                                     type="text" id="title" name="Métier"
                                     value={freelancer.title}
-                                    maxLength="40"
-                                    required
                                     onChange={(e) => { setFreelancer({ ...freelancer, title: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup className="form-group-flex">
@@ -363,19 +374,15 @@ const CreationNeoWorkerPage = (props) => {
                                     className="admin-input-firstname"
                                     id="firstname"
                                     name="firstname"
-                                    maxLength="40"
                                     value={freelancer.firstname}
-                                    required
                                     onChange={(e) => { setFreelancer({ ...freelancer, firstname: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup className="form-group-flex">
                                 <Label className="label-flex"> Nom <span className='textModif'>:</span></Label>
                                 <Input
                                     className="admin-input-lastname"
-                                    maxLength="40"
                                     type="text" id="lastname" name="lastname"
                                     value={freelancer.lastname}
-                                    required
                                     onChange={(e) => { setFreelancer({ ...freelancer, lastname: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup className="form-group-flex">
@@ -384,7 +391,6 @@ const CreationNeoWorkerPage = (props) => {
                                     className="admin-input-address"
                                     type="text" id="address" name="address"
                                     value={freelancer.address}
-                                    required
                                     onChange={(e) => { setFreelancer({ ...freelancer, address: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup className="form-group-flex">
@@ -392,10 +398,7 @@ const CreationNeoWorkerPage = (props) => {
                                 <Input
                                     className="admin-input-cp"
                                     type="number" id="cp" name="cp"
-                                    min="10000"
-                                    max="99999"
                                     value={freelancer.cp}
-                                    required
                                     onChange={(e) => { setFreelancer({ ...freelancer, cp: e.target.value }) }}
                                     maxlength="5" />
                             </FormGroup>
@@ -405,8 +408,6 @@ const CreationNeoWorkerPage = (props) => {
                                     className="admin-input-email"
                                     type="email" id="email" name="email"
                                     value={registerHooks.email}
-                                    maxLength="40"
-                                    required
                                     onChange={(e) => { setRegisterHooks({ ...registerHooks, email: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup className="form-group-flex">
@@ -415,42 +416,24 @@ const CreationNeoWorkerPage = (props) => {
                                     className="admin-input-tel"
                                     type="number" id="tel" name="tel"
                                     value={freelancer.tel}
-                                    required
-                                    min="0600000000"
-                                    max="0799999999"
                                     onChange={(e) => { setFreelancer({ ...freelancer, tel: e.target.value }) }} />
                             </FormGroup>
-                            <FormGroup className="form-group-flex">
-                                <Label className="label-flex"> Mot de passe <span className='textModif'>:</span></Label>
-                                <Input
-                                    className="admin-input-password"
-                                    type="password"
-                                    id="password" name="password"
-                                    required
-                                    value={registerHooks.password}
-                                    onChange={(e) => { setRegisterHooks({ ...registerHooks, password: e.target.value }) }} />
-                            </FormGroup>
+
                         </div>
                         <div className="champs-mission-rightside">
                             <FormGroup className="form-group-flex">
                                 <Label className="label-flex"> Taux journalier minimum <span className='textModif'>:</span></Label>
                                 <Input className="admin-input-tj_min"
                                     type="number" id="tjm_min" name="tjm_min"
-                                    min="1"
-                                    max="10000"
                                     value={freelancer.tjm_min}
-                                    required
                                     onChange={(e) => { setFreelancer({ ...freelancer, tjm_min: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup className="form-group-flex">
                                 <Label className="label-flex"> Taux journalier maximum <span className='textModif'>:</span></Label>
                                 <Input className="admin-input-tj_max"
                                     type="number"
-                                    min="1"
-                                    max="10000"
                                     id="tjm_max" name="tjm_max"
                                     value={freelancer.tjm_max}
-                                    required
                                     onChange={(e) => { setFreelancer({ ...freelancer, tjm_max: e.target.value }) }} />
                             </FormGroup>
 
@@ -458,11 +441,8 @@ const CreationNeoWorkerPage = (props) => {
                                 <Label className="label-flex">Disponibilité(nb jours/mois) <span className='textModif'>:</span></Label>
                                 <Input className="admin-input-dispo"
                                     type="number"
-                                    min="0"
-                                    max="31"
                                     id="disponibilite" name="disponibilite"
-                                    value={freelancer.disponibilite}
-                                    required onChange={(e) => { setFreelancer({ ...freelancer, disponibilite: e.target.value }) }} />
+                                    value={freelancer.disponibilite} onChange={(e) => { setFreelancer({ ...freelancer, disponibilite: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup className="form-group-flex">
                                 <Label className="label-flex">Préférence lieu de travail <span className='textModif'>:</span></Label>
@@ -471,7 +451,6 @@ const CreationNeoWorkerPage = (props) => {
                                     id="pref_lieu_de_travail"
                                     name="pref_lieu_de_travail"
                                     value={freelancer.pref_lieu_de_travail}
-                                    required
                                     onChange={(e) => {
                                         setFreelancer({
                                             ...freelancer,
@@ -489,7 +468,6 @@ const CreationNeoWorkerPage = (props) => {
                                 <Input type="select" name="mobilite" id='mobilite'
                                     className="admin-input-mobilite"
                                     value={freelancer.mobilite}
-                                    required
                                     onChange={(e) => { setFreelancer({ ...freelancer, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
                                     <option hidden="true">-</option>
                                     <option>Oui</option>
@@ -502,22 +480,15 @@ const CreationNeoWorkerPage = (props) => {
                                 <Input type="select" name="km_max" id='km_max'
                                     className="admin-input-km_max"
                                     value={freelancer.km_max}
-                                    required
-                                    onChange={(e) => { setFreelancer({ ...freelancer, km_max: e.target.value === '10 km' ? '10 km' : e.target.value === '20 km' ? '20 km' : e.target.value === '30 km' ? '30 km' : e.target.value === '40 km' ? '40 km' : e.target.value === '50 km' ? '50 km' : '10 km' }) }}>
+                                    onChange={(e) => { setFreelancer({ ...freelancer, km_max: e.target.value === '10 km' ? '10 km' : e.target.value === '20 km' ? '20 km' : e.target.value === '30 km' ? '30 km' : e.target.value === '40 km' ? '40 km' : e.target.value === '50 km' ? '50 km' : e.target.value === 'plus de 50 km ...' ? 'plus de 50 km ...' : '' }) }}>
                                     <option hidden="true">-</option>
                                     <option>10 km</option>
                                     <option>20 km</option>
                                     <option>30 km</option>
                                     <option>40 km</option>
                                     <option>50 km</option>
+                                    <option>plus de 50 km ...</option>
                                 </Input>
-                            </FormGroup>
-                            <FormGroup className="form-group-flex-note">
-                                <Label className="label-flex"> Notes <span className='textModif'>:</span></Label>
-                                <Input className="admin-input-note" type="textarea" name="note" id="note"
-                                    value={freelancer.note}
-                                    required
-                                    onChange={(e) => { setFreelancer({ ...freelancer, note: e.target.value }) }} />
                             </FormGroup>
                         </div>
                     </div>
@@ -991,7 +962,7 @@ const CreationNeoWorkerPage = (props) => {
                     </div>
 
                     <h2 className='mission-title'>Famille de prestations</h2>
-                   
+
                     <div>
                         <div className="prestation-checkbox-div">
                             <p className="family-prestation-title">Gestion administrative et comptable</p>
@@ -1169,8 +1140,39 @@ const CreationNeoWorkerPage = (props) => {
                                 <label className="label-prestation" for="Option 69">Service après ventes</label></div>
                         </div>
                     </div>
+
+                    <h2 className='mission-title'>Créer un mot de passe pour le Neoworker</h2>
+
+                    <FormGroup className="form-group-flex-password-create">
+                        <Label className="label-flex"> Mot de passe <span className='textModif'>:</span></Label>
+                        <Input
+                            className="admin-create-input-password"
+                            type="password"
+                            id="password" name="password"
+                            value={registerHooks.password}
+                            onChange={(e) => { setRegisterHooks({ ...registerHooks, password: e.target.value }) }} />
+                        <div><input className="checkbox" type="checkbox" onClick={showPassword}/>Montrer mot de passe</div>
+                    </FormGroup>
+
                     <Button className='btn' onClick={idFreeRandomFreeRole} type='submit'>Valider</Button>
+
+                    <Modal isOpen={modalNote} toggle={toggleNote}>
+                        <ModalHeader toggle={toggleNote}>Notes</ModalHeader>
+                        <ModalBody>
+                            <FormGroup>
+                                <Input className="admin-input-note" type="textarea" name="note" id="note"
+                                    value={freelancer.note}
+                                    onChange={(e) => { setFreelancer({ ...freelancer, note: e.target.value }) }} />
+                            </FormGroup>
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button className="cancel-modal-button" onClick={toggleNote}>Cancel</Button>
+                        </ModalFooter>
+                    </Modal>
+
                 </Form>
+
+                <Button className="note-button" onClick={toggleNote}> Créer des notes </Button>
             </div>
         </div>
     )

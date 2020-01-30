@@ -4,18 +4,18 @@ module.exports = (sequelize, DataTypes) => {
      nom_mission: {
          type: DataTypes.STRING,
          validate: {
-           len: [1, 40],
+           len: [0, 40],
          }},
     nom_entreprise: {
       type: DataTypes.STRING,
       validate: {
-        len: [1, 40],
+        len: [0, 40],
       }
     },
     email: {
       type: DataTypes.STRING,
       validate: {
-        len: [1, 40],
+        len: [0, 40],
         isEmail: true,
 
       }
@@ -75,7 +75,7 @@ module.exports = (sequelize, DataTypes) => {
     address: {
       type: DataTypes.STRING,
       validate: {
-        len: [5, 100],
+        len: [0, 100],
 
       }
     },
@@ -99,13 +99,13 @@ module.exports = (sequelize, DataTypes) => {
     tel: {
       type: DataTypes.STRING,
       validate: {
-        len: [10, 10],
+        len: [0, 10],
       }
     },
     cp: {
       type: DataTypes.STRING,
       validate: {
-        len: [5, 5],
+        len: [0, 5],
       }
     },
     pref_lieu_de_travail: {

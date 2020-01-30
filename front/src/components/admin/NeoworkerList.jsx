@@ -63,6 +63,7 @@ const NeoworkerList = () => {
             {displayFreelancerByStatus(3, "Ignoré(es)")}
 
         </div>
+    
     )
 }
 

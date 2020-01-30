@@ -11,7 +11,7 @@ module.exports = function (app) {
                 where: {
                     status: req.query.status
                 },
-                include: [models.users]
+                include: [models.freelancer]
             })
             .then(x => res.json(x))
         }
@@ -19,7 +19,7 @@ module.exports = function (app) {
             models
             .missions
             .findAll({
-                include: [models.users]
+                include: [models.freelancer]
             })
             .then(x => res.json(x))
         }
@@ -53,7 +53,7 @@ module.exports = function (app) {
                 where: {
                     id: req.params.id
                 }
-            }).then((x) => console.log("Updated") & res.end())
+            }).then(() => console.log("Updated") & res.end())
     });
 
     //Delete missions

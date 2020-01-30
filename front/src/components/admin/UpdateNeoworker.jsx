@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
+import { Form, FormGroup, Input, Button, Label, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
 import profilPic from '../../img/anais.jpg'
@@ -8,6 +8,19 @@ import './CommonDesign.css'
 const ChangeNeoworker = (props) => {
 
     const params = props.match.params
+
+    const [modalNote, setModalNote] = useState(false);
+
+    const toggleNote = () => setModalNote(!modalNote)
+
+    const showPassword = () => {
+        const x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
 
     // Get Neoworker data
     const [updateNeoworker, setUpdateNeoworker] = useState([])
@@ -56,7 +69,6 @@ const ChangeNeoworker = (props) => {
                                 <Input className="admin-input-metier"
                                     type="text" id="title" name="Métier"
                                     value={updateNeoworker.title}
-                                    required
                                     onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, title: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup className="form-group-flex">
@@ -67,7 +79,6 @@ const ChangeNeoworker = (props) => {
                                     id="firstname"
                                     name="firstname"
                                     value={updateNeoworker.firstname}
-                                    required
                                     onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, firstname: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup className="form-group-flex">
@@ -77,7 +88,6 @@ const ChangeNeoworker = (props) => {
 
                                     type="text" id="lastname" name="lastname"
                                     value={updateNeoworker.lastname}
-                                    required
                                     onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, lastname: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup className="form-group-flex">
@@ -87,7 +97,6 @@ const ChangeNeoworker = (props) => {
 
                                     type="text" id="address" name="address"
                                     value={updateNeoworker.address}
-                                    required
                                     onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, address: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup className="form-group-flex">
@@ -97,7 +106,6 @@ const ChangeNeoworker = (props) => {
 
                                     type="number" id="cp" name="cp"
                                     value={updateNeoworker.cp}
-                                    required
                                     onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, cp: e.target.value }) }}
                                     maxlength="5" />
                             </FormGroup>
@@ -107,7 +115,6 @@ const ChangeNeoworker = (props) => {
                                     className="admin-input-email"
                                     type="email" id="email" name="email"
                                     value={updateNeoworker.email}
-                                    required
                                     onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, email: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup className="form-group-flex">
@@ -116,19 +123,8 @@ const ChangeNeoworker = (props) => {
                                     className="admin-input-tel"
                                     type="number" id="tel" name="tel"
                                     value={updateNeoworker.tel}
-                                    required
                                     onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, tel: e.target.value }) }} />
                             </FormGroup>
-                            {/*<FormGroup className="form-group-flex">
-                            <Input
-                                className="admin-input-password"
-                                placeholder="Mot de passe" type="password"
-                                id="password" name="password"
-                                required
-                                value={updateNeoworker.password}
-                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, password: e.target.value }) }} />
-                        </FormGroup>
-                        */}
                         </div>
                         <div className="champs-mission-rightside">
                             <FormGroup className="form-group-flex">
@@ -136,7 +132,6 @@ const ChangeNeoworker = (props) => {
                                 <Input className="admin-input-tj_min"
                                     type="number" id="tjm_min" name="tjm_min"
                                     value={updateNeoworker.tjm_min}
-                                    required
                                     onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, tjm_min: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup className="form-group-flex">
@@ -145,7 +140,6 @@ const ChangeNeoworker = (props) => {
                                     type="number"
                                     id="tjm_max" name="tjm_max"
                                     value={updateNeoworker.tjm_max}
-                                    required
                                     onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, tjm_max: e.target.value }) }} />
                             </FormGroup>
                             <FormGroup className="form-group-flex">
@@ -153,8 +147,7 @@ const ChangeNeoworker = (props) => {
                                 <Input className="admin-input-dispo"
                                     type="number"
                                     id="disponibilite" name="disponibilite"
-                                    value={updateNeoworker.disponibilite}
-                                    required onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, disponibilite: e.target.value }) }} />
+                                    value={updateNeoworker.disponibilite} onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, disponibilite: e.target.value }) }} />
                             </FormGroup>
 
                             <FormGroup className="form-group-flex">
@@ -163,7 +156,6 @@ const ChangeNeoworker = (props) => {
                                     id="pref_lieu_de_travail"
                                     name="pref_lieu_de_travail"
                                     value={updateNeoworker.pref_lieu_de_travail}
-                                    required
                                     onChange={(e) => {
                                         setUpdateNeoworker({
                                             ...updateNeoworker,
@@ -182,7 +174,6 @@ const ChangeNeoworker = (props) => {
                                 <Input type="select" name="mobilite" id='mobilite'
                                     className="admin-input-mobilite"
                                     value={updateNeoworker.mobilite}
-                                    required
                                     onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
                                     <option hidden="true">-</option>
                                     <option>Oui</option>
@@ -195,23 +186,15 @@ const ChangeNeoworker = (props) => {
                                 <Input type="select" name="km_max" id='km_max'
                                     className="admin-input-km_max"
                                     value={updateNeoworker.km_max}
-                                    required
-                                    onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, km_max: e.target.value === '10 km' ? '10 km' : e.target.value === '20 km' ? '20 km' : e.target.value === '30 km' ? '30 km' : e.target.value === '40 km' ? '40 km' : e.target.value === '50 km' ? '50 km' : '10 km' }) }}>
+                                    onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, km_max: e.target.value === '10 km' ? '10 km' : e.target.value === '20 km' ? '20 km' : e.target.value === '30 km' ? '30 km' : e.target.value === '40 km' ? '40 km' : e.target.value === '50 km' ? '50 km' : e.target.value === 'plus de 50 km ...' ? 'plus de 50 km ...' : ''}) }}>
                                     <option hidden="true">-</option>
                                     <option>10 km</option>
                                     <option>20 km</option>
                                     <option>30 km</option>
                                     <option>40 km</option>
                                     <option>50 km</option>
+                                    <option>plus de 50 km ...</option>
                                 </Input>
-                            </FormGroup>
-                            <FormGroup className="form-group-flex-note">
-                                <Label className="label-flex"> Notes <span className='textModif'>:</span></Label>
-                                <Input type="textarea" name="note" id="note"
-                                    value={updateNeoworker.note}
-                                    className="admin-input-note"
-                                    required
-                                    onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, note: e.target.value }) }} />
                             </FormGroup>
                         </div>
                     </div>
@@ -685,9 +668,6 @@ const ChangeNeoworker = (props) => {
                     </div>
 
 
-
-
-
                     <h2 className='mission-title'>Famille de prestations</h2>
                     <div>
                         <div className="prestation-checkbox-div">
@@ -866,9 +846,41 @@ const ChangeNeoworker = (props) => {
                                 <label className="label-prestation" for="Option 69">Service après ventes</label></div>
                         </div>
                     </div>
+
+                    <h2 className='mission-title'>Modifier un mot de passe pour le Neoworker</h2>
+
+                    <FormGroup className="form-group-flex-password-create">
+                    <Label className="label-flex"> Mot de passe <span className='textModif'>:</span></Label>
+                            <Input
+                                className="admin-create-input-password"
+                                type="password"
+                                id="password" name="password"
+                                value={updateNeoworker.password}
+                                onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, password: e.target.value }) }} />
+                                 <div><input className="checkbox" type="checkbox" onClick={showPassword}/>Montrer mot de passe</div>
+                    </FormGroup>
+
                     <Button className="btn" type="submit">Valider les modifications</Button>
-                    <form />
+
+                    
+                    <Modal isOpen={modalNote} toggle={toggleNote}>
+                        <ModalHeader toggle={toggleNote}>Notes</ModalHeader>
+                        <ModalBody>
+                            <FormGroup>
+                                <Input className="admin-input-note" type="textarea" name="note" id="note"
+                                   value={updateNeoworker.note} 
+                                   onChange={(e) => { setUpdateNeoworker({ ...updateNeoworker, note: e.target.value }) }} />
+                            </FormGroup>
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button className="cancel-modal-button" onClick={toggleNote}>Cancel</Button>
+                        </ModalFooter>
+                    </Modal>               
+
+                    <form/>
                 </Form>
+                
+                <Button className="note-button" onClick={toggleNote}> Modifier des notes </Button>
             </div>
         </div>
     )

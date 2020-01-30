@@ -1,5 +1,5 @@
 import React, { useState, useEffect, } from 'react';
-import { Form, FormGroup, Input, Label } from 'reactstrap'
+import { Form, FormGroup, Input, Button, Label, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
 import profilPic from '../../img/anais.jpg'
@@ -22,6 +22,10 @@ const SeeMission = (props) => {
             .then(res => setGetMission(res.data))
             .catch((err) => console.log(err))
     }
+
+    const [modalNote, setModalNote] = useState(false);
+
+    const toggleNote = () => setModalNote(!modalNote)
 
     return (
         <div className="admin-div">
@@ -123,7 +127,7 @@ const SeeMission = (props) => {
                                     type="number" />
                             </FormGroup>
                             <FormGroup className="form-group-flex">
-                                <Label className="label-flex"> Budget <span className='textModif'>:</span></Label>
+                                <Label className="label-flex"> Budget alloué (par mois) <span className='textModif'>:</span></Label>
                                 <Input disabled
                                     className="admin-input-budget"
                                     name="budget"
@@ -172,15 +176,8 @@ const SeeMission = (props) => {
                                     <option>Non</option>
                                 </Input>
                             </FormGroup>
-                            <FormGroup className="form-group-flex-note">
-                                <Label className="label-flex"> Notes <span className='textModif'>:</span></Label>
-                                <Input disabled type="textarea" name="note"
-                                    value={getMission.note}
-                                    className="admin-input-note" />
-                            </FormGroup>
+                           
                         </div>
-
-
                     </div>
 
                     <h2 className='mission-title'>Outils</h2>
@@ -785,7 +782,23 @@ const SeeMission = (props) => {
                         </div>
                     </div>
 
-                </Form>
+                   
+                    <Modal isOpen={modalNote} toggle={toggleNote}>
+                        <ModalHeader toggle={toggleNote}>Notes</ModalHeader>
+                        <ModalBody>
+                            <FormGroup>
+                                <Input className="admin-input-note" type="textarea" name="note" id="note"
+                                    value={getMission.note}/>
+                            </FormGroup>
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button className="cancel-modal-button" onClick={toggleNote}>Cancel</Button>
+                        </ModalFooter>
+                    </Modal>
+
+                </Form> 
+                
+                <Button className="note-button" onClick={toggleNote}> Voir les notes </Button>
             </div>
         </div >
     )

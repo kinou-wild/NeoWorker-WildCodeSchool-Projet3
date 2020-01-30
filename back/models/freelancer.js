@@ -18,31 +18,31 @@ module.exports = (sequelize, DataTypes) => {
     title: {
       type: DataTypes.STRING,
       validate: {
-        len: [1, 40],
+        len: [0, 40],
       }
     },
     firstname: {
       type: DataTypes.STRING,
       validate: {
-        len: [1, 40],
+        len: [0, 40],
       }
     },
     lastname: {
       type: DataTypes.STRING,
       validate: {
-        len: [1, 40],
+        len: [0, 40],
       }
     },
     note: {
       type: DataTypes.STRING,
       validate: {
-        len: [0, 500],
+        len: [0, 65534],
       }
     },
     address: {
       type: DataTypes.STRING,
       validate: {
-        len: [5, 100],
+        len: [0, 200],
       }
     },
     mobilite: {
@@ -57,20 +57,20 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: {
         isIn: [
-          ['10 km', '20 km', '30 km', '40 km', '50 km']
+          ['10 km', '20 km', '30 km', '40 km', '50 km', 'plus de 50 km ...']
         ], // check the value is one of these
       }
     },
     tel: {
       type: DataTypes.STRING,
       validate: {
-        len: [10, 10],
+        len: [0, 10],
       }
     },
     cp: {
       type: DataTypes.STRING,
       validate: {
-        len: [5, 5],
+        len: [0, 5],
       }
     },
     pref_lieu_de_travail: {
@@ -98,7 +98,7 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       validate: {
-        len: [2, 40],
+        len: [0, 40],
         isEmail: true,
 
       }

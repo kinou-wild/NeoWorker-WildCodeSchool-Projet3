@@ -44,8 +44,6 @@ const Sidebar = (props) => {
 
                 <Link to='/neoworker/homepage' className="sidebar-little-field"><p >Mon Espace Perso</p></Link>
                 <Link to={`/neoworker/competences/${profileHooks.id}`} className="sidebar-little-field"><p>Mes Compétences</p></Link>
-                <p className="sidebar-little-field">Mes Missions (en construction ...)</p>
-                <p className="sidebar-little-field">Mes Documents (en construction ...)</p>
 
             </div>
 
@@ -64,7 +62,7 @@ const Sidebar = (props) => {
             <Link to='/admin' className="div-logo"><img className="sidebar-logo" src={NeoWorkerLogo} alt="neo worker logo"></img></Link>
             <div className="sidebar-field-group">
 
-                <p className="sidebar-field">Tes Neoworkers</p>
+                <p className="sidebar-field">~ Tes Neoworkers ~</p>
 
                 <Link to='/admin/neoworker/creer' className="sidebar-little-field">
                     <p>Créer un nouveau Neoworker</p>
@@ -73,7 +71,7 @@ const Sidebar = (props) => {
                     <p>Liste des Neoworkers</p>
                 </Link>
 
-                <p className="sidebar-field">Tes Missions</p>
+                <p className="sidebar-field">~ Tes Missions ~</p>
 
                 <Link to='/admin/mission/creer' className="sidebar-little-field">
                     <p>Créer une mission</p>
