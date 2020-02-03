@@ -47,19 +47,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     mobilite: {
       type: DataTypes.STRING,
-      validate: {
-        isIn: [
-          ['Oui', 'Non']
-        ], // check the value is one of these
-      }
     },
     km_max: {
       type: DataTypes.STRING,
-      validate: {
-        isIn: [
-          ['10 km', '20 km', '30 km', '40 km', '50 km', 'plus de 50 km ...']
-        ], // check the value is one of these
-      }
     },
     tel: {
       type: DataTypes.STRING,
@@ -74,27 +64,24 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     pref_lieu_de_travail: {
-      type: DataTypes.STRING,
-      validate: {
-        isIn: [
-          ['Présence en entreprise', 'Travail à distance', 'Peu importe']
-        ], // check the value is one of these
-      }
+      type: DataTypes.STRING     
     },
+
     disponibilite: {
+      defaultValue: 0,
       type: DataTypes.INTEGER,
-      validate: {
-        max: 31,
-        min: 0,
-        isInt: true, // checks for valid integers
-      }
     },
+
     tjm_min: {
+      defaultValue: 0,
       type: DataTypes.INTEGER
     },
+
     tjm_max: {
+      defaultValue: 0,
       type: DataTypes.INTEGER
     },
+
     email: {
       type: DataTypes.STRING,
       validate: {
@@ -1054,14 +1041,8 @@ module.exports = (sequelize, DataTypes) => {
         len: [0, 50],
       }
     },
-  }, {
-    hooks:{
-      beforeCreate: (user) => {
-        console.log(user)
-       
-      },
-    }
-  });
+  },
+  );
 
   //table de jointure
   freelancer.associate = function(models) {

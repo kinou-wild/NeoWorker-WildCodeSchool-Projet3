@@ -179,8 +179,20 @@ div.mission-card {
 }
 
 .checkbox {
-    margin: 0px 20px;
-    transform: scale(2);
+  margin-right : 20px;
+  transform: scale(2);
+}
+
+.checkbox1,
+.checkbox2,
+.checkbox3,
+.checkbox4,
+.checkbox5,
+.checkbox6,
+.checkbox7,
+.checkbox8 {
+  margin: 0px 20px;
+  transform: scale(2);
 }
 
 .famille-prestation-select {
@@ -222,6 +234,10 @@ div.mission-card {
     font-size: 15px !important;
     color: black! important;
     font-weight: bold !important;
+}
+
+.italic-span {
+  font-style: italic;
 }
 
 /* ------------------- Liste Neoworker et Missions --------------------- */

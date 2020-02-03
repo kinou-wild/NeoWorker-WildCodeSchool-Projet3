@@ -1,6 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const missions = sequelize.define('missions', {
+
      nom_mission: {
          type: DataTypes.STRING,
          validate: {
@@ -9,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     nom_entreprise: {
       type: DataTypes.STRING,
       validate: {
-        len: [0, 40],
+        len: [0, 50],
       }
     },
     email: {
@@ -23,50 +24,46 @@ module.exports = (sequelize, DataTypes) => {
     note: {
       type: DataTypes.STRING,
       validate: {
-        len: [0, 500],
+        len: [0, 62000],
       }
     },
     nb_j_par_mois: {
+      defaultValue: 0,
       type: DataTypes.INTEGER,
       validate:{
         max: 31,
         min:0,
         isInt: true, // checks for valid integers
-
-      
+   
       }
-    
     },
+
     type_profil: {
       type: DataTypes.STRING,
-      validate: {
-        isIn: [
-          ['Regular', 'Expert']
-        ], // check the value is one of these
-      }
     },
+
     budget: {
+      defaultValue: 0,
       type: DataTypes.INTEGER,
       validate: {
         max: 1000000, // only allow values <= 1000000
       }
 
     },
+
     date_debut:DataTypes.DATEONLY,
+
     date_fin:DataTypes.DATEONLY,
+
     frequence: {
-      type: DataTypes.STRING,
-      validate: {
-        isIn: [
-          ['Ponctuelle', 'Récurrente']
-        ], // check the value is one of these
-      }
+      type: DataTypes.STRING
     },
+
     status: {
       type: DataTypes.INTEGER,
       validate: {
         max: 2, // only allow values <= 1000000
-        min:0,
+        min: 0,
         isInt: true, // checks for valid integers
 
       }
@@ -79,14 +76,11 @@ module.exports = (sequelize, DataTypes) => {
 
       }
     },
+
     mobilite: {
-      type: DataTypes.STRING,
-      validate: {
-         isIn: [
-           ['Oui', 'Non']
-         ], // check the value is one of these
-      }
+      type: DataTypes.STRING 
     },
+
     km_max: DataTypes.STRING,
 
     siret: {
@@ -96,27 +90,25 @@ module.exports = (sequelize, DataTypes) => {
 
       }
     },
+
     tel: {
       type: DataTypes.STRING,
       validate: {
         len: [0, 10],
       }
     },
+
     cp: {
       type: DataTypes.STRING,
       validate: {
         len: [0, 5],
       }
     },
+
     pref_lieu_de_travail: {
       type: DataTypes.STRING,
-      validate: {
-        isIn: [
-          ['Présence en entreprise', 'Travail à distance','Peu importe']
-        ], // check the value is one of these
-      }
     },
-    disponibilite: DataTypes.INTEGER,
+
     
     excel: {
       type: DataTypes.INTEGER,

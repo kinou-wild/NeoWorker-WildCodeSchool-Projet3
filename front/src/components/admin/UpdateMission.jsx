@@ -202,6 +202,7 @@ const UpdateMission = (props) => {
                                 <Input
                                     className="admin-input-nom_mission"
                                     name="nom_mission"
+                                    required
                                     value={updateMission.nom_mission}
                                     type="text"
                                     onChange={(e) => { setUpdateMission({ ...updateMission, nom_mission: e.target.value }) }} />
@@ -220,6 +221,7 @@ const UpdateMission = (props) => {
                                 <Label className="label-flex"> Email <span className='textModif'>:</span></Label>
                                 <Input name="email"
                                     className="admin-input-email"
+                                    required
                                     value={updateMission.email}
                                     type="email"
                                     onChange={(e) => { setUpdateMission({ ...updateMission, email: e.target.value }) }} />
