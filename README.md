@@ -1,72 +1,97 @@
-# Marseille_0919_P3_NeoWorker
-Projet 3 NeoWorker
 
-cloudinary :
-neoworker@outlook.fr
-Neoworker_1
+# Neoworker
 
-outlook: 
-neoworker@outlook.fr
-WildCodeSchool
+# Deployement : 
 
+> A Node/React Js website
 
-Free side :
+`Neoworker Back-Office` is a dynamic website that connects freelance profiles to employers thanks to its powerful algorithm. The administrators can manage their jobs and neoworkers, and neoworkers can manage their skills and get offers.
 
-sur espace perso : redimensionner la photo
+It was created by 5 students of the Wild Code School of Marseille during 8 weeks : Stevie CUTMAN, Anthony PORTIER, Alexandre GUIDAT, Kevin THOMANN and Dylan BERTHIER.
 
-sur EDITER : 
-redimensionner la photo/
-remettre couleur des input (dsl Kev mais cela ne marche pas avec reactstrap la vie de ma mère) et le valider de la fin/
-<!-- mettre les conditions aux inputs(min,max,type number...)/ => OK
+Everyone is welcome to use it. It is the proud work of a brilliant team and their first-ever project with a real client.
 
- -->faire le bouton ‘choisir un fichier’ classe ! => assez chaud de le modif
+## Installation
+- Clone the repo in your terminal by clicking the _green_ clone or download button at the top right and copyin the url
+- In your terminal, type ```git clone URL```
+  - replace URL with the url you copied
+  - hit enter
+- This will copy all the files from this repo down to your computer
+- In your terminal, cd into back/ and ```nodemon index.js```
+- Then open an other Terminal and do cd into front/ and ```npm install``` to install all dependencies
+- Last, but not least, type ```npm start``` to run the app locally.
 
-<!-- changer mdp marche plus => OK
- -->
-MES COMPETENCES : 
-slide centres d’intérêt à faire car elle est mmmmoche !/
-slide prestation à faire aussi car moche 
+## Structure
+```
+Marseille_0919_P3_NeoWorker
 
+├── back 
+    ├── config
+    │   └── config.json
+    ├── migrations
+    │   ├── 20191205121448-create-users.js
+    │   ├── 20191205123822-create-missions.js
+    │   └── 20191205124935-create-freelancer.js
+    ├── models
+    │   ├── freelancer.js
+    │   ├── mission.js
+    │   └── user.js
+    ├── node_modules
+    ├── routes
+    │    ├── freelancer.js
+    │    ├── mission.js
+    │    └── user.js
+    ├── .gitignore
+    ├── DataManagement.js
+    ├── index.js  
+    ├── package-lock.json
+    └── package.json
 
-
-navbar:
-se déco pas bien à refaire sur le click de la div et pas du texte/ 
-lien sous les textes par endroit ??
-
-
-
-ADMIN SIDE : 
-
-créer néoworker : 
-vérifier que tout marche(push bdd) + mettre les conditions aux inputs(min,max,type number…)
-centrer le bouton valider/
-
-Liste néoworker : 
-intégrer la searchbar 
-/beautifiliser la liste 
-/mettre la photo de ananas en haut à droite
- 
-voir 1 néo : 
-tester le code push bien dans la bdd/ 
-mettre photo en haut à droite de nanas/ 
-mot de p non visible (mdp oubl...)
-mettre photo dans card/ 
-ignorer+ alerte
-
-editer neo : à faire/ photo ananas
-
-Mission créer : 
-à tester si tout push bien dans la bdd/ 
-centrer le valider/ 
-mettre les conditions
-
-Modifier mission : 
-input de petite taille ?/ 
-mettre les conditions dans les inputs/ 
-vérifier si tout marche et push bien dans la bdd/ 
-centrer le bouton valider
-
-matching………
-
-
-DANS LE ROUTER EN FRONT : modifier par profileHooks.role!== ‘admin’ ou ‘neoworker’ plutot que rien ‘’
+├── front 
+    ├── node_modules
+    ├── public
+    │   ├── favicon.png
+    │   ├── index.html
+    │   ├── manifest.json
+    │   └── robots.txt
+    ├── src
+    │   ├── components
+    │   │    ├── admin
+    │   │    ├── freelancer
+    │   │    ├── importPicture
+    │   │    ├── matching
+    │   │    ├── searchbar
+    │   │    └── sidebar
+    │   ├── img
+    │   ├── App.css
+    │   ├── App.js
+    │   ├── App.test.js
+    │   ├── index.css
+    │   ├── index.js
+    │   ├── logo.svg
+    │   ├── serviceWorker.js
+    │   └── setupTests.js
+    ├── .gitignore
+    ├── README.md
+    ├── package-lock.json
+    └── package.json
+```
+## Dependencies
+- [React.JS](https://reactjs.org/)
+- [Node.JS](https://nodejs.org/)
+- [Express](https://expressjs.com/fr/)
+- [Sequelize](https://sequelize.org/)
+- [Axios](https://www.npmjs.com/package/axios)
+- [Bcryptjs](https://www.npmjs.com/package/bcrypt)
+- [Reactstrap](https://www.npmjs.com/package/reactstrap)
+- [Jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+- [Jwt-decode](https://www.npmjs.com/package/jwt-decode)
+- [ReactSlick](https://www.npmjs.com/package/react-slick)
+- [React-star-rating](https://www.npmjs.com/package/react-star-ratings)
+- [Semantic-ui-react](https://www.npmjs.com/package/semantic-ui)
+- [Body-parser](https://www.npmjs.com/package/body-parser)
+- [Cors](https://www.npmjs.com/package/cors)
+- [Multer](https://www.npmjs.com/package/multer)
+- [Mysql2](https://www.npmjs.com/package/mysql2)
+- [Node-schedules](https://www.npmjs.com/package/node-schedule)
+- [Nodemon](https://www.npmjs.com/package/nodemon)

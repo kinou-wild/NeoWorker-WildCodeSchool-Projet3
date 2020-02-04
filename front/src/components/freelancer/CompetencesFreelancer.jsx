@@ -3,7 +3,7 @@ import axios from 'axios'
 import Slider from "react-slick";
 import Slide1 from './Slide1'
 import Slide2 from './Slide2'
-import Slide3 from './Slide3'
+/*import Slide3 from './Slide3'*/
 import Slide4 from './Slide4'
 import Slide5 from './Slide5'
 import './CompetencesFreelancer.css'
@@ -35,7 +35,7 @@ const CompetencesFreelancer = (props) => {
                 <Slider {...settings}>
                     <Slide1 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])} />
                     <Slide2 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])} />
-                    <Slide3 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])} />
+                    {/*<Slide3 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])} />*/}
                     <Slide4 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])} />
                     <Slide5 data={idUsers.filter(x => x.id == params).map(x => x.freelancers[0])} />
                 </Slider>

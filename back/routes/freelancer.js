@@ -6,7 +6,7 @@ module.exports = function(app) {
     app.get('/freelancer/:id', (req, res) => {
         models
         .freelancer
-        .findByPk(req.params.id)
+        .findByPk(req.params.id, {include: [models.users]})
         .then(x => res.json(x))
     })
 

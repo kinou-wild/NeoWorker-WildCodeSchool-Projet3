@@ -35,6 +35,8 @@ const SeeNeoworker = (props) => {
             .catch((err) => console.log(err))
     }
 
+    console.log(neoworker.users)
+
     return (
 
         <div className="admin-div">
@@ -805,7 +807,7 @@ const SeeNeoworker = (props) => {
                         </div>
                     </div>
 
-                    <h2 className='mission-title'>Visualiser le mot de passe du Neoworker</h2>
+                    {/*<h2 className='mission-title'>Visualiser le mot de passe du Neoworker</h2>
 
                     <FormGroup className="form-group-flex-password-create">
                         <Label className="label-flex"> Mot de passe <span className='textModif'>:</span></Label>
@@ -817,7 +819,7 @@ const SeeNeoworker = (props) => {
                             value={neoworker.password}
                         />
                         <div><input className="checkbox" type="checkbox" onClick={showPassword} />Montrer mot de passe</div>
-                    </FormGroup>
+    ²               </FormGroup>*/}
 
                     <Modal isOpen={modalNote} toggle={toggleNote}>
                         <ModalHeader toggle={toggleNote}>Notes</ModalHeader>

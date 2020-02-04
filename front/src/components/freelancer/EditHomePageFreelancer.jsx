@@ -226,7 +226,7 @@ const EditHomePageFreelancer = (props) => {
               <div className="field-group-text">Password</div>
               <input
                 // className={changerMDP ====true ?'input-password unshow':''}
-                className='input-password'
+                className='neoworker-input-password'
                 type="password"
                 id="password" name="password"
                 value={updateUser.password.length === 60 ? '' : updateUser.password}
@@ -266,7 +266,7 @@ const EditHomePageFreelancer = (props) => {
           <div className="div-pref_lieu_travail">
             <div className="field-group-text">Préférence lieu de travail</div>
             <FormGroup>
-              <Input className="neoworker-input-pref_lieu_de_travail" type="select"
+              <Input className="neoworker-input-pref_lieu_travail" type="select"
                 id="pref_lieu_de_travail"
                 name="pref_lieu_de_travail"
                 value={updateFreelancer.pref_lieu_de_travail}
@@ -276,6 +276,7 @@ const EditHomePageFreelancer = (props) => {
                     pref_lieu_de_travail: e.target.value === 'Présence en entreprise' ? 'Présence en entreprise' : e.target.value === 'Travail à distance' ? 'Travail à distance' : 'Peu importe'
                   })
                 }}>
+                <option hidden>---</option>
                 <option>Présence en entreprise</option>
                 <option>Travail à distance</option>
                 <option>Peu importe</option>
@@ -290,6 +291,7 @@ const EditHomePageFreelancer = (props) => {
               <Input className="neoworker-input-mobilite" type="select" name="mobilite" id='mobilite'
                 value={updateFreelancer.mobilite}
                 onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, mobilite: e.target.value === 'Non' ? 'Non' : 'Oui' }) }}>
+                <option hidden>---</option>
                 <option>Oui</option>
                 <option>Non</option>
               </Input>
@@ -300,12 +302,14 @@ const EditHomePageFreelancer = (props) => {
             <FormGroup >
               <Input className="neoworker-input-Km_max" type="select" name="km_max" id='km_max'
                 value={updateFreelancer.km_max}
-                onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, km_max: e.target.value === '10 km' ? '10 km' : e.target.value === '20 km' ? '20 km' : e.target.value === '30 km' ? '30 km' : e.target.value === '40 km' ? '40 km' : e.target.value === '50 km' ? '50 km' : '10 km' }) }}>
+                onChange={(e) => { setUpdateFreelancer({ ...updateFreelancer, km_max: e.target.value === '10 km' ? '10 km' : e.target.value === '20 km' ? '20 km' : e.target.value === '30 km' ? '30 km' : e.target.value === '40 km' ? '40 km' : e.target.value === '50 km' ? '50 km' : e.target.value === 'plus de 50 km ...' ? 'plus de 50 km ...' : '10 km' }) }}>
+                <option hidden>---</option>
                 <option>10 km</option>
                 <option>20 km</option>
                 <option>30 km</option>
                 <option>40 km</option>
                 <option>50 km</option>
+                <option>plus de 50 km ...</option>
               </Input>
             </FormGroup>
           </div>

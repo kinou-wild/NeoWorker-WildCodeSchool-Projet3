@@ -173,15 +173,15 @@
 .neoworker-input-mobilite,
 .neoworker-input-Km_max
 {
-    width: 100%;
-    margin-top:10px;
-    margin-bottom:10px;
+    width: 100% !important;
+    margin-top:10px !important;
+    margin-bottom:10px !important;
     text-align: center !important;
-    border-radius: 10px;
-    border-color: white;
-    box-shadow: 0px 4px 4px rgba(85, 71, 71, 0.25);
-    color: #000099;
-    font-size: 24px;
+    border-radius: 10px !important;
+    border-color: white !important;
+    box-shadow: 0px 4px 4px rgba(85, 71, 71, 0.25) !important;
+    color: #000099 !important;
+    font-size: 24px !important;
     font-weight: 500! important;
 }
 
