@@ -51,9 +51,15 @@ module.exports = (sequelize, DataTypes) => {
 
     },
 
-    date_debut:DataTypes.DATEONLY,
+    date_debut:{
+      type:DataTypes.DATEONLY
+    }
+      ,
 
-    date_fin:DataTypes.DATEONLY,
+    date_fin: {
+      type:DataTypes.DATEONLY
+    }
+    ,
 
     frequence: {
       type: DataTypes.STRING

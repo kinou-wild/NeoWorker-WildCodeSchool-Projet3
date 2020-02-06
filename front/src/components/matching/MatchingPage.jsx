@@ -61,7 +61,7 @@ const MatchingPage = (props) => {
     for (let w = 0; w <= dataFree.length - 1; w++) {
 
 
-        if (tabValues[w][8] === tabValueMission[0][13] && tabValues[w][12] === tabValueMission[0][18]) {
+        if ((tabValues[w][8] === tabValueMission[0][13] && tabValues[w][12] === tabValueMission[0][18]) || (tabValues[w][8] === tabValueMission[0][13] && tabValues[w][12] === 'Peu importe')) {
             const tabContainer = [0]
             const idFreeContainer = []
 
