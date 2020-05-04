@@ -17,9 +17,12 @@ Everyone is welcome to use it. It is the proud work of a brilliant team and thei
   - replace URL with the url you copied
   - hit enter
 - This will copy all the files from this repo down to your computer
-- In your terminal, cd into back/ and ```nodemon index.js```
-- Then open an other Terminal and do cd into front/ and ```npm install``` to install all dependencies
-- Last, but not least, type ```npm start``` to run the app locally.
+- Split your terminal into 2 windows, cd into back/ and ```npm install```, do the same into front/ to install all      
+  dependencies you need
+- In back/, ```sequelize db:seed:all```(or ```npx sequelize db:seed:all```)  to retrieve dataset we have set for you !
+- Now, YOU HAVE TO SET in back/config/config.json, in development section, your own username, password and database you use   with MYSQL
+- Launch your server in back/ with ```nodemon index.js``` (or ```npx nodemon index.js```)
+- Last, but not least, type ```npm start``` in front/ to run the app locally
 
 ## Structure
 ```
@@ -34,6 +37,7 @@ Marseille_0919_P3_NeoWorker
     │   └── 20191205124935-create-freelancer.js
     ├── models
     │   ├── freelancer.js
+    │   ├── index.js
     │   ├── mission.js
     │   └── user.js
     ├── node_modules
@@ -41,11 +45,14 @@ Marseille_0919_P3_NeoWorker
     │    ├── freelancer.js
     │    ├── mission.js
     │    └── user.js
+    ├── seeders
+    │    └── 20200504130148-admin-test.js
     ├── .gitignore
     ├── DataManagement.js
     ├── index.js  
     ├── package-lock.json
     └── package.json
+    └── test.html
 
 ├── front 
     ├── node_modules
@@ -95,3 +102,19 @@ Marseille_0919_P3_NeoWorker
 - [Mysql2](https://www.npmjs.com/package/mysql2)
 - [Node-schedules](https://www.npmjs.com/package/node-schedule)
 - [Nodemon](https://www.npmjs.com/package/nodemon)
+
+## Dataset
+
+With Sequelize and seeders, we can inject dataset directly without go through Postman or MYSQLWorkbench and create some datas via the good roads
+
+To enter on the section Admin App, you have to connect with an admin account. With seeders, we have set an admin account ready to use :
+- Email : admin@gmail.com
+- Password : password
+
+For mystical reasons, we have sometimes to clear your cache on your browser to reset your localstorage and then connect to the admin section properly.
+
+## Some precisions
+
+This web app is not finish but there is here to show at some recruiters our works, our skills in React, in fullstack development web after 5 hard months on our formation at the WILD CODE SCHOOL !!!
+
+So enjoy ;)
