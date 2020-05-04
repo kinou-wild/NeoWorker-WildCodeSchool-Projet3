@@ -21,6 +21,8 @@
     "nodemon": "^2.0.2",
     "sequelize": "^5.21.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "sequelize-cli": "^5.5.1"
+  },
   "description": ""
 }

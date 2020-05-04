@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import SearchBarMission from '../searchbar/SearchBarMissions'
-import profilPic from '../../img/anais.jpg'
+import profilPic from '../../img/unknown.png'
 import './CommonDesign.css'
 import MissionsListeCard from './MissionsListeCard'
 
@@ -48,7 +48,7 @@ const MissionsListe = () => {
         <div className="admin-div">
             <div className='profil-card'>
                 <SearchBarMission setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
-                <p className='name-card'> Anais</p>
+                <p className='name-card'> Admin</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
                 {displayMissionByStatus(0, "A pourvoir")}

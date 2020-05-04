@@ -4,7 +4,7 @@ import './CommonDesign.css'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
 import { register } from '../UserFunctions'
-import profilPic from '../../img/anais.jpg'
+import profilPic from '../../img/unknown.png'
 
 const CreationNeoWorkerPage = (props) => {
 
@@ -604,7 +604,7 @@ const CreationNeoWorkerPage = (props) => {
     return (
         <div className="admin-div">
             <div className='profil-card'>
-                <p className='name-card'> Anais</p>
+                <p className='name-card'> Admin</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
             <h1 className='admin-h1'>Création d'un Neoworker <span className='textModif'>:</span></h1>

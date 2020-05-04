@@ -1,6 +1,6 @@
 import React from 'react'
 import './HomePageAdmin.css'
-import profilPic from '../../img/anais.jpg'
+import profilPic from '../../img/unknown.png'
 import homePic from '../../img/landpic.png'
 import heart from '../../img/heart.png'
 
@@ -10,7 +10,7 @@ const HomePageAdmin = () => {
     return(
         <div className="main-div">
             <div className='profil-card'>
-                <p className='name-card'> Anais</p>
+                <p className='name-card'> Admin</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
             <p className="admin-homepage-title">Bienvenue dans l'espace <span className="admin-homepage-orange"> Admin</span> NeoWorker<span className="admin-homepage-orange">.</span></p>

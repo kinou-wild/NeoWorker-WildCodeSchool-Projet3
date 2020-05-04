@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../admin/CommonDesign.css'
 import axios from 'axios'
-import profilPic from '../../img/anais.jpg'
+import profilPic from '../../img/unknown.png'
 import { Link } from 'react-router-dom'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './MatchingPage.css'

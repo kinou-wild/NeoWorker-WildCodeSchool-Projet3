@@ -2,7 +2,7 @@ import React, { useState, useEffect, } from 'react';
 import { Form, FormGroup, Input, Button, Label, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios'
-import profilPic from '../../img/anais.jpg'
+import profilPic from '../../img/unknown.png'
 import './CommonDesign.css'
 
 const SeeMission = (props) => {
@@ -30,7 +30,7 @@ const SeeMission = (props) => {
     return (
         <div className="admin-div">
             <div className='profil-card'>
-                <p className='name-card'> Anais</p>
+                <p className='name-card'> Admin</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
             <h1 className='admin-h1'>Voir la mission NeoWorker <span className='textModif'>:</span></h1>

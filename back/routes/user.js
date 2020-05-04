@@ -80,12 +80,9 @@ module.exports = app => {
     app.post('/register', (req, res) => {
         const today = new Date()
         const userData = {
-            id: req.body.id,
             role: req.body.role,
             email: req.body.email,
             password: req.body.password,
-            freelancerId: req.body.freelancerId,
-            createdAt: today
         }
      
         models

@@ -4,7 +4,7 @@ import StarRatingComponent from 'react-star-rating-component';
 import './CommonDesign.css'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom';
-import profilPic from '../../img/anais.jpg'
+import profilPic from '../../img/unknown.png'
 
 /* -------- Page creation mission ---------- */
 const MissionCreateAdmin = (props) => {
@@ -487,7 +487,7 @@ const MissionCreateAdmin = (props) => {
     return (
         <div className="admin-div">
             <div className='profil-card'>
-                <p className='name-card'> Anais</p>
+                <p className='name-card'> Admin</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
             <h1 className='admin-h1'>Création d'une mission NeoWorker <span className='textModif'>:</span></h1>

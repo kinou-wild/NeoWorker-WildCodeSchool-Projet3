@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import NeoworkerListCard from './NeoWorkerListCard'
-import profilPic from '../../img/anais.jpg'
+import profilPic from '../../img/unknown.png'
 import './CommonDesign.css'
 import SearchBarNeo from '../searchbar/SearchBarNeo'
 
@@ -54,7 +54,7 @@ const NeoworkerList = () => {
         <div className="admin-div">
             <div className='profil-card'>
                 <SearchBarNeo setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
-                <p className='name-card'>Anais</p>
+                <p className='name-card'>Admin</p>
                 <img className='pic-card' src={profilPic} alt='profil pic' />
             </div>
             {displayFreelancerByStatus(0, "Disponibles")}
